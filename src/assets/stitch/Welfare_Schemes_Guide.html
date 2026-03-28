@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TruckMitr | Welfare Schemes Guide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@400;700&amp;family=Work+Sans:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#afc6ff",
+              "error": "#ba1a1a",
+              "surface-container-low": "#f3f4f5",
+              "surface-bright": "#f8f9fa",
+              "primary": "#274680",
+              "on-primary-fixed-variant": "#264580",
+              "secondary-container": "#d7e2ff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#9bee94",
+              "primary-fixed": "#d9e2ff",
+              "tertiary-fixed": "#a3f69c",
+              "surface-container": "#edeeef",
+              "on-secondary-fixed-variant": "#3c475d",
+              "on-tertiary-fixed-variant": "#005312",
+              "surface-container-highest": "#e1e3e4",
+              "outline-variant": "#c4c6d1",
+              "tertiary-fixed-dim": "#88d982",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#415e9a",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d9dadb",
+              "on-secondary-container": "#5a647c",
+              "on-tertiary-fixed": "#002204",
+              "on-primary-fixed": "#001a43",
+              "on-background": "#191c1d",
+              "surface-tint": "#405d99",
+              "secondary-fixed": "#d7e2ff",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "surface": "#f8f9fa",
+              "outline": "#747781",
+              "inverse-primary": "#afc6ff",
+              "secondary-fixed-dim": "#bbc6e2",
+              "on-surface-variant": "#444750",
+              "on-primary-container": "#ccd9ff",
+              "on-secondary-fixed": "#101b30",
+              "on-error": "#ffffff",
+              "tertiary-container": "#1d6e25",
+              "surface-variant": "#e1e3e4",
+              "inverse-surface": "#2e3132",
+              "background": "#f8f9fa",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary": "#005412",
+              "on-surface": "#191c1d",
+              "surface-container-high": "#e7e8e9",
+              "secondary": "#545e76"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-md fixed top-0 w-full z-50 border-b border-slate-200/15 dark:border-slate-800/15">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-blue-900 dark:text-blue-100 font-headline">TruckMitr</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors font-serif text-lg tracking-tight" href="#">Insights</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors font-serif text-lg tracking-tight" href="#">Mission</a>
+<a class="text-blue-900 dark:text-white font-semibold border-b-2 border-blue-900 dark:border-blue-400 pb-1 font-serif text-lg tracking-tight" href="#">Resources</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors font-serif text-lg tracking-tight" href="#">Driver Hub</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors font-serif text-lg tracking-tight" href="#">Partner Portal</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 text-primary hover:bg-slate-100/50 rounded-sm transition-all duration-300">language</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20">
+<!-- Hero Section -->
+<header class="relative px-8 pt-16 pb-24 max-w-screen-2xl mx-auto overflow-hidden">
+<div class="absolute inset-0 bg-noise pointer-events-none"></div>
+<div class="relative z-10 lg:grid lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 space-y-8">
+<div class="space-y-4">
+<span class="inline-block px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full text-xs font-label tracking-widest uppercase">Community Welfare</span>
+<h1 class="text-5xl md:text-7xl font-headline text-on-surface leading-tight tracking-tight">
+                            Welfare Schemes <br/>
+<span class="text-primary italic">कल्याणकारी योजनाएं</span>
+</h1>
+</div>
+<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed">
+                        A comprehensive guide for India's logistics backbone. Access benefits across health, pension, and insurance through government-backed initiatives.
+                    </p>
+<div class="flex gap-4">
+<button class="px-8 py-4 bg-primary text-on-primary font-medium rounded-xl flex items-center gap-2 hover:opacity-90 transition-all">
+                            Explore Schemes 
+                            <span class="material-symbols-outlined">arrow_downward</span>
+</button>
+<button class="px-8 py-4 text-primary font-medium flex items-center gap-2 hover:bg-surface-container-high rounded-xl transition-all">
+                            How to Apply
+                        </button>
+</div>
+</div>
+<div class="hidden lg:block lg:col-span-5 relative">
+<div class="w-full aspect-square rounded-full bg-surface-container overflow-hidden border-[12px] border-surface-container-lowest">
+<img alt="Driver Representation" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A professional Indian truck driver smiling confidently in front of a modern transport fleet during sunset, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBguW5-whvDeXpwXF0KW3cp3issBxj7IDCWNP5gBQFnOxlMLU0Gu6nDXQIEvbiyFssFVWQyz6q49Y-DkJq02ppD1J6X5iCHhJguvjupLlDvqx8rGJzI36mUPrNe2KmZ18fCkDpLo7CiiXBTxTwSN2kVDRjjGQIc2HWayK2V1G_qwi5WQD8vXVHxlhqrsyu5B39P13w9nTFEJOnnRpF6Je9sG4P_qKVQibe-QQd9OHbBvLKeTWMkBkjspEjj47ptjqhAXc4mhiWxrhji"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-tertiary-container text-on-tertiary-container p-8 rounded-xl max-w-[200px] shadow-xl">
+<p class="text-xs font-label uppercase tracking-widest opacity-80 mb-2">Impact</p>
+<p class="text-3xl font-headline font-bold">10M+</p>
+<p class="text-sm font-body leading-snug">Drivers empowered across the nation</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Bento Grid for Schemes -->
+<section class="px-8 max-w-screen-2xl mx-auto space-y-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<h2 class="text-3xl font-headline text-primary">Key Initiatives <span class="text-on-surface-variant/50 text-xl font-normal">प्रमुख पहल</span></h2>
+<p class="text-on-surface-variant font-body">Verified resources for your family's future security.</p>
+</div>
+<div class="flex gap-2">
+<div class="px-4 py-2 bg-surface-container rounded-lg text-sm font-medium cursor-pointer hover:bg-surface-container-high transition-colors">All Schemes</div>
+<div class="px-4 py-2 text-sm font-medium text-outline cursor-pointer hover:text-on-surface transition-colors">Health</div>
+<div class="px-4 py-2 text-sm font-medium text-outline cursor-pointer hover:text-on-surface transition-colors">Pension</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- PM-JAY Card -->
+<div class="group bg-surface-container-lowest p-8 rounded-xl border-outline-variant/15 hover:border-primary/20 transition-all flex flex-col justify-between min-h-[400px]">
+<div>
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-4xl text-primary" data-weight="fill">medical_services</span>
+<span class="text-xs font-label text-tertiary uppercase tracking-widest bg-tertiary-fixed px-3 py-1 rounded">Active Now</span>
+</div>
+<h3 class="text-2xl font-headline mb-2">PM-JAY</h3>
+<p class="text-on-surface-variant mb-6 font-body leading-relaxed">
+                            Ayushman Bharat Pradhan Mantri Jan Arogya Yojana. Cashless healthcare for hospitalizations up to ₹5 Lakh.
+                        </p>
+<ul class="space-y-3 text-sm font-body text-on-surface/80">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-tertiary">check_circle</span> Pre-existing conditions covered</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-tertiary">check_circle</span> Over 20,000 empaneled hospitals</li>
+</ul>
+</div>
+<button class="mt-8 pt-8 border-t border-surface-container flex items-center justify-between text-primary font-semibold group-hover:translate-x-1 transition-transform">
+                        Know More (विवरण देखें)
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- e-Shram Card -->
+<div class="group bg-primary text-on-primary p-8 rounded-xl transition-all flex flex-col justify-between min-h-[400px]">
+<div>
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-4xl text-primary-fixed-dim" data-weight="fill">badge</span>
+<div class="text-[10px] font-label text-on-primary-container uppercase tracking-[0.2em] bg-primary-container px-3 py-1 rounded">Primary Registry</div>
+</div>
+<h3 class="text-2xl font-headline mb-2">e-Shram Portal</h3>
+<p class="text-primary-fixed font-body leading-relaxed mb-6">
+                            The national database for unorganized workers. A gateway to all social security schemes for truck operators and helpers.
+                        </p>
+<div class="p-4 bg-primary-container/30 rounded-lg space-y-1">
+<p class="text-xs font-label opacity-70 uppercase tracking-widest">Enrollment status</p>
+<p class="text-lg font-headline">Registration is FREE</p>
+</div>
+</div>
+<button class="mt-8 pt-8 border-t border-on-primary/10 flex items-center justify-between font-semibold group-hover:translate-x-1 transition-transform">
+                        Link Your ID
+                        <span class="material-symbols-outlined">qr_code_2</span>
+</button>
+</div>
+<!-- PMSBY Card -->
+<div class="group bg-surface-container-lowest p-8 rounded-xl transition-all flex flex-col justify-between min-h-[400px]">
+<div>
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-4xl text-secondary" data-weight="fill">security</span>
+</div>
+<h3 class="text-2xl font-headline mb-2">PMSBY</h3>
+<p class="text-on-surface-variant mb-6 font-body leading-relaxed">
+                            Pradhan Mantri Suraksha Bima Yojana. Accidental insurance of ₹2 Lakh for a premium of just ₹20/year.
+                        </p>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="h-10 w-1 bg-tertiary rounded-full"></div>
+<div>
+<p class="text-sm font-semibold">Low Annual Cost</p>
+<p class="text-xs text-on-surface-variant">Affordable protection for road safety.</p>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-8 pt-8 border-t border-surface-container flex items-center justify-between text-primary font-semibold group-hover:translate-x-1 transition-transform">
+                        Apply via Bank
+                        <span class="material-symbols-outlined">account_balance</span>
+</button>
+</div>
+<!-- PM-SYM Card (Asymmetric Layout Spanning 2 columns) -->
+<div class="lg:col-span-2 group bg-surface-container-low p-10 rounded-xl relative overflow-hidden flex flex-col lg:flex-row gap-8 min-h-[400px]">
+<div class="flex-1 space-y-6 relative z-10">
+<div>
+<span class="inline-block px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] font-label uppercase tracking-widest rounded-sm mb-4">Old Age Security</span>
+<h3 class="text-3xl font-headline text-on-surface mb-2">PM-SYM Pension Scheme</h3>
+<p class="text-on-surface-variant max-w-md font-body">
+                                Pradhan Mantri Shram Yogi Maandhan. Assured monthly pension of ₹3,000 after attaining 60 years of age.
+                            </p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-6 bg-surface-container-lowest rounded-xl">
+<p class="text-xs font-label text-outline uppercase tracking-widest mb-1">Age Limit</p>
+<p class="text-xl font-headline">18 - 40 Years</p>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-xl">
+<p class="text-xs font-label text-outline uppercase tracking-widest mb-1">Benefit</p>
+<p class="text-xl font-headline">₹36,000 / Year</p>
+</div>
+</div>
+</div>
+<div class="flex-1 bg-surface-container-highest rounded-xl p-8 relative overflow-hidden">
+<p class="text-xs font-label uppercase tracking-[0.2em] mb-4 opacity-60">How to register</p>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold shrink-0">1</div>
+<p class="text-sm font-body">Visit nearest Common Service Centre (CSC)</p>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold shrink-0">2</div>
+<p class="text-sm font-body">Carry Aadhaar Card and Savings Bank Passbook</p>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold shrink-0">3</div>
+<p class="text-sm font-body">Complete biometric authentication on spot</p>
+</div>
+</div>
+<img alt="Digital Authentication" class="absolute -bottom-10 -right-10 w-48 h-48 opacity-10 rotate-12" data-alt="Close up of digital biometric authentication terminal in a government service center, soft depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd3pM7r-CRVyH6qlMPeIcjKuet28mWcHvidOzqCBCwdPbQAyhGNZZa9h04hyWYRPXpezNE-icCbGhGwG98dnitAvK7rPWo3sQJGCSbSBMXRjdWEDvyCF_uCqA5Zf0ncTVFQg-3bKyrRlzZ5siQdULHwINz0Fumgo0Ir7vQYVjcMwbPIpVM2XdrClwPk4kFJa-ODQA-NuQqypYmOV1xwKQPSrheAKuUYxnblsIbkr43QLa-1Z_s8F9k5qc9vzBMshGR_VaTEdq1rjrP"/>
+</div>
+</div>
+<!-- Support Card -->
+<div class="group bg-tertiary-fixed text-on-tertiary-fixed-variant p-8 rounded-xl flex flex-col justify-center items-center text-center space-y-6">
+<div class="w-16 h-16 bg-on-tertiary-fixed-variant/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">contact_support</span>
+</div>
+<div>
+<h3 class="text-xl font-headline mb-2">Need Guidance?</h3>
+<p class="text-sm opacity-80 font-body">हमारे विशेषज्ञ नामांकन में आपकी सहायता करेंगे।</p>
+</div>
+<button class="w-full py-4 bg-on-tertiary-fixed-variant text-white rounded-xl font-medium">Talk to TruckMitr Sahayak</button>
+<p class="text-xs font-label uppercase tracking-widest opacity-60">Available 24/7</p>
+</div>
+</div>
+</section>
+<!-- Guide Steps Section -->
+<section class="mt-24 bg-surface-container-low py-24 relative overflow-hidden">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="grid lg:grid-cols-2 gap-20 items-center">
+<div class="space-y-8">
+<h2 class="text-4xl md:text-5xl font-headline leading-tight">Step-by-Step Enrollment <br/><span class="text-on-surface-variant font-normal">नामांकन प्रक्रिया</span></h2>
+<div class="space-y-12">
+<div class="flex gap-8 group">
+<div class="shrink-0 w-12 h-12 bg-surface-container-lowest flex items-center justify-center rounded-full text-xl font-headline text-primary shadow-sm border border-outline-variant/10">01</div>
+<div class="space-y-2">
+<h4 class="text-xl font-bold font-headline">Prepare Documents (दस्तावेज तैयार करें)</h4>
+<p class="text-on-surface-variant leading-relaxed">Ensure you have your Aadhaar Card, active mobile number, and bank account details (IFSC code) ready.</p>
+</div>
+</div>
+<div class="flex gap-8 group">
+<div class="shrink-0 w-12 h-12 bg-surface-container-lowest flex items-center justify-center rounded-full text-xl font-headline text-primary shadow-sm border border-outline-variant/10">02</div>
+<div class="space-y-2">
+<h4 class="text-xl font-bold font-headline">Verify Mobile (मोबाइल सत्यापन)</h4>
+<p class="text-on-surface-variant leading-relaxed">You will receive an OTP on your linked mobile number to verify your identity on the official government portal.</p>
+</div>
+</div>
+<div class="flex gap-8 group">
+<div class="shrink-0 w-12 h-12 bg-surface-container-lowest flex items-center justify-center rounded-full text-xl font-headline text-primary shadow-sm border border-outline-variant/10">03</div>
+<div class="space-y-2">
+<h4 class="text-xl font-bold font-headline">Final Confirmation (अंतिम पुष्टि)</h4>
+<p class="text-on-surface-variant leading-relaxed">Submit the details and download your scheme card (Ayushman Card, e-Shram Card) immediately.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="rounded-3xl overflow-hidden aspect-[4/5] bg-surface-container">
+<img alt="Enrollment Guide" class="w-full h-full object-cover" data-alt="High quality close up of official identity cards and documents laid out neatly on a wooden desk with warm morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGOZFj8ns3ENQyoChUIS2AVS1Q_K2aQure820cfCQ-YEVs0sMbj-iYntpsULMgMBnhH7YbTVE9y-YixdOTBUH3HkhE_ugWZBvt5z0gk6Ll8DahHyUF9SOh4W4_9394zLMaf30ISStuUQ_QKfsxcCWDGl8B9AGt-mWgGf5N877qYO6_aiyyrH9GgNthS1TQXz4FatRYflyi0v9yqZkhdVm2aHGFnn_2ePJSgXKaHINEnS0xERSSdbSPDTB50wAtuw0H_uL8IysTHqcW"/>
+</div>
+<div class="absolute -top-10 -right-10 w-48 h-48 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+<div class="absolute -bottom-10 -left-10 w-64 h-64 bg-tertiary rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="max-w-4xl mx-auto px-8 py-24 space-y-12">
+<div class="text-center space-y-4">
+<h2 class="text-3xl font-headline">Common Questions</h2>
+<p class="text-on-surface-variant">Clear answers for our driver community.</p>
+</div>
+<div class="space-y-4">
+<details class="group bg-surface-container-lowest rounded-xl p-6 border border-transparent hover:border-outline-variant/20 transition-all cursor-pointer">
+<summary class="flex items-center justify-between font-bold text-lg list-none">
+                        Is registration for e-Shram mandatory?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">
+                        While not mandatory by law, it is highly recommended to receive all benefits of government social security schemes directly in your bank account.
+                    </p>
+</details>
+<details class="group bg-surface-container-lowest rounded-xl p-6 border border-transparent hover:border-outline-variant/20 transition-all cursor-pointer">
+<summary class="flex items-center justify-between font-bold text-lg list-none">
+                        Can I apply for PM-JAY if I already have a private insurance?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">
+                        Eligibility for PM-JAY is based on specific deprivation criteria in SECC 2011 data. If you meet those criteria, you are eligible regardless of private insurance.
+                    </p>
+</details>
+<details class="group bg-surface-container-lowest rounded-xl p-6 border border-transparent hover:border-outline-variant/20 transition-all cursor-pointer">
+<summary class="flex items-center justify-between font-bold text-lg list-none">
+                        How do I update my mobile number on e-Shram?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">
+                        You can update it via any CSC center or by visiting the official self-enrollment portal using Aadhaar-linked mobile authentication.
+                    </p>
+</details>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-100 dark:bg-slate-950 w-full border-t border-slate-200 dark:border-slate-800">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 px-8 py-12 max-w-screen-2xl mx-auto">
+<div class="col-span-2 lg:col-span-1 space-y-6">
+<div class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100">TruckMitr</div>
+<p class="text-sm font-body text-slate-500 max-w-xs">Building a secure, prosperous ecosystem for India's logistics heroes.</p>
+</div>
+<div class="space-y-4">
+<p class="uppercase tracking-widest text-xs font-label text-blue-900 dark:text-blue-300 font-semibold">Legacy</p>
+<div class="flex flex-col gap-2">
+<a class="text-sm text-slate-500 hover:text-slate-900 transition-transform duration-200 hover:translate-x-1" href="#">About Us</a>
+<a class="text-sm text-slate-500 hover:text-slate-900 transition-transform duration-200 hover:translate-x-1" href="#">Sustainability</a>
+<a class="text-sm text-slate-500 hover:text-slate-900 transition-transform duration-200 hover:translate-x-1" href="#">Mission</a>
+</div>
+</div>
+<div class="space-y-4">
+<p class="uppercase tracking-widest text-xs font-label text-blue-900 dark:text-blue-300 font-semibold">Resources</p>
+<div class="flex flex-col gap-2">
+<a class="text-sm text-blue-700 dark:text-blue-400 underline transition-transform duration-200 hover:translate-x-1" href="#">Hindi Resources</a>
+<a class="text-sm text-slate-500 hover:text-slate-900 transition-transform duration-200 hover:translate-x-1" href="#">Driver Safety</a>
+<a class="text-sm text-slate-500 hover:text-slate-900 transition-transform duration-200 hover:translate-x-1" href="#">Welfare Guide</a>
+</div>
+</div>
+<div class="space-y-4">
+<p class="uppercase tracking-widest text-xs font-label text-blue-900 dark:text-blue-300 font-semibold">Partners</p>
+<div class="flex flex-col gap-2">
+<a class="text-sm text-slate-500 hover:text-slate-900 transition-transform duration-200 hover:translate-x-1" href="#">Fleet Selection</a>
+<a class="text-sm text-slate-500 hover:text-slate-900 transition-transform duration-200 hover:translate-x-1" href="#">Network Map</a>
+<a class="text-sm text-slate-500 hover:text-slate-900 transition-transform duration-200 hover:translate-x-1" href="#">Partner Terms</a>
+</div>
+</div>
+<div class="space-y-4">
+<p class="uppercase tracking-widest text-xs font-label text-blue-900 dark:text-blue-300 font-semibold">Legal</p>
+<div class="flex flex-col gap-2">
+<a class="text-sm text-slate-500 hover:text-slate-900 transition-transform duration-200 hover:translate-x-1" href="#">Privacy Policy</a>
+<a class="text-sm text-slate-500 hover:text-slate-900 transition-transform duration-200 hover:translate-x-1" href="#">Investment Relations</a>
+<a class="text-sm text-slate-500 hover:text-slate-900 transition-transform duration-200 hover:translate-x-1" href="#">Contact Support</a>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-200 dark:border-slate-800 px-8 py-6">
+<p class="text-xs font-body text-slate-500 text-center">© 2024 TruckMitr Logistics. An TruckMitr Enterprise.</p>
+</div>
+</footer>
+</body></html>

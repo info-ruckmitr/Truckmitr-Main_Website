@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Inter:wght@400;500;600&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#1d6e25",
+              "primary-container": "#415e9a",
+              "outline": "#747781",
+              "tertiary": "#005412",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed": "#101b30",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#5a647c",
+              "on-tertiary-container": "#9bee94",
+              "tertiary-fixed": "#a3f69c",
+              "surface": "#f8f9fa",
+              "secondary-fixed-dim": "#bbc6e2",
+              "on-tertiary-fixed-variant": "#005312",
+              "on-error-container": "#93000a",
+              "on-background": "#191c1d",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#264580",
+              "background": "#f8f9fa",
+              "on-primary-fixed": "#001a43",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#191c1d",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#ccd9ff",
+              "surface-variant": "#e1e3e4",
+              "on-surface-variant": "#444750",
+              "primary-fixed": "#d9e2ff",
+              "surface-bright": "#f8f9fa",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#afc6ff",
+              "primary": "#274680",
+              "surface-container-low": "#f3f4f5",
+              "secondary-container": "#d7e2ff",
+              "secondary": "#545e76",
+              "outline-variant": "#c4c6d1",
+              "inverse-on-surface": "#f0f1f2",
+              "on-tertiary-fixed": "#002204",
+              "on-error": "#ffffff",
+              "inverse-primary": "#afc6ff",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-high": "#e7e8e9",
+              "on-secondary-fixed-variant": "#3c475d",
+              "surface-dim": "#d9dadb",
+              "inverse-surface": "#2e3132",
+              "surface-tint": "#405d99",
+              "tertiary-fixed-dim": "#88d982",
+              "secondary-fixed": "#d7e2ff",
+              "surface-container": "#edeeef"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-nav {
+        background: rgba(248, 249, 250, 0.7);
+        backdrop-filter: blur(20px);
+      }
+      .editorial-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1.25rem;
+      }
+      .card-tonal {
+        background: #ffffff;
+        transition: transform 0.3s ease;
+      }
+      .card-tonal:hover {
+        transform: translateY(-4px);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#F8F9FA] dark:bg-slate-900 border-b border-slate-200/50 dark:border-slate-800/50">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif font-bold text-[#274680] dark:text-blue-400 tracking-tight">TruckMitr</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors font-label" href="#">Insights</a>
+<a class="text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors font-label" href="#">Mission</a>
+<a class="text-[#274680] dark:text-blue-400 font-bold border-b-2 border-[#274680] pb-1 font-label" href="#">Resources</a>
+<a class="text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors font-label" href="#">Driver Hub</a>
+<a class="text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors font-label" href="#">Partner Portal</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="px-4 py-2 text-[#191C1D]/70 font-medium hover:bg-slate-100 rounded-lg transition-all">Login</button>
+<button class="px-6 py-2 bg-primary text-on-primary font-bold rounded-lg hover:opacity-90 transition-opacity">Contact Us</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-24 px-8 max-w-screen-2xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-20">
+<div class="max-w-4xl">
+<h1 class="font-headline text-5xl md:text-7xl font-bold text-on-surface leading-tight mb-8">
+                    Vikas Ki Kahani, <br/>
+<span class="text-primary italic">Driver Ki Zubani</span>
+<span class="block text-2xl font-label font-normal text-on-surface-variant mt-4 tracking-wide">(Stories of Growth)</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed font-body">
+                    Meet the backbone of India's logistics. 50,000+ drivers are not just moving freight; they are building futures. Explore how TruckMitr empowers the community through financial inclusion and social security.
+                </p>
+</div>
+</section>
+<!-- Stats / Investor Value -->
+<section class="mb-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-container-low p-8 rounded-xl">
+<div class="text-4xl font-headline font-bold text-primary mb-2">50,000+</div>
+<div class="text-on-surface-variant font-label font-medium uppercase tracking-widest text-sm">Verified Drivers</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl">
+<div class="text-4xl font-headline font-bold text-tertiary mb-2">₹12 Cr+</div>
+<div class="text-on-surface-variant font-label font-medium uppercase tracking-widest text-sm">Insurance Claims Settled</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl">
+<div class="text-4xl font-headline font-bold text-on-surface mb-2">24/7</div>
+<div class="text-on-surface-variant font-label font-medium uppercase tracking-widest text-sm">Social Support Network</div>
+</div>
+</section>
+<!-- Testimonials Grid (Bento Style) -->
+<div class="editorial-grid mb-24">
+<!-- Featured Card 1 -->
+<div class="col-span-12 lg:col-span-8 flex flex-col md:flex-row bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<div class="md:w-1/2 h-80 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a smiling Indian truck driver with a blue turban, warm golden sunlight reflecting off his truck in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACc7RCXIlowlBh3kTJ8-Smj_GDR2d4ykuoAED4orh-e7PNVE_eoNpWemDsfTgbiuj4APt4f1R6Z_vhnq0pkwtGEAhWmIxPbAOtaqxq8nKhxRKl5YGqUzOXuQqVD0J2TnZmyPClqKTVqisvPV6_qg92B2G2DyQv4KmQQL9LeCH1cBHY7A2WQJ84h0YSm7XHw4LoUeQRN6hxMrlNYGNgc8lrF4FUYlGck_knoglpKVuYyj9Z7ByEewL5WdCAKudCjg-VEDhdVq2jiHDu"/>
+</div>
+<div class="md:w-1/2 p-10 flex flex-col justify-center">
+<span class="text-tertiary font-bold font-label text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">verified</span> PM-JAY Impact
+                    </span>
+<h3 class="font-headline text-2xl font-bold mb-4">Rajesh Kumar Singh</h3>
+<p class="text-on-surface-variant leading-relaxed italic mb-6">
+                        "TruckMitr helped me get medical insurance via PM-JAY. When my daughter needed surgery, I didn't have to worry about ₹2,00,000. It was a blessing."
+                    </p>
+<p class="text-on-surface/80 leading-relaxed font-body">
+                        "ट्रकमित्र ने मुझे PM-JAY के माध्यम से चिकित्सा बीमा प्राप्त करने में मदद की। जब मेरी बेटी को सर्जरी की आवश्यकता थी, तो मुझे पैसों की चिंता नहीं करनी पड़ी।"
+                    </p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-lowest rounded-xl p-8 shadow-sm flex flex-col">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-6 border-2 border-primary/10">
+<img class="w-full h-full object-cover" data-alt="Headshot of a confident young truck driver in a crisp khaki uniform with a bright sky background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm1Zm1REzahbA3X__yJZCiaKAK4nw-IzOX0cdnSjtcUwhjwjTMIMD0mJX5tNGt7Rssn-yO3b7nDc2xZw6hqYxpOue8Ews3BJVFcxwiKf-VkqngO7HQCc7BweRXBPvgEtuerkili6xz7Wge998hNz-5uy8cNYljA0CAxZ7wbUS_9yEvzmR_irA0yXUPXOLH361clpkVMnxVwJBTPtsEw0jb_biQxsiTVXUbjtFQxebQNQh0GBhtVT35FJ7Z3nYSvM-x2u-2UZm97yku"/>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">Amit Yadav</h3>
+<span class="text-on-surface-variant font-label text-xs uppercase tracking-widest mb-6">Lucknow Cluster</span>
+<p class="text-on-surface-variant leading-relaxed italic mb-4">
+                    "From an owner-operator of one truck to managing a fleet of four. The load consistency here changed my life."
+                </p>
+<p class="text-on-surface/80 text-sm leading-relaxed mt-auto">
+                    "एक ट्रक से अब चार ट्रकों का मालिक हूँ। यहाँ काम की निरंतरता ने मेरा जीवन बदल दिया।"
+                </p>
+</div>
+<!-- Card 3 -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-lowest rounded-xl p-8 shadow-sm flex flex-col">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-6 border-2 border-primary/10">
+<img class="w-full h-full object-cover" data-alt="Middle-aged truck driver with a salt-and-pepper beard leaning against his modern logistics vehicle at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD95CbkcmtxwY1s8Yzi-dSkq6omlHRUY9rXpUWPXPdRKiXquo9nzu1DIU7DA0tsZajEyUIyu4RiHffRc4NRpzHWyeAKmxonBWfgzyv2R30nWGEEXgqDHSwGMPbJpsBNdmyO8vtCZSnHK6qBanVW3eJIV1iEz0hjy4hCD3gqZ9ME62-4oAAaBPGF-wHG9VMRtTcHniYnapbq57QnKUjfXXCNa4MCVOpzc4SYKVpdFabTDpcOuBCcadvJ1MD9UFrLBIo8qLZMrWivYaJ1"/>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">Harpreet Singh</h3>
+<span class="text-on-surface-variant font-label text-xs uppercase tracking-widest mb-6">Long-Haul Specialist</span>
+<p class="text-on-surface-variant leading-relaxed italic mb-4">
+                    "Safety is everything. The driver rest-stops and the 24/7 helpline make me feel like part of a family, not just a contractor."
+                </p>
+<p class="text-on-surface/80 text-sm leading-relaxed mt-auto">
+                    "सुरक्षा ही सब कुछ है। यहाँ के हेल्पलाइन और रेस्ट-स्टॉप मुझे परिवार जैसा महसूस कराते हैं।"
+                </p>
+</div>
+<!-- Featured Card 2 (Inverted) -->
+<div class="col-span-12 lg:col-span-8 flex flex-col md:flex-row-reverse bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<div class="md:w-1/2 h-80 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a female heavy vehicle driver standing proudly next to a large logistics truck, cinematic industrial background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtaCFoxx6sAvg-2rxZ8USWnu8x8JKwnjS813Sxw409kb6iH09l3L4bGV7k3DYCziJqhndubAf516mlHXphfrqthmz5mpZ7Llc5zsvxhyR8CWli_IHm4QIThrenck6uCJ_J1jQIlG6HPrF_DqJ8tQYWbKrD6-9aCV0EMh8lwZoSWehj_GSQMsidYKC65GTbwqiKNudKL0ubp2Od-Z8b2KpP3JnN11hv7EZhqaqK8kQHXNqKDtOAL0o7OTbt8z4zW7z-c3MhGtTE1Pbl"/>
+</div>
+<div class="md:w-1/2 p-10 flex flex-col justify-center">
+<span class="text-primary font-bold font-label text-sm uppercase tracking-widest mb-4">Asset Financing</span>
+<h3 class="font-headline text-2xl font-bold mb-4">Meena Devi</h3>
+<p class="text-on-surface-variant leading-relaxed italic mb-6">
+                        "I broke barriers in a male-dominated field. TruckMitr supported my loan application when others said no. Today, I am an independent logistics partner."
+                    </p>
+<p class="text-on-surface/80 leading-relaxed font-body">
+                        "मैंने एक पुरुष-प्रधान क्षेत्र में बाधाओं को तोड़ा। ट्रकमित्र ने मेरे ऋण आवेदन का समर्थन किया जब दूसरों ने मना कर दिया था।"
+                    </p>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<section class="bg-primary text-on-primary rounded-2xl p-12 md:p-20 relative overflow-hidden">
+<div class="relative z-10 max-w-3xl">
+<h2 class="font-headline text-4xl md:text-5xl font-bold mb-6">Be the Next Story of Growth</h2>
+<p class="text-xl text-primary-container/80 mb-10 leading-relaxed">
+                    Join our ecosystem of 50,000+ satisfied partners. Whether you are looking for better pay, health benefits, or financing, we are here to support your journey.
+                </p>
+<div class="flex flex-wrap gap-6">
+<button class="px-8 py-4 bg-surface text-primary font-bold rounded-lg flex items-center gap-3 hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined">edit_note</span> Share Your Story
+                    </button>
+<button class="px-8 py-4 bg-tertiary text-on-tertiary font-bold rounded-lg flex items-center gap-3 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined">chat</span> WhatsApp for Jobs
+                    </button>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -right-20 -bottom-20 w-96 h-96 bg-primary-container/20 rounded-full blur-3xl"></div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#F8F9FA] dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 px-12 py-16 w-full max-w-screen-2xl mx-auto">
+<div>
+<div class="font-serif font-bold text-lg text-[#274680] dark:text-blue-400 mb-6">TruckMitr</div>
+<p class="text-[#191C1D]/60 dark:text-slate-500 font-sans text-sm leading-relaxed">
+                    Bridging the gap between institutional investment and ground-level logistics efficiency.
+                </p>
+</div>
+<div>
+<div class="text-on-surface font-bold mb-6 font-label text-sm uppercase tracking-widest">Network</div>
+<ul class="space-y-4 font-sans text-sm text-[#191C1D]/60 dark:text-slate-500">
+<li><a class="hover:text-[#274680] transition-colors" href="#">Fleet Network</a></li>
+<li><a class="hover:text-[#274680] transition-colors" href="#">Sustainability</a></li>
+<li><a class="hover:text-[#274680] transition-colors" href="#">Driver Hub</a></li>
+</ul>
+</div>
+<div>
+<div class="text-on-surface font-bold mb-6 font-label text-sm uppercase tracking-widest">Corporate</div>
+<ul class="space-y-4 font-sans text-sm text-[#191C1D]/60 dark:text-slate-500">
+<li><a class="hover:text-[#274680] transition-colors" href="#">Investor Relations</a></li>
+<li><a class="hover:text-[#274680] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-[#274680] transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<div class="text-on-surface font-bold mb-6 font-label text-sm uppercase tracking-widest">Support</div>
+<ul class="space-y-4 font-sans text-sm text-[#191C1D]/60 dark:text-slate-500">
+<li><a class="hover:text-[#274680] transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-[#274680] transition-colors" href="#">Contact Support</a></li>
+<li><a class="hover:text-[#274680] transition-colors" href="#">Safety Protocols</a></li>
+</ul>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-slate-200/50 dark:border-slate-800/50 max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-sans text-sm tracking-wide text-[#191C1D]/60 dark:text-slate-500">
+                © 2024 TruckMitr Logistics. All figures in ₹ (INR). Premium Institutional Grade.
+            </p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-[#191C1D]/40">language</span>
+<span class="text-sm font-label text-[#191C1D]/60">English / Hindi</span>
+</div>
+</div>
+</footer>
+</body></html>

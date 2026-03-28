@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Institutional ROI &amp; Performance Analytics | TruckMitr</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@400;700&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#1d6e25",
+              "primary-container": "#415e9a",
+              "outline": "#747781",
+              "tertiary": "#005412",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed": "#101b30",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#5a647c",
+              "on-tertiary-container": "#9bee94",
+              "tertiary-fixed": "#a3f69c",
+              "surface": "#f8f9fa",
+              "secondary-fixed-dim": "#bbc6e2",
+              "on-tertiary-fixed-variant": "#005312",
+              "on-error-container": "#93000a",
+              "on-background": "#191c1d",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#264580",
+              "background": "#f8f9fa",
+              "on-primary-fixed": "#001a43",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#191c1d",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#ccd9ff",
+              "surface-variant": "#e1e3e4",
+              "on-surface-variant": "#444750",
+              "primary-fixed": "#d9e2ff",
+              "surface-bright": "#f8f9fa",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#afc6ff",
+              "primary": "#274680",
+              "surface-container-low": "#f3f4f5",
+              "secondary-container": "#d7e2ff",
+              "secondary": "#545e76",
+              "outline-variant": "#c4c6d1",
+              "inverse-on-surface": "#f0f1f2",
+              "on-tertiary-fixed": "#002204",
+              "on-error": "#ffffff",
+              "inverse-primary": "#afc6ff",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-high": "#e7e8e9",
+              "on-secondary-fixed-variant": "#3c475d",
+              "surface-dim": "#d9dadb",
+              "inverse-surface": "#2e3132",
+              "surface-tint": "#405d99",
+              "tertiary-fixed-dim": "#88d982",
+              "secondary-fixed": "#d7e2ff",
+              "surface-container": "#edeeef"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-label { font-family: 'Work Sans', sans-serif; }
+        .glass-nav { background: rgba(248, 249, 250, 0.7); backdrop-filter: blur(20px); }
+        .noise-bg { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); opacity: 0.02; pointer-events: none; position: fixed; inset: 0; z-index: 100; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<div class="noise-bg"></div>
+<!-- TopNavBar -->
+<header class="docked full-width top-0 z-50 bg-[#F8F9FA] dark:bg-slate-900 border-b border-slate-200/50 dark:border-slate-800/50 sticky top-0 glass-nav">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif font-bold text-[#274680] dark:text-blue-400 tracking-tight">
+                TruckMitr
+            </div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors font-label text-sm uppercase tracking-wider" href="#">Insights</a>
+<a class="text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors font-label text-sm uppercase tracking-wider" href="#">Mission</a>
+<a class="text-[#274680] dark:text-blue-400 font-bold border-b-2 border-[#274680] pb-1 font-label text-sm uppercase tracking-wider" href="#">Resources</a>
+<a class="text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors font-label text-sm uppercase tracking-wider" href="#">Driver Hub</a>
+<a class="text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors font-label text-sm uppercase tracking-wider" href="#">Partner Portal</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="text-[#274680] dark:text-blue-400 font-semibold text-sm hover:opacity-80 transition-opacity">Login</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-semibold text-sm transition-all hover:bg-primary-container">Contact Us</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section: Institutional Summary -->
+<section class="relative py-24 px-8 overflow-hidden bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2">
+<span class="inline-block text-tertiary font-label font-bold text-xs uppercase tracking-[0.2em] mb-4">Capital Optimization</span>
+<h1 class="font-headline text-5xl md:text-6xl font-bold text-on-surface leading-tight mb-6">
+                        Institutional ROI &amp; <br/><span class="text-primary italic">Performance Analytics</span>
+</h1>
+<p class="font-body text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+                        Data-driven insights for the ₹100+ Cr enterprise. We curate logistics efficiency by reducing driver turnover and maximizing fleet utilization through precision logistics orchestration.
+                    </p>
+<div class="grid grid-cols-2 gap-8 py-8 border-t border-outline-variant/20">
+<div>
+<div class="font-label text-sm text-on-surface-variant uppercase tracking-widest mb-1">Attrition Savings</div>
+<div class="font-headline text-3xl font-bold text-tertiary">₹40k–80k <span class="text-sm font-label font-normal text-on-surface-variant italic">per driver</span></div>
+</div>
+<div>
+<div class="font-label text-sm text-on-surface-variant uppercase tracking-widest mb-1">Portfolio Growth</div>
+<div class="font-headline text-3xl font-bold text-primary">+14.8% <span class="text-sm font-label font-normal text-on-surface-variant italic">Annually</span></div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 relative">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm relative z-10">
+<img alt="Logistics Dashboard" class="rounded-lg w-full grayscale contrast-125 mb-6" data-alt="Modern high-tech logistics control center with large data screens displaying fleet maps and financial performance metrics in a professional setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY0Srm-eIR4qCUCIdyGacdCZD9nI61O8hvIzXUBA-iSeDIeeTSvazcnYodMrbFySME3CqqkzJzED6Y1J1KmPPC1IUryhTjYLEQ9VidNwugj3xtLu05113GnYL6K-DcHdktkOKOS3bMEe319jv8a6E5qMpdZ5sbhZR1K72Ul47dEZQXRvegqXiD5T3wfOVBQrtvzbab2N-y1FwAsVacRUleY6PfeqEyF_wB0SsBP3evjN830Wk1qsAoa3BVHUTshdQqw6ghz919kwh2"/>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<div>
+<div class="font-label text-xs font-bold text-on-surface-variant uppercase">Efficiency Index</div>
+<div class="font-body text-sm font-semibold">98.2% Institutional Grade</div>
+</div>
+</div>
+<div class="text-right">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase">Optimal</span>
+</div>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -top-6 -right-6 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+</div>
+</div>
+</section>
+<!-- ROI Calculator & Interactive Section -->
+<section class="py-24 px-8 bg-surface">
+<div class="max-w-screen-2xl mx-auto">
+<div class="mb-16 text-center max-w-2xl mx-auto">
+<h2 class="font-headline text-3xl font-bold mb-4">Capital Yield Calculator</h2>
+<p class="font-body text-on-surface-variant">Quantify the fiscal impact of TruckMitr integration across your fleet ecosystem.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Calculator Inputs -->
+<div class="lg:col-span-5 bg-surface-container-low rounded-xl p-10">
+<h3 class="font-headline text-xl font-bold mb-8">Fleet Parameters</h3>
+<div class="space-y-12">
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="font-label text-sm font-bold uppercase tracking-wider text-on-surface-variant">Fleet Size (Units)</label>
+<span class="font-headline text-2xl font-bold text-primary">150</span>
+</div>
+<input class="w-full h-1 bg-outline-variant/30 rounded-full appearance-none accent-primary cursor-pointer" max="500" min="10" type="range" value="150"/>
+<div class="flex justify-between text-[10px] font-label font-medium uppercase text-on-surface-variant/60">
+<span>10 Trucks</span>
+<span>500 Trucks</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="font-label text-sm font-bold uppercase tracking-wider text-on-surface-variant">Current Attrition Rate</label>
+<span class="font-headline text-2xl font-bold text-primary">24%</span>
+</div>
+<input class="w-full h-1 bg-outline-variant/30 rounded-full appearance-none accent-primary cursor-pointer" max="60" min="5" type="range" value="24"/>
+<div class="flex justify-between text-[10px] font-label font-medium uppercase text-on-surface-variant/60">
+<span>5% Industry Best</span>
+<span>60% Risk Zone</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="font-label text-sm font-bold uppercase tracking-wider text-on-surface-variant">Avg. Cost per Hire (₹)</label>
+<span class="font-headline text-2xl font-bold text-primary">₹65,000</span>
+</div>
+<input class="w-full h-1 bg-outline-variant/30 rounded-full appearance-none accent-primary cursor-pointer" max="150000" min="20000" step="5000" type="range" value="65000"/>
+</div>
+</div>
+</div>
+<!-- Calculator Results (Bento Style) -->
+<div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-primary p-8 rounded-xl flex flex-col justify-between h-[240px]">
+<span class="material-symbols-outlined text-on-primary text-3xl">savings</span>
+<div>
+<div class="text-on-primary-container text-xs font-label font-bold uppercase tracking-widest mb-1">Potential Annual Savings</div>
+<div class="text-on-primary text-4xl font-headline font-bold tracking-tight">₹1.24 Cr</div>
+</div>
+</div>
+<div class="bg-tertiary p-8 rounded-xl flex flex-col justify-between h-[240px]">
+<span class="material-symbols-outlined text-on-tertiary text-3xl">speed</span>
+<div>
+<div class="text-on-tertiary-container text-xs font-label font-bold uppercase tracking-widest mb-1">Efficiency Gain</div>
+<div class="text-on-tertiary text-4xl font-headline font-bold tracking-tight">+22.4%</div>
+</div>
+</div>
+<div class="md:col-span-2 bg-surface-container-high p-8 rounded-xl">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h4 class="font-headline text-lg font-bold">TruckMitr Efficiency Gain</h4>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-widest">Industry Standard vs. Optimized Curated Performance</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-primary rounded-full"></div>
+<span class="text-[10px] font-label font-bold uppercase">Curated</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-outline-variant rounded-full"></div>
+<span class="text-[10px] font-label font-bold uppercase">Standard</span>
+</div>
+</div>
+</div>
+<!-- Mock Integrated Chart -->
+<div class="h-48 w-full flex items-end justify-between gap-4 px-4">
+<div class="flex-1 flex flex-col justify-end gap-1">
+<div class="w-full bg-outline-variant/20 rounded-t h-24"></div>
+<div class="w-full bg-primary rounded-t h-40"></div>
+<div class="text-center font-label text-[10px] text-on-surface-variant mt-2">Q1</div>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-1">
+<div class="w-full bg-outline-variant/20 rounded-t h-20"></div>
+<div class="w-full bg-primary rounded-t h-32"></div>
+<div class="text-center font-label text-[10px] text-on-surface-variant mt-2">Q2</div>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-1">
+<div class="w-full bg-outline-variant/20 rounded-t h-28"></div>
+<div class="w-full bg-primary rounded-t h-44"></div>
+<div class="text-center font-label text-[10px] text-on-surface-variant mt-2">Q3</div>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-1">
+<div class="w-full bg-outline-variant/20 rounded-t h-16"></div>
+<div class="w-full bg-primary rounded-t h-36"></div>
+<div class="text-center font-label text-[10px] text-on-surface-variant mt-2">Q4</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA / Resource Section -->
+<section class="py-24 px-8 bg-surface-container-lowest">
+<div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row gap-12 items-stretch">
+<!-- Audit CTA -->
+<div class="flex-1 bg-surface-container-high p-12 rounded-xl flex flex-col justify-center items-start relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="font-headline text-3xl font-bold mb-4">Request Detailed Audit</h3>
+<p class="font-body text-on-surface-variant mb-8 max-w-sm">
+                            Get a bespoke institutional analysis of your fleet's attrition leaks and optimization opportunities.
+                        </p>
+<button class="bg-primary text-on-primary px-10 py-4 rounded-lg font-bold text-sm tracking-widest uppercase transition-all hover:translate-x-1">
+                            Schedule Consultation
+                        </button>
+</div>
+<span class="material-symbols-outlined absolute -bottom-8 -right-8 text-[12rem] text-primary/5 group-hover:rotate-12 transition-transform duration-700">assignment</span>
+</div>
+<!-- Whitepaper CTA -->
+<div class="flex-1 border-2 border-outline-variant/20 p-12 rounded-xl flex flex-col justify-center items-start hover:border-primary/40 transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">menu_book</span>
+<h3 class="font-headline text-3xl font-bold mb-4">Download Whitepaper</h3>
+<p class="font-body text-on-surface-variant mb-8 max-w-sm">
+                        "The TruckMitr: Rethinking Driver Retention as a Financial Asset." Analysis of ₹200Cr portfolios.
+                    </p>
+<a class="flex items-center gap-2 font-label text-sm font-bold uppercase tracking-widest text-primary hover:gap-4 transition-all" href="#">
+                        Access Whitepaper <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="full-width border-t border-slate-200 dark:border-slate-800 bg-[#F8F9FA] dark:bg-slate-950">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 px-12 py-16 w-full max-w-screen-2xl mx-auto">
+<div class="space-y-6">
+<div class="font-serif font-bold text-lg text-[#274680] dark:text-blue-400">TruckMitr</div>
+<p class="font-sans text-sm tracking-wide text-[#191C1D]/60 dark:text-slate-500 leading-relaxed">
+                    Premium Institutional Grade logistics orchestration and asset optimization. Curating data for high-stakes environments.
+                </p>
+</div>
+<div>
+<h4 class="font-label font-bold text-[10px] uppercase tracking-[0.2em] text-[#191C1D] dark:text-slate-200 mb-6">Fleet Network</h4>
+<ul class="space-y-4 font-sans text-sm tracking-wide text-[#191C1D]/60 dark:text-slate-500">
+<li><a class="hover:text-[#274680] dark:hover:text-blue-400 transition-colors" href="#">Sustainability</a></li>
+<li><a class="hover:text-[#274680] dark:hover:text-blue-400 transition-colors" href="#">Fleet Network</a></li>
+<li><a class="hover:text-[#274680] dark:hover:text-blue-400 transition-colors" href="#">Support</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label font-bold text-[10px] uppercase tracking-[0.2em] text-[#191C1D] dark:text-slate-200 mb-6">Corporate</h4>
+<ul class="space-y-4 font-sans text-sm tracking-wide text-[#191C1D]/60 dark:text-slate-500">
+<li><a class="hover:text-[#274680] dark:hover:text-blue-400 transition-colors" href="#">Investor Relations</a></li>
+<li><a class="hover:text-[#274680] dark:hover:text-blue-400 transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-[#274680] dark:hover:text-blue-400 transition-colors text-[#274680] underline" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label font-bold text-[10px] uppercase tracking-[0.2em] text-[#191C1D] dark:text-slate-200 mb-6">Office</h4>
+<address class="not-italic font-sans text-sm tracking-wide text-[#191C1D]/60 dark:text-slate-500">
+                    Level 12, Cyber Hub<br/>
+                    Gurugram, Haryana 122002<br/>
+                    India
+                </address>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto px-12 py-8 border-t border-slate-200/50 dark:border-slate-800/50">
+<p class="font-sans text-sm tracking-wide text-[#191C1D]/60 dark:text-slate-500">
+                © 2024 TruckMitr Logistics. All figures in ₹ (INR). Premium Institutional Grade.
+            </p>
+</div>
+</footer>
+</body></html>

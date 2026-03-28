@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TruckMitr | TruckMitr Logistics</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Inter:wght@300;400;500;600&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#1d6e25",
+              "primary-container": "#415e9a",
+              "outline": "#747781",
+              "tertiary": "#005412",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed": "#101b30",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#5a647c",
+              "on-tertiary-container": "#9bee94",
+              "tertiary-fixed": "#a3f69c",
+              "surface": "#f8f9fa",
+              "secondary-fixed-dim": "#bbc6e2",
+              "on-tertiary-fixed-variant": "#005312",
+              "on-error-container": "#93000a",
+              "on-background": "#191c1d",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#264580",
+              "background": "#f8f9fa",
+              "on-primary-fixed": "#001a43",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#191c1d",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#ccd9ff",
+              "surface-variant": "#e1e3e4",
+              "on-surface-variant": "#444750",
+              "primary-fixed": "#d9e2ff",
+              "surface-bright": "#f8f9fa",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#afc6ff",
+              "primary": "#274680",
+              "surface-container-low": "#f3f4f5",
+              "secondary-container": "#d7e2ff",
+              "secondary": "#545e76",
+              "outline-variant": "#c4c6d1",
+              "inverse-on-surface": "#f0f1f2",
+              "on-tertiary-fixed": "#002204",
+              "on-error": "#ffffff",
+              "inverse-primary": "#afc6ff",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-high": "#e7e8e9",
+              "on-secondary-fixed-variant": "#3c475d",
+              "surface-dim": "#d9dadb",
+              "inverse-surface": "#2e3132",
+              "surface-tint": "#405d99",
+              "tertiary-fixed-dim": "#88d982",
+              "secondary-fixed": "#d7e2ff",
+              "surface-container": "#edeeef"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 32px 64px -12px rgba(25, 28, 29, 0.06);
+        }
+        .glass-nav {
+            background-color: rgba(65, 94, 154, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .hindi-text {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 z-50 bg-[#F8F9FA] dark:bg-slate-900 border-b border-slate-200/50 dark:border-slate-800/50">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<a class="text-2xl font-serif font-bold text-[#274680] dark:text-blue-400 tracking-tight" href="/">TruckMitr</a>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-[#274680] dark:text-blue-400 font-bold border-b-2 border-[#274680] pb-1 font-serif text-[#191C1D] dark:text-slate-100 antialiased" href="/insights">Insights</a>
+<a class="text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors font-serif text-[#191C1D] dark:text-slate-100 antialiased" href="/mission">Mission</a>
+<a class="text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors font-serif text-[#191C1D] dark:text-slate-100 antialiased" href="/design-system">Resources</a>
+<a class="text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors font-serif text-[#191C1D] dark:text-slate-100 antialiased" href="/driver-hub">Driver Hub</a>
+<a class="text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors font-serif text-[#191C1D] dark:text-slate-100 antialiased" href="/oem-partner">Partner Portal</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-5 py-2 text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] font-medium transition-colors">Contact Us</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-medium hover:opacity-90 transition-opacity">Login</button>
+</div>
+</nav>
+</header>
+<main class="relative">
+<!-- Hero Background Section -->
+<section class="relative w-full h-[614px] md:h-[716px] overflow-hidden bg-surface-container-low flex items-center justify-center pt-20">
+<div class="absolute inset-0 opacity-10 mix-blend-multiply pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCbUBMflnZ49PaOd43lpSTN9VyUuDWnEvsqZAGOJ55_xc5CXfypaFRfUIzNgfP_VRZMXI4GixM0ZHpHTnHjPGij8dgcZDmCWZYkcIX42uJlVf78PUHDRVJWfwC61_FRgFlwE71oS6O8sxOiSx2z8KBnSIPiXNohe5K2_LHJRowdWUq717Ie_kDFuIe3baY_WsDq6e0TbRPyLpV79hmXjb-AcDcVuq4xIjj0G6AQ8UhZ0r_j7VlI43Uhyihi5qQIBSEvqwkr05OAbYyz');"></div>
+<div class="container mx-auto px-8 text-center relative z-10">
+<span class="inline-block px-4 py-1.5 bg-secondary-container text-on-secondary-fixed text-sm font-label tracking-widest rounded-full mb-8 uppercase">Institutional Grade Logistics</span>
+<h1 class="text-5xl md:text-7xl font-headline text-on-surface leading-[1.1] max-w-5xl mx-auto tracking-tight font-bold">
+                    Curating the Future of <br/><span class="text-primary italic">Industrial Mobility.</span>
+</h1>
+<p class="mt-8 text-xl md:text-2xl text-on-surface-variant font-light max-w-2xl mx-auto leading-relaxed">
+                    Bridging the gap between 50,000+ Verified Drivers and high-yield institutional capital.
+                </p>
+</div>
+<!-- Ghost Background Image -->
+<div class="absolute bottom-0 right-0 w-1/3 h-full opacity-5 pointer-events-none select-none">
+<img alt="" class="object-cover w-full h-full" data-alt="dramatic wide angle shot of a professional white semi-truck parked in a high-tech logistics hub during blue hour" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAonkKn1K6414wf7SkyinUbiRGrlKfOmAVa4vLXSAPjdv8Pa_p3ipWAf7zb7F8SS_bnbnZkyASrErS8Byg86AMvQU_1ZPUCmj5OlWDW0GmPFuSfn5ml0-bY0RBCN1XBM4w7oeSNrDedaUZlGjHGC3NvkwpZaUE1d2wZF2VQQheL2Tt_enEC22YWMaRkAqRp_4hvFx_5K5fyCv2P3wS-2J1OFjMhg_3Ra2GfhQ2EEoB-i9olUPD3tLfsc-3Td3sEQ7X1J9xxvROyveAZ"/>
+</div>
+</section>
+<!-- Gateway Section: The Core UI Element -->
+<section class="relative -mt-32 pb-24 px-8 z-20">
+<div class="max-w-7xl mx-auto">
+<div class="grid md:grid-cols-2 gap-0 editorial-shadow rounded-2xl overflow-hidden">
+<!-- Path 1: Driver Entry -->
+<div class="bg-surface-container-lowest p-10 md:p-16 relative flex flex-col justify-between group">
+<div class="absolute top-0 right-0 w-48 h-48 opacity-5 -mr-12 -mt-12 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-9xl text-on-surface" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<span class="text-tertiary font-label font-semibold tracking-widest uppercase text-xs mb-4 block">Driver Gateway</span>
+<h2 class="text-4xl md:text-5xl font-headline text-on-surface mb-6 hindi-text leading-tight font-bold">
+                                I am a Driver <br/><span class="text-tertiary">(मैं एक ड्राइवर हूँ)</span>
+</h2>
+<p class="text-lg text-on-surface-variant mb-12 max-w-sm leading-relaxed">
+                                Join India's most trusted network. Get paid on time, secure your family's future, and drive with pride.
+                            </p>
+<div class="space-y-4 mb-12">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="verified_user">verified_user</span>
+<span class="text-on-surface font-medium">50,000+ Verified Network</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-on-surface font-medium">Instant Settlements (INR)</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="bg-tertiary-container hover:bg-tertiary text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition-all transform hover:scale-[1.02]">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                                Join via WhatsApp
+                            </a>
+<a href="/driver-hub" class="border border-outline-variant hover:bg-surface-container text-on-surface px-8 py-4 rounded-xl font-medium transition-all inline-flex items-center justify-center">
+                                Learn More
+                            </a>
+</div>
+<!-- Driver Photo Sub-Card -->
+<div class="mt-12 flex items-center gap-4 bg-surface-container-low p-4 rounded-xl border border-outline-variant/10">
+<img alt="Professional Indian Driver" class="w-16 h-16 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="close up portrait of a smiling Indian truck driver in professional uniform standing near his vehicle, warm sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeG8C-wxZqeoEYOYDq8PP1cKXYGVyjb__lZ-mCQ5yfPIxHKmgcAGB3uv2LjNtcMzc4O3Q2lSokfSq3jzusPqS464Hy3TufjCY1K-9asCIuEa4e-AsuhDfBfr1DD5-yJCTcm0YKjStcv5lTut2cIvISRa1XvKmNJeV3hBAbf-bX33Trc_IukYtr5ogOQTLDX9dBohsZncjZpbY-2z1tiTY_EIMGJDvnqyzltcxov3EP-F3hBbplBiYcmDgbA3M9dKpbZKdh9RSn58HM"/>
+<div>
+<p class="text-sm font-bold text-on-surface">Rajesh Kumar</p>
+<p class="text-xs text-on-surface-variant">Fleet Member since 2021</p>
+</div>
+</div>
+</div>
+<!-- Path 2: Investor Entry -->
+<div class="bg-primary p-10 md:p-16 text-white relative flex flex-col justify-between overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-container opacity-50"></div>
+<div class="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+<svg class="w-full h-full fill-white" viewbox="0 0 100 100">
+<rect height="10" width="10" x="10" y="80"></rect>
+<rect height="30" width="10" x="30" y="60"></rect>
+<rect height="50" width="10" x="50" y="40"></rect>
+<rect height="70" width="10" x="70" y="20"></rect>
+<rect height="85" width="10" x="90" y="5"></rect>
+</svg>
+</div>
+<div class="relative z-10">
+<span class="text-on-primary-container font-label font-semibold tracking-widest uppercase text-xs mb-4 block">Institutional Gateway</span>
+<h2 class="text-4xl md:text-5xl font-headline mb-6 leading-tight font-bold">
+                                I am a Partner / Fleet Owner
+                            </h2>
+<p class="text-lg text-on-primary-container mb-12 max-w-sm leading-relaxed">
+                                Deploy capital at scale. Our technology-led curation provides unmatched visibility and risk-adjusted returns.
+                            </p>
+<div class="grid grid-cols-2 gap-8 mb-12">
+<div>
+<p class="text-4xl font-headline font-bold text-white mb-1">₹100Cr+</p>
+<p class="text-xs font-label uppercase tracking-widest text-on-primary-container">Portfolio Managed</p>
+</div>
+<div>
+<p class="text-4xl font-headline font-bold text-white mb-1">18.5%</p>
+<p class="text-xs font-label uppercase tracking-widest text-on-primary-container">Avg. Annual ROI</p>
+</div>
+</div>
+</div>
+<div class="relative z-10 flex flex-col sm:flex-row gap-4">
+<a href="/roi" class="bg-white text-primary hover:bg-on-primary-container px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition-all transform hover:scale-[1.02]">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                                View ROI Dashboard
+                            </a>
+<a href="/investor" class="bg-primary-container/40 hover:bg-primary-container/60 text-white border border-on-primary-container/20 px-8 py-4 rounded-xl font-medium transition-all backdrop-blur-sm inline-flex items-center justify-center">
+                                Investor Relations
+                            </a>
+</div>
+<!-- KPI Badge -->
+<div class="relative z-10 mt-12 inline-flex items-center gap-2 bg-on-primary-fixed/20 px-4 py-2 rounded-full self-start">
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></div>
+<span class="text-xs font-medium tracking-wide">Live Asset Tracking Active</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Bar -->
+<section class="py-16 bg-surface-container-low overflow-hidden">
+<div class="container mx-auto px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="flex flex-col md:flex-row items-center gap-6">
+<div class="flex -space-x-4">
+<img alt="Avatar" class="w-12 h-12 rounded-full border-2 border-surface" data-alt="professional male portrait avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8gpqE5dqdigeC5rsy2xjU9hiQhUJqskk3txzpNoyckNRMmtNMRE_sZqVntlkOWqwaNo01JB-aKbuVqO1tUsoeholmM9TAnuRZDDaogIOKE3vVJfGQWCNfiuoZg35ykabvlrPicmYptmMba08TCya4T49HQcJJG944YrNRlgbveZyj0pI8SvR98cIqPuLHs6HZ0NILrJZ5dOlXcqmHeE8ZJGFP-gh8E8lUDfg6gC9AUkXqMo1fo4X2xgFmgdhej7uYVz-8CZynTWxt"/>
+<img alt="Avatar" class="w-12 h-12 rounded-full border-2 border-surface" data-alt="professional female portrait avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFHJgiqlC5iXkYHhzEgWohl6LJWj0Zv6OYJLNfS4sf-N5OXv28j6DWhBHxJN03HuWWTvOe022MDJJyLW-fk9mCpjjVC2Aod2o-i2IynTK-B_pXQU2yg0xzNfU-6AfYUrQ4yNgnYxodWl_fsooOpCfxUbFSiHpIag9hfgQ9Xzw0OqtSxf-on-juY8NzngbjUVqmzSFjFwQ4ZTSP0ReqyKetli3O11Oz4GxD_F6OgR3baFnEydpEK-Le5h9HJfJee0mEEwOvKxg7oMHG"/>
+<img alt="Avatar" class="w-12 h-12 rounded-full border-2 border-surface" data-alt="professional male portrait avatar 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqvGYkGSbFk3ImDNsmKqIg2ilSxwzbl9QPUlCZCt45YWVvJnqOTQaRaLZWwQrWVbb5wlCXA--MpU8z442qPhgMLmpewSFCDs8XTR0UxHqrK6ntbN29aftTe95353XAMLrdJNNFiTo9FwTK8XD0PwpzVS_oTc_NDqtEAPzSDRP_cWyjmM-6H-q1LR9sKYZTUFwfdih-D6kCcX9ntsJvzPDoo7IcMm7mGlTAiXw6W9lcJQ7YaDIjrZG8ZS4dsq62XZy5NHXlbTyQx6vZ"/>
+<div class="w-12 h-12 rounded-full border-2 border-surface bg-primary text-white flex items-center justify-center text-xs font-bold">+50k</div>
+</div>
+<p class="text-on-surface-variant font-label text-sm uppercase tracking-widest">
+<span class="text-on-surface font-bold">50,000+ Verified Drivers</span> operating across 24 states
+                        </p>
+</div>
+<div class="flex gap-12 grayscale opacity-40 hover:opacity-100 transition-opacity">
+<!-- Simplified Logotypes for B2B appearance -->
+<div class="flex items-center gap-2 font-headline font-bold text-xl text-on-surface">
+<span class="material-symbols-outlined" data-icon="factory">factory</span> OEM PARTNERS
+                         </div>
+<div class="flex items-center gap-2 font-headline font-bold text-xl text-on-surface">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span> FISCAL CORP
+                         </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Content Block -->
+<section class="py-32 bg-surface">
+<div class="container mx-auto px-8">
+<div class="flex flex-col lg:flex-row gap-20 items-center">
+<div class="lg:w-1/2">
+<h3 class="text-4xl md:text-5xl font-headline text-on-surface mb-8 leading-tight font-bold">
+                            Managing the Logistics <br/>Value Chain with <span class="text-primary">Curated Precision.</span>
+</h3>
+<p class="text-lg text-on-surface-variant mb-10 leading-relaxed max-w-xl">
+                            Traditional logistics is fragmented. We solve this by introducing institutional-grade governance, predictive analytics, and a human-centric approach to driver welfare.
+                        </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="p-6 bg-surface-container-lowest rounded-xl border-l-4 border-primary">
+<h4 class="font-bold text-on-surface mb-2">Transparency</h4>
+<p class="text-sm text-on-surface-variant">Real-time ledger access for every ₹ invested.</p>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-xl border-l-4 border-tertiary">
+<h4 class="font-bold text-on-surface mb-2">Social Impact</h4>
+<p class="text-sm text-on-surface-variant">Improving driver livelihoods by 40% year-on-year.</p>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 relative">
+<div class="aspect-[4/3] rounded-2xl overflow-hidden editorial-shadow">
+<img alt="Logistics Center" class="w-full h-full object-cover" data-alt="high angle view of a clean, modern warehouse interior with organized shelving and soft industrial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkbmIsv_zQSTu0OPDXARQCL1Mxq5QkZ-j_wo4ekIl8ftUgrbGFetQkEI7796MZPJUw48Bh8oqDuPtg30sv7PdrRsziFlEEilncw_3VfNvJxdROC82c-I4s0yA3OMoqXMDhQ3ALMX-eiFct1_3g6T3320dk7v81Wdb3enXV8Kw22oT6BpzYVN0coCnNpEJNwQu-bsI5U-NJlPMEYBwmQIlDFhSwjFuQJXES8WAryB6ePWKOrIdumlR5AZao9aY02rMKEzlIQ1W7lQEs"/>
+</div>
+<div class="absolute -bottom-10 -left-10 bg-white p-8 rounded-xl editorial-shadow max-w-xs hidden md:block border border-outline-variant/10">
+<p class="text-primary font-headline text-4xl font-bold mb-2">99.8%</p>
+<p class="text-sm font-label text-on-surface-variant uppercase tracking-tighter">On-Time Delivery Performance</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#F8F9FA] dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 px-12 py-16 w-full max-w-screen-2xl mx-auto">
+<div class="space-y-6">
+<p class="font-serif font-bold text-lg text-[#274680] dark:text-blue-400">TruckMitr</p>
+<p class="text-[#191C1D]/60 dark:text-slate-500 text-sm leading-relaxed">
+                    Elevating logistics to institutional standards. Driven by technology, anchored in trust.
+                </p>
+</div>
+<div>
+<h5 class="font-bold text-on-surface mb-6 text-sm uppercase tracking-widest">Network</h5>
+<ul class="space-y-4">
+<li><a class="text-[#191C1D]/60 dark:text-slate-500 hover:text-[#274680] dark:hover:text-blue-400 transition-colors text-sm" href="/fleet">Fleet Network</a></li>
+<li><a class="text-[#191C1D]/60 dark:text-slate-500 hover:text-[#274680] dark:hover:text-blue-400 transition-colors text-sm" href="/driver-hub">Driver Hub</a></li>
+<li><a class="text-[#191C1D]/60 dark:text-slate-500 hover:text-[#274680] dark:hover:text-blue-400 transition-colors text-sm" href="/oem-partner">Partner Portal</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-on-surface mb-6 text-sm uppercase tracking-widest">Company</h5>
+<ul class="space-y-4">
+<li><a class="text-[#191C1D]/60 dark:text-slate-500 hover:text-[#274680] dark:hover:text-blue-400 transition-colors text-sm" href="/investor">Investor Relations</a></li>
+<li><a class="text-[#191C1D]/60 dark:text-slate-500 hover:text-[#274680] dark:hover:text-blue-400 transition-colors text-sm" href="/mission">Sustainability</a></li>
+<li><a class="text-[#191C1D]/60 dark:text-slate-500 hover:text-[#274680] dark:hover:text-blue-400 transition-colors text-sm" href="/welfare">Support</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-on-surface mb-6 text-sm uppercase tracking-widest">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-[#191C1D]/60 dark:text-slate-500 hover:text-[#274680] dark:hover:text-blue-400 transition-colors text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-[#191C1D]/60 dark:text-slate-500 hover:text-[#274680] dark:hover:text-blue-400 transition-colors text-sm" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-slate-200/50 dark:border-slate-800/50 max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-sans text-sm tracking-wide text-[#191C1D]/60 dark:text-slate-500">
+                © 2024 TruckMitr Logistics. All figures in ₹ (INR). Premium Institutional Grade.
+            </p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="language">language</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="share">share</span>
+</div>
+</div>
+</footer>
+</body></html>

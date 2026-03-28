@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TruckMitr | Industrial Insights &amp; Logistics Strategy</title>
+<!-- Fonts: Noto Serif (Headline), Inter (Body), Work Sans (Labels) -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Inter:wght@400;500;600&amp;family=Work+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#afc6ff",
+              "error": "#ba1a1a",
+              "surface-container-low": "#f3f4f5",
+              "surface-bright": "#f8f9fa",
+              "primary": "#274680",
+              "on-primary-fixed-variant": "#264580",
+              "secondary-container": "#d7e2ff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#9bee94",
+              "primary-fixed": "#d9e2ff",
+              "tertiary-fixed": "#a3f69c",
+              "surface-container": "#edeeef",
+              "on-secondary-fixed-variant": "#3c475d",
+              "on-tertiary-fixed-variant": "#005312",
+              "surface-container-highest": "#e1e3e4",
+              "outline-variant": "#c4c6d1",
+              "tertiary-fixed-dim": "#88d982",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#415e9a",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d9dadb",
+              "on-secondary-container": "#5a647c",
+              "on-tertiary-fixed": "#002204",
+              "on-primary-fixed": "#001a43",
+              "on-background": "#191c1d",
+              "surface-tint": "#405d99",
+              "secondary-fixed": "#d7e2ff",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "surface": "#f8f9fa",
+              "outline": "#747781",
+              "inverse-primary": "#afc6ff",
+              "secondary-fixed-dim": "#bbc6e2",
+              "on-surface-variant": "#444750",
+              "on-primary-container": "#ccd9ff",
+              "on-secondary-fixed": "#101b30",
+              "on-error": "#ffffff",
+              "tertiary-container": "#1d6e25",
+              "surface-variant": "#e1e3e4",
+              "inverse-surface": "#2e3132",
+              "background": "#f8f9fa",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary": "#005412",
+              "on-surface": "#191c1d",
+              "surface-container-high": "#e7e8e9",
+              "secondary": "#545e76"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .headline-font { font-family: 'Noto Serif', serif; }
+        .label-font { font-family: 'Work Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-md fixed top-0 w-full z-50 border-b border-slate-200/15 dark:border-slate-800/15">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-blue-900 dark:text-blue-100 headline-font">TruckMitr</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-blue-900 dark:text-white font-semibold border-b-2 border-blue-900 dark:border-blue-400 pb-1 label-font text-sm" href="#">Insights</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors label-font text-sm" href="#">Mission</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors label-font text-sm" href="#">Resources</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors label-font text-sm" href="#">Driver Hub</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors label-font text-sm" href="#">Partner Portal</a>
+</div>
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="language">language</span>
+<button class="md:hidden material-symbols-outlined text-primary" data-icon="menu">menu</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section / Editorial Header -->
+<header class="pt-32 pb-16 px-8 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+<div class="lg:col-span-8">
+<span class="label-font uppercase tracking-widest text-xs font-semibold text-primary mb-4 block">Industrial Intelligence</span>
+<h1 class="headline-font text-5xl md:text-7xl font-bold tracking-tight text-on-surface leading-tight">
+                    The TruckMitr: <br/>
+<span class="italic font-normal">Data-Driven Strategic Reports</span>
+</h1>
+</div>
+<div class="lg:col-span-4 border-l-2 border-primary/10 pl-8 hidden lg:block">
+<p class="body-font text-on-surface-variant text-lg leading-relaxed">
+                    Exclusive logistics insights designed for ₹100+ Cr B2B enterprises. Navigate high-stakes investment landscapes with precision.
+                </p>
+</div>
+</div>
+</header>
+<!-- Filter Bar / Categories -->
+<section class="px-8 pb-12 max-w-screen-2xl mx-auto">
+<div class="flex flex-wrap gap-3 items-center">
+<span class="label-font text-xs font-bold uppercase text-outline mr-4">Filter By:</span>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-md text-sm label-font font-medium transition-all active:opacity-80">All Insights</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest rounded-md text-sm label-font font-medium transition-all">Logistics Strategy</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest rounded-md text-sm label-font font-medium transition-all">Human Capital</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest rounded-md text-sm label-font font-medium transition-all">Technology</button>
+</div>
+</section>
+<!-- Main Content: Merged Bento Grid -->
+<main class="px-8 pb-24 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-8">
+<!-- Featured Report (Large/Spanning) -->
+<article class="md:col-span-6 lg:col-span-8 group cursor-pointer bg-surface-container-lowest overflow-hidden rounded-xl border border-outline-variant/15 flex flex-col lg:flex-row">
+<div class="lg:w-1/2 overflow-hidden h-80 lg:h-auto">
+<img alt="Logistics Port" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Cinematic aerial view of a busy container terminal at dawn with soft golden light reflecting off steel cranes and sea" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEcVrNBh_U5tHGmF2WNeLGJNEIOFGS88mf_vdVpDvp2xtuvmsVTy5XzhsheB3y8HxsU3qr65v7cdApZjL4xGq8GrbfhE6NrU9oX87RVxNXcMxBEPySxtVn-5h5m6D6T32fVs7LmJ5vdrc95Zcmi_BgxsfE0l0yhdTjUKL6GL04onBVF6FOXciaNMCV3bfDRaPj_GvKog9VpMkj4wj2mAyB315x24Li02N6sBcET6ysIxJWoBmAfDvbUvUctGTOSMMgsOVNFyBozA8C"/>
+</div>
+<div class="lg:w-1/2 p-10 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] uppercase font-bold tracking-widest label-font rounded">Strategy</span>
+<span class="text-xs text-outline label-font">24 Min Read</span>
+</div>
+<h2 class="headline-font text-3xl font-bold mb-4 group-hover:text-primary transition-colors">The 2024 Logistics Corridor Re-alignment Report</h2>
+<p class="body-font text-on-surface-variant leading-relaxed">
+                            An in-depth analysis of how shifting trade routes in South-East Asia are impacting domestic fleet requirements and infrastructure investment.
+                        </p>
+</div>
+<div class="mt-8 pt-8 border-t border-surface-container-highest flex items-center justify-between">
+<span class="label-font text-sm font-semibold text-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-2">
+                            Download Full Report <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</span>
+<span class="material-symbols-outlined text-outline" data-icon="lock_open">lock_open</span>
+</div>
+</div>
+</article>
+<!-- Human Capital Report (Vertical) -->
+<article class="md:col-span-3 lg:col-span-4 group cursor-pointer bg-surface-container-lowest overflow-hidden rounded-xl border border-outline-variant/15 flex flex-col">
+<div class="h-64 overflow-hidden">
+<img alt="Team in warehouse" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern logistics team collaborating in a high-tech warehouse environment with soft ambient overhead lighting and clean industrial aesthetics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdyCdzaE7uQyMtpx8e0dr27ojLM4LbJbGIGdgFjTpz4dCHZ70iHLgPZGZ4AIGAqvI1n759Z-Eci2j0B73_ptGafM0UEe0DHDt_nm_f_28fO6c2X2K039Mp9rWzqiMLtMfJOoO8Zf5SkBCqsoOePObdV52x4XD8inroLTIZeUrnAJL3o0mKxytd2C0J7YLRmUDdF6iG7aKRByvu0ZKrHjMnYASTIw8KYa7TIwItW1rc8X7WQ40U0s4vpICvSJiK_CpffjZ_T9tIic6N"/>
+</div>
+<div class="p-8 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-3 mb-4">
+<span class="px-3 py-1 bg-tertiary/10 text-tertiary text-[10px] uppercase font-bold tracking-widest label-font rounded">Human Capital</span>
+</div>
+<h3 class="headline-font text-xl font-bold mb-3 group-hover:text-primary transition-colors">Bridging the Skill Gap in Tier-2 Hubs</h3>
+<p class="body-font text-sm text-on-surface-variant">Training the next generation of fleet managers for autonomous-assist technologies.</p>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<span class="label-font text-xs font-semibold uppercase tracking-tighter text-outline">Q2 2024 Insight</span>
+<span class="material-symbols-outlined text-primary" data-icon="bookmark">bookmark</span>
+</div>
+</div>
+</article>
+<!-- Tech Card 1 -->
+<article class="md:col-span-3 lg:col-span-4 group cursor-pointer bg-surface-container-lowest overflow-hidden rounded-xl border border-outline-variant/15">
+<div class="p-8 h-full flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] uppercase font-bold tracking-widest label-font rounded">Technology</span>
+</div>
+<h3 class="headline-font text-2xl font-bold mb-4">IoT Integration: Real-time Asset Valuation</h3>
+<p class="body-font text-sm text-on-surface-variant leading-relaxed mb-6">How telemetry is transforming the way investors value rolling stock assets in volatile markets.</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="data_exploration" style="font-variation-settings: 'FILL' 1;">data_exploration</span>
+<div>
+<div class="text-xs label-font text-outline uppercase font-bold">Projected Yield</div>
+<div class="text-lg font-bold text-tertiary">+14.2% ROI</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Tech Card 2 (Image Focus) -->
+<article class="md:col-span-6 lg:col-span-8 group cursor-pointer relative overflow-hidden rounded-xl h-96">
+<img alt="Microchip" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="Extreme close-up of a high-end computer processor with glowing circuits and futuristic cool blue and amber light trails" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2HISAs9aJdIRLpXT3wqNOMzxXGLTzS9guJhLaSbCgjIQN6psMOFngA1NGQsg3PTWJOsEng4Vb55D6vJWdMYBUT-iNYwQJSByQGmov8VhGLS8X5LPSgGZA1HbK9mXTasTV4XA4okLA3JXVlVqYsU7eBh1CeQu-JrHQx4Ypf8zqeHNe-pLnIKBoa0a20pxneZwLWUJIOJnkj7690uQcorJSiYE5tkuIFLmf0zNhkVL6wLl3FNaFPfCQUYC0YoLpH3j3ef0dAo_n2hsK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-10 w-full lg:w-2/3">
+<span class="px-3 py-1 bg-white/20 backdrop-blur-md text-white text-[10px] uppercase font-bold tracking-widest label-font rounded mb-4 inline-block">Future Tech</span>
+<h2 class="headline-font text-3xl font-bold text-white mb-4">Blockchain in the Supply Chain: A Hard Reset</h2>
+<p class="body-font text-white/80 text-lg">Debunking the hype—what actually works for cross-border documentation in 2024.</p>
+</div>
+<div class="absolute top-6 right-6">
+<button class="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20 hover:bg-white/20 transition-all">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</article>
+</div>
+</main>
+<!-- Investor Newsletter CTA -->
+<section class="bg-primary text-on-primary py-20 px-8">
+<div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+<div class="lg:w-1/2">
+<h2 class="headline-font text-4xl font-bold mb-6">Subscribe to the Industrial Intelligence Digest.</h2>
+<p class="body-font text-primary-fixed-dim text-lg leading-relaxed max-w-xl">
+                    Join 5,000+ logistics executives and institutional investors. Bi-weekly research delivered straight to your terminal.
+                </p>
+</div>
+<div class="lg:w-1/2 w-full">
+<form class="flex flex-col md:flex-row gap-4">
+<input class="flex-1 bg-white/10 border border-white/20 rounded-md px-6 py-4 text-white placeholder:text-white/40 focus:ring-2 focus:ring-white/30 focus:border-transparent outline-none body-font" placeholder="professional@enterprise.com" type="email"/>
+<button class="bg-white text-primary px-8 py-4 rounded-md font-bold label-font uppercase tracking-widest hover:bg-blue-50 transition-colors">Join Now</button>
+</form>
+<p class="text-[10px] text-white/50 mt-4 label-font">WE RESPECT YOUR PRIVACY. NO SPAM, JUST SUBSTANCE.</p>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-100 dark:bg-slate-950 w-full border-t border-slate-200 dark:border-slate-800">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 px-8 py-12 max-w-screen-2xl mx-auto">
+<div class="col-span-2 lg:col-span-1">
+<div class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 mb-4">TruckMitr</div>
+<p class="text-sm text-slate-500 font-body leading-relaxed max-w-xs">An TruckMitr Enterprise specializing in logistics infrastructure and strategic data.</p>
+</div>
+<div>
+<h4 class="label-font uppercase tracking-widest text-xs font-bold text-slate-900 dark:text-white mb-6">Ecosystem</h4>
+<ul class="space-y-3">
+<li><a class="text-sm text-slate-500 hover:text-slate-900 hover:translate-x-1 transition-all duration-200 block" href="#">Fleet Selection</a></li>
+<li><a class="text-sm text-slate-500 hover:text-slate-900 hover:translate-x-1 transition-all duration-200 block" href="#">Network Map</a></li>
+<li><a class="text-sm text-slate-500 hover:text-slate-900 hover:translate-x-1 transition-all duration-200 block" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h4 class="label-font uppercase tracking-widest text-xs font-bold text-slate-900 dark:text-white mb-6">Corporate</h4>
+<ul class="space-y-3">
+<li><a class="text-sm text-slate-500 hover:text-slate-900 hover:translate-x-1 transition-all duration-200 block" href="#">About Us</a></li>
+<li><a class="text-sm text-slate-500 hover:text-slate-900 hover:translate-x-1 transition-all duration-200 block" href="#">Investment Relations</a></li>
+<li><a class="text-sm text-slate-500 hover:text-slate-900 hover:translate-x-1 transition-all duration-200 block" href="#">Partner Terms</a></li>
+</ul>
+</div>
+<div>
+<h4 class="label-font uppercase tracking-widest text-xs font-bold text-slate-900 dark:text-white mb-6">Support</h4>
+<ul class="space-y-3">
+<li><a class="text-sm text-slate-500 hover:text-slate-900 hover:translate-x-1 transition-all duration-200 block" href="#">Contact Support</a></li>
+<li><a class="text-sm text-slate-500 hover:text-slate-900 hover:translate-x-1 transition-all duration-200 block" href="#">Hindi Resources</a></li>
+<li><a class="text-sm text-slate-500 hover:text-slate-900 hover:translate-x-1 transition-all duration-200 block" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col-span-2 lg:col-span-1 flex flex-col items-start lg:items-end">
+<h4 class="label-font uppercase tracking-widest text-xs font-bold text-slate-900 dark:text-white mb-6">Social</h4>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary" data-icon="share">share</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary" data-icon="public">public</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary" data-icon="hub">hub</span>
+</div>
+</div>
+</div>
+<div class="px-8 py-6 border-t border-slate-200/50 dark:border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-4 max-w-screen-2xl mx-auto">
+<p class="text-xs text-slate-400 uppercase tracking-widest label-font">© 2024 TruckMitr Logistics. An TruckMitr Enterprise.</p>
+<div class="flex gap-6">
+<span class="text-[10px] text-slate-400 uppercase tracking-widest label-font">Designed for Excellence</span>
+<span class="text-[10px] text-slate-400 uppercase tracking-widest label-font">Data Integrity Verified</span>
+</div>
+</div>
+</footer>
+</body></html>

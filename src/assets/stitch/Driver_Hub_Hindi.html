@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="hi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TruckMitr - ट्रकमित्र</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Inter:wght@400;500;600&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "tertiary-fixed-dim": "#88d982",
+                "secondary-fixed": "#d7e2ff",
+                "primary-container": "#415e9a",
+                "outline": "#747781",
+                "on-secondary": "#ffffff",
+                "on-secondary-fixed-variant": "#3c475d",
+                "on-tertiary-fixed": "#002204",
+                "on-primary-fixed": "#001a43",
+                "inverse-surface": "#2e3132",
+                "outline-variant": "#c4c6d1",
+                "background": "#f8f9fa",
+                "error": "#ba1a1a",
+                "on-secondary-container": "#5a647c",
+                "surface-variant": "#e1e3e4",
+                "inverse-primary": "#afc6ff",
+                "on-surface": "#191c1d",
+                "surface-tint": "#405d99",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary-container": "#9bee94",
+                "on-error": "#ffffff",
+                "primary": "#274680",
+                "on-surface-variant": "#444750",
+                "surface-dim": "#d9dadb",
+                "secondary-fixed-dim": "#bbc6e2",
+                "on-error-container": "#93000a",
+                "surface-container-highest": "#e1e3e4",
+                "on-primary": "#ffffff",
+                "inverse-on-surface": "#f0f1f2",
+                "secondary-container": "#d7e2ff",
+                "error-container": "#ffdad6",
+                "primary-fixed": "#d9e2ff",
+                "tertiary-container": "#1d6e25",
+                "surface-container-high": "#e7e8e9",
+                "surface": "#f8f9fa",
+                "on-tertiary": "#ffffff",
+                "on-tertiary-fixed-variant": "#005312",
+                "on-secondary-fixed": "#101b30",
+                "on-primary-container": "#ccd9ff",
+                "secondary": "#545e76",
+                "on-background": "#191c1d",
+                "tertiary": "#005412",
+                "on-primary-fixed-variant": "#264580",
+                "surface-bright": "#f8f9fa",
+                "primary-fixed-dim": "#afc6ff",
+                "tertiary-fixed": "#a3f69c",
+                "surface-container-low": "#f3f4f5",
+                "surface-container": "#edeeef"
+              },
+              fontFamily: {
+                "headline": ["Noto Serif"],
+                "body": ["Inter"],
+                "label": ["Work Sans"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    display: inline-block;
+    line-height: 1
+    }
+.bg-noise {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBg7rdAGaNhSa800LwkLbBkCM1JXQdnPqu4u5tytpX9POO2PgsdUTdRwSmuXR0f0JOKGmXQCbw7d7nJflsXpRFt_UNdr22RNZy3B_BzEBFP1ufzWNwdFUtYXjVArM-NU0c8f8dGJ8UhYKBB2kVLnbJ4O-4LmcdqMY2wesYXnN7wuAb1a9559OBbPYEc5M9krMULzXhx2Z2Y53eYZ2c8ChqAzVxLKhEIEb6pPOBvAu7QjUoLMfAYpTaUoJGqeztXxrD5SGj9Rja1J6AT);
+    opacity: 0.03
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50">
+<div class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto">
+<div class="font-['Noto_Serif'] text-2xl font-black text-[#274680] dark:text-blue-400 tracking-tighter">TruckMitr</div>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-[#274680] dark:text-blue-300 border-b-2 border-[#274680] pb-1 font-bold" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#274680] transition-colors" href="#">Fleet</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#274680] transition-colors" href="#">Analytics</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#274680] transition-colors" href="#">Hindi</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined text-slate-600">translate</span>
+</button>
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined text-slate-600">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined text-slate-600">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[751px] flex items-center overflow-hidden bg-surface">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover object-center opacity-40 mix-blend-multiply" data-alt="A professional Indian truck driver smiling warmly next to his clean commercial vehicle, bright natural daylight, cinematic and trustworthy atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANa1K7Vh-cd20xsc-JVJA5jp_E7savd-9xHDtjaMprwIH24EmRJdpxHPV5wdds0YJJspD3C8F3qRQW_TvfIP6h_0vr8Pt9_hOxH8ZaHAZPkS6BZz20ckmFJ-appnRJE1U5EZXh7ZwQm0GCmykOIHgN2TnTUJcdFhlTzVTVOlvMCChEyeaBhcBx_tVbrRgPD98my6osX26N5f7lL-dRJIjWIVhDlHSsc6HY1s5TGjlKng8jfvHt7MERCfr9W1CBk8ZXDwZUoMrAKTWk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent"></div>
+</div>
+<div class="container mx-auto px-6 relative z-10 py-20">
+<div class="max-w-2xl">
+<span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant font-label font-medium text-sm mb-6 tracking-wide">भरोसेमंद साथी</span>
+<h1 class="font-headline font-black text-4xl md:text-6xl text-primary leading-tight mb-8">
+                        ट्रकमित्र के साथ अपनी <span class="text-tertiary">कमाई</span> और <span class="text-tertiary">सम्मान</span> बढ़ाएं
+                    </h1>
+<p class="font-body text-lg text-on-surface-variant mb-10 leading-relaxed max-w-lg">
+                        भारत के 50,000+ ड्राइवरों के साथ जुड़ें और अपनी तरक्की का रास्ता चुनें।
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex items-center justify-center gap-3 bg-tertiary text-on-tertiary px-8 py-5 rounded-full font-bold text-xl shadow-lg hover:brightness-110 active:scale-[0.98] transition-all group" href="https://wa.me/yournumber">
+<span class="material-symbols-outlined text-3xl" data-weight="fill">chat</span>
+                            WhatsApp पर जुड़ें
+                        </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Bar -->
+<section class="bg-surface-container-low py-8 border-y border-outline-variant/10">
+<div class="container mx-auto px-6">
+<div class="flex flex-wrap items-center justify-center gap-8 md:gap-16">
+<div class="flex items-center gap-4">
+<div class="flex -space-x-3">
+<img class="w-12 h-12 rounded-full border-2 border-surface-container-lowest object-cover" data-alt="Close up portrait of a smiling Indian man with a professional look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcx61KgDM8ShjJyrx-CeUHMosGm9tK_BoA3RrPZVthuLtGkvYsY0-XKeggiTmRiNyvuIl5FsGkrYFOeL3hy1Z4IstygkK-1nY5Obj-hJDc18Z0uo59x1Ej0pSZoaBMK1jsHaSpvRR82Kv_r1dU639X36RePoiql1Olxawa3_ElKd0VvLewSN5lQ--JPFEK_09GB0ORS8P9Mc0eFsQXDtA8FNq1SUpomIGyB3nivFmdTEcMvBNTkNxVdcjalZqLfJHKB-pMIIbdzbS8"/>
+<img class="w-12 h-12 rounded-full border-2 border-surface-container-lowest object-cover" data-alt="Close up portrait of a cheerful middle-aged Indian truck driver" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQHRvIgwgGHS5De6TJ9SXJbmpx9oSmSWmNjXu8YFBQT_AbSaknmmSP-jvA0qfRH0yhWd7ldGqhE0AYTYfuj4AnuaK0iLhC3LT-DaLQdRrFEj1wx8v1ctiCLIBGazZlFzwYqlTAuysO77K5cQWIgysFTXSi0so0zl-LdjRPExEncPN5821ufqJG4YWtswA2wVBOkUDD_Ou8jeDzr6ZPq7cs125eucoxajzwrQG7ljOiTyEAIrgahfTmwWPh3o_a8akjybNNq3mM3VXG"/>
+<img class="w-12 h-12 rounded-full border-2 border-surface-container-lowest object-cover" data-alt="Headshot of a happy professional Indian worker" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3wdFxrjNSH7efULViRqGWtVZaWEPlhpslYeP7F9iEZ2X7oItrf3HzcCOHkW9jtAEgLBltkmDw3f20VKGxnZtUXpe5bXauUciJMthmvlxUgUL6YJQD9tXVbaRhF1Qu8iYg9_cLFvU1_ZA9EzyGQg7QtI0r-WPBemc4tKIIu1aV4mdn77fxiMD8Nj0JNJNCvA_ES2eQdr64djVtejijwTi4Jup5nIWVaOdUUsHFPed4LuNMHqjwLhY5wiAt0m3kjveNR0lAJdayea07"/>
+</div>
+<p class="font-label font-semibold text-primary text-lg">50,000+ ड्राइवर हमारे साथ जुड़े हैं</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Bento Grid -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="container mx-auto px-6">
+<div class="mb-16 text-center">
+<h2 class="font-headline font-bold text-3xl md:text-4xl text-on-surface mb-4">हमारी सेवाएं</h2>
+<div class="h-1.5 w-24 bg-tertiary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Tile 1 -->
+<div class="group p-8 bg-surface-container-low rounded-xl hover:bg-primary-container transition-all duration-300 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary-fixed">
+<span class="material-symbols-outlined text-primary text-3xl">work</span>
+</div>
+<h3 class="font-headline font-bold text-xl mb-3 group-hover:text-on-primary">नौकरी ढूंढें</h3>
+<p class="font-body text-sm text-on-surface-variant group-hover:text-on-primary-container leading-relaxed">अपनी पसंद और रूट के अनुसार बेहतरीन काम पाएं।</p>
+</div>
+<!-- Tile 2 -->
+<div class="group p-8 bg-surface-container-low rounded-xl hover:bg-primary-container transition-all duration-300 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary-fixed">
+<span class="material-symbols-outlined text-primary text-3xl">health_and_safety</span>
+</div>
+<h3 class="font-headline font-bold text-xl mb-3 group-hover:text-on-primary">सेहत और कल्याण</h3>
+<p class="font-body text-sm text-on-surface-variant group-hover:text-on-primary-container leading-relaxed">स्वास्थ्य बीमा और समय-समय पर चेकअप की सुविधा।</p>
+</div>
+<!-- Tile 3 -->
+<div class="group p-8 bg-surface-container-low rounded-xl hover:bg-primary-container transition-all duration-300 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary-fixed">
+<span class="material-symbols-outlined text-primary text-3xl">emoji_events</span>
+</div>
+<h3 class="font-headline font-bold text-xl mb-3 group-hover:text-on-primary">ईनाम जीतें</h3>
+<p class="font-body text-sm text-on-surface-variant group-hover:text-on-primary-container leading-relaxed">अच्छे काम के लिए पॉइंट्स और खास डिस्काउंट पाएं।</p>
+</div>
+<!-- Tile 4 -->
+<div class="group p-8 bg-surface-container-low rounded-xl hover:bg-primary-container transition-all duration-300 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary-fixed">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+</div>
+<h3 class="font-headline font-bold text-xl mb-3 group-hover:text-on-primary">सीखें और आगे बढ़ें</h3>
+<p class="font-body text-sm text-on-surface-variant group-hover:text-on-primary-container leading-relaxed">नए नियम और ड्राइविंग कौशल सीखें।</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="relative py-20 bg-primary overflow-hidden">
+<div class="absolute inset-0 bg-noise pointer-events-none"></div>
+<div class="container mx-auto px-6 relative z-10 text-center">
+<h2 class="font-headline font-bold text-3xl md:text-5xl text-on-primary mb-8 leading-tight">क्या आप तैयार हैं?</h2>
+<p class="text-on-primary-container font-body text-lg mb-12 max-w-xl mx-auto">आज ही भारत के सबसे बड़े ड्राइवर कम्युनिटी का हिस्सा बनें।</p>
+<div class="flex flex-col items-center gap-4">
+<a class="w-full max-w-md flex items-center justify-center gap-4 bg-[#25D366] text-white px-10 py-6 rounded-full font-bold text-2xl shadow-2xl hover:scale-105 active:scale-95 transition-all" href="https://wa.me/yournumber">
+<span class="material-symbols-outlined text-4xl" data-weight="fill">chat</span>
+                        WhatsApp पर जुड़ें
+                    </a>
+<span class="text-on-primary-container font-label text-sm uppercase tracking-widest opacity-80 mt-4">निःशुल्क और सुरक्षित</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 mt-0 bg-slate-50 dark:bg-slate-950">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-8 py-12 max-w-7xl mx-auto">
+<div>
+<div class="font-['Noto_Serif'] text-xl font-bold text-slate-900 dark:text-slate-100 mb-4">TruckMitr</div>
+<p class="font-['Inter'] text-sm leading-relaxed text-slate-500 dark:text-slate-400 max-w-sm">
+                    © 2024 TruckMitr Logistics. Investor Relations Platform.
+                </p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end items-start">
+<a class="font-['Inter'] text-sm text-slate-500 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-sm text-slate-500 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-sm text-slate-500 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors" href="#">Fleet Support</a>
+<a class="font-['Inter'] text-sm text-slate-500 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors" href="#">Investor Relations</a>
+<a class="font-['Inter'] text-sm text-slate-500 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300 transition-colors" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+</body></html>

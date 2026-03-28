@@ -1,0 +1,6 @@
+.headline-font { font-family: 'Noto Serif', serif; }
+.body-font { font-family: 'Inter', sans-serif; }
+.label-font, .label-text, .label-sans { font-family: 'Work Sans', sans-serif; }
+.section-padding { padding-top: 6rem; padding-bottom: 6rem; padding-left: 2rem; padding-right: 2rem; }
+.container-wide { max-width: 1536px; margin-left: auto; margin-right: auto; }
+.container-narrow { max-width: 80rem; margin-left: auto; margin-right: auto; }

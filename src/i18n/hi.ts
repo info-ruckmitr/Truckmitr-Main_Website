@@ -1,0 +1,30 @@
+export const hi = {
+  nav: {
+    insights: 'जानकारी',
+    mission: 'मिशन',
+    resources: 'संसाधन',
+    driverHub: 'ड्राइवर हब',
+    partnerPortal: 'पार्टनर पोर्टल',
+    login: 'लॉगिन',
+    contactUs: 'संपर्क करें',
+  },
+  home: {
+    badge: 'संस्थागत श्रेणी लॉजिस्टिक्स',
+    headline: 'भविष्य की क्यूरेटिंग',
+    headlineAccent: 'औद्योगिक गतिशीलता।',
+    subtitle: '50,000+ सत्यापित ड्राइवरों और उच्च-उपज संस्थागत पूंजी के बीच की खाई को पाटना।',
+    driverGateway: 'ड्राइवर गेटवे',
+    driverHeading: 'मैं एक ड्राइवर हूँ',
+    partnerHeading: 'मैं एक पार्टनर / फ्लीट ओनर हूँ',
+    joinWhatsApp: 'WhatsApp पर जुड़ें',
+    learnMore: 'और जानें',
+    viewROI: 'ROI डैशबोर्ड देखें',
+    investorRelations: 'निवेशक संबंध',
+  },
+  footer: {
+    copyright: '© 2024 इंडस्ट्रियल क्यूरेटर लॉजिस्टिक्स। सभी आंकड़े ₹ (INR) में।',
+    network: 'नेटवर्क',
+    company: 'कंपनी',
+    legal: 'कानूनी',
+  },
+} as const;

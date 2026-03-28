@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TruckMitr | The TruckMitr of Logistics Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Inter:wght@300;400;500;600&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error": "#ba1a1a",
+              "primary-container": "#415e9a",
+              "surface-container": "#edeeef",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary-fixed-dim": "#88d982",
+              "on-secondary": "#ffffff",
+              "inverse-primary": "#afc6ff",
+              "surface-dim": "#d9dadb",
+              "error-container": "#ffdad6",
+              "secondary-container": "#d7e2ff",
+              "secondary-fixed": "#d7e2ff",
+              "on-tertiary-fixed": "#002204",
+              "inverse-surface": "#2e3132",
+              "on-primary-fixed-variant": "#264580",
+              "on-surface": "#191c1d",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed": "#101b30",
+              "surface-container-low": "#f3f4f5",
+              "on-error": "#ffffff",
+              "surface-container-high": "#e7e8e9",
+              "tertiary-fixed": "#a3f69c",
+              "secondary-fixed-dim": "#bbc6e2",
+              "primary-fixed-dim": "#afc6ff",
+              "on-secondary-container": "#5a647c",
+              "secondary": "#545e76",
+              "background": "#f8f9fa",
+              "surface-container-highest": "#e1e3e4",
+              "on-tertiary-fixed-variant": "#005312",
+              "on-primary-fixed": "#001a43",
+              "on-primary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#444750",
+              "surface-variant": "#e1e3e4",
+              "on-primary-container": "#ccd9ff",
+              "outline": "#747781",
+              "surface-bright": "#f8f9fa",
+              "on-error-container": "#93000a",
+              "surface": "#f8f9fa",
+              "tertiary": "#005412",
+              "primary-fixed": "#d9e2ff",
+              "on-tertiary-container": "#9bee94",
+              "surface-tint": "#405d99",
+              "tertiary-container": "#1d6e25",
+              "on-secondary-fixed-variant": "#3c475d",
+              "outline-variant": "#c4c6d1",
+              "on-background": "#191c1d",
+              "primary": "#274680"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grainy-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container overflow-x-hidden">
+<div class="grainy-bg fixed inset-0 z-[100]"></div>
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#F8F9FA]/70 dark:bg-[#191C1D]/70 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="font-['Noto_Serif'] text-2xl font-black text-[#274680] dark:text-[#D1E1FF]">
+                TruckMitr
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#274680] transition-colors duration-300 font-['Noto_Serif'] font-bold tracking-tight text-lg" href="#">Insights</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#274680] transition-colors duration-300 font-['Noto_Serif'] font-bold tracking-tight text-lg" href="#">Mission</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#274680] transition-colors duration-300 font-['Noto_Serif'] font-bold tracking-tight text-lg" href="#">Resources</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#274680] transition-colors duration-300 font-['Noto_Serif'] font-bold tracking-tight text-lg" href="#">Driver Hub</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-[#274680] transition-colors duration-300 font-['Noto_Serif'] font-bold tracking-tight text-lg" href="#">Partner Portal</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#274680] font-semibold text-sm hover:scale-95 duration-150">Language</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-xl text-sm font-semibold hover:scale-95 duration-150">Login</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10"></div>
+<img alt="Professional truck driver at sunset" class="w-full h-full object-cover grayscale opacity-40 mix-blend-multiply" data-alt="dramatic wide shot of a powerful modern semi-truck on a long highway during golden hour with cinematic lighting and deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGqIMu_B9iiSpztsoePBCGZUGw2XcXRNMEmzNQMRp0Y6PZQw3MpQguNQ5sOBsrJH8R1IflVFsa4T0jz4vrmXssR2pypD1TTK3fsJ6qb9kjIiE_6N_bwKNkk8u1jZq-Jx1W4CdUtd5CB6N-XVxUVgAfLzl-KP04ylVQ2OFNW_-N7rnvCrfjbKc5sQ1UknISFhiFd_OvI04JOtPgxpmrJiXta2o0BXvan0Y1KmvPVXg1L62ISlk0Rz0Koh2fA-R-yKOqpdU9mu1lERdx"/>
+</div>
+<div class="relative z-20 max-w-screen-2xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="space-y-4">
+<span class="font-label text-primary font-semibold tracking-widest uppercase text-sm">Industrial Logistics Excellence</span>
+<h1 class="font-headline text-6xl md:text-8xl font-black text-on-surface leading-none tracking-tight">
+                        Iron <span class="italic text-primary-container">&amp;</span> Fleet.
+                    </h1>
+<p class="font-body text-xl text-on-surface-variant max-w-xl leading-relaxed">
+                        Redefining the trucking ecosystem through curated data, high-stakes investment, and driver-first dignity.
+                    </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="group bg-primary text-on-primary px-8 py-5 rounded-xl font-semibold flex flex-col items-start transition-all hover:translate-y-[-2px]">
+<span class="text-xs opacity-80 font-label">I AM A DRIVER</span>
+<span class="text-xl">मैं एक ड्राइवर हूँ</span>
+</button>
+<button class="group border-2 border-primary text-primary px-8 py-5 rounded-xl font-semibold flex flex-col items-start transition-all hover:bg-primary/5">
+<span class="text-xs opacity-80 font-label">I AM A PARTNER</span>
+<span class="text-xl">Maximize ROI</span>
+</button>
+</div>
+</div>
+<div class="hidden lg:block relative">
+<div class="bg-surface-container-low p-8 rounded-full border border-outline-variant/10 backdrop-blur-sm">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-6 rounded-xl space-y-2">
+<span class="text-3xl font-headline font-bold text-primary">₹100Cr+</span>
+<p class="text-xs font-label text-on-surface-variant">Portfolio Value Managed</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl space-y-2 translate-y-8">
+<span class="text-3xl font-headline font-bold text-tertiary">14%</span>
+<p class="text-xs font-label text-on-surface-variant">Avg. ROI Increase</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Strip -->
+<section class="bg-surface-container-high py-12">
+<div class="max-w-screen-2xl mx-auto px-8 flex flex-wrap justify-between gap-8 items-center opacity-80">
+<div class="flex items-center gap-4">
+<span class="text-4xl font-headline font-black text-primary">50k+</span>
+<span class="font-label text-sm uppercase tracking-wider">Verified<br/>Drivers</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-4xl font-headline font-black text-primary">10k+</span>
+<span class="font-label text-sm uppercase tracking-wider">Lacs KM<br/>Travelled</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-4xl font-headline font-black text-primary">28+</span>
+<span class="font-label text-sm uppercase tracking-wider">Lacs<br/>Trucks</span>
+</div>
+<div class="hidden xl:block h-12 w-px bg-outline-variant/30"></div>
+<div class="flex items-center gap-6 grayscale contrast-125 opacity-50">
+<span class="font-black text-xl italic">TATA MOTORS</span>
+<span class="font-black text-xl italic">ASHOK LEYLAND</span>
+<span class="font-black text-xl italic">MAHINDRA</span>
+</div>
+</div>
+</section>
+<!-- Integrated KPI Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- ROI Data -->
+<div class="bg-surface-container-low p-10 rounded-xl space-y-6">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary text-4xl">finance</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-md text-xs font-bold">+2.4%</span>
+</div>
+<div>
+<h3 class="font-headline text-2xl font-bold mb-2">ROI Analytics</h3>
+<p class="text-on-surface-variant font-body">Real-time portfolio performance tracking for fleet owners and institutional investors.</p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20">
+<span class="text-4xl font-headline font-black text-on-surface">₹4.2 Cr</span>
+<p class="text-xs font-label uppercase text-outline mt-1">Daily Transaction Volume</p>
+</div>
+</div>
+<!-- Driver Metrics -->
+<div class="bg-surface-container-low p-10 rounded-xl space-y-6">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary text-4xl">groups</span>
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-md text-xs font-bold">Stable</span>
+</div>
+<div>
+<h3 class="font-headline text-2xl font-bold mb-2">Driver Retention</h3>
+<p class="text-on-surface-variant font-body">Proprietary loyalty models reducing industry-standard attrition by 30% through welfare.</p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20">
+<span class="text-4xl font-headline font-black text-on-surface">94%</span>
+<p class="text-xs font-label uppercase text-outline mt-1">Driver Satisfaction Score</p>
+</div>
+</div>
+<!-- Partnership Success -->
+<div class="bg-surface-container-low p-10 rounded-xl space-y-6">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary text-4xl">handshake</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-md text-xs font-bold">Growing</span>
+</div>
+<div>
+<h3 class="font-headline text-2xl font-bold mb-2">Network Expansion</h3>
+<p class="text-on-surface-variant font-body">Connectivity across 450+ nodes in the industrial logistics corridor.</p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20">
+<span class="text-4xl font-headline font-black text-on-surface">1.2k</span>
+<p class="text-xs font-label uppercase text-outline mt-1">Monthly New Partner Onboarding</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Insights & Data Vis -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="flex flex-col lg:flex-row gap-16 items-center">
+<div class="lg:w-1/2 space-y-8">
+<h2 class="font-headline text-5xl font-black text-on-surface leading-tight">Revolutionizing the <br/>Future of Trucking</h2>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed">
+                        Data is the new axle. Our proprietary algorithms analyze millions of data points to predict supply chain bottlenecks before they happen. By dignifying the driver, we ensure the fleet never stops.
+                    </p>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-1 bg-tertiary rounded-full"></div>
+<span class="font-label font-semibold text-sm uppercase">Driver Community Growth (YoY)</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-1 bg-primary rounded-full"></div>
+<span class="font-label font-semibold text-sm uppercase">Fleet Efficiency Gains</span>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 w-full aspect-video bg-surface-container rounded-xl flex items-end justify-between p-8 gap-2 border border-outline-variant/10 relative">
+<!-- Faux Bar Chart -->
+<div class="bg-primary/20 w-full h-[30%] rounded-t-lg transition-all hover:bg-primary/40"></div>
+<div class="bg-primary/20 w-full h-[45%] rounded-t-lg transition-all hover:bg-primary/40"></div>
+<div class="bg-primary/40 w-full h-[60%] rounded-t-lg transition-all hover:bg-primary/60"></div>
+<div class="bg-primary/40 w-full h-[55%] rounded-t-lg transition-all hover:bg-primary/60"></div>
+<div class="bg-primary/60 w-full h-[75%] rounded-t-lg transition-all hover:bg-primary/80"></div>
+<div class="bg-tertiary w-full h-[95%] rounded-t-lg shadow-xl shadow-tertiary/20"></div>
+<div class="absolute top-8 left-8">
+<span class="font-headline font-bold text-2xl">Industrial Impact Index</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Audience-Specific Entry Points -->
+<section class="py-24 bg-surface">
+<div class="max-w-screen-2xl mx-auto px-8 space-y-24">
+<!-- For Drivers -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-surface-container-low rounded-3xl overflow-hidden p-4 lg:p-12">
+<div class="space-y-8 p-8">
+<div class="inline-block px-4 py-1 bg-tertiary-fixed text-on-tertiary-fixed text-xs font-bold rounded-full mb-4">DRIVERS FIRST</div>
+<h2 class="font-headline text-4xl font-bold">ड्राइवर भाइयों के लिए सम्मान और कमाई</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+<div class="flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-4xl text-primary">work</span>
+<span class="font-label font-semibold">बेहतरीन जॉब्स</span>
+</div>
+<div class="flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-4xl text-primary">health_and_safety</span>
+<span class="font-label font-semibold">स्वास्थ्य सेवा</span>
+</div>
+<div class="flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-4xl text-primary">rewarded_ads</span>
+<span class="font-label font-semibold">इनाम और बचत</span>
+</div>
+</div>
+<button class="w-full sm:w-auto bg-[#25D366] text-white px-8 py-4 rounded-xl flex items-center justify-center gap-3 font-bold hover:scale-95 transition-transform">
+<span class="material-symbols-outlined">chat</span>
+                        WhatsApp पर जुड़ें
+                    </button>
+</div>
+<div class="relative h-96 lg:h-full min-h-[400px]">
+<img alt="Driver using smartphone in cabin" class="absolute inset-0 w-full h-full object-cover rounded-2xl" data-alt="close-up of a smiling Indian truck driver holding a smartphone in his truck cabin, warm sunlight filtering through the window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-e6vx_la0hufMwNzBMkkiEqBWxvbadsxUGMN-JeKeEiUqr4s17OrXZRJ6ikK9sDsHY4CMDGBmzsFXAIfuyqh9nhMsAkX61d4cxwjEQZ6QgKGUlBs_LpVbSWSnYAr8_ca4caYkoBqDxtA9nbQlMMyjpWvfDHiS5cKSTcTrSa62q48i12fyPRIhhJRFzfjyDMIuqHX-YQDJaH67bQ4KzBTx0ZCModutV_QMfExqBwQQrRbLKTHvQk8V1_GXyLG_YZS0lYv2ttJdY7KC"/>
+</div>
+</div>
+<!-- For Partners -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="order-2 lg:order-1 relative h-96 lg:h-[500px]">
+<div class="absolute inset-0 bg-primary/10 rounded-2xl flex items-center justify-center p-12">
+<div class="bg-surface-container-lowest w-full p-8 rounded-xl shadow-2xl shadow-primary/10 space-y-6">
+<div class="flex justify-between items-center">
+<span class="font-headline font-bold">ROI Calculator</span>
+<span class="text-xs font-label text-outline uppercase tracking-widest">v2.1</span>
+</div>
+<div class="space-y-4">
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full w-2/3 bg-primary"></div>
+</div>
+<div class="h-2 w-3/4 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full w-1/2 bg-primary"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 flex justify-between items-end">
+<div>
+<span class="text-xs font-label text-on-surface-variant">Projected Yield</span>
+<p class="text-3xl font-headline font-black text-tertiary">18.4%</p>
+</div>
+<button class="bg-primary/10 text-primary px-4 py-2 rounded-lg text-xs font-bold">Update Stats</button>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-8 px-8">
+<div class="inline-block px-4 py-1 bg-primary-fixed text-on-primary-fixed text-xs font-bold rounded-full mb-4">FOR PARTNERS</div>
+<h2 class="font-headline text-4xl font-bold">Scale Your Fleet Operations with Institutional Precision</h2>
+<p class="font-body text-on-surface-variant text-lg leading-relaxed">
+                        Access our network of verified drivers, AI-driven route optimization, and transparent ROI reporting tools. We handle the logistics, you manage the growth.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold hover:scale-95 transition-transform">Request a Demo</button>
+<button class="border border-outline text-on-surface px-8 py-4 rounded-xl font-bold hover:bg-surface-container-low transition-colors">Download Whitepaper</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Insights Blog Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="flex justify-between items-end mb-16">
+<div class="space-y-4">
+<span class="font-label text-primary font-semibold tracking-widest uppercase text-xs">Intelligence</span>
+<h2 class="font-headline text-5xl font-black">Industrial Insights</h2>
+</div>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 hidden sm:block" href="#">View All Reports</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<article class="group cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-6">
+<img alt="Logistics hub" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="wide shot of a vast high-tech automated warehouse with neat rows of shelves and soft blue artificial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChVcrM7OUipE8cZeAc8gilRVipq91SpWWdPZ2To1cYfUTBQiGB_8Ge2wXsFg8W5TmQluhGKPDrJH7rZTnBjjwgFSI2Cy3VMxnYQu-9BL829xLs5DXuToQJRu13pzKw7GexAi-arsd-sRKWUKecertgiQRpSSprjQbaw5V5Yn-h-jhsEPsW3hM5GP5sicgwTzJ5NYZsnnzd2b8kgMiOOQyCCp1GlVPS9UOU9DOfe50L3j21oiZUcdJ9_ZZi2OeVXuCjWk1UaRLhPSk7"/>
+</div>
+<span class="text-xs font-label text-outline uppercase tracking-widest">Logistics Strategy • 5 min read</span>
+<h3 class="font-headline text-2xl font-bold mt-3 group-hover:text-primary transition-colors">The Shift to Asset-Light Fleet Management</h3>
+</article>
+<article class="group cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-6">
+<img alt="Driver meeting" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="candid shot of diverse group of professionals in a bright modern boardroom discussing logistics data on a large screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnx8lC7Z3Z-9CWdo0KxsjDi1SnLvIFn3TbQ8pD7WxTQrT2jOLLCriBaZYFAFhFhXHYUDnzYxEVn2_ESSEz27kJX79E5vzCfi1U_Zi-PNMMtFK_eTLVpHvo4hksoFTS2LTChcYolHEyd5BV_FWzfU5L7MMTgEnHHVdqUxP_GzaNOYNIvmZG_D_lO9DGQsSnKXIIDvI3j0r99TMC_TVDu8SO8ek2xSgkygHgOSNABnDzC1ggEOKrvms2m8lSoTlE22-zxz31NRVmuBgo"/>
+</div>
+<span class="text-xs font-label text-outline uppercase tracking-widest">Human Capital • 8 min read</span>
+<h3 class="font-headline text-2xl font-bold mt-3 group-hover:text-primary transition-colors">Dignity as a Driver Retention Metric</h3>
+</article>
+<article class="group cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-6">
+<img alt="Data analytics" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="abstract close-up of a high-resolution data visualization screen showing glowing digital nodes and connecting lines in deep blue tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBtXSGj_bDSoB9qHLX6ZA90MwnnAf5zIB-KTs4DnqLcyyk0kwupx_8DZK6jHhzoJtEarB7MbKtfZffZ8_zNXdRoN1xH1yVAnpFWP4VjFKVmPvNByklVuKaop8fosxQgBiucirR8ilClv5s4-2ZZ3cwo0qXy9DI0q9rJk1lQIYX3HcT7wjC-zjVKs-xSF18YqzRr-4U96Y1XnEB-l2fLtmgwae35clbBF95Th3q7Sw2CqZemnjPFYe9EWT-EOIMZv0CoZVpjXPnqiC2"/>
+</div>
+<span class="text-xs font-label text-outline uppercase tracking-widest">Technology • 12 min read</span>
+<h3 class="font-headline text-2xl font-bold mt-3 group-hover:text-primary transition-colors">Predicting Attrition with Neural Networks</h3>
+</article>
+</div>
+</div>
+</section>
+<!-- Join the Movement CTA -->
+<section class="py-32 relative overflow-hidden bg-primary">
+<div class="absolute inset-0 opacity-10">
+<img alt="Abstract industrial texture" class="w-full h-full object-cover grayscale" data-alt="abstract artistic aerial view of shipping containers arranged in a geometric pattern with high contrast shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3ihQq4e_C7h6fENE8YJyldhFDb6zOAdGBiWKpESvu-e5l18oxL7RO5QuAlO-3nLtbvpBBMGLzQFoHY7vO9csHs4-wM7Fv2tcqgtd17FPEIAwwbiUvnCFZcE_iz1S35UuONE4SpnxEtp0vB9WVsiRWlxVTtC0NAuHI5AZRSnAd7NCtMKWWvn4Q-Bni6nr_hPCHHchs1_RcE_Vmc0ui-I5IGGmVvyrXoyHtcgdjDNbNe_AarNmG0Ch2qoJYhKpmnNYRLzNAMkqRehsF"/>
+</div>
+<div class="relative z-10 max-w-screen-xl mx-auto px-8 text-center text-on-primary">
+<h2 class="font-headline text-5xl md:text-7xl font-black mb-8 leading-tight">Join the Movement <br/>of Industrial Excellence</h2>
+<p class="font-body text-xl opacity-80 max-w-2xl mx-auto mb-12">Whether you're behind the wheel or steering the boardroom, TruckMitr is your partner in curated logistics.</p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<button class="bg-surface-container-lowest text-primary px-12 py-5 rounded-xl font-bold text-xl hover:bg-white transition-colors">Get Started Now</button>
+<button class="border-2 border-white text-white px-12 py-5 rounded-xl font-bold text-xl hover:bg-white/10 transition-colors">Speak to an Expert</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#F8F9FA] dark:bg-[#191C1D] w-full border-t-0 py-16 px-12 tonal shift bg-slate-100 dark:bg-slate-900">
+<div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1 space-y-6">
+<div class="font-['Noto_Serif'] text-xl font-bold text-[#274680]">TruckMitr</div>
+<p class="text-slate-500 dark:text-slate-400 font-['Inter'] text-sm leading-relaxed">
+                    © 2024 TruckMitr. The TruckMitr of Logistics Excellence.
+                </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">public</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">hub</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">verified_user</span>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-headline font-bold text-on-surface">Solutions</h4>
+<nav class="flex flex-col gap-2">
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#274680] transition-all text-sm" href="#">Driver Benefits</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#274680] transition-all text-sm" href="#">Fleet Solutions</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#274680] transition-all text-sm" href="#">ROI Calculator</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h4 class="font-headline font-bold text-on-surface">Company</h4>
+<nav class="flex flex-col gap-2">
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#274680] transition-all text-sm" href="#">Insights</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#274680] transition-all text-sm" href="#">Mission</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#274680] transition-all text-sm" href="#">Privacy Policy</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h4 class="font-headline font-bold text-on-surface">Support</h4>
+<nav class="flex flex-col gap-2">
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#274680] transition-all text-sm" href="#">Contact Support</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#274680] transition-all text-sm" href="#">Partner Portal</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#274680] transition-all text-sm" href="#">Driver Hub</a>
+</nav>
+</div>
+</div>
+</footer>
+</body></html>

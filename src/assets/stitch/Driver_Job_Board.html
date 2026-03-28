@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TruckMitr | Driver Job Board</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@400;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#afc6ff",
+              "error": "#ba1a1a",
+              "surface-container-low": "#f3f4f5",
+              "surface-bright": "#f8f9fa",
+              "primary": "#274680",
+              "on-primary-fixed-variant": "#264580",
+              "secondary-container": "#d7e2ff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#9bee94",
+              "primary-fixed": "#d9e2ff",
+              "tertiary-fixed": "#a3f69c",
+              "surface-container": "#edeeef",
+              "on-secondary-fixed-variant": "#3c475d",
+              "on-tertiary-fixed-variant": "#005312",
+              "surface-container-highest": "#e1e3e4",
+              "outline-variant": "#c4c6d1",
+              "tertiary-fixed-dim": "#88d982",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#415e9a",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d9dadb",
+              "on-secondary-container": "#5a647c",
+              "on-tertiary-fixed": "#002204",
+              "on-primary-fixed": "#001a43",
+              "on-background": "#191c1d",
+              "surface-tint": "#405d99",
+              "secondary-fixed": "#d7e2ff",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "surface": "#f8f9fa",
+              "outline": "#747781",
+              "inverse-primary": "#afc6ff",
+              "secondary-fixed-dim": "#bbc6e2",
+              "on-surface-variant": "#444750",
+              "on-primary-container": "#ccd9ff",
+              "on-secondary-fixed": "#101b30",
+              "on-error": "#ffffff",
+              "tertiary-container": "#1d6e25",
+              "surface-variant": "#e1e3e4",
+              "inverse-surface": "#2e3132",
+              "background": "#f8f9fa",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary": "#005412",
+              "on-surface": "#191c1d",
+              "surface-container-high": "#e7e8e9",
+              "secondary": "#545e76"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .headline-serif { font-family: 'Noto Serif', serif; }
+        .label-sans { font-family: 'Work Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        /* Custom noise texture overlay */
+        .premium-grain::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.02;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            z-index: 100;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface premium-grain min-h-screen">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-md border-b border-slate-200/15">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-blue-900 font-headline">TruckMitr</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 hover:text-blue-800 transition-colors label-sans text-xs uppercase tracking-widest" href="#">Insights</a>
+<a class="text-slate-600 hover:text-blue-800 transition-colors label-sans text-xs uppercase tracking-widest" href="#">Mission</a>
+<a class="text-slate-600 hover:text-blue-800 transition-colors label-sans text-xs uppercase tracking-widest" href="#">Resources</a>
+<a class="text-blue-900 font-semibold border-b-2 border-blue-900 pb-1 label-sans text-xs uppercase tracking-widest" href="#">Driver Hub</a>
+<a class="text-slate-600 hover:text-blue-800 transition-colors label-sans text-xs uppercase tracking-widest" href="#">Partner Portal</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-slate-100/50 rounded-sm transition-all duration-300">
+<span class="material-symbols-outlined text-primary" data-icon="language">language</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-medium text-sm transition-all hover:opacity-90">
+                    Post a Job
+                </button>
+</div>
+</div>
+</nav>
+<!-- Hero / Header Section -->
+<header class="pt-32 pb-16 px-8 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+<div class="lg:col-span-7">
+<span class="label-sans text-xs uppercase tracking-[0.3em] text-primary font-bold mb-4 block">Fleet Network Hub</span>
+<h1 class="text-5xl md:text-6xl font-headline font-bold text-primary tracking-tight leading-tight mb-6">
+                    Professional Opportunities <br/> for the <span class="italic text-tertiary">Industrial Elite.</span>
+</h1>
+<p class="text-lg text-secondary max-w-xl leading-relaxed font-body">
+                    Connect with verified logistics enterprises. Secure high-yield routes and premium safety standards within the TruckMitr ecosystem.
+                </p>
+</div>
+<div class="lg:col-span-5 flex justify-end">
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/15 w-full max-w-md">
+<div class="flex justify-between items-center mb-4">
+<span class="label-sans text-xs font-semibold text-secondary-fixed-dim uppercase tracking-widest">Active Fleet Partners</span>
+<span class="text-tertiary font-bold">1,240+</span>
+</div>
+<div class="flex -space-x-3 overflow-hidden">
+<img alt="Tata" class="inline-block h-10 w-10 rounded-full ring-2 ring-surface" data-alt="Logistics company logo minimalist blue" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_ApjWwXcLjddMUw4AWK4PLLfDRs7XE_zZE1D83hQyy19n8qyVLoIxzrEriiNs6DhqQUMag_WTYAf8e-DCbYwQ1lRfi0cc_8-zU6RdqRAZ0nYM1US_gWjKvQo0OPFUu87OFT4v2hItpUjocDp0XrhK7bvXO4rJgxlZ3NbR6SDBHsvftYZWI1wEY22X0SExqtWwwwsC56VyhRKJXOQqznU6x0KTZPaojQZ1C-yF-wa6BIZYG2EYopesbyMA3l6oiC4YME3DKr76BFfP"/>
+<img alt="Ashok" class="inline-block h-10 w-10 rounded-full ring-2 ring-surface" data-alt="Logistics company logo minimalist green" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0ItMbEpbzx1faIRZaL0skCAsO7NtJ1wv3Yg3fc2KXlEJ9dg4qPvQ5m1EkCEhok1IiHoQ9dsih1Dye2I_Y983BPizngapdPDoInhsaA-taTK7-E-zCG3Pr2L2Oin3mDpN12mf221_qeXQ5KgnuUM0SxIOg9uNiM1g_TQJ40e-oaQlp4TMUINENBToUe0Xd09AjAH6e4hbHwvHOWY8KgZd0lrOl_PhEr5IPxWWeuc9N2PmIEkhLCxmhR1awHW967syONvCENexQTSf3"/>
+<img alt="Reliance" class="inline-block h-10 w-10 rounded-full ring-2 ring-surface" data-alt="Logistics company logo minimalist navy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYHWDMIoLE8-jTFPCyslm9iebyEgC359onaJkRng3HiPXP4HfDH0_6T645z1bX7Blnq4Ws2gDMxxzWL6VZn2O-NY8JYvJMovtPKMggGDV3aZ43yHU3qHXX59E6x_IzCo0a6oQ982CxaRpGW2ZTT6NCpj4DZqn4mHPrHoD7gu8tFmVyFP9pHqPR058HElxbLxQWuOuMuhNREVdN9rRYYZda0mZObyULJqoGzZRD_lotk1kXp4AlwTwfabxfyVdyj_dz2lC4K6w2Xkte"/>
+<div class="h-10 w-10 rounded-full ring-2 ring-surface bg-primary-container flex items-center justify-center text-[10px] text-white font-bold">+85</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Filter & Search Section -->
+<section class="px-8 max-w-screen-2xl mx-auto mb-12">
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-sm" data-icon="location_on">location_on</span>
+<select class="w-full pl-10 pr-4 py-3 bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-primary/20 text-sm font-body appearance-none">
+<option>All India</option>
+<option>Maharashtra (MH)</option>
+<option>Gujarat (GJ)</option>
+<option>Tamil Nadu (TN)</option>
+</select>
+</div>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-sm" data-icon="route">route</span>
+<select class="w-full pl-10 pr-4 py-3 bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-primary/20 text-sm font-body appearance-none">
+<option>Route Type</option>
+<option>Long Haul (National)</option>
+<option>Regional / State</option>
+<option>Last Mile Delivery</option>
+</select>
+</div>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-sm" data-icon="payments">payments</span>
+<select class="w-full pl-10 pr-4 py-3 bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-primary/20 text-sm font-body appearance-none">
+<option>Salary Range (₹)</option>
+<option>₹25,000 - ₹40,000</option>
+<option>₹40,000 - ₹60,000</option>
+<option>₹60,000+</option>
+</select>
+</div>
+<button class="bg-primary text-on-primary font-bold label-sans uppercase tracking-widest text-xs py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="search">search</span>
+                    Apply Filters
+                </button>
+</div>
+</div>
+</section>
+<!-- Job Listings Table/Card Hybrid -->
+<main class="px-8 max-w-screen-2xl mx-auto pb-24">
+<div class="mb-8 flex justify-between items-center border-b border-outline-variant/15 pb-4">
+<h2 class="font-headline text-2xl font-bold text-primary">Verified Opportunities</h2>
+<div class="flex gap-2">
+<span class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-tighter">42 New Today</span>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Job Row 1 -->
+<div class="group bg-surface-container-lowest hover:bg-white border border-outline-variant/10 rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 flex flex-col md:flex-row md:items-center gap-6">
+<div class="flex-shrink-0">
+<div class="w-16 h-16 bg-surface-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="local_shipping">local_shipping</span>
+</div>
+</div>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-headline font-bold text-lg text-primary">Multi-Axle Trailer Captain</h3>
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="text-secondary font-body text-sm mb-2">VRL Logistics Ltd. • 5+ Years Experience</p>
+<div class="flex gap-2">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-bold text-secondary uppercase tracking-tight">Heavy Duty</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-bold text-secondary uppercase tracking-tight">National Permit</span>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<span class="label-sans text-[10px] uppercase tracking-widest text-outline block mb-1">Route</span>
+<div class="font-body text-sm font-semibold flex items-center gap-1">
+                            Mumbai <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span> Delhi
+                        </div>
+<span class="text-[10px] text-tertiary font-bold mt-1 tracking-tight">Express Corridor</span>
+</div>
+<div class="flex flex-col justify-center">
+<span class="label-sans text-[10px] uppercase tracking-widest text-outline block mb-1">Compensation</span>
+<div class="font-headline font-bold text-xl text-primary">₹55,000<span class="text-xs font-normal text-secondary ml-1">/ Month</span></div>
+<span class="text-[10px] text-on-tertiary-fixed-variant font-bold mt-1">+ Maintenance Bonus</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex-1 md:flex-none px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-white transition-all rounded-lg text-sm font-bold label-sans uppercase tracking-widest">
+                        Details
+                    </button>
+<a class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-lg text-sm font-bold label-sans uppercase tracking-widest hover:brightness-95 transition-all" href="https://wa.me/9100000000">
+<span class="material-symbols-outlined text-lg" data-icon="chat">chat</span>
+                        WhatsApp
+                    </a>
+</div>
+</div>
+<!-- Job Row 2 -->
+<div class="group bg-surface-container-lowest hover:bg-white border border-outline-variant/10 rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 flex flex-col md:flex-row md:items-center gap-6">
+<div class="flex-shrink-0">
+<div class="w-16 h-16 bg-surface-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="rv_hookup">rv_hookup</span>
+</div>
+</div>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-headline font-bold text-lg text-primary">Cold Chain Specialist</h3>
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="text-secondary font-body text-sm mb-2">Snowman Logistics • 2+ Years Experience</p>
+<div class="flex gap-2">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-bold text-secondary uppercase tracking-tight">Refrigerated</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-bold text-secondary uppercase tracking-tight">Regional</span>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<span class="label-sans text-[10px] uppercase tracking-widest text-outline block mb-1">Route</span>
+<div class="font-body text-sm font-semibold flex items-center gap-1">
+                            Pune <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span> Bangalore
+                        </div>
+<span class="text-[10px] text-secondary font-bold mt-1 tracking-tight">Fixed State Route</span>
+</div>
+<div class="flex flex-col justify-center">
+<span class="label-sans text-[10px] uppercase tracking-widest text-outline block mb-1">Compensation</span>
+<div class="font-headline font-bold text-xl text-primary">₹38,000<span class="text-xs font-normal text-secondary ml-1">/ Month</span></div>
+<span class="text-[10px] text-tertiary font-bold mt-1">Health Insurance Incl.</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex-1 md:flex-none px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-white transition-all rounded-lg text-sm font-bold label-sans uppercase tracking-widest">
+                        Details
+                    </button>
+<a class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-lg text-sm font-bold label-sans uppercase tracking-widest hover:brightness-95 transition-all" href="https://wa.me/9100000000">
+<span class="material-symbols-outlined text-lg" data-icon="chat">chat</span>
+                        WhatsApp
+                    </a>
+</div>
+</div>
+<!-- Job Row 3 -->
+<div class="group bg-surface-container-lowest hover:bg-white border border-outline-variant/10 rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 flex flex-col md:flex-row md:items-center gap-6">
+<div class="flex-shrink-0">
+<div class="w-16 h-16 bg-surface-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="fire_truck">fire_truck</span>
+</div>
+</div>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-headline font-bold text-lg text-primary">Hazmat Tanker Operator</h3>
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="text-secondary font-body text-sm mb-2">Reliance Petroleum • 8+ Years Experience</p>
+<div class="flex gap-2">
+<span class="bg-error/10 px-2 py-0.5 rounded text-[10px] font-bold text-error uppercase tracking-tight">Hazardous</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-bold text-secondary uppercase tracking-tight">Specialist</span>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<span class="label-sans text-[10px] uppercase tracking-widest text-outline block mb-1">Route</span>
+<div class="font-body text-sm font-semibold flex items-center gap-1">
+                            Jamnagar <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span> Mundra
+                        </div>
+<span class="text-[10px] text-secondary font-bold mt-1 tracking-tight">Industrial Loop</span>
+</div>
+<div class="flex flex-col justify-center">
+<span class="label-sans text-[10px] uppercase tracking-widest text-outline block mb-1">Compensation</span>
+<div class="font-headline font-bold text-xl text-primary">₹72,000<span class="text-xs font-normal text-secondary ml-1">/ Month</span></div>
+<span class="text-[10px] text-tertiary font-bold mt-1">Safety Incentives</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex-1 md:flex-none px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-white transition-all rounded-lg text-sm font-bold label-sans uppercase tracking-widest">
+                        Details
+                    </button>
+<a class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-lg text-sm font-bold label-sans uppercase tracking-widest hover:brightness-95 transition-all" href="https://wa.me/9100000000">
+<span class="material-symbols-outlined text-lg" data-icon="chat">chat</span>
+                        WhatsApp
+                    </a>
+</div>
+</div>
+</div>
+<div class="mt-12 flex justify-center">
+<button class="bg-surface-container-highest text-primary font-bold label-sans uppercase tracking-[0.2em] text-xs px-10 py-4 rounded-lg hover:bg-outline-variant/30 transition-all">
+                Load More Opportunities
+            </button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-100 border-t border-slate-200">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 px-8 py-12 max-w-screen-2xl mx-auto">
+<div class="col-span-2 lg:col-span-1">
+<div class="text-xl font-headline font-bold text-slate-900 mb-4">TruckMitr</div>
+<p class="text-xs text-slate-500 font-body leading-relaxed max-w-[200px]">
+                    Empowering the pulse of Indian logistics through data, safety, and elite driver placement.
+                </p>
+</div>
+<div>
+<span class="label-sans uppercase tracking-widest text-xs font-bold text-primary block mb-4">Network</span>
+<ul class="space-y-2">
+<li><a class="text-sm text-slate-500 hover:translate-x-1 transition-transform inline-block" href="#">Fleet Selection</a></li>
+<li><a class="text-sm text-slate-500 hover:translate-x-1 transition-transform inline-block" href="#">Network Map</a></li>
+<li><a class="text-sm text-slate-500 hover:translate-x-1 transition-transform inline-block" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<span class="label-sans uppercase tracking-widest text-xs font-bold text-primary block mb-4">Resources</span>
+<ul class="space-y-2">
+<li><a class="text-sm text-slate-500 hover:translate-x-1 transition-transform inline-block" href="#">Hindi Resources</a></li>
+<li><a class="text-sm text-slate-500 hover:translate-x-1 transition-transform inline-block" href="#">Driver Safety</a></li>
+<li><a class="text-sm text-slate-500 hover:translate-x-1 transition-transform inline-block" href="#">Contact Support</a></li>
+</ul>
+</div>
+<div>
+<span class="label-sans uppercase tracking-widest text-xs font-bold text-primary block mb-4">Corporate</span>
+<ul class="space-y-2">
+<li><a class="text-sm text-slate-500 hover:translate-x-1 transition-transform inline-block" href="#">About Us</a></li>
+<li><a class="text-sm text-slate-500 hover:translate-x-1 transition-transform inline-block" href="#">Investment Relations</a></li>
+<li><a class="text-sm text-slate-500 hover:translate-x-1 transition-transform inline-block" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="px-8 py-6 border-t border-slate-200 text-center">
+<p class="text-[10px] font-label uppercase tracking-widest text-slate-400">© 2024 TruckMitr Logistics. An TruckMitr Enterprise.</p>
+</div>
+</footer>
+<!-- Mobile Nav Bar (Visible on mobile only) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-lowest glass-nav shadow-[0_-4px_20px_rgba(0,0,0,0.05)] grid grid-cols-4 py-3 z-[60]">
+<button class="flex flex-col items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="home" data-weight="fill" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-label font-bold uppercase mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[10px] font-label font-bold uppercase mt-1">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="text-[10px] font-label font-bold uppercase mt-1">Jobs</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-label font-bold uppercase mt-1">Profile</span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,30 @@
+export const en = {
+  nav: {
+    insights: 'Insights',
+    mission: 'Mission',
+    resources: 'Resources',
+    driverHub: 'Driver Hub',
+    partnerPortal: 'Partner Portal',
+    login: 'Login',
+    contactUs: 'Contact Us',
+  },
+  home: {
+    badge: 'Institutional Grade Logistics',
+    headline: 'Curating the Future of',
+    headlineAccent: 'Industrial Mobility.',
+    subtitle: 'Bridging the gap between 50,000+ Verified Drivers and high-yield institutional capital.',
+    driverGateway: 'Driver Gateway',
+    driverHeading: 'I am a Driver',
+    partnerHeading: 'I am a Partner / Fleet Owner',
+    joinWhatsApp: 'Join via WhatsApp',
+    learnMore: 'Learn More',
+    viewROI: 'View ROI Dashboard',
+    investorRelations: 'Investor Relations',
+  },
+  footer: {
+    copyright: '© 2024 TruckMitr Logistics. All figures in ₹ (INR). Premium Institutional Grade.',
+    network: 'Network',
+    company: 'Company',
+    legal: 'Legal',
+  },
+} as const;

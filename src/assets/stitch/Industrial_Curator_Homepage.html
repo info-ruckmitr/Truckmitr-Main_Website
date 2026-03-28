@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TruckMitr | The TruckMitr</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Inter:wght@400;500;600&amp;family=Work+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#afc6ff",
+              "error": "#ba1a1a",
+              "surface-container-low": "#f3f4f5",
+              "surface-bright": "#f8f9fa",
+              "primary": "#274680",
+              "on-primary-fixed-variant": "#264580",
+              "secondary-container": "#d7e2ff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#9bee94",
+              "primary-fixed": "#d9e2ff",
+              "tertiary-fixed": "#a3f69c",
+              "surface-container": "#edeeef",
+              "on-secondary-fixed-variant": "#3c475d",
+              "on-tertiary-fixed-variant": "#005312",
+              "surface-container-highest": "#e1e3e4",
+              "outline-variant": "#c4c6d1",
+              "tertiary-fixed-dim": "#88d982",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#415e9a",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d9dadb",
+              "on-secondary-container": "#5a647c",
+              "on-tertiary-fixed": "#002204",
+              "on-primary-fixed": "#001a43",
+              "on-background": "#191c1d",
+              "surface-tint": "#405d99",
+              "secondary-fixed": "#d7e2ff",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "surface": "#f8f9fa",
+              "outline": "#747781",
+              "inverse-primary": "#afc6ff",
+              "secondary-fixed-dim": "#bbc6e2",
+              "on-surface-variant": "#444750",
+              "on-primary-container": "#ccd9ff",
+              "on-secondary-fixed": "#101b30",
+              "on-error": "#ffffff",
+              "tertiary-container": "#1d6e25",
+              "surface-variant": "#e1e3e4",
+              "inverse-surface": "#2e3132",
+              "background": "#f8f9fa",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary": "#005412",
+              "on-surface": "#191c1d",
+              "surface-container-high": "#e7e8e9",
+              "secondary": "#545e76"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
+        .label-text { font-family: 'Work Sans', sans-serif; }
+        .tonal-layering { background-attachment: fixed; }
+        .glass-header { backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed-dim">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-md border-b border-slate-200/15 dark:border-slate-800/15">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-blue-900 dark:text-blue-100 font-headline">TruckMitr</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-blue-900 dark:text-white font-semibold border-b-2 border-blue-900 dark:border-blue-400 pb-1 font-body text-lg tracking-tight" href="#">Insights</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors font-body text-lg tracking-tight" href="#">Mission</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors font-body text-lg tracking-tight" href="#">Resources</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors font-body text-lg tracking-tight" href="#">Driver Hub</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors font-body text-lg tracking-tight" href="#">Partner Portal</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 rounded-sm">
+<span class="material-symbols-outlined text-blue-800 dark:text-blue-400">language</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative px-8 py-20 max-w-screen-2xl mx-auto overflow-hidden">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="z-10">
+<span class="label-text uppercase tracking-widest text-sm text-primary font-medium mb-4 block">The TruckMitr</span>
+<h1 class="text-6xl md:text-7xl font-bold text-on-surface leading-[1.1] mb-8">
+                        The Future of <br/><span class="text-primary italic">Indian Logistics</span> is Here.
+                    </h1>
+<p class="text-xl text-on-surface-variant leading-relaxed max-w-xl mb-12 font-body">
+                        Elevating fleet management into a high-stakes investment asset. Where heritage trucking meets private equity precision.
+                    </p>
+<!-- Dual-Path Entry -->
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="px-8 py-5 bg-primary text-on-primary rounded-xl font-semibold flex flex-col items-start transition-all hover:scale-[1.02] active:opacity-80">
+<span class="label-text text-xs uppercase tracking-tighter opacity-80">Industrial Partner</span>
+<span class="text-lg">View ROI Dashboard</span>
+</button>
+<button class="px-8 py-5 bg-tertiary text-on-tertiary rounded-xl font-semibold flex flex-col items-start transition-all hover:scale-[1.02] active:opacity-80">
+<span class="label-text text-xs uppercase tracking-tighter opacity-80">ड्राइवर पार्टनर</span>
+<span class="text-lg">अभी लोड खोजें (Find Load)</span>
+</button>
+</div>
+<div class="mt-12 flex items-center space-x-6">
+<div class="flex -space-x-3">
+<img alt="Driver" class="w-12 h-12 rounded-full border-2 border-surface" data-alt="portrait of a professional indian truck driver smiling confidently against a blue truck background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjNXhf_HuD4O1O7dV9flnEu_Lf5ig-BAT5qvgEFp3YWGbwxXjIdU-sGoA4GGrwCaRAIM3uPOnThdfMFauTTaISocC6ilUxNH91yYa2MeMBpeFnOiipaIbQ0QiI44TQGYh8N5rd7KayDApszfGP29B-NJq_YDNhCitLh3q65J7JJ-68c8Ey4_5SNR633tRTDmPjnLqYj8Xa9q3VeGQf9TbetqsaMHAY0X_0erF7cQLHOuiZrMi4mZyAjJBbxEkbIb9U7-0wE2NP5H86"/>
+<img alt="Driver" class="w-12 h-12 rounded-full border-2 border-surface" data-alt="close up of a middle aged man with professional attire looking forward with a serious but approachable expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC6PPHO4WyT35YOxjeMG0PVj8yZ10z69-D4dta_Pp-K-kmAyVTXIpa9AVHR5OdxxPQ86zP5KjjxBHuunxep5f8hrt-v_P3S68oSHT7eYGMFWt4a006kJd32gVk32xzVtm0oiqCnscVfO72a01RZbcMzrb9nwXS_35HQlfUDvBLILBOUs6rwcARKULb2wMiXzTuXUGCbZ8kflUVdP4gqdjfEvIPotE5ZWmKy-ZwsgqTnEZcOHDYwq4_FErutx9IwgFmqCH9dhK2px-f"/>
+<img alt="Driver" class="w-12 h-12 rounded-full border-2 border-surface" data-alt="professional woman executive looking at camera with a confident smile in a modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5AhLw1Bajmzel8Fh0lAY7mgUfx08YKN6z7E4m0EP9NynqIBJCW1462tDmQtClfw7DV6IIXBfnmB68DZilpnnMSF-KDpolPqfcC5IZwx22JGgUIrjVxVcSsyh-BVDmzOLwsjRPf7_jISi73DIpKqqNG6mmYtAUFG53wIR6kDXR-89RQR1olvpWSS9_LyXsv9X47LwUujNRdazyvGKwc-lIBkrqq9EHidWEs15EN1ZvYe3S5raCGiYbH51oOTDNpQHbsCQTwPYHLWaS"/>
+</div>
+<p class="text-sm font-label text-on-surface-variant">
+<span class="font-bold text-on-surface">50,000+</span> Verified Drivers Trusted
+                        </p>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-[4/5] bg-surface-container-low rounded-[2rem] overflow-hidden relative group">
+<img alt="Fleet" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700" data-alt="large fleet of modern heavy-duty trucks parked in a symmetrical formation at a professional logistics hub under bright daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5MImOzzI--jjatuDw3XI3Vydkiu5ix8T9P1fUCUBS0DVWOnUl7DQ5X8vQn9QvPv1KerPKpiPBGS-kJ_b1a2wx8nYuRGAb4T0vzWeeRCsf5_fguqvPTOK3SM_ZoMxMOKxh1GfFGutXXIwwC6s0m5z9LZk2dp59GxeffKvosmtwdFnCxbxR1uiba0lXez1_WcqzzBa7kUr__VPO8Y_lAcA9quE4nxyoJe2bqhN9jLWIRBFtdmIif0XWGHylbfZTHqBA7al9HplFWmDl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+</div>
+<!-- Overlaid KPI Card -->
+<div class="absolute -bottom-8 -left-8 bg-surface-container-lowest p-8 rounded-xl shadow-2xl shadow-on-surface/5 border border-outline-variant/15 max-w-xs">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">analytics</span>
+<div class="space-y-1">
+<h3 class="text-4xl font-bold text-on-surface">₹100Cr+</h3>
+<p class="label-text text-sm uppercase tracking-widest text-on-surface-variant font-medium">Portfolio Managed</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- KPI Tonal Section -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="grid md:grid-cols-3 gap-12">
+<div class="space-y-4">
+<h4 class="text-primary font-headline text-5xl font-bold">14%</h4>
+<p class="font-label text-on-surface-variant tracking-wide leading-relaxed">Average ROI Increase across B2B partner portfolios in the last fiscal year.</p>
+</div>
+<div class="space-y-4">
+<h4 class="text-primary font-headline text-5xl font-bold">98.2%</h4>
+<p class="font-label text-on-surface-variant tracking-wide leading-relaxed">Fleet Uptime maintained through our AI-led preventive maintenance protocol.</p>
+</div>
+<div class="space-y-4">
+<h4 class="text-primary font-headline text-5xl font-bold">24/7</h4>
+<p class="font-label text-on-surface-variant tracking-wide leading-relaxed">Real-time driver support and cargo surveillance managed through centralized Command Center.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Portfolio Section -->
+<section class="py-32 px-8 max-w-screen-2xl mx-auto">
+<div class="mb-16 text-center max-w-3xl mx-auto">
+<span class="label-text uppercase tracking-widest text-xs text-primary font-semibold mb-4 block">Asset Management</span>
+<h2 class="text-5xl font-bold mb-6">A Curated Ecosystem for <span class="text-tertiary">Industrial Growth</span></h2>
+<p class="text-on-surface-variant text-lg font-body">We transform standard logistics operations into optimized financial assets through technology and curation.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-6 grid-rows-2 gap-6 min-h-[600px]">
+<!-- Large Card -->
+<div class="md:col-span-4 bg-surface-container rounded-xl overflow-hidden relative group p-12 flex flex-col justify-end">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110 opacity-30 mix-blend-multiply" data-alt="interior of a high-tech logistics control room with multiple screens showing data maps and fleet analytics in a dark sleek environment" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBS6wsVpyF34M4eK1nxT7tT_56MyYa2d4d0PyCVEmymNQTSPRjrg5_DP4RtQdzjYCI2CPT4LRtFZEBQUSG5iF0YVMDI8BsBvYhao8fg5742Fn_silWSbYNmYpVj_oUidj4mUbQOUCWtc7YSNkR4hvvo8W-iLgVHgE87feg7RIQ4kYPiF33-wtLLGK-6oQyGn3nqIo9DvTqJ8_jyzmIYUaaZxLPH8pvvptrHK8tMZV5eKIu_mTCohJkM90jjnF2hBujwOvUSVDRy6OOQ')"></div>
+<div class="relative z-10">
+<h3 class="text-3xl font-bold mb-4 text-on-surface">The Intelligence Engine</h3>
+<p class="max-w-md text-on-surface-variant font-body mb-6">Real-time data stream from over 50,000 sensors, providing unmatched visibility into movement and ROI.</p>
+<a class="inline-flex items-center text-primary font-semibold gap-2 group/link" href="#">
+                            Explore Analytics Platform
+                            <span class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- ROI Card -->
+<div class="md:col-span-2 bg-primary-container text-on-primary-container rounded-xl p-8 flex flex-col justify-center text-center">
+<span class="material-symbols-outlined text-5xl mb-6">trending_up</span>
+<h3 class="text-2xl font-bold mb-2">Yield Optimization</h3>
+<p class="opacity-80 font-body">Maximizing route efficiency to ensure every kilometer driven adds to your bottom line.</p>
+</div>
+<!-- Network Card -->
+<div class="md:col-span-2 bg-surface-container-highest rounded-xl p-8 flex flex-col items-start">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">hub</span>
+<h3 class="text-xl font-bold mb-3">Pan-India Network</h3>
+<p class="text-on-surface-variant font-body text-sm leading-relaxed">Access to 400+ hubs strategically located along major industrial corridors.</p>
+</div>
+<!-- Trust Card -->
+<div class="md:col-span-4 bg-tertiary-container text-on-tertiary-container rounded-xl p-12 flex items-center gap-12">
+<div class="hidden lg:block w-32 h-32 rounded-full bg-on-tertiary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-5xl">verified_user</span>
+</div>
+<div>
+<h3 class="text-3xl font-bold mb-3">Institutional Trust</h3>
+<p class="opacity-80 font-body text-lg">Managing over ₹100Cr in private fleet investments with 100% transparency and audit trails.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Driver First Section (Hindi) -->
+<section class="bg-surface py-32 px-8 overflow-hidden">
+<div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+<div class="lg:w-1/2 relative">
+<div class="w-full aspect-square bg-surface-container rounded-full flex items-center justify-center relative">
+<img alt="Truck" class="w-4/5 h-4/5 object-cover rounded-2xl rotate-3 shadow-2xl" data-alt="a majestic indian highway truck with vibrant traditional hand-painted art driving through a scenic road at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN0bvdiIStoZpi0KqbsLUVTqkgSQd9OnzS7OvKPiJn98sMrP0SI6yNz7T8By8Jy5BDK9WLjWrdG2TH2sj_zlchdb8JMrxjUylIztD8oHJmMt8c_k-xXuFl_jGEVsQGb7CXgYKiSWTmk5FzH23iELrjwsoaCwukQk7J_rHRxXc6zXzqeviWZAdAZRQZFA9PLTbt4nBjH7YdO2mxyaoYkSn6vk9DEp5Ts0lis7vXBHwUJ1Cp4qTyf4IkBaNIrje8YgubUgqlDKcR3bkB"/>
+<div class="absolute top-0 right-0 p-6 bg-surface-container-lowest rounded-xl shadow-xl -rotate-6">
+<p class="text-tertiary font-bold text-2xl">सुरक्षित और तेज़</p>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2">
+<span class="label-text uppercase tracking-widest text-xs text-tertiary font-semibold mb-4 block">Driver Welfare &amp; Pride</span>
+<h2 class="text-5xl font-bold mb-8">ट्रक ड्राइवरों के लिए भारत का सबसे <span class="text-primary italic">भरोसेमंद</span> साथी।</h2>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h4 class="font-bold text-xl mb-1">सही समय पर भुगतान</h4>
+<p class="text-on-surface-variant font-body">काम पूरा होते ही आपके बैंक खाते में सीधा पैसा। कोई इंतज़ार नहीं।</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h4 class="font-bold text-xl mb-1">बेहतरीन लोड विकल्प</h4>
+<p class="text-on-surface-variant font-body">पूरे भारत में कहीं भी जाने के लिए 10,000+ से ज़्यादा रोज़ाना लोड।</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h4 class="font-bold text-xl mb-1">परिवार की सुरक्षा</h4>
+<p class="text-on-surface-variant font-body">हमारे सभी पार्टनर्स के लिए विशेष बीमा और स्वास्थ्य सुविधाएँ।</p>
+</div>
+</li>
+</ul>
+<button class="mt-12 px-10 py-5 bg-tertiary text-on-tertiary rounded-xl font-bold text-xl hover:scale-[1.02] transition-transform">आज ही जुड़ें (Join Now)</button>
+</div>
+</div>
+</section>
+<!-- ROI Calculator Preview -->
+<section class="py-32 px-8 max-w-screen-2xl mx-auto">
+<div class="bg-surface-container-lowest border border-outline-variant/15 rounded-[2rem] p-12 md:p-20 grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-4xl font-bold mb-6">Ready to curate your fleet's potential?</h2>
+<p class="text-on-surface-variant text-lg mb-10 font-body">Experience the transparency of a premium asset class. Our simulators help you project earnings based on truck type, routes, and management tier.</p>
+<div class="space-y-4 mb-10">
+<div class="flex items-center justify-between p-4 bg-surface-container rounded-lg">
+<span class="font-medium">Selected Route</span>
+<span class="text-primary font-semibold">Delhi ↔ Mumbai</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container rounded-lg">
+<span class="font-medium">Estimated Monthly ROI</span>
+<span class="text-tertiary font-bold">18.4%</span>
+</div>
+</div>
+<button class="w-full sm:w-auto px-10 py-5 bg-primary text-on-primary rounded-xl font-bold">Request Private Consultation</button>
+</div>
+<div class="hidden lg:block">
+<div class="bg-surface p-8 rounded-2xl border border-outline-variant/10 shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<h4 class="font-headline font-bold text-xl">Investment Analytics</h4>
+<span class="text-xs label-text bg-secondary-container px-3 py-1 rounded text-on-secondary-container">LIVE FEED</span>
+</div>
+<div class="h-64 flex items-end justify-between gap-4">
+<div class="w-full bg-primary/20 rounded-t-lg" style="height: 60%"></div>
+<div class="w-full bg-primary/40 rounded-t-lg" style="height: 80%"></div>
+<div class="w-full bg-primary/30 rounded-t-lg" style="height: 45%"></div>
+<div class="w-full bg-primary/60 rounded-t-lg" style="height: 90%"></div>
+<div class="w-full bg-primary/50 rounded-t-lg" style="height: 70%"></div>
+<div class="w-full bg-primary rounded-t-lg" style="height: 100%"></div>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/10 flex justify-between">
+<div>
+<p class="label-text text-xs uppercase text-on-surface-variant">Asset Value</p>
+<p class="text-xl font-bold">₹8.42 Cr</p>
+</div>
+<div class="text-right">
+<p class="label-text text-xs uppercase text-on-surface-variant">Growth</p>
+<p class="text-xl font-bold text-tertiary">+12.4%</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 px-8 py-12 max-w-screen-2xl mx-auto">
+<div class="col-span-2 lg:col-span-1">
+<div class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 mb-6">TruckMitr</div>
+<p class="text-sm text-slate-500 font-body leading-relaxed">Defining the next century of industrial logistics and investment-grade fleet operations.</p>
+</div>
+<div class="space-y-4">
+<p class="uppercase tracking-widest text-xs font-label font-bold text-blue-900 dark:text-blue-300">Operations</p>
+<ul class="space-y-2">
+<li><a class="text-slate-500 hover:text-slate-900 transition-transform hover:translate-x-1 inline-block text-sm" href="#">About Us</a></li>
+<li><a class="text-slate-500 hover:text-slate-900 transition-transform hover:translate-x-1 inline-block text-sm" href="#">Fleet Selection</a></li>
+<li><a class="text-slate-500 hover:text-slate-900 transition-transform hover:translate-x-1 inline-block text-sm" href="#">Network Map</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="uppercase tracking-widest text-xs font-label font-bold text-blue-900 dark:text-blue-300">Investment</p>
+<ul class="space-y-2">
+<li><a class="text-slate-500 hover:text-slate-900 transition-transform hover:translate-x-1 inline-block text-sm" href="#">Investment Relations</a></li>
+<li><a class="text-slate-500 hover:text-slate-900 transition-transform hover:translate-x-1 inline-block text-sm" href="#">Sustainability</a></li>
+<li><a class="text-slate-500 hover:text-slate-900 transition-transform hover:translate-x-1 inline-block text-sm" href="#">Partner Terms</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="uppercase tracking-widest text-xs font-label font-bold text-blue-900 dark:text-blue-300">Resources</p>
+<ul class="space-y-2">
+<li><a class="text-slate-500 hover:text-slate-900 transition-transform hover:translate-x-1 inline-block text-sm" href="#">Driver Safety</a></li>
+<li><a class="text-slate-500 hover:text-slate-900 transition-transform hover:translate-x-1 inline-block text-sm" href="#">Hindi Resources</a></li>
+<li><a class="text-slate-500 hover:text-slate-900 transition-transform hover:translate-x-1 inline-block text-sm" href="#">Contact Support</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="uppercase tracking-widest text-xs font-label font-bold text-blue-900 dark:text-blue-300">Privacy</p>
+<ul class="space-y-2">
+<li><a class="text-blue-700 underline text-sm" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="px-8 py-6 border-t border-slate-200/50 dark:border-slate-800/50 max-w-screen-2xl mx-auto">
+<p class="text-xs text-slate-400 font-label">© 2024 TruckMitr Logistics. An TruckMitr Enterprise.</p>
+</div>
+</footer>
+</body></html>
