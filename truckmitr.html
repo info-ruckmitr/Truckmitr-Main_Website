@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TruckMitr — India's First Driver-Centric Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --saffron: #E8621A;
+  --saffron-dark: #C94E0E;
+  --saffron-light: #FFF0E6;
+  --highway-green: #1D9E75;
+  --highway-dark: #0F6E56;
+  --highway-light: #E1F5EE;
+  --night-blue: #0A1628;
+  --road-gray: #1A2A3A;
+  --dust: #F5F0E8;
+  --dust-dark: #E8DFD0;
+  --white: #FFFFFF;
+  --text-primary: #0A1628;
+  --text-secondary: #4A5568;
+  --text-muted: #8A94A6;
+  --whatsapp: #25D366;
+  --fleet-blue: #378ADD;
+  --oem-purple: #6B5CE7;
+  --warning-red: #E53E3E;
+  --gold: #D4A017;
+  --border: rgba(0,0,0,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'DM Sans', 'Noto Sans Devanagari', sans-serif; color: var(--text-primary); background: var(--white); overflow-x: hidden; }
+
+/* Nav */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 24px;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-img {
+  height: 40px; width: auto; display: block;
+  object-fit: contain;
+}
+.nav-links { display: flex; gap: 8px; align-items: center; }
+.nav-link {
+  padding: 8px 16px; border-radius: 8px; text-decoration: none;
+  font-size: 14px; font-weight: 500; color: var(--text-secondary);
+  transition: all 0.2s; cursor: pointer; border: none; background: none;
+}
+.nav-link:hover { color: var(--text-primary); background: var(--dust); }
+.nav-link.active { color: var(--saffron); font-weight: 600; }
+.nav-cta {
+  padding: 8px 20px; border-radius: 8px; font-size: 14px; font-weight: 600;
+  border: none; cursor: pointer; transition: all 0.2s;
+}
+.nav-cta.driver { background: var(--whatsapp); color: white; }
+.nav-cta.driver:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,211,102,0.3); }
+.nav-cta.fleet { background: var(--fleet-blue); color: white; margin-left: 4px; }
+
+.mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; font-size: 24px; }
+
+/* Page system */
+.page { display: none; min-height: 100vh; padding-top: 70px; }
+.page.active { display: block; }
+
+/* Hero */
+.hero {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--night-blue) 0%, var(--road-gray) 60%, #1a3a2a 100%);
+  min-height: 92vh; display: flex; align-items: center;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(232,98,26,0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 20% 80%, rgba(29,158,117,0.1) 0%, transparent 50%);
+}
+.hero-road {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 6px;
+  background: linear-gradient(90deg, transparent, var(--saffron), var(--highway-green), var(--fleet-blue), transparent);
+  animation: roadGlow 3s ease-in-out infinite;
+}
+@keyframes roadGlow {
+  0%, 100% { opacity: 0.6; } 50% { opacity: 1; }
+}
+.hero-content {
+  max-width: 1280px; margin: 0 auto; padding: 60px 24px;
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(232,98,26,0.15); border: 1px solid rgba(232,98,26,0.3);
+  padding: 6px 14px; border-radius: 100px; font-size: 13px; color: #F5A66A;
+  margin-bottom: 20px; font-weight: 500;
+}
+.hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--saffron); animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.hero h1 {
+  font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900;
+  line-height: 1.15; color: var(--white); margin-bottom: 8px;
+}
+.hero h1 .saffron { color: var(--saffron); }
+.hero h1 .green { color: var(--highway-green); }
+.hero-hindi {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 22px; font-weight: 600; color: rgba(255,255,255,0.7);
+  margin-bottom: 24px;
+}
+.hero p {
+  font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.75);
+  max-width: 520px; margin-bottom: 32px;
+}
+
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+.btn {
+  padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 600;
+  text-decoration: none; border: none; cursor: pointer; display: inline-flex;
+  align-items: center; gap: 8px; transition: all 0.3s;
+}
+.btn-whatsapp { background: var(--whatsapp); color: white; }
+.btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.3); }
+.btn-outline { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.3); }
+.btn-outline:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+.btn-saffron { background: var(--saffron); color: white; }
+.btn-saffron:hover { background: var(--saffron-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,98,26,0.3); }
+.btn-green { background: var(--highway-green); color: white; }
+.btn-green:hover { background: var(--highway-dark); }
+.btn-fleet { background: var(--fleet-blue); color: white; }
+.btn-fleet:hover { background: #2A6DBB; }
+.btn-oem { background: var(--oem-purple); color: white; }
+.btn-oem:hover { background: #5A4BD6; }
+
+.hero-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;
+}
+.hero-stat {
+  text-align: center; padding: 0 12px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.hero-stat:last-child { border-right: none; }
+.hero-stat-num { font-size: 28px; font-weight: 800; color: var(--saffron); }
+.hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+.hero-visual {
+  position: relative; display: flex; flex-direction: column; gap: 16px;
+}
+.hero-card {
+  background: rgba(255,255,255,0.06); backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
+  padding: 20px 24px; transition: all 0.3s;
+}
+.hero-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.2); }
+.hero-card-icon { font-size: 28px; margin-bottom: 8px; }
+.hero-card h3 { font-size: 16px; font-weight: 700; color: white; margin-bottom: 4px; }
+.hero-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+.hero-card .hindi { font-family: 'Noto Sans Devanagari'; font-size: 13px; color: var(--saffron); margin-top: 6px; font-weight: 500; }
+
+/* Sections */
+.section { padding: 80px 24px; }
+.section-dark { background: var(--night-blue); color: white; }
+.section-dust { background: var(--dust); }
+.section-saffron { background: var(--saffron-light); }
+.section-green { background: var(--highway-light); }
+.container { max-width: 1280px; margin: 0 auto; }
+
+.section-label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--saffron); margin-bottom: 12px;
+}
+.section-title { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+.section-subtitle { font-size: 17px; color: var(--text-secondary); line-height: 1.7; max-width: 680px; }
+
+/* Pillar cards */
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+.pillar {
+  background: white; border-radius: 20px; padding: 32px 28px;
+  border: 1px solid var(--border); transition: all 0.3s; position: relative; overflow: hidden;
+}
+.pillar:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+.pillar::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+}
+.pillar:nth-child(1)::after { background: var(--saffron); }
+.pillar:nth-child(2)::after { background: var(--highway-green); }
+.pillar:nth-child(3)::after { background: var(--fleet-blue); }
+.pillar-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; margin-bottom: 20px;
+}
+.pillar:nth-child(1) .pillar-icon { background: var(--saffron-light); }
+.pillar:nth-child(2) .pillar-icon { background: var(--highway-light); }
+.pillar:nth-child(3) .pillar-icon { background: #E6F1FB; }
+.pillar h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.pillar .hindi-sub { font-family: 'Noto Sans Devanagari'; font-size: 14px; color: var(--saffron); margin-bottom: 12px; font-weight: 500; }
+.pillar p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+/* Grid layouts */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+/* Cards */
+.card {
+  background: white; border-radius: 16px; padding: 28px 24px;
+  border: 1px solid var(--border); transition: all 0.3s;
+}
+.card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+.card-icon { font-size: 32px; margin-bottom: 16px; }
+.card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+/* Impact strip */
+.impact-strip {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+  background: linear-gradient(135deg, var(--night-blue), var(--road-gray));
+  border-radius: 20px; overflow: hidden;
+}
+.impact-item {
+  padding: 32px 20px; text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.impact-item:last-child { border-right: none; }
+.impact-num { font-size: 32px; font-weight: 800; color: var(--saffron); }
+.impact-label { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+/* Job card */
+.job-card {
+  background: white; border-radius: 16px; padding: 24px;
+  border: 1px solid var(--border); transition: all 0.3s;
+}
+.job-card:hover { border-color: var(--saffron); box-shadow: 0 8px 24px rgba(232,98,26,0.08); }
+.job-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+.job-fleet { font-size: 14px; font-weight: 600; }
+.job-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--highway-light); color: var(--highway-dark);
+  padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 600;
+}
+.job-details { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+.job-detail { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary); }
+.job-salary { font-size: 20px; font-weight: 800; color: var(--saffron); margin-bottom: 16px; }
+.job-benefits { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.job-benefit-tag {
+  padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 500;
+  background: var(--dust); color: var(--text-secondary);
+}
+
+/* Scheme cards */
+.scheme-card {
+  background: white; border-radius: 16px; padding: 24px;
+  border: 1px solid var(--border); border-left: 4px solid var(--highway-green);
+}
+.scheme-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.scheme-card .hindi-name { font-family: 'Noto Sans Devanagari'; font-size: 13px; color: var(--highway-dark); margin-bottom: 8px; }
+.scheme-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+.scheme-card .benefit { font-size: 15px; font-weight: 700; color: var(--highway-dark); margin: 8px 0; }
+
+/* OEM section */
+.oem-card {
+  background: white; border-radius: 16px; padding: 28px 24px;
+  border: 1px solid var(--border); transition: all 0.3s;
+}
+.oem-card:hover { border-color: var(--oem-purple); box-shadow: 0 12px 32px rgba(107,92,231,0.08); }
+.oem-card-icon { font-size: 36px; margin-bottom: 16px; }
+.oem-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.oem-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+/* Timeline */
+.timeline { position: relative; padding-left: 40px; }
+.timeline::before {
+  content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px;
+  background: linear-gradient(180deg, var(--saffron), var(--highway-green), var(--fleet-blue));
+}
+.timeline-item { position: relative; margin-bottom: 32px; }
+.timeline-dot {
+  position: absolute; left: -33px; top: 4px;
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid var(--saffron); background: white;
+}
+.timeline-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.timeline-item p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+/* Driver story */
+.story-card {
+  background: var(--dust); border-radius: 16px; padding: 28px;
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.story-avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--saffron), var(--saffron-dark));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; flex-shrink: 0;
+}
+.story-card blockquote { font-size: 15px; font-style: italic; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+.story-card .name { font-size: 14px; font-weight: 700; }
+.story-card .route { font-size: 12px; color: var(--text-muted); }
+
+/* CSR */
+.csr-card {
+  background: white; border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--border); transition: all 0.3s;
+}
+.csr-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+.csr-top { padding: 20px; background: linear-gradient(135deg, var(--saffron-light), var(--highway-light)); display: flex; align-items: center; justify-content: center; font-size: 48px; min-height: 120px; }
+.csr-body { padding: 24px; }
+.csr-body h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.csr-body p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+/* Footer */
+.footer {
+  background: var(--night-blue); color: rgba(255,255,255,0.7); padding: 60px 24px 30px;
+}
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; max-width: 1280px; margin: 0 auto; }
+.footer h4 { color: white; font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.footer a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; display: block; margin-bottom: 8px; transition: color 0.2s; }
+.footer a:hover { color: var(--saffron); }
+.footer-bottom {
+  max-width: 1280px; margin: 40px auto 0; padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex; justify-content: space-between; align-items: center; font-size: 12px;
+}
+
+/* WhatsApp FAB */
+.wa-fab {
+  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--whatsapp); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: all 0.3s; animation: fabPulse 3s infinite;
+}
+.wa-fab:hover { transform: scale(1.1); }
+@keyframes fabPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+  50% { box-shadow: 0 4px 30px rgba(37,211,102,0.6), 0 0 0 12px rgba(37,211,102,0.1); }
+}
+
+/* Separator */
+.tri-stripe {
+  height: 4px; background: linear-gradient(90deg, var(--saffron) 33%, var(--highway-green) 33% 66%, var(--fleet-blue) 66%);
+}
+
+/* Manifesto */
+.manifesto-block {
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--saffron-dark) 100%);
+  border-radius: 24px; padding: 48px; color: white; text-align: center;
+  position: relative; overflow: hidden;
+}
+.manifesto-block::before {
+  content: ''; position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 L30 0 L60 30 L30 60Z' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+}
+.manifesto-block h2 {
+  font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900;
+  margin-bottom: 16px; position: relative;
+}
+.manifesto-block p { font-size: 17px; line-height: 1.8; max-width: 700px; margin: 0 auto; opacity: 0.95; position: relative; }
+
+/* MoRTH */
+.morth-banner {
+  background: linear-gradient(135deg, #0A1628 0%, #162440 100%);
+  border-radius: 20px; padding: 40px; display: grid; grid-template-columns: auto 1fr; gap: 32px;
+  align-items: center; color: white;
+}
+.morth-emblem {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center; font-size: 36px;
+}
+.morth-banner h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.morth-banner p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+
+/* Tag */
+.tag {
+  display: inline-block; padding: 4px 12px; border-radius: 6px;
+  font-size: 11px; font-weight: 600; margin-right: 6px; margin-bottom: 6px;
+}
+.tag-saffron { background: var(--saffron-light); color: var(--saffron-dark); }
+.tag-green { background: var(--highway-light); color: var(--highway-dark); }
+.tag-blue { background: #E6F1FB; color: #185FA5; }
+.tag-purple { background: #F0EDFB; color: #5A4BD6; }
+
+/* Prose block */
+.prose { max-width: 780px; }
+.prose p { font-size: 16px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px; }
+.prose h3 { font-size: 22px; font-weight: 700; margin: 32px 0 12px; color: var(--text-primary); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-content { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .pillars, .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .impact-strip { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: block; }
+  .hero h1 { font-size: 32px; }
+  .hero-hindi { font-size: 18px; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .hero-stat { border-right: none; padding: 8px 0; }
+  .section-title { font-size: 28px; }
+  .pillars, .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .impact-strip { grid-template-columns: repeat(2, 1fr); }
+  .morth-banner { grid-template-columns: 1fr; text-align: center; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .story-card { flex-direction: column; }
+  .grid-2 { gap: 24px; }
+  .manifesto-block { padding: 32px 20px; }
+  .manifesto-block h2 { font-size: 26px; }
+}
+
+/* Page-specific overrides */
+.page-header {
+  background: linear-gradient(135deg, var(--night-blue), var(--road-gray));
+  padding: 60px 24px; text-align: center; color: white;
+}
+.page-header h1 {
+  font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900; margin-bottom: 12px;
+}
+.page-header p { font-size: 17px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto; }
+
+/* Feature list */
+.feature-list { list-style: none; padding: 0; }
+.feature-list li {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 12px 0; border-bottom: 1px solid var(--border);
+  font-size: 15px; color: var(--text-secondary);
+}
+.feature-list li:last-child { border-bottom: none; }
+.feature-list .check { color: var(--highway-green); font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+
+/* Animate */
+.fade-up { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#" onclick="showPage('home')">
+      <img class="nav-logo-img" src="asset/logotrick.png" alt="TruckMitr" />
+    </a>
+    <div class="nav-links">
+      <button class="nav-link active" onclick="showPage('home')">Home</button>
+      <button class="nav-link" onclick="showPage('drivers')">For Drivers</button>
+      <button class="nav-link" onclick="showPage('jobs')">Jobs</button>
+      <button class="nav-link" onclick="showPage('fleet')">For Fleets</button>
+      <button class="nav-link" onclick="showPage('oem')">For OEMs</button>
+      <button class="nav-link" onclick="showPage('about')">About</button>
+      <button class="nav-cta driver" onclick="showPage('drivers')">🟢 Join as Driver</button>
+      <button class="nav-cta fleet" onclick="showPage('fleet')">Book Demo</button>
+    </div>
+    <button class="mobile-menu-btn" onclick="toggleMobile()">☰</button>
+  </div>
+</nav>
+
+<!-- WhatsApp FAB -->
+<a class="wa-fab" href="#" title="Chat on WhatsApp">💬</a>
+
+<!-- ========== HOME PAGE ========== -->
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-road"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-badge"><span class="dot"></span> India's First Driver-Centric Platform</div>
+        <h1>The <span class="saffron">Driver</span> Moves India.<br>We Move the <span class="green">Driver</span>.</h1>
+        <div class="hero-hindi">ट्रक मित्र — ड्राइवर की तरक्की, देश की तरक्की</div>
+        <p>Every single product that reaches your home — from the food on your plate to the phone in your hand — was delivered by a truck driver. India runs on 95 lakh trucks and the hands that steer them. Yet the driver has always been the last priority. TruckMitr changes that. We are built for the driver — not around the driver.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-whatsapp" href="#">💬 Find Jobs on WhatsApp</a>
+          <a class="btn btn-outline" href="#" onclick="showPage('fleet')">I'm a Fleet Owner →</a>
+          <a class="btn btn-outline" href="#" onclick="showPage('oem')">I'm an OEM / Partner →</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="hero-stat-num">50,000+</div><div class="hero-stat-label">Drivers in Community</div></div>
+          <div class="hero-stat"><div class="hero-stat-num">2</div><div class="hero-stat-label">Physical Centres</div></div>
+          <div class="hero-stat"><div class="hero-stat-num">500+</div><div class="hero-stat-label">Drivers Placed</div></div>
+          <div class="hero-stat"><div class="hero-stat-num">24/7</div><div class="hero-stat-label">WhatsApp Support</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-icon">🎯</div>
+          <h3>Verified Jobs — No Scams</h3>
+          <p>Every job listing shows salary, route, truck type, and benefits. Apply in one tap. No middlemen. No fees.</p>
+          <div class="hindi">नौकरी ढूंढो — सैलरी जानो — एक क्लिक में आवेदन करो</div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">🏥</div>
+          <h3>Health & Welfare Support</h3>
+          <p>Free health check-up guidance. Government scheme help — e-Shram, PM-JAY, PMSBY. Mental wellbeing support.</p>
+          <div class="hindi">सेहत बनाओ — सरकारी योजनाओं का फ़ायदा उठाओ</div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">📚</div>
+          <h3>Learn & Grow</h3>
+          <p>EV readiness. Digital skills. Safety compliance. The future belongs to drivers who keep learning.</p>
+          <div class="hindi">सीखो और बढ़ो — भविष्य के लिए तैयार रहो</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tri-stripe"></div>
+
+  <!-- The Driver Is the Backbone -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <div class="section-label">🇮🇳 THE TRUTH NOBODY SAYS</div>
+          <h2 class="section-title">The Truck Owner Buys the Truck.<br>The <span style="color:var(--saffron)">Driver</span> Makes It Earn.</h2>
+          <div class="prose">
+            <p>Here is a truth the industry has ignored for decades: the transporter buys the truck, but it is the driver who turns that metal into money. Without the driver, a ₹40 lakh truck is just an expensive piece of iron parked on the side of the road.</p>
+            <p>India's trucking industry moves goods worth over ₹15 lakh crore every year. Behind every delivery is a driver who left his family, drove through monsoon nights, managed difficult roads, and delivered on time — often without proper rest, fair pay, or basic respect.</p>
+            <p>The country faces a reported shortage of approximately 22 lakh skilled truck drivers. That means every single driver on the road today is irreplaceable. Yet the industry continues to treat drivers as interchangeable parts. TruckMitr exists to change this story.</p>
+            <p><strong>We are the first platform in India that puts the driver at the centre of every business decision</strong> — not as an afterthought, but as the starting point. Because when the driver wins, everyone wins — the fleet owner, the OEM, the insurer, and the nation.</p>
+          </div>
+        </div>
+        <div>
+          <div class="manifesto-block">
+            <h2>Our Manifesto</h2>
+            <p>A ₹40 lakh truck earns nothing without the man behind the wheel. India's 95 lakh trucks need drivers who are healthy, skilled, respected, and fairly paid. We don't build for the truck. We build for the person who drives it. That is not charity — that is business sense.</p>
+          </div>
+          <div style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+            <div class="card" style="text-align:center; border-top:3px solid var(--saffron);">
+              <div style="font-size:28px; font-weight:800; color:var(--saffron);">~22 Lakh</div>
+              <div style="font-size:12px; color:var(--text-secondary);">Reported Driver Shortage</div>
+            </div>
+            <div class="card" style="text-align:center; border-top:3px solid var(--highway-green);">
+              <div style="font-size:28px; font-weight:800; color:var(--highway-green);">95 Lakh</div>
+              <div style="font-size:12px; color:var(--text-secondary);">Trucks on Indian Roads</div>
+            </div>
+            <div class="card" style="text-align:center; border-top:3px solid var(--fleet-blue);">
+              <div style="font-size:28px; font-weight:800; color:var(--fleet-blue);">₹15L Cr+</div>
+              <div style="font-size:12px; color:var(--text-secondary);">Goods Moved by Road</div>
+            </div>
+            <div class="card" style="text-align:center; border-top:3px solid var(--oem-purple);">
+              <div style="font-size:28px; font-weight:800; color:var(--oem-purple);">3.6M</div>
+              <div style="font-size:12px; color:var(--text-secondary);">Global Driver Vacancies (IRU)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Pillars -->
+  <section class="section section-dust">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:16px;">
+        <div class="section-label">WHAT WE DO</div>
+        <h2 class="section-title" style="max-width:700px;margin:0 auto 12px;">Three Pillars. One Promise.<br>A Better Life for Drivers.</h2>
+        <p class="section-subtitle" style="margin:0 auto;">Everything we build answers one question: does this help the driver earn more, live healthier, and feel respected?</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-icon">💼</div>
+          <h3>Naukri Dilao</h3>
+          <div class="hindi-sub">नौकरी दिलाओ — Job Placement</div>
+          <p>Verified job listings with clear salary, route, truck type, and benefits. No middlemen. No hidden fees. Apply via WhatsApp in one tap. We match drivers to the right fleet — not just any fleet. Because a good job means stability for the driver and his family.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">💚</div>
+          <h3>Sehat Sambhalo</h3>
+          <div class="hindi-sub">सेहत सँभालो — Health & Welfare</div>
+          <p>Health check-up guidance, government scheme support (e-Shram, PM-JAY, PMSBY, PMJJBY, PM-SYM), mental wellbeing resources, and fatigue awareness. Your health is your income. We help you protect both — because a sick driver cannot feed his family.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🚀</div>
+          <h3>Sikho aur Badho</h3>
+          <div class="hindi-sub">सीखो और बढ़ो — Learn & Grow</div>
+          <p>EV readiness training, digital skills, defensive driving, compliance knowledge. The truck of tomorrow will be electric and digital. The driver who learns today will earn more tomorrow. We prepare you for the future — not just today's trip.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MoRTH Alignment -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">🏛️ ALIGNED WITH NATIONAL PRIORITIES</div>
+      <h2 class="section-title">Working in Step with MoRTH & Government Vision</h2>
+      <p class="section-subtitle" style="margin-bottom:32px;">TruckMitr's mission aligns directly with the Ministry of Road Transport & Highways' driver welfare and training agenda. We are not working in isolation — we are building on the foundation the government is laying.</p>
+
+      <div class="morth-banner" style="margin-bottom:24px;">
+        <div class="morth-emblem">🏛️</div>
+        <div>
+          <h3>MoRTH's IDTR Scheme & Driver Training Infrastructure</h3>
+          <p>The Ministry has sanctioned Institutes of Driving Training & Research (IDTRs) across India — one per 5 crore population — with infrastructure including simulators, driving ranges, and hostels. Each IDTR receives one-time assistance of up to ₹17.25 crore. TruckMitr partners with IDTRs and RDTCs to build clear training pathways for drivers, offering certification badges and safety content tied to official curricula.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card" style="border-top:3px solid var(--saffron);">
+          <div class="card-icon">🛣️</div>
+          <h3>Apna Ghar Rest Facilities</h3>
+          <p>The government reports 368 Apna Ghar facilities with 4,611 beds on national highways — offering dormitories, food, clean toilets, bathing areas, and purified water. TruckMitr integrates rest-stop discovery and promotes safe rest behaviour as part of fatigue prevention.</p>
+        </div>
+        <div class="card" style="border-top:3px solid var(--highway-green);">
+          <div class="card-icon">⚡</div>
+          <h3>PM E-DRIVE for Electric Trucks</h3>
+          <p>The government has announced incentives for electric trucks under PM E-DRIVE, linking eligibility to scrapping old vehicles. TruckMitr promotes EV-ready driver skills — high-voltage safety, regenerative braking, and charging etiquette — preparing drivers for the fleet modernisation wave.</p>
+        </div>
+        <div class="card" style="border-top:3px solid var(--fleet-blue);">
+          <div class="card-icon">📋</div>
+          <h3>Motor Transport Workers Act</h3>
+          <p>India's legal framework caps working hours at 8 hours/day and 48 hours/week for motor transport workers. The Supreme Court has pushed for effective implementation. TruckMitr educates drivers on their legal rights and sets partner expectations around rest and safety.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Driver Stories -->
+  <section class="section section-dust">
+    <div class="container">
+      <div class="section-label">🗣️ REAL DRIVERS, REAL STORIES</div>
+      <h2 class="section-title">They Drive India. Hear Their Voice.</h2>
+      <p class="section-subtitle" style="margin-bottom:32px;">Trust is not built by marketing — it is built by real people sharing real experiences.</p>
+      <div class="grid-2" style="gap:20px;">
+        <div class="story-card">
+          <div class="story-avatar">🧑</div>
+          <div>
+            <blockquote>"मुझे TruckMitr से 3 दिन में नौकरी मिली। सैलरी पहले से क्लियर थी, कोई धोखा नहीं। अब मेरी बीवी भी PM-JAY में रजिस्टर हो गई।"</blockquote>
+            <div class="name">Ramesh Kumar</div>
+            <div class="route">NH-44 Long-Haul · 12 Years Experience</div>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-avatar">🧑</div>
+          <div>
+            <blockquote>"पहले मुझे पता ही नहीं था कि e-Shram card से क्या फ़ायदा होता है। TruckMitr ने सब समझाया और करवाया। अब मुझे accident insurance भी मिला।"</blockquote>
+            <div class="name">Sunil Yadav</div>
+            <div class="route">Delhi-Jaipur Route · 8 Years Experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- For OEMs & Partners Preview -->
+  <section class="section section-dark">
+    <div class="container" style="text-align:center;">
+      <div class="section-label" style="color:var(--gold);">🏭 FOR OEMs, ANCILLARY BUSINESSES & PARTNERS</div>
+      <h2 class="section-title" style="color:white; max-width:800px; margin:0 auto 16px;">The Driver Decides Which Truck Succeeds.<br>We Give You <span style="color:var(--gold);">Direct Access</span> to That Decision.</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.65); margin:0 auto 40px;">India's commercial vehicle market exceeds $51 billion. But no OEM has direct, trusted access to the person who actually uses the truck every day — the driver. TruckMitr is that access layer. From product feedback to EV training to brand loyalty programmes — we are the centre point for every driver-related business decision.</p>
+      <div class="grid-4" style="margin-bottom:32px;">
+        <div class="card" style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.1); color:white;">
+          <div style="font-size:32px; margin-bottom:12px;">🔬</div>
+          <h3 style="color:white; font-size:15px;">Driver Feedback Programmes</h3>
+          <p style="color:rgba(255,255,255,0.6); font-size:13px;">Real-world product insights from 50,000+ drivers. Cabin comfort, fuel efficiency, braking feedback — from the people who use your trucks daily.</p>
+        </div>
+        <div class="card" style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.1); color:white;">
+          <div style="font-size:32px; margin-bottom:12px;">⚡</div>
+          <h3 style="color:white; font-size:15px;">EV Training Partnerships</h3>
+          <p style="color:rgba(255,255,255,0.6); font-size:13px;">Co-create EV readiness modules. Train drivers on your electric truck platform. Build brand familiarity before the sale — at the driver level.</p>
+        </div>
+        <div class="card" style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.1); color:white;">
+          <div style="font-size:32px; margin-bottom:12px;">🎯</div>
+          <h3 style="color:white; font-size:15px;">Brand Engagement at Scale</h3>
+          <p style="color:rgba(255,255,255,0.6); font-size:13px;">Tyre brands, lubricant companies, spare parts makers — reach the actual end-user. Run rewards, sampling campaigns, and loyalty programmes through our driver network.</p>
+        </div>
+        <div class="card" style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.1); color:white;">
+          <div style="font-size:32px; margin-bottom:12px;">📊</div>
+          <h3 style="color:white; font-size:15px;">Driver Influence Score™</h3>
+          <p style="color:rgba(255,255,255,0.6); font-size:13px;">Understand which drivers influence purchase decisions. The experienced driver's word matters more than any brochure when a fleet owner chooses a truck.</p>
+        </div>
+      </div>
+      <a class="btn btn-oem" href="#" onclick="showPage('oem')">Explore OEM & Partner Programmes →</a>
+    </div>
+  </section>
+
+  <!-- CSR Activities -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">🤝 CSR & SOCIAL IMPACT</div>
+      <h2 class="section-title">Business With a Conscience.<br>CSR Programmes Centred on Drivers.</h2>
+      <p class="section-subtitle" style="margin-bottom:32px;">For corporates looking to create measurable social impact, TruckMitr offers CSR partnership models that directly improve the lives of India's most essential — and most overlooked — workforce.</p>
+      <div class="grid-3">
+        <div class="csr-card">
+          <div class="csr-top">🏥</div>
+          <div class="csr-body">
+            <span class="tag tag-green">Health</span>
+            <h4>Driver Health Camps</h4>
+            <p>Sponsor health check-up camps at highway rest stops and transport hubs. Screen drivers for hypertension, diabetes, vision issues, and fatigue — conditions widely reported among long-haul truckers. Each camp can cover 200-500 drivers.</p>
+          </div>
+        </div>
+        <div class="csr-card">
+          <div class="csr-top">🧠</div>
+          <div class="csr-body">
+            <span class="tag tag-purple">Wellbeing</span>
+            <h4>Mental Wellbeing Micro-Academy</h4>
+            <p>Fund stigma-free mental health modules — stress management, loneliness on the road, how to talk to family. Adapted from best practices like Australia's Healthy Heads in Trucks programme for Indian driver context.</p>
+          </div>
+        </div>
+        <div class="csr-card">
+          <div class="csr-top">📚</div>
+          <div class="csr-body">
+            <span class="tag tag-blue">Skilling</span>
+            <h4>Future-Ready Driver Academy</h4>
+            <p>Sponsor EV readiness, digital compliance, and defensive driving training modules. Partner with MoRTH-sanctioned IDTRs. Each trained driver receives a TruckMitr certification badge — helping them access better-paying jobs.</p>
+          </div>
+        </div>
+        <div class="csr-card">
+          <div class="csr-top">👨‍👩‍👧</div>
+          <div class="csr-body">
+            <span class="tag tag-saffron">Family</span>
+            <h4>Driver Family Support</h4>
+            <p>Fund children's education support and digital literacy for drivers' families. Help families access PM-JAY health cover, PMSBY accident insurance, and PM-SYM pension. Social security is family security.</p>
+          </div>
+        </div>
+        <div class="csr-card">
+          <div class="csr-top">🛡️</div>
+          <div class="csr-body">
+            <span class="tag tag-green">Safety</span>
+            <h4>Safe Roads, Safe Drivers</h4>
+            <p>Sponsor fatigue awareness campaigns, rest-stop information programmes, and first-aid training for drivers. Align with ILO decent work framework and India's Motor Transport Workers Act on rest and safety standards.</p>
+          </div>
+        </div>
+        <div class="csr-card">
+          <div class="csr-top">📱</div>
+          <div class="csr-body">
+            <span class="tag tag-blue">Digital</span>
+            <h4>Scheme Access Drives</h4>
+            <p>Fund e-Shram registration drives at transport hubs. Help drivers get their UAN, check PM-JAY eligibility, and enrol in pension schemes. Over 30 crore unorganised workers have registered on e-Shram — but millions of drivers still haven't.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="section section-dark" style="text-align:center; padding:60px 24px;">
+    <div class="container">
+      <h2 class="section-title" style="color:white;">Ready to Join the Movement?</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.65); margin:0 auto 32px;">Whether you are a driver looking for your next job, a fleet owner who wants to retain better drivers, or an OEM that wants to reach the real end-user — TruckMitr is where it begins.</p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn-whatsapp" href="#">💬 I'm a Driver — Find Jobs</a>
+        <a class="btn btn-fleet" href="#" onclick="showPage('fleet')">I'm a Fleet Owner</a>
+        <a class="btn btn-oem" href="#" onclick="showPage('oem')">I'm an OEM / Partner</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ========== FOR DRIVERS PAGE ========== -->
+<div id="page-drivers" class="page">
+  <div class="page-header">
+    <div class="hero-badge" style="margin:0 auto 16px;"><span class="dot"></span> Your Home on TruckMitr</div>
+    <h1>For <span style="color:var(--saffron);">Drivers</span></h1>
+    <p>नौकरी ढूंढो · सेहत बनाओ · योजनाओं का फ़ायदा उठाओ · सीखो और बढ़ो</p>
+    <div style="margin-top:24px;">
+      <a class="btn btn-whatsapp" href="#">💬 नौकरी ढूंढो — Find Jobs</a>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose" style="max-width:800px; margin:0 auto;">
+        <p style="font-size:20px; font-weight:600; color:var(--text-primary);">Namaste, Driver 👋</p>
+        <p>You keep India moving. The food in every kitchen, the medicine in every hospital, the steel in every building — it all reached there because you drove it. Without you, India stops.</p>
+        <p>But finding a good job — with clear pay, a safe truck, fair treatment, and honest information — is harder than driving through a monsoon night. That is why TruckMitr exists. We are built for you. Not for the fleet owner. Not for the OEM. For <strong>you</strong>.</p>
+        <p>Pick what you need today:</p>
+      </div>
+
+      <div class="pillars" style="margin-top:32px;">
+        <div class="pillar" onclick="showPage('jobs')" style="cursor:pointer;">
+          <div class="pillar-icon">💼</div>
+          <h3>Find Verified Jobs</h3>
+          <div class="hindi-sub">नौकरी ढूंढो</div>
+          <p>Job listings with salary range, route type, truck type, and benefits — all clearly stated. No middleman fees. Apply via WhatsApp. Keep your licence and Aadhaar ready. We match you to jobs that fit your experience.</p>
+          <div style="margin-top:12px;"><a class="btn btn-saffron" href="#">See Open Jobs →</a></div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">💚</div>
+          <h3>Health & Wellness</h3>
+          <div class="hindi-sub">सेहत सँभालो</div>
+          <p>Your health is your income. If you miss work due to illness or fatigue, the cost hits your family immediately. We help with health check-up guidance, mental wellbeing resources, and fatigue awareness — because rest is safety.</p>
+          <ul class="feature-list" style="margin-top:12px;">
+            <li><span class="check">✓</span> Common health issues on the road</li>
+            <li><span class="check">✓</span> PM-JAY health cover guidance</li>
+            <li><span class="check">✓</span> Apna Ghar rest stop locations</li>
+            <li><span class="check">✓</span> Stress and sleep support</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">📋</div>
+          <h3>Welfare Schemes Guide</h3>
+          <div class="hindi-sub">सरकारी योजनाएँ</div>
+          <p>Many drivers qualify for government schemes but miss out because the process is confusing. We simplify it — step by step, in simple language, no login required.</p>
+        </div>
+      </div>
+
+      <!-- Scheme Cards -->
+      <div style="margin-top:40px;">
+        <h3 style="font-size:22px; font-weight:700; margin-bottom:20px;">Government Schemes You Can Access</h3>
+        <div class="grid-2" style="gap:16px;">
+          <div class="scheme-card">
+            <h4>e-Shram Card</h4>
+            <div class="hindi-name">ई-श्रम कार्ड</div>
+            <p>A national database for unorganised workers. Get your Universal Account Number (UAN) through Aadhaar-based registration. This is your first step to accessing government social security benefits.</p>
+            <div class="benefit">✓ Worker ID + UAN for social security access</div>
+          </div>
+          <div class="scheme-card">
+            <h4>Ayushman Bharat PM-JAY</h4>
+            <div class="hindi-name">आयुष्मान भारत PM-JAY</div>
+            <p>Cashless hospitalisation cover for eligible families. If you or your family member needs hospital care, this scheme can help — no huge bills to worry about.</p>
+            <div class="benefit">✓ Up to ₹5,00,000 per family per year</div>
+          </div>
+          <div class="scheme-card">
+            <h4>PMSBY — Accident Cover</h4>
+            <div class="hindi-name">प्रधानमंत्री सुरक्षा बीमा योजना</div>
+            <p>Accident insurance for bank account holders. Renewable every year with a small premium. Covers accidental death and disability.</p>
+            <div class="benefit">✓ Up to ₹2,00,000 accident cover</div>
+          </div>
+          <div class="scheme-card">
+            <h4>PM-SYM — Pension Scheme</h4>
+            <div class="hindi-name">प्रधानमंत्री श्रम योगी मान-धन</div>
+            <p>A contributory pension scheme for unorganised workers. Start contributing now, receive monthly pension after age 60. Your retirement matters.</p>
+            <div class="benefit">✓ ₹3,000/month pension after age 60</div>
+          </div>
+        </div>
+        <p style="font-size:12px; color:var(--text-muted); margin-top:12px;">TruckMitr provides guidance. Official approval and issuance is done by government portals and authorities. Eligibility criteria apply.</p>
+      </div>
+
+      <!-- Learn & Grow -->
+      <div style="margin-top:48px;">
+        <h3 style="font-size:22px; font-weight:700; margin-bottom:8px;">Learn & Grow — Future-Ready Driver</h3>
+        <p style="font-size:15px; color:var(--text-secondary); margin-bottom:20px;">The future driver is not only someone who drives well. The future driver understands safety, compliance, and new vehicle technologies.</p>
+        <div class="grid-4">
+          <div class="card" style="text-align:center;">
+            <div style="font-size:32px; margin-bottom:8px;">🛡️</div>
+            <h3 style="font-size:15px;">Defensive Driving</h3>
+            <p style="font-size:13px;">Safer habits and fatigue avoidance</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size:32px; margin-bottom:8px;">📱</div>
+            <h3 style="font-size:15px;">Digital Skills</h3>
+            <p style="font-size:13px;">Apps, PoD basics, fraud avoidance</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size:32px; margin-bottom:8px;">⚡</div>
+            <h3 style="font-size:15px;">EV Awareness</h3>
+            <p style="font-size:13px;">Charging, high-voltage safety, regen braking</p>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div style="font-size:32px; margin-bottom:8px;">⛽</div>
+            <h3 style="font-size:15px;">Route & Fuel</h3>
+            <p style="font-size:13px;">Route planning and fuel efficiency</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="margin-top:48px; text-align:center; padding:40px; background:var(--dust); border-radius:20px;">
+        <h3 style="font-size:24px; font-weight:700; margin-bottom:8px;">What Do You Need Today?</h3>
+        <p style="font-size:15px; color:var(--text-secondary); margin-bottom:20px;">आज आपको क्या चाहिए — नौकरी या योजना मदद?</p>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a class="btn btn-whatsapp" href="#">💬 Find Jobs</a>
+          <a class="btn btn-green" href="#">📋 Scheme Help</a>
+          <a class="btn btn-saffron" href="#">📞 Call Me Back</a>
+        </div>
+        <p style="font-size:12px; color:var(--text-muted); margin-top:12px;">We reply in working hours. If we miss you, we will call back.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ========== JOBS PAGE ========== -->
+<div id="page-jobs" class="page">
+  <div class="page-header">
+    <h1>Driver <span style="color:var(--saffron);">Job Board</span></h1>
+    <p>Verified jobs with clear salary, route, and benefits. No scams. Apply in one tap.</p>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose" style="margin-bottom:32px;">
+        <p>A job board for drivers should not feel like a gamble. It should feel like clarity. Every listing on TruckMitr follows a standard format so you can compare jobs and choose what works for you and your family.</p>
+      </div>
+
+      <!-- Filters mockup -->
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;">
+        <span class="tag tag-saffron">All Routes</span>
+        <span class="tag tag-green">Long-Haul</span>
+        <span class="tag tag-blue">Regional</span>
+        <span class="tag tag-purple">Local</span>
+        <span class="tag" style="background:#f0f0f0;">Container</span>
+        <span class="tag" style="background:#f0f0f0;">Tipper</span>
+        <span class="tag" style="background:#f0f0f0;">Tanker</span>
+        <span class="tag" style="background:#f0f0f0;">Refrigerated</span>
+      </div>
+
+      <!-- Sample Job Cards -->
+      <div class="grid-2" style="gap:16px;">
+        <div class="job-card">
+          <div class="job-header">
+            <div class="job-fleet">ABC Logistics Pvt Ltd</div>
+            <div class="job-badge">✓ Verified</div>
+          </div>
+          <div class="job-salary">₹28,000 – ₹35,000 /month</div>
+          <div class="job-details">
+            <div class="job-detail">🛣️ Delhi → Mumbai (Long-Haul)</div>
+            <div class="job-detail">🚛 40ft Container</div>
+            <div class="job-detail">📋 HMV Licence Required</div>
+            <div class="job-detail">⏰ Immediate Joining</div>
+          </div>
+          <div class="job-benefits">
+            <span class="job-benefit-tag">🏠 Accommodation</span>
+            <span class="job-benefit-tag">🏥 Medical Support</span>
+            <span class="job-benefit-tag">💰 Trip Incentive</span>
+          </div>
+          <a class="btn btn-whatsapp" href="#" style="width:100%; justify-content:center;">💬 Apply via WhatsApp</a>
+        </div>
+
+        <div class="job-card">
+          <div class="job-header">
+            <div class="job-fleet">XYZ Transport Co.</div>
+            <div class="job-badge">✓ Verified</div>
+          </div>
+          <div class="job-salary">₹22,000 – ₹28,000 /month</div>
+          <div class="job-details">
+            <div class="job-detail">🛣️ Jaipur → Ahmedabad (Regional)</div>
+            <div class="job-detail">🚛 Tipper / Open Body</div>
+            <div class="job-detail">📋 HMV Licence Required</div>
+            <div class="job-detail">⏰ Within 2 Weeks</div>
+          </div>
+          <div class="job-benefits">
+            <span class="job-benefit-tag">💰 Monthly Fixed</span>
+            <span class="job-benefit-tag">🏥 PMSBY Enrolled</span>
+            <span class="job-benefit-tag">📅 Weekly Off</span>
+          </div>
+          <a class="btn btn-whatsapp" href="#" style="width:100%; justify-content:center;">💬 Apply via WhatsApp</a>
+        </div>
+
+        <div class="job-card">
+          <div class="job-header">
+            <div class="job-fleet">National Freight Services</div>
+            <div class="job-badge">✓ Verified</div>
+          </div>
+          <div class="job-salary">₹32,000 – ₹40,000 /month</div>
+          <div class="job-details">
+            <div class="job-detail">🛣️ Chennai → Bangalore (Regional)</div>
+            <div class="job-detail">🚛 Refrigerated Van</div>
+            <div class="job-detail">📋 HMV + Cold Chain Exp.</div>
+            <div class="job-detail">⏰ Immediate Joining</div>
+          </div>
+          <div class="job-benefits">
+            <span class="job-benefit-tag">🏠 Accommodation</span>
+            <span class="job-benefit-tag">🏥 Health Check-ups</span>
+            <span class="job-benefit-tag">💰 Performance Bonus</span>
+            <span class="job-benefit-tag">📱 e-Shram Supported</span>
+          </div>
+          <a class="btn btn-whatsapp" href="#" style="width:100%; justify-content:center;">💬 Apply via WhatsApp</a>
+        </div>
+
+        <div class="job-card">
+          <div class="job-header">
+            <div class="job-fleet">GreenWheels EV Fleet</div>
+            <div class="job-badge" style="background:#F0EDFB; color:#5A4BD6;">⚡ EV Fleet</div>
+          </div>
+          <div class="job-salary">₹30,000 – ₹38,000 /month</div>
+          <div class="job-details">
+            <div class="job-detail">🛣️ Pune → Mumbai (Short-Haul)</div>
+            <div class="job-detail">⚡ Electric Truck</div>
+            <div class="job-detail">📋 HMV + EV Training Pref.</div>
+            <div class="job-detail">⏰ Flexible Start</div>
+          </div>
+          <div class="job-benefits">
+            <span class="job-benefit-tag">⚡ EV Training Provided</span>
+            <span class="job-benefit-tag">🏥 Full Medical</span>
+            <span class="job-benefit-tag">💰 Fixed + Incentive</span>
+          </div>
+          <a class="btn btn-whatsapp" href="#" style="width:100%; justify-content:center;">💬 Apply via WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Verification explainer -->
+      <div style="margin-top:40px; padding:32px; background:var(--highway-light); border-radius:16px;">
+        <h3 style="font-size:20px; font-weight:700; margin-bottom:12px;">🛡️ How We Reduce Job Scams</h3>
+        <p style="font-size:14px; color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">Trust is the entire product. Here is what "verified" means on TruckMitr:</p>
+        <ul class="feature-list">
+          <li><span class="check">✓</span> Fleet partner identity confirmed — we verify who is posting the job</li>
+          <li><span class="check">✓</span> Job poster contact verified — a real person, not a fake number</li>
+          <li><span class="check">✓</span> Basic job details checked — salary range, route, and requirements confirmed</li>
+          <li><span class="check">✓</span> <strong>What you should still ask:</strong> advance policy, deduction details, actual route realities</li>
+          <li><span class="check" style="color:var(--warning-red);">⚠️</span> <strong>Never pay anyone for a job placement.</strong> TruckMitr never charges drivers placement fees.</li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div style="margin-top:40px; text-align:center; padding:40px; background:var(--dust); border-radius:20px;">
+        <h3 style="font-size:22px; font-weight:700; margin-bottom:8px;">Don't See the Right Job Today?</h3>
+        <p style="font-size:15px; color:var(--text-secondary); margin-bottom:20px;">Create your profile once. We will send job matches when new openings come.</p>
+        <a class="btn btn-saffron" href="#">Create Driver Profile →</a>
+        <p style="font-size:12px; color:var(--text-muted); margin-top:12px;">Takes 2 minutes. WhatsApp or OTP based. No long forms.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ========== FOR FLEET OWNERS PAGE ========== -->
+<div id="page-fleet" class="page">
+  <div class="page-header" style="background:linear-gradient(135deg, #0A1628 0%, #1A2A4A 100%);">
+    <h1>For <span style="color:var(--fleet-blue);">Fleet Owners</span></h1>
+    <p>Your drivers are your biggest asset — and your biggest challenge. We solve both.</p>
+    <div style="margin-top:24px;">
+      <a class="btn btn-fleet" href="#">Book a Demo →</a>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="margin-bottom:48px;">
+        <div>
+          <h2 class="section-title">How Much Did Driver Attrition Cost You Last Year?</h2>
+          <div class="prose">
+            <p>A 200-truck fleet losing 25% of its drivers annually spends an estimated ₹50–80 lakh just on replacements — before counting accident costs, idle truck days, and fuel wastage from inexperienced replacements.</p>
+            <p>The industry is facing a reported shortage of approximately 22 lakh drivers. Recruitment is getting harder. The drivers who stay with you are the ones who feel respected, healthy, and supported. That is exactly what TruckMitr delivers — not as a welfare add-on, but as a retention and productivity tool.</p>
+          </div>
+        </div>
+        <div>
+          <div class="impact-strip" style="grid-template-columns:1fr 1fr;">
+            <div class="impact-item"><div class="impact-num">₹50-80L</div><div class="impact-label">Annual Attrition Cost (200-truck fleet)</div></div>
+            <div class="impact-item"><div class="impact-num">25%+</div><div class="impact-label">Avg. Annual Driver Turnover</div></div>
+            <div class="impact-item"><div class="impact-num">72 hrs</div><div class="impact-label">Avg. Time to Fill a Position</div></div>
+            <div class="impact-item"><div class="impact-num">20%↓</div><div class="impact-label">Attrition Reduction with TruckMitr</div></div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:22px; font-weight:700; margin-bottom:20px;">How TruckMitr Works for You</h3>
+      <div class="grid-3" style="margin-bottom:48px;">
+        <div class="card" style="border-top:3px solid var(--fleet-blue); text-align:center;">
+          <div style="font-size:36px; margin-bottom:12px;">1️⃣</div>
+          <h3>Your Drivers Join TruckMitr</h3>
+          <p>Simple WhatsApp-based onboarding. No app downloads needed. Drivers join the platform and access health, welfare, and learning support.</p>
+        </div>
+        <div class="card" style="border-top:3px solid var(--fleet-blue); text-align:center;">
+          <div style="font-size:36px; margin-bottom:12px;">2️⃣</div>
+          <h3>We Track Health, Skills & Engagement</h3>
+          <p>Health check-up status, scheme registrations, training completions, and engagement metrics — all tracked and reported.</p>
+        </div>
+        <div class="card" style="border-top:3px solid var(--fleet-blue); text-align:center;">
+          <div style="font-size:36px; margin-bottom:12px;">3️⃣</div>
+          <h3>You Get a Wellness Dashboard</h3>
+          <p>Weekly reports on driver wellness, retention indicators, and compliance. Make data-driven decisions about your most important asset — your people.</p>
+        </div>
+      </div>
+
+      <h3 style="font-size:22px; font-weight:700; margin-bottom:20px;">Need Drivers? Post a Job.</h3>
+      <div class="card" style="padding:32px; border-left:4px solid var(--fleet-blue); margin-bottom:48px;">
+        <p style="font-size:17px; font-weight:600; margin-bottom:12px;">Post a job to 50,000+ verified drivers across India.</p>
+        <p style="font-size:14px; color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">Every driver on TruckMitr has a profile — route history, licence type, experience, and health status. No more hiring from the roadside. Verified profiles, route-matched candidates, health-screened drivers.</p>
+        <a class="btn btn-fleet" href="#">Post a Job →</a>
+      </div>
+
+      <!-- Pricing -->
+      <h3 style="font-size:22px; font-weight:700; margin-bottom:20px;">Simple Pricing</h3>
+      <div class="grid-3" style="margin-bottom:32px;">
+        <div class="card" style="text-align:center; border-top:3px solid #ccc;">
+          <div style="font-size:13px; font-weight:600; color:var(--text-muted); margin-bottom:4px;">STARTER</div>
+          <h3>Up to 50 Drivers</h3>
+          <p style="margin:12px 0;">Wellness dashboard, scheme support, basic reporting.</p>
+          <a class="btn btn-outline" href="#" style="color:var(--text-primary); border-color:var(--border);">Contact Us</a>
+        </div>
+        <div class="card" style="text-align:center; border-top:3px solid var(--fleet-blue);">
+          <div style="font-size:13px; font-weight:600; color:var(--fleet-blue); margin-bottom:4px;">GROWTH — Most Popular</div>
+          <h3>50–200 Drivers</h3>
+          <p style="margin:12px 0;">Full platform + job posting + health camps + training modules.</p>
+          <a class="btn btn-fleet" href="#">Book Demo</a>
+        </div>
+        <div class="card" style="text-align:center; border-top:3px solid var(--night-blue);">
+          <div style="font-size:13px; font-weight:600; color:var(--text-muted); margin-bottom:4px;">ENTERPRISE</div>
+          <h3>200+ Drivers</h3>
+          <p style="margin:12px 0;">Custom integration, dedicated account manager, CSR partnership.</p>
+          <a class="btn btn-outline" href="#" style="color:var(--text-primary); border-color:var(--border);">Talk to Sales</a>
+        </div>
+      </div>
+      <p style="font-size:13px; color:var(--text-muted); text-align:center;">Free 30-day trial available for all plans. No commitment required.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ========== FOR OEMs PAGE ========== -->
+<div id="page-oem" class="page">
+  <div class="page-header" style="background:linear-gradient(135deg, #1A0A38 0%, #2A1A58 100%);">
+    <div class="hero-badge" style="background:rgba(107,92,231,0.2); border-color:rgba(107,92,231,0.4); color:#B8AFEF; margin:0 auto 16px;"><span class="dot" style="background:var(--oem-purple);"></span> The Driver Influence Layer</div>
+    <h1>For <span style="color:var(--oem-purple);">OEMs & Partners</span></h1>
+    <p>The truck buyer signs the cheque. The driver decides which truck works. We give you access to that decision.</p>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="margin-bottom:48px;">
+        <div>
+          <h2 class="section-title">India's $51 Billion CV Market Has a Blind Spot: <span style="color:var(--oem-purple);">The Driver.</span></h2>
+          <div class="prose">
+            <p>Every truck OEM in India spends crores reaching fleet owners, financiers, and dealers. But the person who actually uses the product every day — who knows whether the cabin is comfortable, the brakes are responsive, the fuel economy is real — is the driver.</p>
+            <p>No OEM has direct, trusted, at-scale access to drivers. TruckMitr is that access layer. With 50,000+ drivers in our community, we are the only platform in India that can connect truck manufacturers, tyre brands, lubricant companies, spare parts makers, and ancillary businesses directly to the end-user of their products.</p>
+            <p><strong>We are the centre point for every driver-related business decision.</strong> Product feedback, training rollouts, brand engagement, CSR programmes — everything runs through the driver, and the driver runs through TruckMitr.</p>
+          </div>
+        </div>
+        <div>
+          <div class="impact-strip" style="grid-template-columns:1fr 1fr;">
+            <div class="impact-item"><div class="impact-num" style="color:var(--oem-purple);">$51Bn</div><div class="impact-label">India CV Market Size</div></div>
+            <div class="impact-item"><div class="impact-num" style="color:var(--oem-purple);">50,000+</div><div class="impact-label">Drivers in Community</div></div>
+            <div class="impact-item"><div class="impact-num" style="color:var(--oem-purple);">~22L</div><div class="impact-label">Driver Shortage Reported</div></div>
+            <div class="impact-item"><div class="impact-num" style="color:var(--oem-purple);">Zero</div><div class="impact-label">Competitors with Driver Access</div></div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:24px; font-weight:700; margin-bottom:24px;">Partnership Models — Built for Your Business</h3>
+      <div class="grid-3" style="margin-bottom:48px;">
+        <div class="oem-card" style="border-top:3px solid var(--oem-purple);">
+          <div class="oem-card-icon">🔬</div>
+          <h3>Driver Feedback & Product Insights</h3>
+          <p>Run structured feedback programmes with real drivers. Cabin comfort, braking, fuel economy, dashboard usability — get insights your R&D team cannot get from a test track. Quarterly reports with actionable data from drivers who use your trucks 12+ hours a day.</p>
+          <div style="margin-top:12px;"><span class="tag tag-purple">For: Truck OEMs</span><span class="tag tag-purple">Tyre Brands</span></div>
+        </div>
+        <div class="oem-card" style="border-top:3px solid var(--oem-purple);">
+          <div class="oem-card-icon">⚡</div>
+          <h3>EV Training & Transition Support</h3>
+          <p>As electric trucks enter the Indian market under PM E-DRIVE incentives, drivers need training on high-voltage safety, regenerative braking, and charging infrastructure. Co-create EV readiness modules branded with your OEM identity. Build driver familiarity with your platform before the fleet owner even places an order.</p>
+          <div style="margin-top:12px;"><span class="tag tag-purple">For: EV Truck OEMs</span><span class="tag tag-purple">Charging Infra</span></div>
+        </div>
+        <div class="oem-card" style="border-top:3px solid var(--oem-purple);">
+          <div class="oem-card-icon">🎯</div>
+          <h3>Brand Engagement & Rewards</h3>
+          <p>Tyre brands, lubricant companies, spare parts makers, insurance providers — run sampling campaigns, loyalty rewards, and brand engagement programmes through our driver network. The driver influences which products the fleet buys. Reach the influencer directly.</p>
+          <div style="margin-top:12px;"><span class="tag tag-purple">For: Ancillary</span><span class="tag tag-purple">Insurance</span><span class="tag tag-purple">Lubricants</span></div>
+        </div>
+        <div class="oem-card" style="border-top:3px solid var(--oem-purple);">
+          <div class="oem-card-icon">📊</div>
+          <h3>Driver Influence Score™</h3>
+          <p>Not all drivers are equal in influence. Some are the go-to advisors in their transport network. Our Driver Influence Score identifies which drivers shape fleet purchase decisions — so your engagement budget targets the right people.</p>
+          <div style="margin-top:12px;"><span class="tag tag-purple">For: All Partners</span></div>
+        </div>
+        <div class="oem-card" style="border-top:3px solid var(--oem-purple);">
+          <div class="oem-card-icon">🤝</div>
+          <h3>CSR & Social Impact Programmes</h3>
+          <p>Sponsor health camps, skill training, scheme registration drives, family support, and road safety campaigns for drivers. Measurable CSR outcomes with quarterly impact reports. Your brand associated with India's most essential workforce — in a meaningful, not performative, way.</p>
+          <div style="margin-top:12px;"><span class="tag tag-purple">For: All Corporates</span><span class="tag tag-purple">CSR Mandate</span></div>
+        </div>
+        <div class="oem-card" style="border-top:3px solid var(--oem-purple);">
+          <div class="oem-card-icon">🏛️</div>
+          <h3>MoRTH-Aligned Training Partnerships</h3>
+          <p>Partner with TruckMitr's IDTR and RDTC network to co-deliver training aligned with MoRTH's driver skilling agenda. Certification badges carry OEM branding. Drivers trained on your platform become advocates for your products.</p>
+          <div style="margin-top:12px;"><span class="tag tag-purple">For: OEMs</span><span class="tag tag-purple">IDTR Partners</span></div>
+        </div>
+      </div>
+
+      <div style="text-align:center; padding:40px; background:linear-gradient(135deg, #F0EDFB, #E6F1FB); border-radius:20px;">
+        <h3 style="font-size:24px; font-weight:700; margin-bottom:8px;">Let's Build Something Together</h3>
+        <p style="font-size:15px; color:var(--text-secondary); margin-bottom:20px;">Whether you manufacture trucks, make tyres, sell lubricants, or provide insurance — the driver is your end-user. We are your bridge to them.</p>
+        <a class="btn btn-oem" href="#">Start a Partnership Conversation →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ========== ABOUT PAGE ========== -->
+<div id="page-about" class="page">
+  <div class="page-header">
+    <h1>About <span style="color:var(--saffron);">TruckMitr</span></h1>
+    <p>A driver-first movement — built to make trucking safer, more respected, and more secure.</p>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose" style="max-width:800px; margin:0 auto 48px;">
+        <p style="font-size:20px; font-weight:600; color:var(--text-primary);">TruckMitr exists because the driver experience in India has been ignored for too long.</p>
+        <p>Drivers are expected to deliver on time in every condition — scorching heat, blinding rain, endless traffic jams, broken roads, and pressure to "manage somehow." Yet when a driver asks for clarity on pay, clean rest facilities, fair treatment, or medical help, the system often fails them.</p>
+        <p>We believe a stronger trucking industry is not built only on better roads and better trucks. It is built on better driver lives. A healthy driver is a safer driver. A respected driver is a loyal driver. A skilled driver is a future-ready driver.</p>
+
+        <h3>Our Mission</h3>
+        <p>To help truck drivers get reliable work, access welfare, and build skills — so they can earn with dignity today and stay ready for tomorrow.</p>
+
+        <h3>What We Stand For</h3>
+        <p><strong>Respect over fear.</strong> No driver should feel powerless in a job. The driver is not a cost — the driver is the workforce.</p>
+        <p><strong>Trust over rumours.</strong> Verified job information, clear expectations, and honest communication. If we don't know something, we say so.</p>
+        <p><strong>Safety over shortcuts.</strong> Road safety is not only about infrastructure. It is about driver working conditions, responsible scheduling, and the right to rest. This aligns with ILO's guidance on decent work in transport and India's Motor Transport Workers Act provisions on hours and welfare.</p>
+        <p><strong>Support for the whole life.</strong> Health, mental wellbeing, family security, and access to social protection matter — especially for workers in the unorganised sector who often fall through the cracks.</p>
+
+        <h3>Why This Matters Now</h3>
+        <p>India faces a widely reported shortage of skilled truck drivers, estimated at around 22 lakh. Globally, IRU reports 3.6 million unfilled truck driver positions across 36 countries, with a widening age gap (under-25 drivers at just 6.5% of the workforce). If the industry does not become a better place to work, shortages worsen — impacting families, supply chains, national safety, and economic growth.</p>
+        <p>At the same time, the industry is transforming — electric trucks are gaining government policy support, automation technologies are advancing, and digital compliance is becoming standard. Drivers who are healthy, skilled, and supported will thrive. Those who are left behind will leave the profession. TruckMitr ensures no driver gets left behind.</p>
+
+        <h3>What We Do — In Simple Words</h3>
+        <p>We connect drivers to verified job openings. We help drivers understand and access welfare schemes like e-Shram and PM-JAY. We promote rest, safety, and wellbeing. We prepare drivers for the future — EV awareness, digital skills, compliance knowledge. And we give OEMs, ancillary businesses, and corporate CSR programmes a direct, trusted channel to the people who actually use their products every day.</p>
+
+        <h3>India's First Driver-Centric Platform</h3>
+        <p>We are the first platform in India that starts with the driver — not the fleet owner, not the OEM, not the shipper. Every product decision, every piece of content, every partnership is evaluated against one question: <strong>does this help the driver?</strong></p>
+        <p>This is not charity. This is the most rational business strategy for an industry that cannot function without its drivers.</p>
+      </div>
+
+      <!-- Impact -->
+      <div class="impact-strip" style="margin-bottom:48px;">
+        <div class="impact-item"><div class="impact-num">50,000+</div><div class="impact-label">Drivers in Community</div></div>
+        <div class="impact-item"><div class="impact-num">2</div><div class="impact-label">Physical Centres</div></div>
+        <div class="impact-item"><div class="impact-num">500+</div><div class="impact-label">Drivers Placed</div></div>
+        <div class="impact-item"><div class="impact-num">Pan-India</div><div class="impact-label">Coverage on Major NHs</div></div>
+        <div class="impact-item"><div class="impact-num">24/7</div><div class="impact-label">WhatsApp Support</div></div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align:center;">
+        <h3 style="font-size:24px; font-weight:700; margin-bottom:20px;">Join the Movement</h3>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a class="btn btn-whatsapp" href="#">💬 I'm a Driver</a>
+          <a class="btn btn-fleet" href="#" onclick="showPage('fleet')">I'm a Fleet Owner</a>
+          <a class="btn btn-oem" href="#" onclick="showPage('oem')">I'm an OEM / Partner</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer" id="main-footer">
+  <div class="footer-grid">
+    <div>
+      <div style="margin-bottom:12px;">
+        <img class="nav-logo-img" src="asset/logotrick.png" alt="TruckMitr" style="height:36px;" />
+      </div>
+      <p style="font-size:13px; line-height:1.7; margin-bottom:16px;">India's first driver-centric platform. Built for the person who keeps the country moving. Verified jobs, welfare support, health guidance, and future-ready skills — all in one place.</p>
+      <div style="display:flex; gap:8px;">
+        <a class="btn btn-whatsapp" href="#" style="padding:8px 16px; font-size:13px;">💬 Chat on WhatsApp</a>
+      </div>
+    </div>
+    <div>
+      <h4>For Drivers</h4>
+      <a href="#" onclick="showPage('jobs')">Job Board</a>
+      <a href="#" onclick="showPage('drivers')">Health & Wellness</a>
+      <a href="#" onclick="showPage('drivers')">Welfare Schemes Guide</a>
+      <a href="#" onclick="showPage('drivers')">Learn & Upskill</a>
+      <a href="#">Driver Stories</a>
+      <a href="#">Driver FAQs</a>
+    </div>
+    <div>
+      <h4>For Business</h4>
+      <a href="#" onclick="showPage('fleet')">Fleet Owners</a>
+      <a href="#" onclick="showPage('oem')">OEMs & Partners</a>
+      <a href="#">CSR Programmes</a>
+      <a href="#">Post a Job</a>
+      <a href="#">Book a Demo</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="#" onclick="showPage('about')">About TruckMitr</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Careers</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 TruckMitr. India's First Driver-Centric Platform.</div>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <span class="tag tag-saffron" style="font-size:10px;">🇮🇳 Made in India</span>
+      <span class="tag tag-green" style="font-size:10px;">Driver-First</span>
+    </div>
+  </div>
+  <div style="max-width:1280px; margin:16px auto 0; padding-top:12px; border-top:1px solid rgba(255,255,255,0.05);">
+    <p style="font-size:10px; color:rgba(255,255,255,0.3); line-height:1.6;">Disclaimer: TruckMitr provides information and guidance on government welfare schemes. Official approval, eligibility determination, and benefit issuance is handled by the respective government departments and portals. Driver shortage estimates are based on widely reported industry and government sources. TruckMitr does not charge drivers any placement fees. Data privacy: your profile information is used only for job matching and welfare support. We do not sell your data. Never share your OTP with unknown numbers.</p>
+  </div>
+</footer>
+
+<script>
+function showPage(pageName) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + pageName).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  const linkMap = { home: 0, drivers: 1, jobs: 2, fleet: 3, oem: 4, about: 5 };
+  const links = document.querySelectorAll('.nav-link');
+  if (links[linkMap[pageName]]) links[linkMap[pageName]].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Close mobile menu if open
+  const navLinks = document.querySelector('.nav-links');
+  if (navLinks) navLinks.style.display = '';
+}
+
+function toggleMobile() {
+  const navLinks = document.querySelector('.nav-links');
+  if (navLinks.style.display === 'flex') {
+    navLinks.style.display = '';
+  } else {
+    navLinks.style.display = 'flex';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.position = 'absolute';
+    navLinks.style.top = '60px';
+    navLinks.style.left = '0';
+    navLinks.style.right = '0';
+    navLinks.style.background = 'white';
+    navLinks.style.padding = '16px';
+    navLinks.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+    navLinks.style.borderRadius = '0 0 16px 16px';
+    navLinks.style.zIndex = '100';
+  }
+}
+
+// Intersection Observer for fade-up animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
