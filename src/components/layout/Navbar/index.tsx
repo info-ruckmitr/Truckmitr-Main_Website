@@ -2,14 +2,9 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BrandLogo } from '../../shared/BrandLogo';
 import { MobileMenu } from '../MobileMenu';
+import { MAIN_NAV_LINKS } from '../mainNavLinks';
 
-const navLinks = [
-  { path: '/insights', label: 'Insights' },
-  { path: '/mission', label: 'Mission' },
-  { path: '/welfare', label: 'Welfare' },
-  { path: '/driver-hub', label: 'Driver Hub' },
-  { path: '/oem-partner', label: 'Partner Portal' },
-];
+const PILL_PATHS = new Set(['/', '/stories']);
 
 export function Navbar() {
   const { pathname } = useLocation();
@@ -23,49 +18,49 @@ export function Navbar() {
             <BrandLogo height={40} />
           </Link>
           <div className="hidden md:flex gap-4 md:gap-6 items-center justify-center flex-wrap">
-            <Link
-              to="/"
-              className={`font-serif text-sm font-medium antialiased px-4 py-2 rounded-lg transition-colors ${
-                pathname === '/'
-                  ? 'bg-primary text-on-primary shadow-sm'
-                  : 'bg-slate-100/90 dark:bg-slate-800/90 text-[#191C1D] dark:text-slate-100 hover:bg-primary/15 dark:hover:bg-primary/25 hover:text-[#274680] dark:hover:text-blue-300'
-              }`}
-            >
-              Home
-            </Link>
-            <Link
-              to="/stories"
-              className={`font-serif text-sm font-medium antialiased px-4 py-2 rounded-lg transition-colors ${
-                pathname === '/stories'
-                  ? 'bg-primary text-on-primary shadow-sm'
-                  : 'bg-slate-100/90 dark:bg-slate-800/90 text-[#191C1D] dark:text-slate-100 hover:bg-primary/15 dark:hover:bg-primary/25 hover:text-[#274680] dark:hover:text-blue-300'
-              }`}
-            >
-              Driver Ki Awaz
-            </Link>
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`font-serif text-[#191C1D] dark:text-slate-100 antialiased transition-colors ${
-                  pathname === link.path
-                    ? 'text-[#274680] dark:text-blue-400 font-bold border-b-2 border-[#274680] pb-1'
-                    : 'text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {MAIN_NAV_LINKS.map((link) => {
+              const isPill = PILL_PATHS.has(link.path);
+              const active = pathname === link.path;
+              if (isPill) {
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`font-serif text-sm font-medium antialiased px-4 py-2 rounded-lg transition-colors ${
+                      active
+                        ? 'bg-primary text-on-primary shadow-sm'
+                        : 'bg-slate-100/90 dark:bg-slate-800/90 text-[#191C1D] dark:text-slate-100 hover:bg-primary/15 dark:hover:bg-primary/25 hover:text-[#274680] dark:hover:text-blue-300'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              }
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`font-serif text-[#191C1D] dark:text-slate-100 antialiased transition-colors ${
+                    active
+                      ? 'text-[#274680] dark:text-blue-400 font-bold border-b-2 border-[#274680] pb-1'
+                      : 'text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] dark:hover:text-blue-300'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
           <div className="flex items-center gap-4 justify-end">
-            <button className="hidden md:block px-5 py-2 text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] font-medium transition-colors">
+            <button type="button" className="hidden md:block px-5 py-2 text-[#191C1D]/70 dark:text-slate-400 hover:text-[#274680] font-medium transition-colors">
               Contact Us
             </button>
-            <button className="hidden md:block bg-primary text-on-primary px-6 py-2.5 rounded-lg font-medium hover:opacity-90 transition-opacity">
+            <button type="button" className="hidden md:block bg-primary text-on-primary px-6 py-2.5 rounded-lg font-medium hover:opacity-90 transition-opacity">
               Login
             </button>
             <button
-              className="md:hidden p-2 hover:bg-slate-100/50 rounded-lg transition-all"
+              type="button"
+              className="md:hidden p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 rounded-lg transition-all"
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
             >
