@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { motion, useReducedMotion } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 import { GlassCard } from '../components/ui/GlassCard'
 import { Button } from '../components/ui/Button'
 import {
@@ -8,9 +9,9 @@ import {
   FadeItem,
 } from '../components/motion/SectionReveal'
 import { ClassicDivider } from '../components/home/ClassicDivider'
-import { ImageFrame } from '../components/home/ImageFrame'
 
-const heroSpringIn = {
+
+const heroSpringIn: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
@@ -18,7 +19,7 @@ const heroSpringIn = {
     transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
   },
 }
-const staggerHero = {
+const staggerHero: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
 }
