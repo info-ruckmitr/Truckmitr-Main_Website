@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap');
+
+:root {
+  --whatsapp: #25d366;
+  --saffron: #e8621a;
+  --saffron-dark: #c94e0e;
+  --highway-green: #1d9e75;
+  --fleet-blue: #378add;
+  --oem-purple: #6b5ce7;
+  --gold: #d4a017;
+  --warning-red: #e53e3e;
+}
+
+/* Light theme — cool (default toggle) */
+[data-theme='royal-blue'] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-surface: #f1f5f9;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-solid: #ffffff;
+  --accent: #378add;
+  --accent-hover: #2563eb;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border: rgba(15, 23, 42, 0.08);
+  --border-hover: rgba(15, 23, 42, 0.16);
+  --glow: 0 8px 32px rgba(55, 138, 221, 0.12);
+  --hero-gradient: linear-gradient(135deg, #ffffff 0%, #eff6ff 55%, #f8fafc 100%);
+  --section-alt: #f8fafc;
+}
+
+/* Light theme — warm accent */
+[data-theme='lava-red'] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #fffdfb;
+  --bg-surface: #fff7f2;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-solid: #ffffff;
+  --accent: #e8621a;
+  --accent-hover: #c94e0e;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border: rgba(15, 23, 42, 0.08);
+  --border-hover: rgba(15, 23, 42, 0.16);
+  --glow: 0 8px 32px rgba(232, 98, 26, 0.12);
+  --hero-gradient: linear-gradient(135deg, #ffffff 0%, #fff7ed 55%, #fffdfb 100%);
+  --section-alt: #fff9f5;
+}
+
+/* Indian Tricolor Theme */
+[data-theme='tricolor'] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #fffaf5;
+  --bg-surface: #f7faf7;
+  --bg-card: rgba(255, 255, 255, 0.96);
+  --bg-card-solid: #ffffff;
+  --accent: #FF9933; /* Saffron */
+  --accent-hover: #F28500;
+  --accent-green: #138808;
+  --text-primary: #0a1f11; /* Dark shade from green */
+  --text-secondary: #475c4e;
+  --text-muted: #8e9e94;
+  --border: rgba(19, 136, 8, 0.12);
+  --border-hover: rgba(19, 136, 8, 0.24);
+  --glow: 0 8px 40px rgba(255, 153, 51, 0.15);
+  --hero-gradient: linear-gradient(135deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+  --section-alt: #f9fbf9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'DM Sans', 'Noto Sans Devanagari', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+/* Headlines / display type — Arial (sans), not serif */
+.font-display {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.font-devanagari {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+.font-kpi {
+  font-family: 'Space Grotesk', sans-serif;
+}
