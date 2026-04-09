@@ -1,0 +1,89 @@
+:root {
+  /* ═══ INDIAN FLAG TRICOLOR PALETTE ═══ */
+  --saffron: #ff9933;
+  --saffron-dark: #e07820;
+  --saffron-light: #fff3e0;
+  --saffron-xl: #fffaf5;
+  --saffron-glow: rgba(255, 153, 51, 0.25);
+
+  --india-green: #138808;
+  --india-green-dark: #0a5c05;
+  --india-green-light: #e8f5e9;
+  --india-green-xl: #f1faf1;
+  --india-green-glow: rgba(19, 136, 8, 0.2);
+
+  --ashoka-blue: #000080;
+  --ashoka-blue-mid: #1a1ae6;
+  --ashoka-blue-light: #e8e8ff;
+  --ashoka-blue-glow: rgba(0, 0, 128, 0.15);
+
+  --white: #ffffff;
+  --off-white: #fafafa;
+
+  /* ═══ NEUTRAL SCALE ═══ */
+  --dark: #0f1923;
+  --gray-9: #1f2937;
+  --gray-7: #374151;
+  --gray-6: #4b5563;
+  --gray-5: #6b7280;
+  --gray-4: #9ca3af;
+  --gray-3: #d1d5db;
+  --gray-2: #e5e7eb;
+  --gray-1: #f3f4f6;
+  --gray-0: #f9fafb;
+
+  /* ═══ SEMANTIC ═══ */
+  --primary: var(--saffron);
+  --primary-dark: var(--saffron-dark);
+  --secondary: var(--india-green);
+  --accent: var(--ashoka-blue);
+
+  /* ═══ TYPOGRAPHY ═══ */
+  --font-sans: 'Inter', 'Noto Sans', system-ui, sans-serif;
+  --font-display: 'Inter', system-ui, sans-serif;
+
+  /* ═══ SPACING ═══ */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* ═══ LAYOUT ═══ */
+  --nav-h: 68px;
+  --nav-h-mobile: 60px;
+
+  /* ═══ BORDER RADIUS ═══ */
+  --r-sm: 8px;
+  --r: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-full: 9999px;
+
+  /* ═══ SHADOWS ═══ */
+  --sh-xs: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --sh: 0 4px 12px rgba(0, 0, 0, 0.07);
+  --sh-md: 0 8px 24px rgba(0, 0, 0, 0.09);
+  --sh-lg: 0 20px 48px rgba(0, 0, 0, 0.11);
+  --sh-xl: 0 32px 64px rgba(0, 0, 0, 0.15);
+  --sh-saffron: 0 8px 24px rgba(255, 153, 51, 0.35);
+  --sh-green: 0 8px 24px rgba(19, 136, 8, 0.25);
+
+  /* ═══ TRANSITIONS ═══ */
+  --t-fast: all 0.15s ease;
+  --t-base: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --t-slow: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --t-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ═══ GRADIENTS ═══ */
+  --gradient-hero: linear-gradient(150deg, #060f08 0%, #0d1f10 30%, #0a5c05 65%, #138808 100%);
+  --gradient-saffron: linear-gradient(135deg, #ff9933, #e07820);
+  --gradient-flag: linear-gradient(180deg, #ff9933 33.3%, #ffffff 33.3% 66.6%, #138808 66.6%);
+  --gradient-tricolor: linear-gradient(90deg, #ff9933 0%, #ffffff 50%, #138808 100%);
+}

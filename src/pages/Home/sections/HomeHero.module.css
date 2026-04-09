@@ -1,0 +1,169 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  min-height: min(88vh, 880px);
+  padding-block: var(--space-16) var(--space-12);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  transform: scale(1.05);
+  animation: kenburns 26s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bgImg {
+    animation: none;
+    transform: scale(1);
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    118deg,
+    rgba(5, 7, 12, 0.93) 0%,
+    rgba(12, 14, 20, 0.82) 42%,
+    rgba(22, 18, 14, 0.5) 100%
+  );
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: block;
+}
+
+.copy {
+  max-width: 720px;
+}
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1.05) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.1) translate(-1.2%, -0.8%);
+  }
+}
+
+.heroTitle {
+  margin: 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 14px;
+  border-radius: var(--r-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: var(--space-6);
+}
+
+.dotPulse {
+  width: 6px;
+  height: 6px;
+  background: var(--saffron);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dotPulse {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.titleLine1 {
+  display: block;
+  font-weight: 900;
+  font-size: clamp(2.1rem, 5vw, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  margin-bottom: var(--space-2);
+  max-width: 18ch;
+}
+
+.titleLine2 {
+  display: block;
+  font-weight: 900;
+  font-size: clamp(2.1rem, 5vw, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: var(--saffron);
+  max-width: 20ch;
+}
+
+.sub {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 58ch;
+  margin-bottom: var(--space-8);
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* Button overrides passed via className */
+.ctaGlass {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: var(--white) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
+  box-shadow: none !important;
+}
+
+.ctaGlass:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.16) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.ctaGhost {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: none !important;
+}
+
+.ctaGhost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: var(--white) !important;
+}

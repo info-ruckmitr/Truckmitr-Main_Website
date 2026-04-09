@@ -1,0 +1,30 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--r-full);
+  line-height: 1.3;
+}
+
+.default {
+  background: var(--gray-1);
+  color: var(--gray-7);
+}
+
+.success {
+  background: var(--india-green-light);
+  color: var(--india-green-dark);
+}
+
+.saffron {
+  background: var(--saffron-light);
+  color: var(--saffron-dark);
+}
+
+.dark {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}

@@ -1,0 +1,474 @@
+.page {
+  padding-bottom: var(--space-16);
+}
+
+.marketingHero {
+  position: relative;
+  padding: 60px 0 40px;
+  background: var(--gray-0);
+  border-bottom: 1px solid var(--gray-2);
+  overflow: hidden;
+}
+
+.marketingHeroBg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center right;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.marketingHeroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--gray-0) 0%, var(--gray-0) 45%, transparent 100%);
+  pointer-events: none;
+}
+
+.marketingInner {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--saffron);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--dark);
+  letter-spacing: -0.05em;
+  margin-bottom: var(--space-4);
+}
+
+.lead {
+  color: var(--gray-5);
+  max-width: 540px;
+  line-height: 1.6;
+  margin-bottom: var(--space-7);
+}
+
+.header {
+  padding-block: var(--space-10);
+  background: var(--gray-0);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-7);
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.toolbarLine {
+  font-size: 0.9rem;
+  color: var(--gray-5);
+  margin: 0;
+}
+
+.toolbarLine strong {
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.marketingTags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tagOrange,
+.tagGreen {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: var(--r-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tagOrange {
+  background: var(--saffron-light);
+  color: var(--saffron-dark);
+  border: 1px solid rgba(232, 119, 34, 0.25);
+}
+
+.tagGreen {
+  background: var(--india-green-light);
+  color: var(--india-green-dark);
+  border: 1px solid rgba(22, 101, 52, 0.2);
+}
+
+.sticky {
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--gray-2);
+  padding-block: var(--space-4);
+}
+
+@media (max-width: 767px) {
+  .sticky {
+    top: var(--nav-h-mobile);
+  }
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.filterRow {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .filterRow {
+    grid-template-columns: repeat(2, 1fr) 1.2fr 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-5);
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: var(--space-3);
+  color: var(--gray-4);
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-10);
+  border-radius: var(--r);
+  border: 1px solid var(--gray-3);
+  background: var(--white);
+}
+
+.select {
+  padding: var(--space-3);
+  border-radius: var(--r);
+  border: 1px solid var(--gray-3);
+  background: var(--white);
+}
+
+.rangeRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.range {
+  width: 100%;
+  accent-color: var(--saffron);
+}
+
+.licenseRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.count {
+  margin-block: var(--space-6);
+  font-weight: 600;
+  color: var(--gray-6);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  padding: var(--space-6);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  box-shadow: var(--sh);
+  transition: var(--t-slow);
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--saffron);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sh-saffron);
+}
+
+.card:hover::before {
+  transform: scaleY(1);
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r);
+  background: var(--gradient-saffron);
+  color: var(--white);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cardHead {
+  flex: 1;
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.badgeNew,
+.badgeHot,
+.badgeUrgent {
+  flex-shrink: 0;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 4px 8px;
+  border-radius: var(--r-full);
+  white-space: nowrap;
+}
+
+.badgeNew {
+  background: var(--saffron-light);
+  color: var(--saffron-dark);
+}
+
+.badgeHot {
+  background: var(--india-green-light);
+  color: var(--india-green-dark);
+}
+
+.badgeUrgent {
+  background: var(--india-green-light);
+  color: var(--india-green-dark);
+}
+
+.company {
+  font-size: 0.875rem;
+  color: var(--gray-5);
+}
+
+.verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--india-green-dark);
+  background: var(--india-green-light);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--r-full);
+  flex-shrink: 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.metaInner {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.desc {
+  font-size: 0.9375rem;
+  color: var(--gray-6);
+  line-height: 1.55;
+  margin-bottom: var(--space-6);
+}
+
+.readMore {
+  color: var(--saffron-dark);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline;
+  padding: 0;
+}
+
+.readMore:hover {
+  text-decoration: underline;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.salary {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--india-green);
+}
+
+.card:hover .bottom :global(button) {
+  filter: brightness(1.05);
+}
+
+.card :global(button) {
+  transition: var(--t-base);
+}
+
+.card:hover :global(button) {
+  box-shadow: var(--sh-saffron);
+}
+
+.fleetPromo {
+  margin-top: var(--space-12);
+  padding: var(--space-10);
+  background: var(--india-green-light);
+  border: 1px solid rgba(22, 101, 52, 0.25);
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.fleetPromo h3 {
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--india-green-dark);
+  margin-bottom: var(--space-2);
+}
+
+.fleetPromo p {
+  font-size: 0.9rem;
+  color: var(--india-green);
+  max-width: 500px;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.fleetPromoCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: var(--r-full);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--white);
+  background: var(--india-green);
+  border: none;
+  cursor: pointer;
+  transition: var(--t-base);
+}
+
+.fleetPromoCta:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.fleetPromoCta:focus-visible {
+  outline: 2px solid var(--india-green-dark);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
+
+  .fleetPromoCta:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,11 @@
+.divider {
+  border: none;
+  height: 1px;
+  background: var(--gray-2);
+  margin: 0;
+}
+
+.tricolor {
+  height: 3px;
+  background: var(--gradient-tricolor);
+}

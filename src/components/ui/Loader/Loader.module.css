@@ -1,0 +1,37 @@
+.wrap {
+  width: 100%;
+  max-width: 200px;
+  height: 4px;
+  border-radius: var(--r-full);
+  background: var(--gray-2);
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: inherit;
+  animation: tricolor-load 2s ease-in-out infinite;
+}
+
+@keyframes tricolor-load {
+  0% {
+    width: 0%;
+    background: var(--saffron);
+  }
+  33% {
+    background: var(--saffron);
+  }
+  34% {
+    background: var(--white);
+  }
+  66% {
+    background: var(--white);
+  }
+  67% {
+    background: var(--india-green);
+  }
+  100% {
+    width: 100%;
+    background: var(--india-green);
+  }
+}

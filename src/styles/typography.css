@@ -1,0 +1,35 @@
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--gray-9);
+}
+
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+.text-muted {
+  color: var(--gray-5);
+}
+
+.text-small {
+  font-size: 0.875rem;
+}

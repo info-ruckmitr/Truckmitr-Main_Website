@@ -1,0 +1,54 @@
+.card {
+  position: relative;
+  border-radius: var(--r-lg);
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  overflow: hidden;
+  transition: var(--t-slow);
+}
+
+.default {
+  box-shadow: var(--sh);
+}
+
+.elevated {
+  box-shadow: var(--sh-md);
+}
+
+.dark {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.hoverLift:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sh-lg);
+}
+
+.saffronAccent {
+  border-left: 4px solid transparent;
+  transition: var(--t-slow);
+}
+
+.saffronAccent:hover {
+  border-left-color: var(--saffron);
+  box-shadow: var(--sh-saffron);
+}
+
+.headerImage {
+  width: 100%;
+  overflow: hidden;
+}
+
+.iconWrap {
+  padding: var(--space-4) var(--space-4) 0;
+}
+
+.body {
+  padding: var(--space-4);
+}
+
+.footer {
+  padding: 0 var(--space-4) var(--space-4);
+}

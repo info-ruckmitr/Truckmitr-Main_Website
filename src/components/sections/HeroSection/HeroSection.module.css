@@ -1,0 +1,9 @@
+.light {
+  padding-block: var(--space-12);
+}
+
+.dark {
+  padding-block: var(--space-16);
+  background: var(--gradient-hero);
+  color: var(--white);
+}

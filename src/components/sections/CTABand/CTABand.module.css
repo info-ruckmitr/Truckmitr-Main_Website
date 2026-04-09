@@ -1,0 +1,38 @@
+.section {
+  position: relative;
+  padding-block: var(--space-16);
+  background: linear-gradient(135deg, var(--saffron-dark) 0%, #8b4513 50%, var(--dark) 100%);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 12px,
+    rgba(255, 255, 255, 0.06) 12px,
+    rgba(255, 255, 255, 0.06) 24px
+  );
+  pointer-events: none;
+}
+
+.title {
+  position: relative;
+  text-align: center;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin-bottom: var(--space-8);
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.actions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+}

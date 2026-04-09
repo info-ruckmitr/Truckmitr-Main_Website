@@ -1,0 +1,120 @@
+.section {
+  padding-block: var(--space-16);
+  background: var(--gray-0);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--saffron);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  font-weight: 800;
+  font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+  color: var(--dark);
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  border-radius: var(--r);
+  padding: var(--space-6);
+  transition: var(--t-slow);
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: var(--sh-md);
+  border-color: var(--saffron);
+  transform: translateY(-3px);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 3px;
+}
+
+.jobTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: var(--space-2);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--gray-5);
+  background: var(--gray-1);
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--gray-1);
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.pay {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--india-green);
+}
+
+.apply {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--saffron);
+  background: var(--saffron-light);
+  border: none;
+  padding: 6px 16px;
+  border-radius: var(--r-full);
+  cursor: pointer;
+  pointer-events: none;
+}
