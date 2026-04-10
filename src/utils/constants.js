@@ -44,6 +44,22 @@ export const IMAGES = {
     'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=900&q=80&auto=format&fit=crop',
   fleetFeatWelfare:
     'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&q=80&auto=format&fit=crop',
+
+  /** Unions page — real trucking / logistics photography only */
+  unionsHeroCover:
+    'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1920&q=85&auto=format&fit=crop',
+  unionsImperativePhoto:
+    'https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1000&q=80&auto=format&fit=crop',
+  unionsHealthFatigue:
+    'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80&auto=format&fit=crop',
+  unionsHealthEye:
+    'https://images.unsplash.com/photo-1489515217757-222fd067de7d?w=900&q=80&auto=format&fit=crop',
+  unionsHealthMental:
+    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&auto=format&fit=crop',
+  unionsHealthPhysical:
+    'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80&auto=format&fit=crop',
+  unionsMovementBg:
+    'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=85&auto=format&fit=crop',
 }
 
 export const FEATURE_IMAGES = {

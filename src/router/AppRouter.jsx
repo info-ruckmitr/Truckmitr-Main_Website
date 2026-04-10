@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 const MotionDiv = motion.div
 import NavigationProvider from '@/context/NavigationProvider'
+import ScrollToTop from '@components/layout/ScrollToTop/ScrollToTop'
 import Navbar from '@components/layout/Navbar/Navbar'
 import Footer from '@components/layout/Footer/Footer'
 import WhatsAppFab from '@components/layout/WhatsAppFab/WhatsAppFab'
@@ -12,6 +13,7 @@ import Jobs from '@pages/Jobs/Jobs'
 import Fleet from '@pages/Fleet/Fleet'
 import OEM from '@pages/OEM/OEM'
 import About from '@pages/About/About'
+import Unions from '@pages/Unions/Unions'
 
 const pageVariants = {
   initial: { opacity: 0, y: 12 },
@@ -28,6 +30,7 @@ const routes = [
   { path: '/drivers', element: <Drivers /> },
   { path: '/jobs', element: <Jobs /> },
   { path: '/fleet', element: <Fleet /> },
+  { path: '/unions', element: <Unions /> },
   { path: '/oem', element: <OEM /> },
   { path: '/about', element: <About /> },
 ]
@@ -55,6 +58,7 @@ export default function AppRouter() {
   return (
     <BrowserRouter>
       <NavigationProvider>
+        <ScrollToTop />
         <Navbar />
         <main className="main-shell">
           <AnimatedRoutes />

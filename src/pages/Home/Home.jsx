@@ -9,6 +9,7 @@ import HomeCta from './sections/HomeCta'
 export default function Home() {
   return (
     <>
+      
       <HomeHero />
       <HomeStats />
       <HomePlatform />
