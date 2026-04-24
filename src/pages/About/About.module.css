@@ -457,3 +457,327 @@
   outline: 2px solid var(--white);
   outline-offset: 3px;
 }
+
+/* Unique Team Interactive Showcase */
+.teamUnique {
+  padding-block: var(--space-16);
+  background: var(--gray-0);
+  color: var(--dark);
+}
+
+.teamUnique :global(.container) {
+  position: relative;
+  z-index: 2;
+}
+
+.teamUnique .sectionHead span {
+  color: var(--saffron);
+}
+
+.teamUnique .sectionHead h2 {
+  color: var(--dark);
+}
+
+.teamUnique .missionP {
+  color: var(--gray-6);
+}
+
+.teamShowcase {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-top: var(--space-10);
+  background: var(--white);
+  border: 1px solid var(--gray-2);
+  border-radius: var(--r-2xl);
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .teamShowcase {
+    flex-direction: row;
+    min-height: 550px;
+    gap: 0;
+  }
+}
+
+.teamRoster {
+  display: flex;
+  flex-direction: column;
+  background: var(--gray-0);
+  border-right: 1px solid var(--gray-2);
+}
+
+@media (min-width: 900px) {
+  .teamRoster {
+    width: 380px;
+    flex-shrink: 0;
+  }
+}
+
+.rosterBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--gray-2);
+  cursor: pointer;
+  text-align: left;
+  transition: var(--t-base);
+  position: relative;
+  overflow: hidden;
+  color: var(--gray-6);
+}
+
+.rosterBtn:last-child {
+  border-bottom: none;
+}
+
+.rosterBtn:hover {
+  background: var(--white);
+}
+
+.rosterBtnActive {
+  background: var(--white);
+  color: var(--dark);
+}
+
+.rosterImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid transparent;
+  transition: var(--t-base);
+}
+
+.rosterBtnActive .rosterImg {
+  border-color: var(--saffron);
+}
+
+.rosterImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: var(--t-base);
+}
+
+.rosterBtnActive .rosterImg img {
+  filter: grayscale(0%);
+}
+
+.rosterInfo {
+  flex: 1;
+}
+
+.rosterName {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--dark);
+}
+
+.rosterRole {
+  font-size: 0.8rem;
+  color: var(--saffron);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.rosterIndicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--saffron);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: var(--t-base);
+}
+
+.rosterBtnActive .rosterIndicator {
+  transform: scaleY(1);
+}
+
+.teamBioPanel {
+  flex: 1;
+  padding: var(--space-8);
+  position: relative;
+  background: var(--white);
+}
+
+@media (min-width: 900px) {
+  .teamBioPanel {
+    padding: var(--space-12);
+  }
+}
+
+.bioPanelInner {
+  max-width: 650px;
+}
+
+.bioHeader {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--gray-2);
+}
+
+.bioName {
+  font-size: 2.25rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+  color: var(--dark);
+}
+
+.bioRole {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--saffron);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.bioCred {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--gray-5);
+  margin: 0;
+}
+
+.bioBody p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--gray-7);
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+/* Typography Driven Unique Tabs */
+.tabsSection {
+  padding-block: var(--space-12) var(--space-16);
+  background: var(--gray-0);
+  border-bottom: 1px solid var(--gray-2);
+}
+
+.typographyTabsLayout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+@media (min-width: 900px) {
+  .typographyTabsLayout {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-16);
+  }
+}
+
+.typeMenu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  flex-shrink: 0;
+}
+
+@media (min-width: 900px) {
+  .typeMenu {
+    width: 350px;
+    align-items: flex-start;
+  }
+}
+
+.typeBtn {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  padding: 0;
+  margin: 0;
+  transition: var(--t-slow);
+  
+  /* The "Inactive" Unique Look: Hollow Outline Text */
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--gray-3);
+  position: relative;
+}
+
+.typeBtn:hover {
+  -webkit-text-stroke: 1.5px var(--gray-5);
+  transform: translateX(10px);
+}
+
+.typeBtnActive {
+  /* The "Active" Unique Look: Solid Fill with Saffron Accent */
+  color: var(--dark);
+  -webkit-text-stroke: 0;
+  transform: translateX(10px);
+}
+
+.typeBtnActive::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 60%;
+  background: var(--saffron);
+  border-radius: var(--r-full);
+}
+
+@media (max-width: 899px) {
+  .typeBtnActive {
+    transform: translateX(0);
+  }
+  .typeBtnActive::before {
+    display: none;
+  }
+}
+
+.typeContentPanel {
+  flex: 1;
+  position: relative;
+  min-height: 250px;
+}
+
+.typeTextWrapper {
+  background: var(--white);
+  padding: var(--space-10);
+  border-radius: var(--r-2xl);
+  border: 1px solid var(--gray-2);
+}
+
+.typeContentLabel {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--saffron);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+.tabText {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--gray-7);
+  white-space: pre-wrap;
+  margin: 0;
+}
