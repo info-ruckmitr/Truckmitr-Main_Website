@@ -37,8 +37,8 @@ export default function Navbar() {
         ) : null}
 
         <div className={styles.actions}>
-          <Button to="/jobs" variant="primary" size="sm" className={styles.cta}>
-            Find Jobs / Hire Drivers ↗
+          <Button href="https://truckmitr.com/login/" variant="primary" size="sm" className={styles.cta}>
+            Login / Signup ↗
           </Button>
           {!isMd && (
             <button

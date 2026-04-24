@@ -1,6 +1,23 @@
 .section {
   padding-block: var(--space-12) var(--space-16);
   padding-top: calc(var(--space-12) + var(--space-4));
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background pattern */
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse 600px 400px at 20% 30%, var(--saffron-glow), transparent),
+    radial-gradient(ellipse 500px 300px at 80% 70%, var(--india-green-glow), transparent);
+  pointer-events: none;
+  opacity: 0.4;
 }
 
 .head {
@@ -8,6 +25,7 @@
   max-width: 680px;
   margin-inline: auto;
   margin-bottom: var(--space-12);
+  position: relative;
 }
 
 .label {
@@ -41,6 +59,7 @@
   display: grid;
   gap: var(--space-6);
   grid-template-columns: 1fr;
+  position: relative;
 }
 
 @media (min-width: 1024px) {
@@ -58,12 +77,15 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   box-shadow: var(--sh-lg);
-  border-color: transparent;
+  border-color: var(--gray-3);
+  background: var(--white);
 }
 
 .card:focus-within {
@@ -72,26 +94,33 @@
 }
 
 .icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-bottom: var(--space-5);
+  transition: var(--t-base);
+}
+
+.card:hover .icon {
+  transform: scale(1.1) rotate(-3deg);
 }
 
 .iconOrange {
   background: var(--saffron-light);
+  box-shadow: 0 4px 12px rgba(255, 153, 51, 0.15);
 }
 
 .iconGreen {
   background: var(--india-green-light);
+  box-shadow: 0 4px 12px rgba(19, 136, 8, 0.12);
 }
 
 .card h3 {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: var(--space-2);

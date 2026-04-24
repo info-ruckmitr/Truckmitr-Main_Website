@@ -1,6 +1,40 @@
 .section {
   padding-block: var(--space-16);
-  background: var(--gray-1); /* Slight contrast to separate sections */
+  background: var(--gray-1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative circles */
+.section::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: -60px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid var(--gray-2);
+  pointer-events: none;
+  animation: reasonCircle 15s linear infinite;
+}
+
+.section::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  right: -40px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 1px solid var(--gray-2);
+  pointer-events: none;
+  animation: reasonCircle 20s linear infinite reverse;
+}
+
+@keyframes reasonCircle {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .head {
@@ -8,6 +42,8 @@
   max-width: 800px;
   margin-inline: auto;
   margin-bottom: var(--space-12);
+  position: relative;
+  z-index: 1;
 }
 
 .label {
@@ -48,6 +84,8 @@
   display: grid;
   gap: var(--space-6);
   grid-template-columns: 1fr;
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 640px) {
@@ -69,24 +107,31 @@
   padding: var(--space-8);
   transition: var(--t-slow);
   height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   box-shadow: var(--sh-lg);
-  border-color: rgba(255, 153, 51, 0.35);
 }
 
 .icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   background: var(--saffron-light);
   margin-bottom: var(--space-5);
+  transition: var(--t-base);
+  box-shadow: 0 4px 12px rgba(255, 153, 51, 0.1);
+}
+
+.card:hover .icon {
+  transform: scale(1.12) rotate(5deg);
 }
 
 .card h3 {

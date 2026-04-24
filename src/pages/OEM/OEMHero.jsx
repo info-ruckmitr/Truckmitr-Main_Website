@@ -11,7 +11,7 @@ export default function OEMHero() {
     <section className={styles.pageHero} aria-labelledby="oem-hero-title">
       <div
         className={styles.pageHeroBg}
-        style={{ backgroundImage: `url(${IMAGES.truckHighway})` }}
+        style={{ backgroundImage: `url(${IMAGES.oemHeroBg})` }}
         aria-hidden
       />
       <div className={styles.pageHeroOverlay} aria-hidden />

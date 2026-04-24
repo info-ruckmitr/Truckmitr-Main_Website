@@ -1,5 +1,6 @@
 import ScrollReveal from '@components/shared/ScrollReveal/ScrollReveal'
 import PlanTable from './PlanTable'
+import { IMAGES } from '@utils/constants'
 import styles from './OEM.module.css'
 
 export default function OEMOfferingBlock({ offering }) {
@@ -28,6 +29,16 @@ export default function OEMOfferingBlock({ offering }) {
 
         <div className={styles.offGrid}>
           <div className={styles.offMain}>
+            {offering.imageKey && IMAGES[offering.imageKey] && (
+              <div className={styles.offImageWrap} style={{ marginBottom: '24px', borderRadius: '12px', overflow: 'hidden' }}>
+                <img 
+                  src={IMAGES[offering.imageKey]} 
+                  alt={offering.title} 
+                  loading="lazy" 
+                  style={{ width: '100%', height: 'auto', display: 'block', aspectRatio: '16/9', objectFit: 'cover' }}
+                />
+              </div>
+            )}
             <p className={styles.offDesc}>{offering.description}</p>
 
             <div className={styles.valueBlock}>

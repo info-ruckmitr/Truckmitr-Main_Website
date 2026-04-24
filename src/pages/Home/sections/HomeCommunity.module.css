@@ -14,9 +14,28 @@
   right: -80px;
   width: 420px;
   height: 420px;
-  background: radial-gradient(circle, rgba(255, 153, 51, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 153, 51, 0.1) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
+  animation: communityOrb 10s ease-in-out infinite alternate;
+}
+
+.section::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -60px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(19, 136, 8, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: communityOrb 12s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes communityOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(20px, -15px) scale(1.15); }
 }
 
 .inner {
@@ -24,6 +43,8 @@
   grid-template-columns: 1fr;
   gap: var(--space-12);
   align-items: start;
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 1024px) {
@@ -110,17 +131,18 @@
   align-items: flex-start;
   transition: var(--t-slow);
   cursor: default;
+  position: relative;
+  overflow: hidden;
 }
 
 .featureCard:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--sh-lg);
-  border-color: rgba(255, 153, 51, 0.3);
 }
 
 .featureIcon {
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border-radius: 12px;
   background: var(--saffron-light, #fff3e0);
   display: flex;
@@ -128,6 +150,11 @@
   justify-content: center;
   font-size: 1.3rem;
   flex-shrink: 0;
+  transition: var(--t-base);
+}
+
+.featureCard:hover .featureIcon {
+  transform: scale(1.1) rotate(-5deg);
 }
 
 .featureCard:nth-child(2) .featureIcon {

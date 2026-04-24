@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import ScrollReveal from '@components/shared/ScrollReveal/ScrollReveal'
 import { driversInfluence } from '@data/driversContent'
+import { IMAGES } from '@utils/constants'
 import styles from '../Drivers.module.css'
 
 export default function DriversInfluence() {
@@ -9,8 +10,12 @@ export default function DriversInfluence() {
       <div className="container">
         <div className={styles.infGrid}>
           <ScrollReveal>
-            <motion.div
-              className={styles.infCard}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+              <div style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: '0 12px 32px rgba(0,0,0,0.08)' }}>
+                <img src={IMAGES.oemFeatInfluence} alt="Driver Influence" style={{ width: '100%', display: 'block', aspectRatio: '16/9', objectFit: 'cover' }} />
+              </div>
+              <motion.div
+                className={styles.infCard}
               whileHover={{ y: -3 }}
               transition={{ type: 'spring', stiffness: 400, damping: 28 }}
             >
@@ -28,6 +33,7 @@ export default function DriversInfluence() {
                 ))}
               </div>
             </motion.div>
+            </div>
           </ScrollReveal>
           <ScrollReveal variant="fade-left">
             <div>

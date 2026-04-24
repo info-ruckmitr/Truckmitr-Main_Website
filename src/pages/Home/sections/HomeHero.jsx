@@ -16,6 +16,37 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.4, 0, 0.2, 1] } },
 }
 
+/* Floating particle component */
+function FloatingParticles() {
+  const particles = Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 4 + 2,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    delay: Math.random() * 8,
+    duration: Math.random() * 10 + 12,
+  }))
+
+  return (
+    <div className={styles.particles} aria-hidden>
+      {particles.map((p) => (
+        <span
+          key={p.id}
+          className={styles.particle}
+          style={{
+            width: p.size,
+            height: p.size,
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            animationDelay: `${p.delay}s`,
+            animationDuration: `${p.duration}s`,
+          }}
+        />
+      ))}
+    </div>
+  )
+}
+
 export default function HomeHero() {
   const reduce = useReducedMotion()
   const line1Words = homeHero.titleLine1.split(' ')
@@ -34,6 +65,11 @@ export default function HomeHero() {
         />
       </div>
       <div className={styles.overlay} aria-hidden />
+      {!reduce && <FloatingParticles />}
+
+      {/* Animated gradient line at top */}
+      <div className={styles.gradientLine} aria-hidden />
+
       <div className={`container ${styles.inner}`}>
         <div className={styles.copy}>
           <motion.p
@@ -113,8 +149,39 @@ export default function HomeHero() {
               </motion.span>
             ))}
           </motion.div>
+
+          {/* Trust badges */}
+          <motion.div
+            className={styles.trustRow}
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: reduce ? 0 : 0.7, duration: 0.5 }}
+          >
+            <div className={styles.trustAvatars}>
+              <span className={styles.trustAvatar}>🚛</span>
+              <span className={styles.trustAvatar}>🚐</span>
+              <span className={styles.trustAvatar}>⚡</span>
+            </div>
+            <span className={styles.trustText}>
+              Trusted by <strong>10M+</strong> drivers across India
+            </span>
+          </motion.div>
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className={styles.scrollIndicator}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.5 }}
+        aria-hidden
+      >
+        <div className={styles.scrollMouse}>
+          <div className={styles.scrollWheel} />
+        </div>
+        <span className={styles.scrollLabel}>Scroll to explore</span>
+      </motion.div>
     </section>
   )
 }

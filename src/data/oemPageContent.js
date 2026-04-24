@@ -59,6 +59,7 @@ export const oemOfferings = [
       { label: 'TYRE BRANDS', variant: 'g' },
     ],
     description: 'Every truck you build spends its life on roads you never designed for. The driver hauling a full load through monsoon-hit NH-44 knows things about your product that no test track ever will. TruckMitr puts your R&D team directly in touch with that driver — through structured quarterly feedback panels of 200–500 verified drivers per OEM.\n\nNot dealer opinions. Not fleet manager proxies. The actual driver.',
+    imageKey: 'oemFeatFeedback',
     driverBullets: [
       { text: 'Their feedback shapes the next generation of vehicles they drive' },
       { text: 'They get recognised, rewarded, and treated as experts — not just operators' },
@@ -92,6 +93,7 @@ export const oemOfferings = [
       { label: 'CHARGING INFRA', variant: 'g' },
     ],
     description: 'India\'s EV transition has one missing piece — the driver. If drivers don\'t understand regenerative braking or are nervous around high-voltage systems, fleet adoption stalls. We bridge that gap with your brand front and centre. Co-branded EV readiness modules built with your tech team — covering high-voltage safety, regenerative braking, charging infrastructure navigation, and battery management. All under PM E-DRIVE framework for government alignment and potential subsidy eligibility.',
+    imageKey: 'oemFeatEv',
     driverBullets: [
       { text: 'EV-certified drivers earn 15–25% more — real career upside' },
       { text: 'Eliminates range anxiety through practical charging knowledge' },
@@ -124,6 +126,7 @@ export const oemOfferings = [
       { label: 'INSURANCE', variant: 'o' },
     ],
     description: 'Brand loyalty in Indian trucking is built at dhabas, workshops, and highway rest stops. The driver who recommends your oil to ten fleet owners creates more value than any trade show booth. TruckMitr gives you a direct-to-driver channel — product sampling, loyalty rewards, and engagement campaigns that go straight to the source.',
+    imageKey: 'oemFeatEngagement',
     driverBullets: [
       { text: 'Free product trials and exclusive discounts before public availability' },
       { text: 'Points redeemable for fuel, recharges, and merchandise' },
@@ -154,6 +157,7 @@ export const oemOfferings = [
       { label: 'ALL PARTNERS', variant: 'o' },
     ],
     description: 'Every fleet has two or three drivers the owner trusts above all others. When it\'s time to buy a new truck or switch engine oil — those opinions carry real weight. The Driver Influence Score™ finds exactly who those drivers are across India\'s 10M+ driver network.\n\nNot all drivers are equal. Some are trusted advisors whose recommendations directly shape what fleet owners buy. We identify them and give you precision targeting that no other platform can offer.',
+    imageKey: 'oemFeatInfluence',
     driverBullets: [
       { text: 'First platform to formally recognise and reward driver influence' },
       { text: 'High-score drivers get exclusive early access and premium brand partnerships' },
@@ -185,6 +189,7 @@ export const oemOfferings = [
       { label: 'CSR MANDATE', variant: 'o' },
     ],
     description: 'India\'s 10M+ truck drivers are among the most underserved workers in the country. Your CSR mandate can change that — every rupee tracked, every beneficiary named, every outcome measured. Health camps at locations drivers actually visit. Welfare schemes they\'re already entitled to but couldn\'t navigate. Financial literacy for families back home in Bihar, Odisha, and Rajasthan.\n\nTurnkey execution. Audit-ready quarterly reports. Full Section 135 compliance documentation.',
+    imageKey: 'oemFeatCsr',
     driverBullets: [
       { text: 'Health screenings at transport hubs, dhabas, fuel stations — where drivers already are' },
       { text: 'Ayushman Bharat, PM-SYM, ESIC enrollment — benefits they qualify for' },
@@ -217,6 +222,7 @@ export const oemOfferings = [
       { label: 'IDTR PARTNERS', variant: 'g' },
     ],
     description: 'When a driver completes government-recognised training with your brand on the certificate, something changes. They don\'t just drive better — they develop a professional connection to your products that no advertisement can replicate. They become your advocates.\n\nCo-deliver MoRTH-compliant driver training through India\'s IDTR and RDTC network — with your brand on every certificate and every digital badge. Curriculum built with your tech team: vehicle features, maintenance, fuel efficiency, safety protocols.',
+    imageKey: 'oemFeatMorth',
     driverBullets: [
       { text: 'MoRTH certification is a career asset — better wages, premium assignments' },
       { text: 'OEM-branded credential creates professional identity tied to trusted products' },

@@ -1,5 +1,6 @@
 .section {
   padding-block: var(--space-16);
+  position: relative;
 }
 
 .head {
@@ -64,34 +65,42 @@
   background: var(--white);
   border-radius: var(--r);
   border: 1px solid var(--gray-2);
-  padding: var(--space-8);
+  padding: var(--space-6);
   transition: var(--t-slow);
   height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .tile:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   box-shadow: var(--sh-lg);
-  border-color: rgba(255, 153, 51, 0.35);
 }
 
 .icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-bottom: var(--space-5);
+  transition: var(--t-base);
+}
+
+.tile:hover .icon {
+  transform: scale(1.15) rotate(5deg);
 }
 
 .iconOrange {
   background: var(--saffron-light);
+  box-shadow: 0 4px 12px rgba(255, 153, 51, 0.12);
 }
 
 .iconGreen {
   background: var(--india-green-light);
+  box-shadow: 0 4px 12px rgba(19, 136, 8, 0.1);
 }
 
 .tile h3 {

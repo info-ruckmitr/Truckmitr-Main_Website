@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import ScrollReveal from '@components/shared/ScrollReveal/ScrollReveal'
 import { driversEv } from '@data/driversContent'
+import { IMAGES } from '@utils/constants'
 import styles from '../Drivers.module.css'
 
 export default function DriversEv() {
@@ -26,8 +27,12 @@ export default function DriversEv() {
             </div>
           </ScrollReveal>
           <ScrollReveal variant="fade-left">
-            <motion.div
-              className={styles.evSide}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+              <div style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: '0 12px 32px rgba(0,0,0,0.08)' }}>
+                <img src={IMAGES.oemFeatEv} alt="EV Training" style={{ width: '100%', display: 'block', aspectRatio: '4/3', objectFit: 'cover' }} />
+              </div>
+              <motion.div
+                className={styles.evSide}
               whileHover={{ y: -3 }}
               transition={{ type: 'spring', stiffness: 400, damping: 28 }}
             >
@@ -44,6 +49,7 @@ export default function DriversEv() {
                 ))}
               </div>
             </motion.div>
+            </div>
           </ScrollReveal>
         </div>
       </div>

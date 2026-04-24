@@ -1,19 +1,18 @@
-import { useState } from 'react'
-import { MapPin, Truck, FileBadge, Clock, BadgeCheck } from 'lucide-react'
-import { formatSalaryRange, truncate } from '@utils/formatters'
+import { MapPin, Truck, FileBadge, Users, Clock, BadgeCheck, TrendingUp, Briefcase } from 'lucide-react'
+import { formatSalaryRange } from '@utils/formatters'
 import Button from '@components/ui/Button/Button'
 import Tag from '@components/ui/Tag/Tag'
 import styles from './Jobs.module.css'
 
-export default function JobCard({ job }) {
-  const [open, setOpen] = useState(false)
-  const desc = open ? job.description : truncate(job.description, 140)
-
+export default function JobCard({ job, onViewDetails }) {
   return (
-    <article className={styles.card}>
+    <article className={`${styles.card} ${job.isPremium ? styles.cardPremium : ''}`}>
+      {/* Premium ribbon */}
+      {job.isPremium && <div className={styles.premiumRibbon}>⭐ Premium</div>}
+
       <div className={styles.cardTop}>
         <div className={styles.logo} aria-hidden>
-          {job.company.slice(0, 1)}
+          {job.vehicleType.slice(0, 2).toUpperCase()}
         </div>
         <div className={styles.cardHead}>
           <div className={styles.titleRow}>
@@ -25,55 +24,79 @@ export default function JobCard({ job }) {
                     ? styles.badgeNew
                     : job.badge === 'hot'
                       ? styles.badgeHot
-                      : styles.badgeUrgent
+                      : job.badge === 'premium'
+                        ? styles.badgePremium
+                        : styles.badgeUrgent
                 }
               >
-                {job.badge === 'new' ? 'NEW' : job.badge === 'hot' ? 'HOT' : 'URGENT'}
+                {job.badge === 'new' ? 'NEW' : job.badge === 'hot' ? '🔥 HOT' : job.badge === 'premium' ? 'FEATURED' : 'URGENT'}
               </span>
             )}
           </div>
-          <p className={styles.company}>{job.company}</p>
+          <p className={styles.company}>{job.jobId} · {job.vehicleType}</p>
         </div>
-        {job.verified && (
-          <span className={styles.verified}>
-            <BadgeCheck size={16} /> Verified
-          </span>
-        )}
       </div>
+
       <div className={styles.meta}>
         <Tag>
           <span className={styles.metaInner}>
-            <MapPin size={14} /> {job.route}
+            <MapPin size={14} /> {job.location}
           </span>
         </Tag>
         <Tag>
           <span className={styles.metaInner}>
-            <Truck size={14} /> {job.type}
+            <Truck size={14} /> {job.vehicleType}
           </span>
         </Tag>
         <Tag>
           <span className={styles.metaInner}>
-            <FileBadge size={14} /> {job.license}
+            <FileBadge size={14} /> {job.licenseType || 'Any'}
           </span>
         </Tag>
         <Tag>
           <span className={styles.metaInner}>
-            <Clock size={14} /> {job.posted}
+            <Briefcase size={14} /> {job.experience} yrs
           </span>
         </Tag>
       </div>
-      <p className={styles.desc}>
-        {desc}{' '}
-        <button type="button" className={styles.readMore} onClick={() => setOpen(!open)}>
-          {open ? 'Show less' : 'Read more'}
-        </button>
-      </p>
+
+      {/* Stats row */}
+      <div className={styles.statsRow}>
+        <span className={styles.statItem}>
+          <Users size={13} />
+          <strong>{job.applications}</strong> applied
+        </span>
+        <span className={styles.statItem}>
+          <TrendingUp size={13} />
+          <strong>{job.driversNeeded}</strong> openings
+        </span>
+        <span className={styles.statItem}>
+          <Clock size={13} />
+          {job.postedAt}
+        </span>
+      </div>
+
       <div className={styles.bottom}>
         <p className={styles.salary}>{formatSalaryRange(job.salary)}</p>
-        <Button variant="primary" size="sm">
-          Apply Now →
-        </Button>
+        <div className={styles.cardActions}>
+          <button
+            type="button"
+            className={styles.viewDetailsBtn}
+            onClick={onViewDetails}
+          >
+            View Details
+          </button>
+          <Button variant="primary" size="sm">
+            Apply Now →
+          </Button>
+        </div>
       </div>
+
+      {job.isClosed && (
+        <div className={styles.closedOverlay}>
+          <span>Position Filled</span>
+        </div>
+      )}
     </article>
   )
 }

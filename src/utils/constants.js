@@ -1,7 +1,6 @@
 export const IMAGES = {
   /** Home hero — commercial trucks only (background) */
-  homeHeroTruck:
-    'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=85&auto=format&fit=crop',
+  homeHeroTruck: new URL('@assets/images/hero-banner/Gemini_Generated_Image_erwgp1erwgp1erwg.jpg', import.meta.url).href,
   heroDriver: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80',
   highwayIndia: 'https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=80',
   truckFleet: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1000&q=80',
@@ -29,37 +28,33 @@ export const IMAGES = {
   /** Marketing pages — trucks / logistics */
   aboutMissionVisual:
     'https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=900&q=80&auto=format&fit=crop',
-  driversHeroBg:
-    'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1400&q=85&auto=format&fit=crop',
-  fleetHeroBg:
-    'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&q=85&auto=format&fit=crop',
+  driversHeroBg: new URL('@assets/images/drivers/drivers_hero_bg.png', import.meta.url).href,
+  fleetHeroBg: new URL('@assets/images/fleet/fleet_hero_bg.png', import.meta.url).href,
   jobsPageHero:
     'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1200&q=80&auto=format&fit=crop',
 
-  fleetFeatHiring:
-    'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80&auto=format&fit=crop',
-  fleetFeatCompliance:
-    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=80&auto=format&fit=crop',
-  fleetFeatTraining:
-    'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=900&q=80&auto=format&fit=crop',
-  fleetFeatWelfare:
-    'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&q=80&auto=format&fit=crop',
+  fleetFeatHiring: new URL('@assets/images/fleet/fleet_feat_hiring.png', import.meta.url).href,
+  fleetFeatCompliance: new URL('@assets/images/fleet/fleet_feat_compliance.png', import.meta.url).href,
+  fleetFeatTraining: new URL('@assets/images/fleet/fleet_feat_training.png', import.meta.url).href,
+  fleetFeatWelfare: new URL('@assets/images/fleet/fleet_feat_welfare.png', import.meta.url).href,
 
   /** Unions page — real trucking / logistics photography only */
-  unionsHeroCover:
-    'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1920&q=85&auto=format&fit=crop',
-  unionsImperativePhoto:
-    'https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1000&q=80&auto=format&fit=crop',
-  unionsHealthFatigue:
-    'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80&auto=format&fit=crop',
-  unionsHealthEye:
-    'https://images.unsplash.com/photo-1489515217757-222fd067de7d?w=900&q=80&auto=format&fit=crop',
-  unionsHealthMental:
-    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&auto=format&fit=crop',
-  unionsHealthPhysical:
-    'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80&auto=format&fit=crop',
-  unionsMovementBg:
-    'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=85&auto=format&fit=crop',
+  unionsHeroCover: new URL('@assets/images/unions/unions_hero.png', import.meta.url).href,
+  unionsImperativePhoto: new URL('@assets/images/unions/unions_imperative.png', import.meta.url).href,
+  unionsHealthFatigue: new URL('@assets/images/unions/unions_health_fatigue.png', import.meta.url).href,
+  unionsHealthEye: new URL('@assets/images/unions/unions_health_eye.png', import.meta.url).href,
+  unionsHealthMental: new URL('@assets/images/unions/unions_health_mental.png', import.meta.url).href,
+  unionsHealthPhysical: new URL('@assets/images/unions/unions_health_physical.png', import.meta.url).href,
+  unionsMovementBg: new URL('@assets/images/unions/unions_movement_bg.png', import.meta.url).href,
+  
+  /** OEM page */
+  oemHeroBg: new URL('@assets/images/oem/oem_hero_bg.png', import.meta.url).href,
+  oemFeatFeedback: new URL('@assets/images/oem/oem_feat_feedback.png', import.meta.url).href,
+  oemFeatEv: new URL('@assets/images/oem/oem_feat_ev.png', import.meta.url).href,
+  oemFeatEngagement: new URL('@assets/images/oem/oem_feat_engagement.png', import.meta.url).href,
+  oemFeatInfluence: new URL('@assets/images/oem/oem_feat_influence.png', import.meta.url).href,
+  oemFeatCsr: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=900&q=80&auto=format&fit=crop',
+  oemFeatMorth: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=900&q=80&auto=format&fit=crop',
 }
 
 export const FEATURE_IMAGES = {
