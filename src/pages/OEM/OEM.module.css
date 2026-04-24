@@ -230,7 +230,7 @@
   background-position: center;
 }
 
-.pageHero .container {
+.pageHero :global(.container) {
   position: relative;
   z-index: 2;
 }
@@ -546,6 +546,7 @@
   color: var(--gray-6);
   line-height: 1.8;
   margin-bottom: var(--space-8);
+  white-space: pre-wrap;
 }
 
 .valueBlock {

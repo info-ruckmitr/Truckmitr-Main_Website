@@ -1,6 +1,6 @@
 /** Footer columns — aligned with marketing HTML structure. */
 export const footerTagline =
-  "India's first driver-centric platform, elevating the trucking ecosystem through trust, technology, and community."
+  "Built for the people who keep India moving — because they deserved something better than what existed."
 
 export const footerColumns = [
   {

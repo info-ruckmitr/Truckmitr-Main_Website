@@ -228,6 +228,7 @@
   line-height: 1.75;
   margin-bottom: var(--space-4);
   font-size: 0.98rem;
+  white-space: pre-wrap;
 }
 
 .checks {

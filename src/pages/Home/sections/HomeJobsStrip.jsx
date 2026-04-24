@@ -15,6 +15,9 @@ export default function HomeJobsStrip() {
               <h2 id="jobs-strip-heading" className={styles.title}>
                 {homeJobsStrip.title}
               </h2>
+              {homeJobsStrip.sub && (
+                <p className={styles.sub}>{homeJobsStrip.sub}</p>
+              )}
             </div>
           </ScrollReveal>
           <ScrollReveal>

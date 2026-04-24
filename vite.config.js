@@ -7,6 +7,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    host: true,
+  },
+  publicDir: 'static',
+  build: {
+    outDir: 'public',
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

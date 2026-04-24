@@ -42,8 +42,8 @@ export default function Footer() {
           ))}
         </div>
         <div className={styles.bottom}>
-          <p>© 2026 TruckMitr. All rights reserved.</p>
-          <p>Made with ❤️ for India&apos;s Truck Drivers</p>
+          <p>© 2025 TruckMitr Corporate Services Private Limited. All rights reserved.</p>
+          <p>Made for India's truck drivers.</p>
         </div>
       </div>
     </footer>
