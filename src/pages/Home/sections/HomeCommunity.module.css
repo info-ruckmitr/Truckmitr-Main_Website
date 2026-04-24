@@ -1,0 +1,157 @@
+/* ── Driver Ki Awaaz — Community Section ── */
+.section {
+  padding-block: var(--space-16);
+  background: linear-gradient(175deg, #fff7ed 0%, #fff 40%, #f0fdf4 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background glow */
+.section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(255, 153, 51, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+}
+
+/* ── Left: Copy ── */
+.copy {
+  max-width: 580px;
+}
+
+.label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--saffron);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  font-weight: 800;
+  font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+  color: var(--dark);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  margin-bottom: var(--space-6);
+}
+
+.titleAccent {
+  display: block;
+  background: linear-gradient(135deg, var(--saffron), #e65c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bodyPara {
+  font-size: 1rem;
+  color: var(--gray-6, #555);
+  line-height: 1.8;
+  margin-bottom: var(--space-3);
+}
+
+.bodyPara:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Emphasis for the last two punchy lines */
+.bodyPara strong {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.ctaWrap {
+  margin-top: var(--space-8);
+}
+
+/* ── Right: Feature cards ── */
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.featureCard {
+  background: var(--white);
+  border-radius: var(--r);
+  border: 1px solid var(--gray-2);
+  padding: var(--space-6) var(--space-5);
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  transition: var(--t-slow);
+  cursor: default;
+}
+
+.featureCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-lg);
+  border-color: rgba(255, 153, 51, 0.3);
+}
+
+.featureIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--saffron-light, #fff3e0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.featureCard:nth-child(2) .featureIcon {
+  background: var(--india-green-light, #e8f5e9);
+}
+
+.featureCard:nth-child(3) .featureIcon {
+  background: #ede9fe;
+}
+
+.featureCard:nth-child(4) .featureIcon {
+  background: #e0f2fe;
+}
+
+.featureText {
+  font-size: 0.92rem;
+  color: var(--gray-6, #555);
+  line-height: 1.65;
+}
+
+.featureText strong {
+  color: var(--dark);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+  font-size: 0.95rem;
+}

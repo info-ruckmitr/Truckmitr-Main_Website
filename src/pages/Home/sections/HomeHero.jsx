@@ -4,8 +4,6 @@ import { homeHero } from '@data/homeContent'
 import { cn } from '@utils/cn'
 import styles from './HomeHero.module.css'
 
-const line1Words = ['The', 'Engine', 'Behind']
-
 const container = {
   hidden: {},
   show: {
@@ -20,6 +18,7 @@ const item = {
 
 export default function HomeHero() {
   const reduce = useReducedMotion()
+  const line1Words = homeHero.titleLine1.split(' ')
 
   return (
     <section className={styles.section} aria-labelledby="home-hero-heading">

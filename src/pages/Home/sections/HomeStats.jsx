@@ -1,4 +1,4 @@
-import { homeStats } from '@data/homeContent'
+import { homeStats, homeStatsTagline } from '@data/homeContent'
 import AnimatedCounter from '@components/shared/AnimatedCounter/AnimatedCounter'
 import ScrollReveal from '@components/shared/ScrollReveal/ScrollReveal'
 import styles from './HomeStats.module.css'
@@ -17,6 +17,10 @@ export default function HomeStats() {
             </div>
           ))}
         </div>
+        <p className={styles.tagline}>
+          <span className={styles.taglineBar} aria-hidden />
+          {homeStatsTagline}
+        </p>
       </div>
     </ScrollReveal>
   )

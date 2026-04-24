@@ -1,78 +1,72 @@
-/** Copy aligned with `TruckMitr_Website (1).html` — page-fleet */
+/** Copy aligned with user request — page-fleet */
 
 export const fleetHero = {
   eyebrow: 'For Fleet Owners',
-  titleLine1: 'Hire Verified Drivers.',
-  titleAccent: 'Build a Reliable Fleet.',
-  sub:
-    "Access India's largest pool of verified, skilled truck drivers. Post jobs, screen candidates, and onboard faster — all on one platform.",
+  titleLine1: 'Stop Hiring on Hope.',
+  titleAccent: 'Start Hiring on Proof.',
+  sub: 'TruckMitr drivers are verified before you see them — licence, RC, background check, everything. Post a job, shortlist real candidates, hire the right one. Straight to the driver, no surprises.',
   primaryCta: { label: 'Post a Job →', to: '/jobs' },
   secondaryCta: { label: 'Browse Drivers', disabled: true },
 }
 
 export const fleetBenefitsIntro = {
-  label: 'Fleet Owner Benefits',
-  title: 'Hire Smarter. Manage Better.',
-  sub:
-    'From finding your next driver to managing compliance and training — TruckMitr is the complete platform for Indian fleet operators.',
+  label: 'FLEET OWNER BENEFITS',
+  title: 'Four problems fleet owners hate. One platform that actually fixes them.',
+  sub: 'Fleet owners across Rajasthan, Maharashtra, UP, Punjab — and all over India — are hiring faster, staying compliant, and finally holding on to good drivers. All on TruckMitr.',
 }
 
 export const fleetFeatureRows = [
   {
     key: 'smart-hiring',
-    label: 'Smart Hiring',
-    title: 'Find the Right Driver in Hours, Not Weeks',
-    description:
-      'Search across thousands of verified driver profiles filtered by licence class, experience, preferred routes, certifications, and the Driver Influence Score™. Every profile is manually verified — saving you the cost and risk of bad hires.',
+    label: 'SMART HIRING',
+    title: 'Finding a good driver shouldn\'t take weeks of phone calls and blind trust.',
+    description: 'On TruckMitr, every profile comes pre-verified — licence class, challan history, court records, years on the road. Filter exactly who you need, message them directly, and hire with actual confidence.\n\nFilter options:',
     checks: [
-      'Filter by HMV, LMV, tanker, trailer, EV experience',
-      'View verified licence details and work history',
-      'Check Driver Influence Score™ before making an offer',
-      'Direct messaging — no agents or commissions',
+      'HMV, LMV, tanker, trailer, EV experience',
+      'Preferred routes and states',
+      'Work history and past employers',
+      'Driver Influence Score™',
     ],
     imageKey: 'fleetFeatHiring',
     reverse: false,
   },
   {
     key: 'compliance',
-    label: 'Compliance Made Easy',
-    title: 'Stay Compliant. Reduce Risk.',
-    description:
-      "TruckMitr helps fleet owners navigate India's evolving driver compliance landscape — from MoRTH licensing requirements to ESIC enrollment and Ayushman Bharat registration for your drivers.",
+    label: 'COMPLIANCE MADE EASY',
+    title: 'Compliance Paperwork Used to Take Days. Now It Doesn\'t.',
+    description: 'You know the paperwork — MoRTH, ESIC, Ayushman Bharat, PF. Most fleet owners are behind on at least one. TruckMitr keeps it all digital and alerts you before anything lapses. A Pune fleet owner found out three of his drivers had expired licences only after a routine check. That\'s the kind of thing that shuts down an operation. We built this so it doesn\'t happen to you.\n\nWhat\'s covered:',
     checks: [
       'Digital driver document management',
       'MoRTH training compliance tracking',
       'ESIC and PF enrollment assistance',
-      'Automated licence expiry alerts',
+      'Automatic licence expiry alerts',
     ],
     imageKey: 'fleetFeatCompliance',
     reverse: true,
   },
   {
     key: 'training',
-    label: 'Training & Upskilling',
-    title: 'Build a Skilled, Safe Fleet',
-    description:
-      "Access TruckMitr's entire training portfolio for your drivers — MoRTH-aligned certification, EV readiness programs, defensive driving, and load management courses. Trained drivers mean fewer accidents and lower operating costs.",
+    label: 'TRAINING & UPSKILLING',
+    title: 'Trained Drivers Cost Less to Run. Here\'s How to Get Them.',
+    description: 'Most accidents, cargo damage, and vehicle wear trace back to training gaps. Trained drivers have fewer incidents — lower claims, lower repair costs, and they stick around longer.\n\nTruckMitr connects your fleet to MoRTH-aligned programs through IDTR and RDTC centres across India. Running 5 or more trucks? You get bulk enrollment discounts.\n\nWhat\'s available:',
     checks: [
-      'MoRTH-aligned certification through IDTR/RDTC network',
-      'EV readiness training for your transitioning fleet',
-      'Bulk enrollment discounts for fleet operators',
-      'Training completion tracking and reporting',
+      'MoRTH certification through IDTR/RDTC network',
+      'EV readiness training for fleets transitioning to electric',
+      'Bulk enrollment rates for fleet operators',
+      'Training completion tracking built into your dashboard',
     ],
     imageKey: 'fleetFeatTraining',
     reverse: false,
   },
   {
     key: 'welfare',
-    label: 'Driver Welfare',
-    title: "Invest in Your Drivers' Wellbeing",
-    description:
-      "Fleet owners who invest in driver welfare see lower attrition, better performance, and stronger loyalty. TruckMitr's welfare programs bring healthcare, financial literacy, and welfare scheme access directly to your drivers.",
+    label: 'DRIVER WELFARE',
+    title: 'Look After Your Drivers. They\'ll Stay.',
+    description: 'The fleet owners with the lowest turnover aren\'t always paying the most — they\'re the ones whose drivers feel looked after.\n\nHealth camps, welfare schemes, financial literacy — it matters to a driver away from his family for weeks. TruckMitr brings these programs to your yard or nearby transport hubs. Low cost to you. Real difference in retention.\n\nWhat we bring to your fleet:',
     checks: [
       'Health camps at your facility or nearby transport hubs',
-      'Government scheme enrollment drives for your driver workforce',
-      'Financial literacy workshops for driver financial security',
+      'Government welfare scheme enrollment for your drivers',
+      'Financial literacy workshops — rights, savings, insurance',
       'Emergency assistance coordination for drivers and families',
     ],
     imageKey: 'fleetFeatWelfare',
@@ -81,61 +75,61 @@ export const fleetFeatureRows = [
 ]
 
 export const fleetStepsSection = {
-  label: 'How It Works',
-  title: 'Hire in 4 Simple Steps',
+  label: 'HOW IT WORKS',
+  title: 'Hire in 4 Steps. Start Today.',
   steps: [
     {
       num: '1',
-      title: 'Register Fleet',
-      body: 'Create your fleet owner profile. Verify your company documents. Takes under 30 minutes.',
+      title: 'Register Your Fleet',
+      body: 'Create your fleet owner profile. Add your company details. Verify your documents. Takes under 30 minutes, done once.',
     },
     {
       num: '2',
-      title: 'Post Job',
-      body: 'List your requirement with salary, route, vehicle type, and experience criteria. Goes live instantly.',
+      title: 'Post a Job',
+      body: 'List the requirement — route, salary, vehicle type, licence class, experience needed. Goes live immediately. Drivers across India start seeing it.',
     },
     {
       num: '3',
       title: 'Screen Drivers',
-      body: 'Review matched profiles. Check verifications, experience, and Driver Influence Scores. Shortlist the best.',
+      body: 'Review matched profiles. Every candidate is already verified. Check their background, experience, and Driver Influence Score. Shortlist the ones you want to meet.',
     },
     {
       num: '4',
       title: 'Hire & Onboard',
-      body: 'Connect, interview, and onboard — with digital document collection and compliance tracking built in.',
+      body: 'Connect, interview, confirm. Digital document collection and compliance tracking are built in — so your paperwork is sorted before day one.',
     },
   ],
 }
 
 export const fleetStatsSection = {
-  label: 'The Numbers',
-  title: 'Why Fleet Owners Choose TruckMitr',
+  label: 'THE NUMBERS',
+  title: 'Why Fleet Owners Across India Choose TruckMitr',
   stats: [
     {
       value: '72hrs',
-      title: 'Average Time to Hire',
-      body: 'From job post to verified driver offer — versus 2–3 weeks through traditional networks.',
+      title: 'Average time to hire',
+      body: 'Average time from job post to verified driver — vs 2–3 weeks the old way',
     },
     {
       value: '100%',
-      title: 'Verified Candidates',
-      body: 'Every driver profile is manually verified — licence, identity, and experience checks.',
+      title: 'Verification',
+      body: 'Every candidate manually verified — licence, identity, experience',
     },
     {
       value: '₹0',
-      title: 'Agent Commission',
-      body: 'No middlemen. No dalals. No commission fees. Direct connections only.',
+      title: 'Hidden Fees',
+      body: 'Fast, transparent, and built for how this industry actually works.',
     },
     {
       value: '28+',
       title: 'States Covered',
-      body: 'Hire drivers from across India for any route, any region, any fleet size.',
+      body: 'States covered — hire for any route, any region, any fleet size',
     },
   ],
 }
 
 export const fleetCta = {
-  title: 'Ready to Build Your Dream Fleet?',
-  sub: 'Join thousands of fleet owners who trust TruckMitr for fast, reliable, verified driver hiring.',
+  title: 'Your Next Reliable Driver is Already on TruckMitr',
+  sub: 'Fleet owners from Jaipur, Mumbai, Delhi, Bengaluru, and across 28 states have posted jobs, found verified drivers, and built teams they can actually count on. Yours could be next.',
   primary: { label: 'Post Your First Job →', to: '/jobs' },
 }
