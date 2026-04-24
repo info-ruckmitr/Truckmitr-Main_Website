@@ -1,8 +1,13 @@
+/* ═══════════════════════════════════════════════════════════════
+   HomeTestimonials — Section + Text Cards + Shorts Video Player
+   ═══════════════════════════════════════════════════════════════ */
+
 .section {
   padding-block: var(--space-16);
   background: var(--gray-0);
 }
 
+/* ── Header ────────────────────────────────────────────────────── */
 .head {
   text-align: center;
   max-width: 680px;
@@ -29,6 +34,323 @@
   margin: 0;
 }
 
+/* ═══ VIDEO SECTION ════════════════════════════════════════════ */
+.videoSection {
+  margin-bottom: var(--space-12);
+}
+
+.videoSectionHeader {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.shortsTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  color: white;
+  padding: 6px 16px;
+  border-radius: var(--r-full);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 16px rgba(255, 0, 0, 0.25);
+}
+
+.videoSectionSub {
+  color: var(--gray-5);
+  font-size: 0.9rem;
+  margin-top: var(--space-3);
+}
+
+/* ── Carousel container ───────────────────────────────────────── */
+.carouselWrap {
+  position: relative;
+  max-width: 100%;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--space-4) var(--space-2);
+  scrollbar-width: none;
+}
+.carouselTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.carouselSlide {
+  flex: 0 0 280px;
+  scroll-snap-align: center;
+}
+
+@media (min-width: 768px) {
+  .carouselSlide {
+    flex: 0 0 300px;
+  }
+}
+
+/* ── Arrow nav ────────────────────────────────────────────────── */
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(calc(-50% - 16px));
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--sh-md);
+  color: var(--dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--t-base);
+  backdrop-filter: blur(8px);
+}
+.carouselArrow:hover {
+  background: white;
+  box-shadow: var(--sh-lg);
+  transform: translateY(calc(-50% - 16px)) scale(1.08);
+}
+.carouselArrowLeft {
+  left: -8px;
+}
+.carouselArrowRight {
+  right: -8px;
+}
+@media (max-width: 767px) {
+  .carouselArrow {
+    display: none;
+  }
+}
+
+/* ── Dots ──────────────────────────────────────────────────────── */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--space-4);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gray-3);
+  cursor: pointer;
+  transition: var(--t-base);
+  padding: 0;
+}
+.dotActive {
+  width: 24px;
+  border-radius: var(--r-full);
+  background: var(--saffron);
+}
+
+/* ═══ VIDEO CARD (Shorts-style) ════════════════════════════════ */
+.videoCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--dark);
+  cursor: pointer;
+  user-select: none;
+  transition: var(--t-slow);
+  box-shadow: var(--sh-md);
+}
+.videoCard:hover {
+  box-shadow: var(--sh-lg);
+  transform: translateY(-4px);
+}
+.videoCardActive {
+  box-shadow: 0 12px 40px rgba(255, 153, 51, 0.3);
+}
+
+.videoEl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Gradient overlays ────────────────────────────────────────── */
+.videoGradientTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.videoGradientBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Center play button ───────────────────────────────────────── */
+.centerPlayBtn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  animation: fadeInScale 0.25s ease;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Bottom overlay (info + controls) ─────────────────────────── */
+.videoOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 0 var(--space-3) var(--space-3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.videoOverlayVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Progress bar ─────────────────────────────────────────────── */
+.progressBarWrap {
+  padding: var(--space-2) 0;
+  cursor: pointer;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: height 0.15s ease;
+}
+.progressBarWrap:hover .progressTrack {
+  height: 5px;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--saffron);
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+/* ── Video bottom row ─────────────────────────────────────────── */
+.videoBottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.videoInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.videoName {
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.videoCaption {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.75rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.videoControls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.timeLabel {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.muteBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--t-fast);
+}
+.muteBtn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ── Shorts badge on each card ────────────────────────────────── */
+.shortsLogo {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+}
+
+/* ═══ TEXT TESTIMONIAL CARDS (existing) ════════════════════════ */
 .grid {
   display: grid;
   gap: var(--space-6);
