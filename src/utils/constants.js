@@ -68,5 +68,5 @@ export const FEATURE_IMAGES = {
 
 export const WHATSAPP_URL = 'https://wa.me/919876543210'
 
-/** Served from `/public` — TruckMitr wordmark */
-export const LOGO_SRC = '/logotrick.png'
+/** Served from root — TruckMitr wordmark */
+export const LOGO_SRC = new URL('../../logotrick.png', import.meta.url).href
