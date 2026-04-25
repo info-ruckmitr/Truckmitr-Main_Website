@@ -377,15 +377,61 @@
 
 /* ═══ TEXT TESTIMONIAL CARDS (existing) ════════════════════════ */
 .grid {
-  display: grid;
-  gap: var(--space-6);
-  grid-template-columns: 1fr;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.grid::-webkit-scrollbar {
+  display: none;
+}
+
+.gridSlide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  padding: 0 var(--space-2);
+  box-sizing: border-box;
 }
 
 @media (min-width: 1024px) {
   .grid {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    overflow-x: visible;
   }
+  
+  .gridSlide {
+    padding: 0;
+  }
+}
+
+/* ── Review dot indicators ──────────────────────────────────── */
+.reviewDots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--space-5);
+}
+
+.reviewDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gray-3);
+  cursor: pointer;
+  transition: var(--t-base);
+  padding: 0;
+}
+
+.reviewDotActive {
+  width: 24px;
+  border-radius: var(--r-full);
+  background: var(--saffron);
 }
 
 .card {

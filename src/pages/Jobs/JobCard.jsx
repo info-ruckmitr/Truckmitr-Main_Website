@@ -86,7 +86,7 @@ export default function JobCard({ job, onViewDetails }) {
           >
             View Details
           </button>
-          <Button variant="primary" size="sm">
+          <Button variant="primary" size="sm" onClick={() => window.location.href = 'https://truckmitr.com/login/'}>
             Apply Now →
           </Button>
         </div>

@@ -10,6 +10,12 @@
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .marketingHero {
+    padding: 40px 0 20px;
+  }
+}
+
 .marketingHeroBg {
   position: absolute;
   inset: 0;
@@ -61,6 +67,12 @@
   display: flex;
   gap: var(--space-8);
   flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .heroStats {
+    gap: var(--space-4);
+  }
 }
 
 .heroStat {
@@ -395,6 +407,12 @@
   flex-direction: column;
 }
 
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-4);
+  }
+}
+
 .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--sh-lg);
@@ -581,6 +599,18 @@
   margin-top: auto;
 }
 
+@media (max-width: 768px) {
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cardActions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 .salary {
   font-size: 1rem;
   font-weight: 800;
@@ -741,6 +771,12 @@
   padding: var(--space-6) var(--space-6) 0;
 }
 
+@media (max-width: 768px) {
+  .modalHeader {
+    padding: var(--space-4) var(--space-4) 0;
+  }
+}
+
 .modalHeaderLeft {
   display: flex;
   align-items: flex-start;
@@ -802,6 +838,12 @@
   padding: var(--space-4) var(--space-6);
 }
 
+@media (max-width: 768px) {
+  .modalChips {
+    padding: var(--space-3) var(--space-4);
+  }
+}
+
 .modalChip {
   display: inline-flex;
   align-items: center;
@@ -820,6 +862,13 @@
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-3);
   padding: 0 var(--space-6) var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .modalStats {
+    padding: 0 var(--space-4) var(--space-3);
+    gap: var(--space-2);
+  }
 }
 
 @media (min-width: 600px) {
@@ -898,6 +947,12 @@
   padding: 0 var(--space-6) var(--space-4);
 }
 
+@media (max-width: 768px) {
+  .modalBody {
+    padding: 0 var(--space-4) var(--space-3);
+  }
+}
+
 .modalSectionTitle {
   font-size: 0.85rem;
   font-weight: 700;
@@ -928,6 +983,16 @@
   border-top: 1px solid var(--gray-2);
   background: var(--gray-0);
   border-radius: 0 0 var(--r-lg) var(--r-lg);
+}
+
+@media (max-width: 768px) {
+  .modalFooter {
+    padding: var(--space-4);
+    flex-direction: column;
+  }
+  .modalFooter button {
+    width: 100%;
+  }
 }
 
 /* ─── Reduced Motion ─── */

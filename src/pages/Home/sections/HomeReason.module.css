@@ -81,16 +81,35 @@
 }
 
 .grid {
-  display: grid;
-  gap: var(--space-6);
-  grid-template-columns: 1fr;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
   position: relative;
   z-index: 1;
 }
 
+.grid::-webkit-scrollbar {
+  display: none;
+}
+
+.grid > * {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
 @media (min-width: 640px) {
   .grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    overflow-x: visible;
+  }
+  
+  .grid > * {
+    flex: auto;
   }
 }
 
@@ -98,6 +117,31 @@
   .grid {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+/* ── Dot indicators ─────────────────────────────────────────── */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--space-5);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gray-3);
+  cursor: pointer;
+  transition: var(--t-base);
+  padding: 0;
+}
+
+.dotActive {
+  width: 24px;
+  border-radius: var(--r-full);
+  background: var(--saffron);
 }
 
 .card {

@@ -111,7 +111,7 @@ export default function JobModal({ job, onClose }) {
           <button type="button" className={styles.viewDetailsBtn} onClick={onClose}>
             Close
           </button>
-          <Button variant="primary" size="md">
+          <Button variant="primary" size="md" onClick={() => window.location.href = 'https://truckmitr.com/login/'}>
             Apply Now →
           </Button>
         </div>
