@@ -34,7 +34,7 @@ export const oemEcosystemSection = {
     { n: '01', title: 'Feedback & Insights', body: 'Ground-level R&D intelligence from the drivers who live with your products on Indian highways' },
     { n: '02', title: 'EV Training', body: "Future-proof India's driver workforce for electric — with your brand on every certification" },
     { n: '03', title: 'Brand Engagement', body: 'Direct-to-driver sampling, loyalty rewards, bypassing middlemen to reach real influencers' },
-    { n: '04', title: 'Influence Score™', body: 'Identify the 10–20% of drivers who shape 60–80% of fleet purchase decisions' },
+    { n: '04', title: 'Influence Score', body: 'Identify the 10–20% of drivers who shape 60–80% of fleet purchase decisions' },
     { n: '05', title: 'CSR & Impact', body: 'Turnkey driver welfare programs with verified, audit-ready reports for Section 135' },
     { n: '06', title: 'MoRTH Training', body: 'Government-certified driver training through IDTR/RDTC — skilled drivers who advocate your brand' },
   ],
@@ -151,12 +151,12 @@ export const oemOfferings = [
   {
     id: 'o4',
     num: '04',
-    title: 'Driver Influence Score™',
+    title: 'Driver Influence Score',
     tagline: 'Target the drivers who actually shape purchase decisions.',
     tags: [
       { label: 'ALL PARTNERS', variant: 'o' },
     ],
-    description: 'Every fleet has two or three drivers the owner trusts above all others. When it\'s time to buy a new truck or switch engine oil — those opinions carry real weight. The Driver Influence Score™ finds exactly who those drivers are across India\'s 10M+ driver network.\n\nNot all drivers are equal. Some are trusted advisors whose recommendations directly shape what fleet owners buy. We identify them and give you precision targeting that no other platform can offer.',
+    description: 'Every fleet has two or three drivers the owner trusts above all others. When it\'s time to buy a new truck or switch engine oil — those opinions carry real weight. The Driver Influence Score finds exactly who those drivers are across India\'s 1M+ driver network.\n\nNot all drivers are equal. Some are trusted advisors whose recommendations directly shape what fleet owners buy. We identify them and give you precision targeting that no other platform can offer.',
     imageKey: 'oemFeatInfluence',
     driverBullets: [
       { text: 'First platform to formally recognise and reward driver influence' },
@@ -188,7 +188,7 @@ export const oemOfferings = [
       { label: 'ALL CORPORATES', variant: 'g' },
       { label: 'CSR MANDATE', variant: 'o' },
     ],
-    description: 'India\'s 10M+ truck drivers are among the most underserved workers in the country. Your CSR mandate can change that — every rupee tracked, every beneficiary named, every outcome measured. Health camps at locations drivers actually visit. Welfare schemes they\'re already entitled to but couldn\'t navigate. Financial literacy for families back home in Bihar, Odisha, and Rajasthan.\n\nTurnkey execution. Audit-ready quarterly reports. Full Section 135 compliance documentation.',
+    description: 'India\'s 1M+ truck drivers are among the most underserved workers in the country. Your CSR mandate can change that — every rupee tracked, every beneficiary named, every outcome measured. Health camps at locations drivers actually visit. Welfare schemes they\'re already entitled to but couldn\'t navigate. Financial literacy for families back home in Bihar, Odisha, and Rajasthan.\n\nTurnkey execution. Audit-ready quarterly reports. Full Section 135 compliance documentation.',
     imageKey: 'oemFeatCsr',
     driverBullets: [
       { text: 'Health screenings at transport hubs, dhabas, fuel stations — where drivers already are' },

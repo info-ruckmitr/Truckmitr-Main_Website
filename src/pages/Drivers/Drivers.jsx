@@ -4,6 +4,7 @@ import DriversJourney from './sections/DriversJourney'
 import DriversEv from './sections/DriversEv'
 import DriversInfluence from './sections/DriversInfluence'
 import DriversCta from './sections/DriversCta'
+import DriversCommunity from './sections/DriversCommunity'
 
 export default function Drivers() {
   return (
@@ -11,6 +12,7 @@ export default function Drivers() {
       <DriversHero />
       <DriversFeatures />
       <DriversJourney />
+      <DriversCommunity />
       <DriversEv />
       <DriversInfluence />
       <DriversCta />

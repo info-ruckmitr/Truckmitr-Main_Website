@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { jobsPageHero, jobsMarketingTags, jobsFleetPromo } from '@data/jobsPageContent'
 import { IMAGES } from '@utils/constants'
 import JobCard from './JobCard'
@@ -84,6 +84,7 @@ export default function Jobs() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [selectedJob, setSelectedJob] = useState(null)
+  const [searchParams, setSearchParams] = useSearchParams()
 
   /* Filters */
   const [search, setSearch] = useState('')
@@ -119,6 +120,26 @@ export default function Jobs() {
       })
     return () => { cancelled = true }
   }, [])
+
+  /* Auto-open job from URL */
+  useEffect(() => {
+    const urlJobId = searchParams.get('jobId')
+    if (urlJobId && apiJobs.length > 0 && !selectedJob) {
+      const jobToOpen = apiJobs.find((j) => String(j.id) === urlJobId || String(j.jobId) === urlJobId)
+      if (jobToOpen) {
+        setSelectedJob(jobToOpen)
+      }
+    }
+  }, [searchParams, apiJobs, selectedJob])
+
+  const handleCloseModal = useCallback(() => {
+    setSelectedJob(null)
+    if (searchParams.has('jobId')) {
+      const newParams = new URLSearchParams(searchParams)
+      newParams.delete('jobId')
+      setSearchParams(newParams, { replace: true })
+    }
+  }, [searchParams, setSearchParams])
 
   /* Derive filter options from data */
   const filterOptions = useMemo(() => {
@@ -346,7 +367,7 @@ export default function Jobs() {
 
       {/* Modal */}
       {selectedJob && (
-        <JobModal job={selectedJob} onClose={() => setSelectedJob(null)} />
+        <JobModal job={selectedJob} onClose={handleCloseModal} />
       )}
     </div>
   )

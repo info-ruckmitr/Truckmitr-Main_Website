@@ -3,7 +3,7 @@ import { IMAGES } from '@utils/constants'
 import UnionsSubNav from './UnionsSubNav'
 import styles from '../Unions.module.css'
 
-export default function UnionsHero() {
+export default function UnionsHero({ onRegister }) {
   const tickerDup = [...unionsHero.tickerItems, ...unionsHero.tickerItems]
 
   return (
@@ -20,26 +20,28 @@ export default function UnionsHero() {
         />
         <div className={styles.heroOverlay} aria-hidden />
       </div>
-      <UnionsSubNav className={styles.subNavInHero} />
-      <div className={`container ${styles.heroInner}`}>
-        <div className={styles.heroEyebrow}>
-          <span className={styles.eyebrowDot} aria-hidden />
-          <span className={styles.eyebrowText}>{unionsHero.eyebrow}</span>
-        </div>
-        <h1 id="unions-hero-title" className={styles.heroTitle}>
-          {unionsHero.titleLine1}
-          <br />
-          <span className={styles.lineAccent}>{unionsHero.titleAccent}</span>
-          <span className={styles.lineSub}>{unionsHero.titleSub}</span>
-        </h1>
-        <p className={styles.heroBody}>{unionsHero.body}</p>
-        <div className={styles.heroCtas}>
-          <a className={styles.btnHeroPrimary} href={unionsHero.primaryCta.href}>
-            {unionsHero.primaryCta.label}
-          </a>
-          <a className={styles.btnHeroGhost} href={unionsHero.secondaryCta.href}>
-            {unionsHero.secondaryCta.label}
-          </a>
+      <UnionsSubNav className={styles.subNavInHero} onRegister={onRegister} />
+      <div className="container">
+        <div className={styles.heroInner}>
+          <div className={styles.heroEyebrow}>
+            <span className={styles.eyebrowDot} aria-hidden />
+            <span className={styles.eyebrowText}>{unionsHero.eyebrow}</span>
+          </div>
+          <h1 id="unions-hero-title" className={styles.heroTitle}>
+            {unionsHero.titleLine1}
+            <br />
+            <span className={styles.lineAccent}>{unionsHero.titleAccent}</span>
+            <span className={styles.lineSub}>{unionsHero.titleSub}</span>
+          </h1>
+          <p className={styles.heroBody}>{unionsHero.body}</p>
+          <div className={styles.heroCtas}>
+            <button type="button" className={styles.btnHeroPrimary} onClick={onRegister}>
+              {unionsHero.primaryCta.label}
+            </button>
+            <a className={styles.btnHeroGhost} href={unionsHero.secondaryCta.href}>
+              {unionsHero.secondaryCta.label}
+            </a>
+          </div>
         </div>
       </div>
       <div className={styles.heroTicker}>

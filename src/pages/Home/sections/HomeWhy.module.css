@@ -103,6 +103,16 @@
   box-shadow: 0 4px 12px rgba(19, 136, 8, 0.1);
 }
 
+.iconBlue {
+  background: #eff6ff;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.12);
+}
+
+.iconPurple {
+  background: #f5f3ff;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.12);
+}
+
 .tile h3 {
   font-size: 1.05rem;
   font-weight: 700;

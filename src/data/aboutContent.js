@@ -96,7 +96,7 @@ export const aboutEcosystem = {
   cards: [
     {
       n: '01',
-      title: '10M+ Drivers',
+      title: '1M+ Drivers',
       body: 'Verified profiles across 28 states. Licence checks, background checks, experience data — all in one place. A driver from Bihar and a driver from Tamil Nadu both get the same fair shot.',
     },
     {
@@ -122,7 +122,7 @@ export const aboutEcosystem = {
     {
       n: '06',
       title: 'Data Intelligence',
-      body: 'The Driver Influence Score™ turns real-world driver behaviour into useful intelligence — for companies that want to understand how purchase decisions actually get made on the ground.',
+      body: 'The Driver Influence Score turns real-world driver behaviour into useful intelligence — for companies that want to understand how purchase decisions actually get made on the ground.',
     },
   ],
 }

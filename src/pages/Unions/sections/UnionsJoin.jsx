@@ -4,8 +4,9 @@ import { unionsJoin } from '@data/unionsPageContent'
 import { WHATSAPP_URL } from '@utils/constants'
 import styles from '../Unions.module.css'
 
-export default function UnionsJoin() {
+export default function UnionsJoin({ onRegister }) {
   const j = unionsJoin
+
   return (
     <section className={styles.calltoarms} id="join">
       <div className="container">
@@ -53,9 +54,13 @@ export default function UnionsJoin() {
                   ))}
                 </div>
                 <div className={styles.joinCtaRow}>
-                  <a className={styles.btnJoin} href="#register">
+                  <button
+                    type="button"
+                    className={styles.btnJoin}
+                    onClick={onRegister}
+                  >
                     {j.card.primaryBtn}
-                  </a>
+                  </button>
                   <a
                     className={styles.btnJoinGhost}
                     href={WHATSAPP_URL}

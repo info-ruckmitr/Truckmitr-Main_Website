@@ -26,7 +26,12 @@ export default function HomeWhy() {
                 transition={{ type: 'spring', stiffness: 420, damping: 28 }}
               >
                 <div
-                  className={`${styles.icon} ${t.iconVariant === 'green' ? styles.iconGreen : styles.iconOrange} card-icon`}
+                  className={`${styles.icon} ${
+                    t.iconVariant === 'green' ? styles.iconGreen :
+                    t.iconVariant === 'blue' ? styles.iconBlue :
+                    t.iconVariant === 'purple' ? styles.iconPurple :
+                    styles.iconOrange
+                  } card-icon`}
                 >
                   {t.icon}
                 </div>

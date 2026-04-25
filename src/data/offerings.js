@@ -60,7 +60,7 @@ export const oemOfferings = [
   },
   {
     id: '04',
-    title: 'Influence Score™ Analytics',
+    title: 'Influence Score Analytics',
     tagline: 'Understand which drivers move purchase intent.',
     description:
       'Proprietary scoring blends trip volume, peer referrals, and content engagement to identify high-trust influencers in the long-haul network.',

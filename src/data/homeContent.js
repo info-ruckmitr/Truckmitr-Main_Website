@@ -1,7 +1,7 @@
 import { IMAGES } from '@utils/constants'
 
 export const homeHero = {
-  eyebrow: "India's First Driver-First Trucking Platform",
+  eyebrow: "India's First Driver-Centric Trucking Platform",
   titleLine1: 'You Drive India Forward.',
   titleLine2: "We'll Handle the Rest.",
   sub: 'Across India, drivers struggle to find the right work, and transporters struggle to find the right people. TruckMitr connects both — simply, clearly, and with trust.',
@@ -32,7 +32,7 @@ export const homePlatform = {
   cards: [
     {
       id: 'drivers',
-      icon: '🚛',
+      icon: '🧑‍✈️',
       title: 'For Drivers',
       body: 'Across India, find driving jobs right from your phone. See the salary clearly and apply directly to transporters — no confusion. Your experience and verified profile help you stand out.',
       cta: 'Learn More →',
@@ -41,7 +41,7 @@ export const homePlatform = {
     },
     {
       id: 'fleet',
-      icon: '🏢',
+      icon: '🚛',
       title: 'For Fleet Owners & Transporters',
       body: 'On India’s roads, one wrong hire can cost you time and money.\n\nThat’s why every TruckMitr driver is verified — so you choose with clarity and confidence.',
       cta: 'Learn More →',
@@ -66,26 +66,6 @@ export const homeJobsStrip = {
   sub: 'Every job on TruckMitr is posted by a verified transporter. Salary is listed upfront. No calls from unknown numbers. No fake recruiters.',
   viewAllLabel: 'See All Open Jobs →',
   viewAllTo: '/jobs',
-  jobs: [
-    {
-      id: 'j1',
-      title: 'Heavy Truck Driver — NH-44 Route',
-      chips: ['📍 Delhi to Chennai', '🚛 Full Time'],
-      pay: '₹28,000 – ₹34,000/mo',
-    },
-    {
-      id: 'j2',
-      title: 'EV Truck Driver — Mumbai Logistics',
-      chips: ['📍 Mumbai, Maharashtra', '⚡ EV Certified'],
-      pay: '₹32,000 – ₹40,000/mo',
-    },
-    {
-      id: 'j3',
-      title: 'Mini Truck Driver — Last Mile Delivery',
-      chips: ['📍 Bengaluru, Karnataka', '🚐 Part Time'],
-      pay: '₹18,000 – ₹22,000/mo',
-    },
-  ],
 }
 
 export const homeWhy = {
@@ -95,17 +75,17 @@ export const homeWhy = {
   tiles: [
     {
       id: 'rc',
-      icon: '📋',
-      title: 'RC Check',
-      body: 'Is the vehicle registration valid and current? We check.',
-      iconVariant: 'orange',
+      icon: '🪪',
+      title: 'IDs Check',
+      body: "Licence, Aadhaar, or PAN real? We verify every document before you trust them.",
+      iconVariant: 'blue',
     },
     {
       id: 'challan',
-      icon: '⚠️',
-      title: 'Challan History',
-      body: "How many traffic violations? What kind? It's all there before you decide.",
-      iconVariant: 'green',
+      icon: '🤳',
+      title: 'Real-Time Face Check',
+      body: "Is it really them? Live face matched to ID — confirmed before you call.",
+      iconVariant: 'purple',
     },
     {
       id: 'court',
@@ -123,9 +103,9 @@ export const homeWhy = {
     },
     {
       id: 'profile',
-      icon: '✅',
-      title: 'Full Profile Check',
-      body: "Licence authenticity, years of experience, identity — cross-checked and confirmed.",
+      icon: '📍',
+      title: 'Physical Address Verification',
+      body: "Where do they actually live? Field-confirmed — not just self-reported.",
       iconVariant: 'green',
     },
   ],
@@ -133,19 +113,20 @@ export const homeWhy = {
 
 export const homeCommunity = {
   label: 'THE COMMUNITY',
-  titleLine1: 'Driver Ki Awaaz —',
+  titleLine1: 'Driver Ki Awaz —',
   titleLine2: 'Because Nobody Was Listening Before',
   body: [
     "Across India, drivers spend days on the road — from Punjab to Telangana — with no real place to share what they go through. Bad roads, sudden route changes, unfair treatment — it all just gets buried in the journey.",
-    "Driver Ki Awaaz changes that. It’s a space where drivers share real experiences, raise issues, and pass on what they’ve learned over years behind the wheel. Transporters listen. Companies pay attention. It’s not perfect yet — but for the first time, drivers across India finally have a voice that’s heard.",
+    "<strong><em>Driver Ki Awaz</em></strong> changes that. It’s a space where drivers share real experiences, raise issues, and pass on what they’ve learned over years behind the wheel. Transporters listen. Companies pay attention. It’s not perfect yet — but for the first time, drivers across India finally have a voice that’s heard.",
   ],
   features: [
-    { id: 'f1', icon: '🛣️', text: 'Road condition updates and route tips from drivers currently on those highways' },
-    { id: 'f2', icon: '📢', text: 'Real accounts of wage disputes, delayed payments, unsafe working conditions' },
-    { id: 'f3', icon: '📹', text: 'Short videos from rest stops, loading docks, and long stretches of empty road' },
-    { id: 'f4', icon: '💼', text: 'Job openings posted directly by transporters to the community' },
+    { id: 'f1', icon: '🛣️', text: 'Driver Life — Real stories, daily experiences, and insights from the long journeys.' },
+    { id: 'f2', icon: '📢', text: 'Govt. Demand — Raising a collective voice for better driver protections and policy changes.' },
+    { id: 'f3', icon: '🚧', text: 'Road Issues — Live updates on highway conditions, bad roads, and safety hazards.' },
+    { id: 'f4', icon: '👮', text: 'RTO Issues — Sharing experiences and navigating challenges with transport authorities.' },
+    { id: 'f5', icon: '🏥', text: 'Welfare Rights — Awareness on health, insurance, and legal rights for drivers.' },
   ],
-  cta: { label: 'See What Drivers Are Saying →', to: '/community' },
+  cta: { label: 'See What Drivers Are Saying →', href: 'https://play.google.com/store/apps/details?id=com.truckmitr' },
 }
 
 export const homeReason = {
@@ -168,7 +149,7 @@ export const homeReason = {
     {
       id: 'influence',
       icon: '⭐',
-      title: 'Driver Influence Score™',
+      title: 'Driver Influence Score',
       body: "Some drivers are decision-makers when it comes to what vehicles their employer buys next. Our scoring system finds them — useful if you're an OEM trying to reach the right people.",
     },
     {

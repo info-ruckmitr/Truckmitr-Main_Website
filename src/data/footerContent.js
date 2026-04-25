@@ -20,7 +20,7 @@ export const footerColumns = [
       { to: '/oem', label: 'Driver Feedback' },
       { to: '/oem', label: 'EV Training' },
       { to: '/oem', label: 'Brand Engagement' },
-      { to: '/oem', label: 'Influence Score™' },
+      { to: '/oem', label: 'Influence Score' },
       { to: '/oem', label: 'CSR & Impact' },
       { to: '/oem', label: 'MoRTH Training' },
     ],

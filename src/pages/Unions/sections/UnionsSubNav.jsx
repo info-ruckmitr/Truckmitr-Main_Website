@@ -2,7 +2,7 @@ import { unionsSubNav, unionsHero } from '@data/unionsPageContent'
 import { cn } from '@utils/cn'
 import styles from '../Unions.module.css'
 
-export default function UnionsSubNav({ className }) {
+export default function UnionsSubNav({ className, onRegister }) {
   return (
     <nav className={cn(styles.subNav, className)} aria-label="On this page">
       <div className={`container ${styles.subNavInner}`}>
@@ -13,9 +13,9 @@ export default function UnionsSubNav({ className }) {
             </a>
           ))}
         </div>
-        <a className={styles.subNavCta} href={unionsHero.navCta.href}>
+        <button type="button" className={styles.subNavCta} onClick={onRegister}>
           {unionsHero.navCta.label}
-        </a>
+        </button>
       </div>
     </nav>
   )

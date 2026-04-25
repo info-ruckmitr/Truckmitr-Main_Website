@@ -157,13 +157,13 @@ export default function HomeHero() {
             animate={{ opacity: 1 }}
             transition={{ delay: reduce ? 0 : 0.7, duration: 0.5 }}
           >
-            <div className={styles.trustAvatars}>
-              <span className={styles.trustAvatar}>🚛</span>
-              <span className={styles.trustAvatar}>🚐</span>
-              <span className={styles.trustAvatar}>⚡</span>
+            <div className={styles.trustAvatars} aria-hidden>
+              <span className={styles.trustAvatar}>🛡️</span>
+              <span className={styles.trustAvatar}>🤝</span>
+              <span className={styles.trustAvatar}>✅</span>
             </div>
             <span className={styles.trustText}>
-              Trusted by <strong>10M+</strong> drivers across India
+              Trusted by <strong>1M+</strong> drivers across India
             </span>
           </motion.div>
         </div>

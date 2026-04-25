@@ -3,7 +3,7 @@ import { unionsMovement } from '@data/unionsPageContent'
 import { IMAGES } from '@utils/constants'
 import styles from '../Unions.module.css'
 
-export default function UnionsMovement() {
+export default function UnionsMovement({ onRegister }) {
   const m = unionsMovement
   return (
     <section className={styles.movement}>
@@ -29,9 +29,9 @@ export default function UnionsMovement() {
             ))}
           </div>
           <div className={styles.movementBtns}>
-            <a className={styles.btnHeroPrimary} href={m.primaryCta.href}>
+            <button type="button" className={styles.btnHeroPrimary} onClick={onRegister}>
               {m.primaryCta.label}
-            </a>
+            </button>
             <button type="button" className={styles.btnHeroGhost} disabled title="Coming soon">
               {m.secondaryCta.label}
             </button>

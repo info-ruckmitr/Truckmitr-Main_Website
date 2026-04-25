@@ -36,9 +36,14 @@ export default function DriversHero() {
             <Link to={driversHero.primary.to} className={styles.heroPrimary}>
               {driversHero.primary.label}
             </Link>
-            <button type="button" className={styles.heroSecondary} disabled title="Coming soon">
+            <a 
+              href={driversHero.secondary.href} 
+              className={styles.heroSecondary}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {driversHero.secondary.label}
-            </button>
+            </a>
           </div>
         </motion.div>
       </div>

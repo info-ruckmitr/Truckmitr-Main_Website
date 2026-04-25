@@ -6,7 +6,7 @@ import styles from '../Drivers.module.css'
 
 export default function DriversInfluence() {
   return (
-    <section className={styles.infSection} aria-labelledby="drivers-inf-heading">
+    <section className={styles.infSection} style={{ background: 'var(--white)' }} aria-labelledby="drivers-inf-heading">
       <div className="container">
         <div className={styles.infGrid}>
           <ScrollReveal>

@@ -17,13 +17,15 @@ export default function HomeCommunity() {
           </h2>
 
           {homeCommunity.body.map((para, i) => (
-            <p key={i} className={styles.bodyPara}>
-              {para}
-            </p>
+            <p key={i} className={styles.bodyPara} dangerouslySetInnerHTML={{ __html: para }} />
           ))}
 
           <div className={styles.ctaWrap}>
-            <Button to={homeCommunity.cta.to} variant="primary" size="lg">
+            <Button 
+              {...(homeCommunity.cta.href ? { href: homeCommunity.cta.href, target: '_blank', rel: 'noopener noreferrer' } : { to: homeCommunity.cta.to })}
+              variant="primary" 
+              size="lg"
+            >
               {homeCommunity.cta.label}
             </Button>
           </div>
@@ -43,7 +45,7 @@ export default function HomeCommunity() {
                   {f.text.includes(' — ') ? (
                     <>
                       <strong>{f.text.split(' — ')[0]}</strong>
-                      {' — ' + f.text.split(' — ')[1]}
+                      {' ' + f.text.split(' — ')[1]}
                     </>
                   ) : (
                     f.text

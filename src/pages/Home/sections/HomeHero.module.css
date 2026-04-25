@@ -38,9 +38,9 @@
   z-index: 1;
   background: linear-gradient(
     118deg,
-    rgba(5, 7, 12, 0.92) 0%,
-    rgba(12, 14, 20, 0.78) 42%,
-    rgba(22, 18, 14, 0.45) 100%
+    rgba(5, 7, 12, 0.72) 0%,
+    rgba(12, 14, 20, 0.55) 42%,
+    rgba(22, 18, 14, 0.35) 100%
   );
   pointer-events: none;
 }

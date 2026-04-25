@@ -11,7 +11,7 @@ export const fleetHero = {
 
 export const fleetBenefitsIntro = {
   label: 'FLEET OWNER BENEFITS',
-  title: 'Four problems fleet owners hate. One platform that actually fixes them.',
+  title: 'Four Problems Fleet Owners Hate. One Platform That Actually Fixes Them.',
   sub: 'Fleet owners across Rajasthan, Maharashtra, UP, Punjab — and all over India — are hiring faster, staying compliant, and finally holding on to good drivers. All on TruckMitr.',
 }
 
@@ -19,13 +19,13 @@ export const fleetFeatureRows = [
   {
     key: 'smart-hiring',
     label: 'SMART HIRING',
-    title: 'Finding a good driver shouldn\'t take weeks of phone calls and blind trust.',
+    title: "Finding a Good Driver Shouldn't Take Weeks of Phone Calls and Blind Trust.",
     description: 'On TruckMitr, every profile comes pre-verified — licence class, challan history, court records, years on the road. Filter exactly who you need, message them directly, and hire with actual confidence.\n\nFilter options:',
     checks: [
       'HMV, LMV, tanker, trailer, EV experience',
       'Preferred routes and states',
       'Work history and past employers',
-      'Driver Influence Score™',
+      'Driver Influence Score',
     ],
     imageKey: 'fleetFeatHiring',
     reverse: false,

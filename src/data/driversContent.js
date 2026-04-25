@@ -5,7 +5,7 @@ export const driversHero = {
   titleAccent: 'Your Platform Should Be Too.',
   sub: "Real jobs from verified transporters. Salary upfront, no surprises. Browse listings, get certified, claim welfare schemes you already qualify for — and connect with a community of drivers who actually get this life.",
   primary: { label: 'Browse Jobs Now →', to: '/jobs' },
-  secondary: { label: 'Download App' },
+  secondary: { label: 'Download App', href: 'https://play.google.com/store/apps/details?id=com.truckmitr' },
 }
 
 export const driversBenefits = {
@@ -99,7 +99,7 @@ export const driversEv = {
 }
 
 export const driversInfluence = {
-  label: 'DRIVER INFLUENCE SCORE™',
+  label: 'DRIVER INFLUENCE SCORE',
   title: "Your Opinion is Worth Something. We're the First to Recognise It.",
   body: "When a driver from Punjab recommends a tyre brand to his fleet owner, that fleet owner listens. When a driver in Tamil Nadu says a particular truck model handles better on state highways, that feedback travels. Drivers have been influencing purchase decisions in this industry for decades — without ever getting credit for it.\n\nTruckMitr's Influence Score tracks that. The higher your score, the more companies want your feedback — and the more they're willing to offer in return.",
   bullets: [
@@ -108,7 +108,7 @@ export const driversInfluence = {
     "Exclusive rewards and recognition on your profile",
     "A score you can show transporters as proof of your standing in the community",
   ],
-  cardTitle: 'Your Influence Score™',
+  cardTitle: 'Your Influence Score',
   cardBody: 'What your score unlocks:',
   tiers: [
     { icon: '🥇', label: 'Top Influencer' },

@@ -1,6 +1,6 @@
 export const IMAGES = {
   /** Home hero — commercial trucks only (background) */
-  homeHeroTruck: new URL('@assets/images/hero-banner/Gemini_Generated_Image_erwgp1erwgp1erwg.jpg', import.meta.url).href,
+  homeHeroTruck: new URL('@assets/images/hero-banner/home_hero_banner_v6.jpg', import.meta.url).href,
   heroDriver: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80',
   highwayIndia: 'https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=80',
   truckFleet: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1000&q=80',
@@ -66,7 +66,8 @@ export const FEATURE_IMAGES = {
   income: 'https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?w=400',
 }
 
-export const WHATSAPP_URL = 'https://wa.me/919876543210'
+export const WHATSAPP_URL = 'https://wa.me/919254972811'
 
 /** Served from root — TruckMitr wordmark */
 export const LOGO_SRC = new URL('../../logotrick.png', import.meta.url).href
+export const FOOTER_LOGO_SRC = new URL('@assets/images/logo/logo-footer.png', import.meta.url).href

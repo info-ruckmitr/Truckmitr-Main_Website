@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import RegisterPopup from '@components/shared/RegisterPopup/RegisterPopup'
 import UnionsHero from './sections/UnionsHero'
 import UnionsReality from './sections/UnionsReality'
 import UnionsImperative from './sections/UnionsImperative'
@@ -26,17 +27,21 @@ function useHashScroll() {
 
 export default function Unions() {
   useHashScroll()
+  const [showPopup, setShowPopup] = useState(false)
+  const openPopup = () => setShowPopup(true)
 
   return (
     <div className={styles.page}>
-      <UnionsHero />
+      <UnionsHero onRegister={openPopup} />
       <UnionsReality />
       <UnionsImperative />
       <UnionsHealth />
       <UnionsDemands />
       <UnionsPower />
-      <UnionsJoin />
-      <UnionsMovement />
+      <UnionsJoin onRegister={openPopup} />
+      <UnionsMovement onRegister={openPopup} />
+
+      <RegisterPopup open={showPopup} onClose={() => setShowPopup(false)} />
     </div>
   )
 }

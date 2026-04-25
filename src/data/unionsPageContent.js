@@ -12,7 +12,7 @@ export const unionsSubNav = [
 
 export const unionsHero = {
   eyebrow: 'For Unions & Driver Associations',
-  titleLine1: 'Ek Awaaz.',
+  titleLine1: 'Ek Awaz.',
   titleAccent: 'Ek Platform. Ek Bharat.',
   titleSub: "",
   body: 'Your union has been fighting for drivers for years — for their rights, their safety, their dignity. TruckMitr gives that fight a platform. One place where every driver\'s voice is heard, recorded, and acted on.',
@@ -160,7 +160,7 @@ export const unionsPower = {
   titleAccent: 'Here\'s What That Looks Like in Practice.',
   sub: '',
   cells: [
-    { num: '10M+', title: 'Driver Voices', desc: 'Every driver on the platform adds to a collective that no company, no government body, and no transport association can ignore.' },
+    { num: '1M+', title: 'Driver Voices', desc: 'Every driver on the platform adds to a collective that no company, no government body, and no transport association can ignore.' },
     { num: '28+', title: 'States Networked', desc: 'Your union\'s reach extends beyond your home state. Drivers in Tamil Nadu and drivers in Punjab are now part of the same organised movement.' },
     { num: 'Data', title: 'Real Research', desc: 'Actual field data on driver conditions — not assumptions. Used for policy advocacy, welfare program design, and negotiation with industry bodies.' },
     { num: 'Simple', title: 'Transparent Pricing', desc: 'Simple, transparent pricing. One membership fee, no hidden charges, no surprises — just everything the platform offers, fully accessible.' },
@@ -203,12 +203,12 @@ export const unionsJoin = {
 
 export const unionsMovement = {
   badge: '🚛 A National Movement',
-  titleBefore: 'Ek Awaaz. ',
+  titleBefore: 'Ek Awaz. ',
   titleAccent: 'Ek Platform.',
   titleAfter: ' Poora Bharat.',
   sub: "Across 28 states, through every highway and every district road — one platform uniting India's truck drivers, their unions, and the people who support them.",
   stats: [
-    { n: '10M+', l: 'Drivers' },
+    { n: '1M+', l: 'Drivers' },
     { n: '29', l: 'States Networked' },
     { n: '1', l: 'Platform' },
   ],

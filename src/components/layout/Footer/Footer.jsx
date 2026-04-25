@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { ExternalLink, Share2 } from 'lucide-react'
 import Divider from '@components/ui/Divider/Divider'
 import { footerColumns, footerTagline } from '@data/footerContent'
-import { LOGO_SRC, WHATSAPP_URL } from '@utils/constants'
+import { FOOTER_LOGO_SRC, WHATSAPP_URL } from '@utils/constants'
+import { WhatsAppIcon, YouTubeIcon, FacebookIcon, TwitterIcon, LinkedInIcon, InstagramIcon } from '@components/ui/SocialIcons/SocialIcons'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -13,18 +13,27 @@ export default function Footer() {
         <div className={styles.grid}>
           <div>
             <Link to="/" className={styles.brandLink} aria-label="TruckMitr home">
-              <img src={LOGO_SRC} alt="" className={styles.brandLogo} width={180} height={48} />
+              <img src={FOOTER_LOGO_SRC} alt="" className={styles.brandLogo} width={180} height={48} />
             </Link>
             <p className={styles.tagline}>{footerTagline}</p>
             <div className={styles.social}>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                <ExternalLink size={22} />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter">
-                <Share2 size={22} />
-              </a>
               <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="WhatsApp">
-                <span className={styles.waIcon} aria-hidden />
+                <WhatsAppIcon size={24} />
+              </a>
+              <a href="https://www.youtube.com/@TruckMitr_Official" target="_blank" rel="noreferrer" aria-label="YouTube">
+                <YouTubeIcon size={24} />
+              </a>
+              <a href="https://x.com/TruckMitr" target="_blank" rel="noreferrer" aria-label="X (formerly Twitter)">
+                <TwitterIcon size={24} />
+              </a>
+              <a href="https://www.linkedin.com/company/truckmitr-corporate-services-pvt-ltd/posts/?feedView=all" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <LinkedInIcon size={24} />
+              </a>
+              <a href="https://www.instagram.com/truckmitr/" target="_blank" rel="noreferrer" aria-label="Instagram">
+                <InstagramIcon size={24} />
+              </a>
+              <a href="https://www.facebook.com/Truckmitr" target="_blank" rel="noreferrer" aria-label="Facebook">
+                <FacebookIcon size={24} />
               </a>
             </div>
           </div>
@@ -42,8 +51,8 @@ export default function Footer() {
           ))}
         </div>
         <div className={styles.bottom}>
-          <p>© 2025 TruckMitr Corporate Services Private Limited. All rights reserved.</p>
-          <p>Made for India's truck drivers.</p>
+          <p>© 2026 TruckMitr Corporate Services Private Limited. All rights reserved.</p>
+          <p>Made for India's truck drivers ❤️</p>
         </div>
       </div>
     </footer>
