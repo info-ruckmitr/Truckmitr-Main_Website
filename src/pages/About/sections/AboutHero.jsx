@@ -21,7 +21,7 @@ export default function AboutHero() {
     <section className={styles.hero} aria-labelledby="about-hero-title">
       <div
         className={styles.heroBg}
-        style={{ backgroundImage: `url(${IMAGES.truckHighway})` }}
+        style={{ backgroundImage: `url(${new URL('@assets/images/about/about_hero_bg.png', import.meta.url).href})` }}
         aria-hidden
       />
       <div className={styles.heroOverlay} aria-hidden />

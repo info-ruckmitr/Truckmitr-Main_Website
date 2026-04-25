@@ -54,7 +54,7 @@ export const IMAGES = {
   oemFeatEngagement: new URL('@assets/images/oem/oem_feat_engagement.png', import.meta.url).href,
   oemFeatInfluence: new URL('@assets/images/oem/oem_feat_influence.png', import.meta.url).href,
   oemFeatCsr: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=900&q=80&auto=format&fit=crop',
-  oemFeatMorth: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=900&q=80&auto=format&fit=crop',
+  oemFeatMorth: new URL('@assets/images/oem/oem_feat_morth.png', import.meta.url).href,
 }
 
 export const FEATURE_IMAGES = {

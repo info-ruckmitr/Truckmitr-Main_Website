@@ -392,6 +392,7 @@
   border-radius: var(--u-radius);
   padding: var(--space-6);
   transition: box-shadow 0.2s;
+  height: 100%;
 }
 
 .truthCard:hover {
@@ -811,6 +812,7 @@
   border-left: 3px solid var(--u-primary);
   border-radius: var(--u-radius);
   padding: var(--space-5);
+  height: 100%;
 }
 
 .demandIconWrap {
@@ -886,6 +888,7 @@
   border: 1px solid var(--u-border);
   border-radius: var(--u-radius);
   padding: var(--space-6);
+  height: 100%;
 }
 
 .pcNum {

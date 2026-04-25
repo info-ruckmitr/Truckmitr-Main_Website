@@ -133,6 +133,7 @@
   cursor: default;
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
 .featureCard:hover {

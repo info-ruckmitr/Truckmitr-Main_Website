@@ -35,7 +35,7 @@ export default function UnionsDemands() {
           {d.cards.map((c, i) => {
             const Icon = demandIcons[i] ?? Landmark
             return (
-              <ScrollReveal key={c.num}>
+              <ScrollReveal key={c.num} style={{ height: '100%' }}>
                 <article className={styles.demandCard}>
                   <div className={styles.demandIconWrap} aria-hidden>
                     <Icon size={22} strokeWidth={1.75} />

@@ -20,7 +20,7 @@ export default function UnionsPower() {
         </header>
         <div className={styles.powerGrid}>
           {p.cells.map((cell) => (
-            <ScrollReveal key={cell.title}>
+            <ScrollReveal key={cell.title} style={{ height: '100%' }}>
               <article className={styles.powerCell}>
                 <div className={styles.pcNum}>{cell.num}</div>
                 <div className={styles.pcTitle}>{cell.title}</div>

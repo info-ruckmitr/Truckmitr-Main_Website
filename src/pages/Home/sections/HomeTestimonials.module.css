@@ -350,6 +350,19 @@
   border-radius: var(--r-full);
 }
 
+.cardsContainer {
+  width: 100%;
+  max-width: 1300px;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .cardsContainer {
+    padding-inline: var(--space-8);
+  }
+}
+
 /* ═══ TEXT TESTIMONIAL CARDS (existing) ════════════════════════ */
 .grid {
   display: grid;

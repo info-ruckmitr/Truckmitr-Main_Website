@@ -17,7 +17,7 @@ export default function OEMEcosystemSection() {
         </ScrollReveal>
         <div className={styles.ecoGrid}>
           {oemEcosystemSection.cards.map((c, i) => (
-            <ScrollReveal key={c.n} delay={i * 0.06}>
+            <ScrollReveal key={c.n} delay={i * 0.06} style={{ height: '100%' }}>
               <article className={styles.ecoCard}>
                 <div className={styles.ecoNum}>{c.n}</div>
                 <h3>{c.title}</h3>

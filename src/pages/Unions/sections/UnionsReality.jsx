@@ -31,7 +31,7 @@ export default function UnionsReality() {
           {unionsReality.cards.map((c, i) => {
             const Icon = truthIcons[i] ?? AlertTriangle
             return (
-              <ScrollReveal key={c.title}>
+              <ScrollReveal key={c.title} style={{ height: '100%' }}>
                 <article className={styles.truthCard}>
                   <div className={styles.truthIconWrap} aria-hidden>
                     <Icon size={20} strokeWidth={2} />

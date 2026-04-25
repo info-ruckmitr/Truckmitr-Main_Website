@@ -17,7 +17,7 @@ export default function OEMWhySection() {
         </ScrollReveal>
         <div className={styles.whyGrid}>
           {oemWhySection.cards.map((c, i) => (
-            <ScrollReveal key={c.title} delay={i * 0.05}>
+            <ScrollReveal key={c.title} delay={i * 0.05} style={{ height: '100%' }}>
               <article className={`${styles.whyCard} hover-lift`}>
                 <div className={`${styles.whyIcon} ${i % 2 === 0 ? styles.whyIconOrange : styles.whyIconGreen} card-icon`}>
                   {c.icon}

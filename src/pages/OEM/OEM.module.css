@@ -241,9 +241,9 @@
   z-index: 1;
   background: linear-gradient(
     118deg,
-    rgba(5, 8, 12, 0.94) 0%,
-    rgba(10, 14, 18, 0.85) 45%,
-    rgba(18, 14, 12, 0.65) 100%
+    rgba(5, 8, 12, 0.80) 0%,
+    rgba(10, 14, 18, 0.70) 45%,
+    rgba(18, 14, 12, 0.50) 100%
   );
   pointer-events: none;
 }
@@ -413,6 +413,7 @@
   padding: var(--space-8);
   background: var(--white);
   transition: var(--t-slow);
+  height: 100%;
 }
 
 .whyCard:hover {
@@ -719,6 +720,7 @@
   border-radius: var(--r);
   padding: var(--space-6);
   transition: var(--t-slow);
+  height: 100%;
 }
 
 .ecoCard:hover {

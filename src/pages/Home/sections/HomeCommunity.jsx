@@ -32,7 +32,7 @@ export default function HomeCommunity() {
         {/* ── Right: feature cards ── */}
         <div className={styles.features}>
           {homeCommunity.features.map((f, i) => (
-            <ScrollReveal key={f.id} delay={i * 0.07}>
+            <ScrollReveal key={f.id} delay={i * 0.07} style={{ height: '100%' }}>
               <motion.div
                 className={styles.featureCard}
                 whileHover={{ y: -3 }}

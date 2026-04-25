@@ -335,11 +335,13 @@ export default function HomeTestimonials() {
             <VideoCarousel />
           </div>
         </ScrollReveal>
+      </div>
 
-        {/* ── Text Testimonials ── */}
+      {/* ── Text Testimonials ── */}
+      <div className={styles.cardsContainer}>
         <div className={styles.grid}>
           {homeTestimonials.items.map((t, i) => (
-            <ScrollReveal key={t.id} delay={i * 0.08}>
+            <ScrollReveal key={t.id} delay={i * 0.08} style={{ height: '100%' }}>
               <blockquote className={styles.card}>
                 <span className={styles.quoteMark} aria-hidden>
                   &ldquo;

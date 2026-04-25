@@ -2,7 +2,7 @@
 .hero {
   position: relative;
   isolation: isolate;
-  padding-block: calc(var(--space-12) + var(--space-4)) var(--space-12);
+  padding-block: calc(var(--space-16) + var(--space-8)) var(--space-16);
   color: var(--white);
   overflow: hidden;
 }
@@ -21,9 +21,9 @@
   z-index: 1;
   background: linear-gradient(
     118deg,
-    rgba(5, 8, 12, 0.92) 0%,
-    rgba(10, 14, 18, 0.82) 50%,
-    rgba(18, 14, 12, 0.55) 100%
+    rgba(5, 8, 12, 0.78) 0%,
+    rgba(10, 14, 18, 0.65) 50%,
+    rgba(18, 14, 12, 0.40) 100%
   );
   pointer-events: none;
 }
