@@ -1,0 +1,244 @@
+.page {
+  background: var(--white);
+  color: var(--dark);
+  padding-block: var(--space-12) var(--space-20);
+}
+
+/* ─── Top Section Grid ─── */
+.topGrid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: var(--space-10);
+  margin-bottom: var(--space-16);
+}
+
+@media (max-width: 991px) {
+  .topGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left: Large Featured Post */
+.featuredMain {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.featuredMainImgWrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--saffron-xl);
+  overflow: hidden;
+}
+
+.featuredMainImgWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featuredMainContent {
+  padding-block: var(--space-6);
+}
+
+.featuredMainContent h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: var(--space-4);
+  color: #1a1a1a;
+}
+
+.featuredMainContent p {
+  color: var(--gray-6);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+}
+
+.featuredMainMeta {
+  display: flex;
+  gap: 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-5);
+}
+
+/* Right: Featured Sidebar List */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--primary);
+  margin-bottom: var(--space-4);
+}
+
+.sidebarList {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarItem {
+  padding-block: 16px;
+  border-bottom: 1px solid var(--gray-1);
+}
+
+.sidebarItem:last-child {
+  border-bottom: none;
+}
+
+.sidebarItem h3 {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.sidebarItem:hover h3 {
+  color: var(--primary);
+}
+
+.sidebarMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--gray-4);
+  font-weight: 600;
+}
+
+/* ─── Middle Section Grid (4 Columns) ─── */
+.postGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-20);
+}
+
+@media (max-width: 1024px) {
+  .postGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .postGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gridCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.gridCardImgWrapper {
+  aspect-ratio: 16/10;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+  background: var(--gray-0);
+}
+
+.gridCardImgWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gridCard h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  color: #333;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.gridCard p {
+  font-size: 0.8125rem;
+  color: var(--gray-5);
+  line-height: 1.5;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.gridCardMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.75rem;
+  color: var(--gray-4);
+  font-weight: 600;
+}
+
+/* ─── Category List Section ─── */
+.categorySection {
+  margin-bottom: var(--space-16);
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: var(--space-8);
+}
+
+.categoryHeader h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.headerLine {
+  flex-grow: 1;
+  height: 1px;
+  background: var(--gray-2);
+}
+
+.seeMore {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.subGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: var(--space-10);
+}
+
+@media (max-width: 991px) {
+  .subGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.subItem h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.subItem p {
+  font-size: 0.875rem;
+  color: var(--gray-5);
+  line-height: 1.6;
+}

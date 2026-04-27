@@ -6,11 +6,34 @@ export const contactHero = {
   eyebrow: 'Contact Us',
   title: 'Get in touch with the TruckMitr team',
   lead: 'Email, call, or complete the form to learn how TruckMitr can help you or your business.',
-  email: 'info@truckmitr.com',
-  phone: '+91 92549 72811',
-  support: 'Customer Support',
   formTitle: 'Get in Touch',
   formSubtitle: 'You can reach us anytime',
+  contactCards: [
+    {
+      id: 'toll-free',
+      label: 'Toll-Free Number',
+      value: '1800-102-4558',
+      type: 'tel',
+    },
+    {
+      id: 'email',
+      label: 'Official Email ID',
+      value: 'contact@truckmitr.com',
+      type: 'email',
+    },
+    {
+      id: 'head-office',
+      label: 'Head Office',
+      value: 'Suite No- G05, Plot No - C-104, Sector- 65, Noida, 201301',
+      type: 'text',
+    },
+    {
+      id: 'reg-office',
+      label: 'Registered Office',
+      value: 'B3- 0102, Sector-10, Shree Vardhman Gardenia, Sonipat - 131001, Haryana',
+      type: 'text',
+    },
+  ],
   channels: [
     {
       title: 'Customer Support',
@@ -32,7 +55,7 @@ export const contactLocation = {
   title: 'Connecting Near and Far',
   headquarters: {
     name: 'TruckMitr Inc.',
-    address: 'Sector 45, Gurugram,\nHaryana, India',
+    address: 'Suite No- G05, Plot No - C-104, Sector- 65, Noida, 201301',
     link: 'https://goo.gl/maps/xyz',
   },
 }
