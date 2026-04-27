@@ -3,6 +3,7 @@
   position: relative;
   isolation: isolate;
   padding-block: calc(var(--space-12) + var(--space-4)) var(--space-12);
+  min-height: calc(55vh + 132px);
   color: var(--white);
   overflow: hidden;
 }
@@ -19,12 +20,10 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    118deg,
-    rgba(5, 8, 12, 0.70) 0%,
-    rgba(10, 14, 18, 0.60) 50%,
-    rgba(18, 14, 12, 0.35) 100%
-  );
+  background: linear-gradient(118deg,
+      rgba(5, 8, 12, 0.70) 0%,
+      rgba(10, 14, 18, 0.60) 50%,
+      rgba(18, 14, 12, 0.35) 100%);
   pointer-events: none;
 }
 
@@ -394,7 +393,8 @@
   color: var(--dark);
 }
 
-.evInput, .evSelect {
+.evInput,
+.evSelect {
   padding: 10px 14px;
   border: 1px solid var(--gray-3);
   border-radius: 8px;
@@ -403,7 +403,8 @@
   transition: var(--t-fast);
 }
 
-.evInput:focus, .evSelect:focus {
+.evInput:focus,
+.evSelect:focus {
   outline: none;
   border-color: var(--india-green);
   box-shadow: 0 0 0 3px var(--india-green-light);

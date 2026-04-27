@@ -1,4 +1,4 @@
-import { MapPin, Truck, FileBadge, Users, Clock, BadgeCheck, TrendingUp, Briefcase } from 'lucide-react'
+import { MapPin, Truck, FileBadge, Users, Clock, BadgeCheck, TrendingUp, Briefcase, Calendar } from 'lucide-react'
 import { formatSalaryRange } from '@utils/formatters'
 import Button from '@components/ui/Button/Button'
 import Tag from '@components/ui/Tag/Tag'
@@ -6,9 +6,18 @@ import styles from './Jobs.module.css'
 
 export default function JobCard({ job, onViewDetails }) {
   return (
-    <article className={`${styles.card} ${job.isPremium ? styles.cardPremium : ''}`}>
-      {/* Premium ribbon */}
-      {job.isPremium && <div className={styles.premiumRibbon}>⭐ Premium</div>}
+    <article className={`${styles.card} ${job.isPremium ? styles.cardPremium : ''} ${job.isGreenline ? styles.cardGreenline : ''}`}>
+      {/* Ribbon */}
+      {!job.isGreenline && job.badge === 'urgent' && (
+        <div className={`${styles.premiumRibbon} ${styles.ribbonUrgent}`}>
+          👑 URGENT HIRING
+        </div>
+      )}
+      {!job.isGreenline && job.badge === 'fast' && (
+        <div className={`${styles.premiumRibbon} ${styles.ribbonFast}`}>
+          👑 FAST HIRING
+        </div>
+      )}
 
       <div className={styles.cardTop}>
         <div className={styles.logo} aria-hidden>
@@ -17,21 +26,6 @@ export default function JobCard({ job, onViewDetails }) {
         <div className={styles.cardHead}>
           <div className={styles.titleRow}>
             <h2 className={styles.cardTitle}>{job.title}</h2>
-            {job.badge && (
-              <span
-                className={
-                  job.badge === 'new'
-                    ? styles.badgeNew
-                    : job.badge === 'hot'
-                      ? styles.badgeHot
-                      : job.badge === 'premium'
-                        ? styles.badgePremium
-                        : styles.badgeUrgent
-                }
-              >
-                {job.badge === 'new' ? 'NEW' : job.badge === 'hot' ? '🔥 HOT' : job.badge === 'premium' ? 'FEATURED' : 'URGENT'}
-              </span>
-            )}
           </div>
           <p className={styles.company}>{job.jobId} · {job.vehicleType}</p>
         </div>
@@ -62,18 +56,24 @@ export default function JobCard({ job, onViewDetails }) {
 
       {/* Stats row */}
       <div className={styles.statsRow}>
-        <span className={styles.statItem}>
+        <span className={styles.statItem} title="Applications received">
           <Users size={13} />
           <strong>{job.applications}</strong> applied
         </span>
-        <span className={styles.statItem}>
+        <span className={styles.statItem} title="Open positions">
           <TrendingUp size={13} />
           <strong>{job.driversNeeded}</strong> openings
         </span>
-        <span className={styles.statItem}>
+        <span className={styles.statItem} title="Posted date">
           <Clock size={13} />
           {job.postedAt}
         </span>
+        {job.deadline && (
+          <span className={`${styles.statItem} ${styles.deadline}`} title="Application deadline">
+            <Calendar size={13} />
+            Deadline: {job.deadline}
+          </span>
+        )}
       </div>
 
       <div className={styles.bottom}>

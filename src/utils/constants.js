@@ -1,6 +1,6 @@
 export const IMAGES = {
   /** Home hero — commercial trucks only (background) */
-  homeHeroTruck: new URL('@assets/images/hero-banner/home_hero_banner_v6.jpg', import.meta.url).href,
+  homeHeroTruck: new URL('@assets/images/hero-banner/wmremove-transformed (4).png', import.meta.url).href,
   heroDriver: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80',
   highwayIndia: 'https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=80',
   truckFleet: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1000&q=80',
@@ -46,7 +46,7 @@ export const IMAGES = {
   unionsHealthMental: new URL('@assets/images/unions/unions_health_mental.png', import.meta.url).href,
   unionsHealthPhysical: new URL('@assets/images/unions/unions_health_physical.png', import.meta.url).href,
   unionsMovementBg: new URL('@assets/images/unions/unions_movement_bg.png', import.meta.url).href,
-  
+
   /** OEM page */
   oemHeroBg: new URL('@assets/images/oem/oem_hero_bg.png', import.meta.url).href,
   oemFeatFeedback: new URL('@assets/images/oem/oem_feat_feedback.png', import.meta.url).href,

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import RegisterPopup from '@components/shared/RegisterPopup/RegisterPopup'
 import UnionsHero from './sections/UnionsHero'
+import UnionsSubNav from './sections/UnionsSubNav'
 import UnionsReality from './sections/UnionsReality'
 import UnionsImperative from './sections/UnionsImperative'
 import UnionsHealth from './sections/UnionsHealth'
@@ -33,6 +34,7 @@ export default function Unions() {
   return (
     <div className={styles.page}>
       <UnionsHero onRegister={openPopup} />
+      <UnionsSubNav onRegister={openPopup} />
       <UnionsReality />
       <UnionsImperative />
       <UnionsHealth />

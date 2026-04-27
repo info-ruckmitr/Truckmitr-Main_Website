@@ -20,7 +20,7 @@ export default function UnionsHero({ onRegister }) {
         />
         <div className={styles.heroOverlay} aria-hidden />
       </div>
-      <UnionsSubNav className={styles.subNavInHero} onRegister={onRegister} />
+
       <div className="container">
         <div className={styles.heroInner}>
           <div className={styles.heroEyebrow}>

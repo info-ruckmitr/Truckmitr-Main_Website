@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MapPin, Truck, Clock, Users } from 'lucide-react'
+import { MapPin, Truck, Clock, Users, Calendar } from 'lucide-react'
 import ScrollReveal from '@components/shared/ScrollReveal/ScrollReveal'
 import Button from '@components/ui/Button/Button'
 import { homeJobsStrip } from '@data/homeContent'
@@ -14,23 +14,23 @@ function parseSalaryRange(str) {
   return { min: parts[0] || 0, max: parts[1] || parts[0] || 0 }
 }
 
-/** Days ago label */
-function daysAgo(dateStr) {
+/** Formatted date */
+function formatDate(dateStr) {
   if (!dateStr) return 'Recently'
   const d = new Date(dateStr)
-  const now = new Date()
-  const diff = Math.floor((now - d) / (1000 * 60 * 60 * 24))
-  if (diff <= 0) return 'Today'
-  if (diff === 1) return '1 day ago'
-  if (diff < 7) return `${diff} days ago`
-  if (diff < 30) return `${Math.floor(diff / 7)}w ago`
-  return `${Math.floor(diff / 30)}mo ago`
+  if (isNaN(d.getTime())) return 'Recently'
+  return d.toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  })
 }
 
 /** Transform API item */
 function transformJob(item) {
   return {
     id: item.id,
+    jobId: item.job_id,
     title: item.job_title
       ?.replace(/[\u{1F600}-\u{1F6FF}\u{1F900}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E0}-\u{1F1FF}\u{2702}-\u{27B0}\u{FE00}-\u{FEFF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{200D}]/gu, '')
       .replace(/\s+/g, ' ')
@@ -38,7 +38,8 @@ function transformJob(item) {
     location: item.job_location || 'India',
     vehicleType: item.vehicle_type || 'Truck',
     salary: parseSalaryRange(item.Salary_Range),
-    postedAt: daysAgo(item.Created_at),
+    postedAt: formatDate(item.Updated_at || item.updated_at || item.Created_at),
+    deadline: item.Application_Deadline || '',
     driversNeeded: item.number_of_drivers_required || 1,
   }
 }
@@ -59,10 +60,10 @@ export default function HomeJobsStrip() {
           const live = res.data
             .filter((j) => j.active_inactive === 1 && j.status === '1')
             .filter((j) => {
-              const created = new Date(j.Created_at).getTime()
-              return now - created <= ONE_WEEK
+              const updated = new Date(j.Updated_at || j.updated_at || j.Created_at).getTime()
+              return now - updated <= ONE_WEEK
             })
-            .sort((a, b) => new Date(b.Created_at) - new Date(a.Created_at))
+            .sort((a, b) => new Date(b.Updated_at || b.updated_at || b.Created_at) - new Date(a.Updated_at || a.updated_at || a.Created_at))
             .slice(0, 3)
             .map(transformJob)
           setJobs(live)
@@ -118,7 +119,7 @@ export default function HomeJobsStrip() {
                     </div>
                     <div>
                       <div className={styles.jobTitle}>{job.title}</div>
-                      <span className={styles.vehicleType}>{job.vehicleType}</span>
+                      <span className={styles.vehicleType}>{job.jobId} · {job.vehicleType}</span>
                     </div>
                   </div>
 
@@ -140,6 +141,12 @@ export default function HomeJobsStrip() {
                       <Clock size={12} />
                       {job.postedAt}
                     </span>
+                    {job.deadline && (
+                      <span className={styles.statItem} style={{ color: 'var(--india-orange)', fontWeight: 500 }}>
+                        <Calendar size={12} />
+                        Deadline: {job.deadline}
+                      </span>
+                    )}
                   </div>
 
                   <div className={styles.footer}>

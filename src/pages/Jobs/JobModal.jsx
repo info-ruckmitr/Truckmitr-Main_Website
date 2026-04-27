@@ -74,27 +74,6 @@ export default function JobModal({ job, onClose }) {
           </div>
         </div>
 
-        {/* Application progress bar */}
-        <div className={styles.applicationProgress}>
-          <div className={styles.applicationProgressHeader}>
-            <span>Application Status</span>
-            <span className={styles.applicationCount}>
-              {job.applications} / {job.driversNeeded > 0 ? Math.max(job.applications + Math.ceil(job.driversNeeded * 1.5), 100) : 100} capacity
-            </span>
-          </div>
-          <div className={styles.progressBar}>
-            <div
-              className={styles.progressFill}
-              style={{
-                width: `${Math.min(
-                  (job.applications / Math.max(job.applications + Math.ceil(job.driversNeeded * 1.5), 100)) * 100,
-                  95
-                )}%`
-              }}
-            />
-          </div>
-          <p className={styles.progressHint}>Apply soon — positions are filling quickly!</p>
-        </div>
 
         {/* Description */}
         <div className={styles.modalBody}>

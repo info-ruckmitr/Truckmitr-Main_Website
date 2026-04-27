@@ -217,7 +217,7 @@
 .pageHero {
   position: relative;
   isolation: isolate;
-  padding-block: calc(var(--space-16) + var(--space-2)) var(--space-12);
+  padding-block: calc(var(--space-8) + var(--space-4)) var(--space-8);
   color: var(--white);
   overflow: hidden;
 }

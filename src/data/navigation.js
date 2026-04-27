@@ -6,4 +6,5 @@ export const navItems = [
   { path: '/fleet', label: 'For Fleet Owners' },
   { path: '/unions', label: 'Unions' },
   { path: '/oem', label: 'For OEMs' },
+  { path: '/contact', label: 'Contact' },
 ]

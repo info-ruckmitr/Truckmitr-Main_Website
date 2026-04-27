@@ -7,15 +7,15 @@ export default function UnionsSubNav({ className, onRegister }) {
     <nav className={cn(styles.subNav, className)} aria-label="On this page">
       <div className={`container ${styles.subNavInner}`}>
         <div className={styles.subNavLinks}>
-          {unionsSubNav.map((item) => (
-            <a key={item.id} className={styles.subNavLink} href={`#${item.id}`}>
-              {item.label}
-            </a>
+          {unionsSubNav.map((item, index) => (
+            <div key={item.id} style={{ display: 'flex', alignItems: 'center', gap: 'inherit' }}>
+              <span className={styles.subNavSep}>•</span>
+              <a className={styles.subNavLink} href={`#${item.id}`}>
+                {item.label}
+              </a>
+            </div>
           ))}
         </div>
-        <button type="button" className={styles.subNavCta} onClick={onRegister}>
-          {unionsHero.navCta.label}
-        </button>
       </div>
     </nav>
   )

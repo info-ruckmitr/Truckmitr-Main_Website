@@ -15,7 +15,7 @@ function normalize(s) {
 /** Parse "20000-25000" → { min: 20000, max: 25000 } */
 function parseSalaryRange(str) {
   if (!str) return { min: 0, max: 0 }
-  const parts = str.split('-').map(Number)
+  const parts = str.replace(/,/g, '').split('-').map(s => Number(s.trim()))
   return { min: parts[0] || 0, max: parts[1] || parts[0] || 0 }
 }
 
@@ -27,28 +27,24 @@ function fakeApplications(id) {
   return Math.floor(seed / 6) + 50
 }
 
-/** Days ago from date string */
-function daysAgo(dateStr) {
+/** Format date string */
+function formatDate(dateStr) {
   if (!dateStr) return 'Recently'
   const d = new Date(dateStr)
-  const now = new Date()
-  const diff = Math.floor((now - d) / (1000 * 60 * 60 * 24))
-  if (diff <= 0) return 'Today'
-  if (diff === 1) return '1 day ago'
-  if (diff < 7) return `${diff} days ago`
-  if (diff < 30) return `${Math.floor(diff / 7)} week${Math.floor(diff / 7) > 1 ? 's' : ''} ago`
-  return `${Math.floor(diff / 30)} month${Math.floor(diff / 30) > 1 ? 's' : ''} ago`
+  if (isNaN(d.getTime())) return 'Recently'
+  return d.toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  })
 }
 
 /** Determine badge based on job traits */
 function getBadge(job) {
-  const d = new Date(job.Created_at)
-  const now = new Date()
-  const diff = Math.floor((now - d) / (1000 * 60 * 60 * 24))
-  if (diff <= 3) return 'new'
-  if (job.number_of_drivers_required >= 10) return 'hot'
-  if (job.subscription_plan_name === 'super_premium_job') return 'premium'
-  return null
+  const planName = (job.subscription_plan_name || '').toLowerCase();
+  if (planName.includes('super')) return 'urgent';
+  if (planName.includes('premium')) return 'fast';
+  return null;
 }
 
 /** Transform API item to a normalized job object */
@@ -69,13 +65,14 @@ function transformJob(item) {
     description: item.Job_Description || '',
     deadline: item.Application_Deadline || '',
     driversNeeded: item.number_of_drivers_required || 1,
-    postedAt: daysAgo(item.Created_at),
-    createdAt: item.Created_at,
+    postedAt: formatDate(item.Updated_at || item.updated_at || item.Created_at),
+    createdAt: item.Updated_at || item.updated_at || item.Created_at,
     badge: getBadge(item),
     applications: fakeApplications(item.id),
     isPremium: item.subscription_plan_name?.includes('premium'),
     isClosed: item.closed_job === 'yes',
     subId: item.sub_id,
+    isGreenline: (item.sub_id || '').toLowerCase().includes('greenline') || (item.sub_id || '').toLowerCase().includes('greeline'),
   }
 }
 
@@ -169,7 +166,9 @@ export default function Jobs() {
         if (datePosted === '30d' && diffHours > 24 * 30) return false
       }
 
-      if (job.salary.max < salaryMin || job.salary.min > salaryMax) return false
+      if (salaryMin !== SALARY_MIN || salaryMax !== SALARY_MAX) {
+        if (job.salary.max < salaryMin || job.salary.min > salaryMax) return false
+      }
       return true
     })
   }, [search, vehicle, location, license, experience, datePosted, salaryMin, salaryMax, apiJobs])
