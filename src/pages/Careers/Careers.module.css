@@ -288,3 +288,362 @@
   color: var(--gray-5);
   margin-bottom: var(--space-10);
 }
+
+/* ─── Application Modal ─── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 24px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(32px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modalContent {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  padding: 40px;
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modalContent::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modalContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+  background: var(--gray-2);
+  border-radius: 3px;
+}
+
+.modalClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--gray-1);
+  background: var(--white);
+  color: var(--gray-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.modalClose:hover {
+  background: var(--gray-0, #f5f5f5);
+  color: var(--dark);
+  border-color: var(--gray-2);
+  transform: rotate(90deg);
+}
+
+/* Modal Header */
+.modalHeader {
+  margin-bottom: 28px;
+}
+
+.modalBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--r-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: var(--saffron-xl);
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.modalHeader h2 {
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--dark);
+}
+
+.modalJobMeta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  color: var(--gray-5);
+  margin-top: 8px;
+}
+
+/* Form */
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formGroup label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: 0.3px;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="email"],
+.formGroup input[type="tel"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--gray-1);
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  color: var(--dark);
+  background: var(--white);
+  transition: all 0.2s ease;
+  outline: none;
+  font-family: inherit;
+}
+
+.formGroup input::placeholder {
+  color: var(--gray-3);
+}
+
+.formGroup input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.12);
+}
+
+/* File Drop Zone */
+.fileDropZone {
+  border: 2px dashed var(--gray-2);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: rgba(0, 0, 0, 0.01);
+}
+
+.fileDropZone:hover,
+.fileDragOver {
+  border-color: var(--primary);
+  background: var(--saffron-xl);
+}
+
+.fileSelected {
+  border-style: solid;
+  border-color: var(--primary);
+  background: var(--saffron-xl);
+}
+
+.filePlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--gray-4);
+}
+
+.filePlaceholder span {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.filePlaceholder small {
+  font-size: 0.75rem;
+  color: var(--gray-4);
+}
+
+.fileInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+}
+
+.fileInfo span {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--dark);
+  text-align: left;
+  word-break: break-all;
+}
+
+.fileRemove {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--gray-2);
+  background: var(--white);
+  color: var(--gray-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.fileRemove:hover {
+  background: #fee;
+  border-color: #e55;
+  color: #c33;
+}
+
+/* Error */
+.formError {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #fff5f5;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+/* Submit Button */
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: inherit;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--primary), #e68a00);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(255, 153, 0, 0.3);
+  margin-top: 4px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 153, 0, 0.4);
+}
+
+.submitBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinIcon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Success State */
+.modalSuccess {
+  text-align: center;
+  padding: 24px 0;
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modalSuccess h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+  color: var(--dark);
+}
+
+.modalSuccess p {
+  font-size: 0.9375rem;
+  color: var(--gray-5);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 35ch;
+  margin-inline: auto;
+}
+
+/* ─── Modal Responsive ─── */
+@media (max-width: 600px) {
+  .modalOverlay {
+    padding: 16px;
+    align-items: flex-end;
+  }
+
+  .modalContent {
+    max-height: 85vh;
+    padding: 28px 20px;
+    border-radius: 20px 20px 0 0;
+    animation: slideUpMobile 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes slideUpMobile {
+    from { opacity: 0; transform: translateY(100%); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .modalHeader h2 {
+    font-size: 1.375rem;
+  }
+}
