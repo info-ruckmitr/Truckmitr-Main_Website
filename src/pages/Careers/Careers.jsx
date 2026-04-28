@@ -5,7 +5,7 @@ import ScrollReveal from '@components/shared/ScrollReveal/ScrollReveal'
 import Button from '@components/ui/Button/Button'
 import CareerModal from './CareerModal'
 import styles from './Careers.module.css'
-import { useState } from 'react'
+
 
 // Import hero background
 import careersHeroBg from '@assets/images/careers_hero.png'

@@ -133,19 +133,24 @@ export const aboutTeam = {
   intro: 'TruckMitr wasn\'t started by people who read about trucking problems in a report. It was started by people who spent years inside this industry — in service centres, on freight routes, building businesses that worked with drivers and transporters every single day. That\'s where the frustration came from. And that\'s where the platform came from.',
   members: [
     {
-      name: 'Anil Kumar',
-      role: 'Co-Founder, Group CEO & CFO',
-      bio: "Twenty years in sales and marketing — including time as Vice President-Sales — gives you a particular kind of clarity. You see what works, what doesn't, and where the real gaps are. For Anil, the gap was obvious: every other major industry had gone digital. Trucking, one of the largest sectors in India by employment and economic contribution, was still running on phone calls and personal contacts.\n\nHe co-founded TruckMitr to fix that. Not because it was a good business opportunity — though it is — but because the digital transformation of Indian trucking was overdue by at least a decade, and someone with the industry knowledge to do it right needed to take it on. Anil is that person. He's building the ecosystem that should have existed years ago: transparent, connected, and built around the people who actually run the industry.",
-      imgSrc: 'https://placehold.co/400x400/121A16/E87722?text=AK'
-    },
-    {
       name: 'Sachin Gupta',
       role: 'Co-Founder & Principal',
       bio: "Sachin started his career in sales — Pedigree, ICICI Life Insurance — before making a move that most people wouldn't. In 2005, he walked into the commercial vehicle service sector in Bahadurgarh, Haryana, with Tata Motors and a team of three people.\n\nTwenty years later, that operation covers North India, runs key accounts, and touches roughly 40 crores in turnover annually. He knows what a fleet owner's problems look like because he's spent two decades solving them on the ground — HMV, LMV, medium and light commercial vehicles, all of it.\n\nWhat drove him to co-found TruckMitr was simple: after all that time in the industry, he couldn't reconcile the fact that the drivers at the centre of everything — the people keeping it all moving — were still the least looked after. That needed to change. He decided to be part of changing it.",
       credential: 'MBA, Amity Business School, Noida | Specialisation: Sales & Marketing',
       imgSrc: 'https://placehold.co/400x400/121A16/E87722?text=SG'
     },
-
+    {
+      name: 'Anil Kumar',
+      role: 'Co-Founder, CEO & CFO',
+      bio: "Twenty years in sales and marketing — including time as Vice President-Sales — gives you a particular kind of clarity. You see what works, what doesn't, and where the real gaps are. For Anil, the gap was obvious: every other major industry had gone digital. Trucking, one of the largest sectors in India by employment and economic contribution, was still running on phone calls and personal contacts.\n\nHe co-founded TruckMitr to fix that. Not because it was a good business opportunity — though it is — but because the digital transformation of Indian trucking was overdue by at least a decade, and someone with the industry knowledge to do it right needed to take it on. Anil is that person. He's building the ecosystem that should have existed years ago: transparent, connected, and built around the people who actually run the industry.",
+      imgSrc: 'https://placehold.co/400x400/121A16/E87722?text=AK'
+    },
+    {
+      name: 'Rimpy',
+      role: 'Chief Operating Officer',
+      bio: "Rimpy leads the operational heartbeat of TruckMitr, ensuring that our ambitious vision translates into seamless daily execution across all states. With extensive experience in organizational management and a focus on efficiency, she bridges the gap between high-level strategy and ground-level impact. Her role is critical in scaling our reach while maintaining the quality and trust that define the TruckMitr platform.",
+      imgSrc: 'https://placehold.co/400x400/121A16/E87722?text=R'
+    },
     {
       name: 'Deepak Arora',
       role: 'Chief Technology Officer',
@@ -153,6 +158,7 @@ export const aboutTeam = {
       imgSrc: 'https://placehold.co/400x400/121A16/E87722?text=DA'
     }
   ]
+}
 }
 
 export const aboutCta = {
