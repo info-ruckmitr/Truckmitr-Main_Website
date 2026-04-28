@@ -43,6 +43,25 @@
   grid-template-columns: 1fr;
 }
 
+@media (max-width: 639px) {
+  .grid {
+    display: flex;
+    gap: var(--space-4);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: var(--space-4);
+    /* Full-bleed scroll on mobile */
+    margin-inline: calc(var(--space-4) * -1);
+    padding-inline: var(--space-4);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @media (min-width: 640px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -58,6 +77,19 @@
 @media (min-width: 1280px) {
   .grid {
     grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.tileWrap {
+  height: 100%;
+}
+
+@media (max-width: 639px) {
+  .tileWrap {
+    min-width: 260px;
+    width: 80%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
   }
 }
 
@@ -125,4 +157,42 @@
   color: var(--gray-6);
   line-height: 1.7;
   text-align: justify;
+}
+
+@media (max-width: 639px) {
+  .tile p {
+    text-align: left;
+  }
+}
+
+/* ── Carousel indicators ───────────────────────────────────── */
+.indicators {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--space-6);
+}
+
+@media (max-width: 639px) {
+  .indicators {
+    display: flex;
+  }
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gray-3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.6;
+}
+
+.dotActive {
+  background: var(--saffron);
+  transform: scale(1.15);
+  width: 18px;
+  border-radius: 4px;
+  opacity: 1;
 }

@@ -62,9 +62,43 @@
   position: relative;
 }
 
+@media (max-width: 1023px) {
+  .grid {
+    display: flex;
+    gap: var(--space-4);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: var(--space-4);
+    /* Full-bleed scroll on mobile */
+    margin-inline: calc(var(--space-4) * -1);
+    padding-inline: var(--space-4);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @media (min-width: 1024px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cardWrap {
+  height: 100%;
+}
+
+@media (max-width: 1023px) {
+  .cardWrap {
+    min-width: 280px;
+    width: 85%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    display: flex; /* Ensure internal .card can stretch to match tallest sibling */
+    min-height: 380px; /* Force a consistent baseline height for mobile */
   }
 }
 
@@ -75,6 +109,7 @@
   padding: var(--space-8);
   transition: var(--t-slow);
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -134,7 +169,45 @@
   text-align: justify;
 }
 
+@media (max-width: 1023px) {
+  .card p {
+    text-align: left;
+  }
+}
+
 .cta {
   margin-top: var(--space-5);
   align-self: flex-start;
+}
+
+/* ── Carousel indicators ───────────────────────────────────── */
+.indicators {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--space-6);
+}
+
+@media (max-width: 1023px) {
+  .indicators {
+    display: flex;
+  }
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gray-3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.6;
+}
+
+.dotActive {
+  background: var(--saffron);
+  transform: scale(1.15);
+  width: 18px;
+  border-radius: 4px;
+  opacity: 1;
 }

@@ -1,10 +1,21 @@
 import { motion } from 'framer-motion'
+import { useState, useRef } from 'react'
 import ScrollReveal from '@components/shared/ScrollReveal/ScrollReveal'
 import { homePlatform } from '@data/homeContent'
 import Button from '@components/ui/Button/Button'
 import styles from './HomePlatform.module.css'
 
 export default function HomePlatform() {
+  const [activeIdx, setActiveIdx] = useState(0)
+  const scrollRef = useRef(null)
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return
+    const { scrollLeft, offsetWidth } = scrollRef.current
+    const index = Math.round(scrollLeft / (offsetWidth * 0.8)) // 0.8 is roughly the card width factor
+    setActiveIdx(Math.min(index, homePlatform.cards.length - 1))
+  }
+
   return (
     <section className={styles.section} aria-labelledby="platform-heading">
       <div className="container">
@@ -18,9 +29,9 @@ export default function HomePlatform() {
           </header>
         </ScrollReveal>
 
-        <div className={styles.grid}>
+        <div className={styles.grid} ref={scrollRef} onScroll={handleScroll}>
           {homePlatform.cards.map((c, i) => (
-            <ScrollReveal key={c.id} delay={i * 0.06}>
+            <ScrollReveal key={c.id} delay={i * 0.06} className={styles.cardWrap}>
               <motion.article
                 className={styles.card}
                 whileHover={{ y: -4 }}
@@ -38,6 +49,17 @@ export default function HomePlatform() {
                 </Button>
               </motion.article>
             </ScrollReveal>
+          ))}
+        </div>
+
+        {/* Carousel indicators for mobile */}
+        <div className={styles.indicators}>
+          {homePlatform.cards.map((_, i) => (
+            <div
+              key={i}
+              className={`${styles.dot} ${activeIdx === i ? styles.dotActive : ''}`}
+              aria-hidden
+            />
           ))}
         </div>
       </div>

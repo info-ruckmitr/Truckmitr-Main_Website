@@ -34,8 +34,13 @@
 }
 
 @keyframes communityOrb {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(20px, -15px) scale(1.15); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(20px, -15px) scale(1.15);
+  }
 }
 
 .inner {
@@ -110,10 +115,33 @@
 }
 
 /* ── Right: Feature cards ── */
+.featuresWrap {
+  position: relative;
+}
+
 .features {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-5);
+}
+
+@media (max-width: 639px) {
+  .features {
+    display: flex;
+    gap: var(--space-4);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: var(--space-4);
+    /* Full-bleed scroll on mobile */
+    margin-inline: calc(var(--space-4) * -1);
+    padding-inline: var(--space-4);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .features::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (min-width: 640px) {
@@ -122,19 +150,38 @@
   }
 }
 
+.featureCardWrap {
+  height: 100%;
+}
+
+@media (max-width: 639px) {
+  .featureCardWrap {
+    min-width: 280px;
+    width: 85%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+}
+
 .featureCard {
   background: var(--white);
   border-radius: var(--r);
   border: 1px solid var(--gray-2);
-  padding: var(--space-6) var(--space-5);
+  padding: var(--space-6) var(--space-4);
   display: flex;
   gap: var(--space-4);
   align-items: flex-start;
   transition: var(--t-slow);
   cursor: default;
   position: relative;
-  overflow: hidden;
   height: 100%;
+}
+
+@media (max-width: 639px) {
+  .featureCard {
+    padding: var(--space-5) var(--space-4);
+    min-height: 120px;
+  }
 }
 
 .featureCard:hover {
@@ -178,10 +225,67 @@
   text-align: justify;
 }
 
+@media (max-width: 639px) {
+  .featureText {
+    text-align: left;
+  }
+}
+
 .featureText strong {
   color: var(--dark);
   font-weight: 700;
   display: block;
   margin-bottom: 2px;
   font-size: 0.95rem;
+}
+
+/* ── Carousel indicators ───────────────────────────────────── */
+.indicators {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 639px) {
+  .indicators {
+    display: flex;
+  }
+}
+
+
+
+
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* CARD WRAP FULL WIDTH */
+.featureCardWrap {
+  width: 100%;
+}
+
+/* CARD */
+.featureCard {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: var(--space-6);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+/* TEXT FIX */
+.featureText {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.6;
+  word-break: break-word;
+  /* 👈 prevents cutting */
 }

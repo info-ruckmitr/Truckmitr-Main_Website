@@ -6,6 +6,7 @@ import HomeWhy from './sections/HomeWhy'
 import HomeCommunity from './sections/HomeCommunity'
 import HomeReason from './sections/HomeReason'
 import HomeTestimonials from './sections/HomeTestimonials'
+import HomeBlog from './sections/HomeBlog'
 import HomeCta from './sections/HomeCta'
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <HomeCommunity />
       <HomeReason />
       <HomeTestimonials />
+      <HomeBlog />
       <HomeCta />
     </>
   )
