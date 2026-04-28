@@ -5,8 +5,6 @@ import ScrollReveal from '@components/shared/ScrollReveal/ScrollReveal'
 import Button from '@components/ui/Button/Button'
 import CareerModal from './CareerModal'
 import styles from './Careers.module.css'
-import { useState } from 'react'
-
 // Import hero background
 import careersHeroBg from '@assets/images/careers_hero.png'
 
@@ -29,6 +27,7 @@ const ALLOWED_EXTENSIONS = ['.pdf', '.doc', '.docx']
 
 export default function Careers() {
   const [modalOpen, setModalOpen] = useState(false)
+  const [viewingCareerId, setViewingCareerId] = useState(null)
   const [selectedJob, setSelectedJob] = useState(null)
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' })
   const [resumeFile, setResumeFile] = useState(null)
@@ -219,15 +218,23 @@ export default function Careers() {
                   <span><MapPin size={16} /> {job.location}</span>
                   <span><Briefcase size={16} /> {job.type}</span>
                 </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  icon={ArrowRight}
-                  iconPosition="right"
-                  onClick={() => openModal(job)}
-                >
-                  Apply Now
-                </Button>
+                <div style={{ display: 'flex', gap: '12px' }}>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setViewingCareerId(job.id)}
+                  >
+                    View Details
+                  </Button>
+                  <Button
+                    size="sm"
+                    icon={ArrowRight}
+                    iconPosition="right"
+                    onClick={() => openModal(job)}
+                  >
+                    Apply Now
+                  </Button>
+                </div>
               </ScrollReveal>
             ))}
           </div>
@@ -246,6 +253,18 @@ export default function Careers() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ─── Job Details Modal ─── */}
+      {viewingCareerId && (
+        <CareerModal
+          careerId={viewingCareerId}
+          onClose={() => setViewingCareerId(null)}
+          onApply={(careerData) => {
+            setViewingCareerId(null)
+            openModal(careerData)
+          }}
+        />
+      )}
 
       {/* ─── Application Modal ─── */}
       {modalOpen && (

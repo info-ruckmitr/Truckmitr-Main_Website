@@ -3,7 +3,7 @@ import { X, MapPin, Briefcase, Mail, Phone, Home, Building2 } from 'lucide-react
 import Button from '@components/ui/Button/Button'
 import styles from './CareerModal.module.css'
 
-export default function CareerModal({ careerId, onClose }) {
+export default function CareerModal({ careerId, onClose, onApply }) {
   const [career, setCareer] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -37,6 +37,19 @@ export default function CareerModal({ careerId, onClose }) {
     }
   }, [careerId, onClose])
 
+  const handleApplyClick = () => {
+    onClose()
+    if (onApply && career) {
+      // Pass the career data back to Careers.jsx to open the application form
+      onApply({
+        id: career.id,
+        title: career.position_title || career.name,
+        location: career.job_location,
+        type: 'Full-time' // Defaulting since API doesn't specify
+      })
+    }
+  }
+
   return (
     <div className={styles.backdrop} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
@@ -57,7 +70,7 @@ export default function CareerModal({ careerId, onClose }) {
         ) : (
           <>
             <div className={styles.header}>
-              <span className={styles.category}>{career.category_name}</span>
+              <span className={styles.category}>{career.category_name || 'Hiring'}</span>
               <h2 className={styles.title}>{career.position_title || career.name}</h2>
               <div className={styles.meta}>
                 <span><MapPin size={16} /> {career.job_location || 'Noida, Uttar Pradesh'}</span>
@@ -76,14 +89,18 @@ export default function CareerModal({ careerId, onClose }) {
               {career.key_responsibilities && (
                 <div className={styles.section}>
                   <h3 className={styles.sectionTitle}>Key Responsibilities</h3>
-                  <div className={styles.description} dangerouslySetInnerHTML={{ __html: career.key_responsibilities }} />
+                  <div className={styles.description} style={{ whiteSpace: 'pre-line' }}>
+                    {career.key_responsibilities}
+                  </div>
                 </div>
               )}
 
               {career.qualification && (
                 <div className={styles.section}>
                   <h3 className={styles.sectionTitle}>Qualifications</h3>
-                  <div className={styles.description} dangerouslySetInnerHTML={{ __html: career.qualification }} />
+                  <div className={styles.description} style={{ whiteSpace: 'pre-line' }}>
+                    {career.qualification}
+                  </div>
                 </div>
               )}
 
@@ -111,20 +128,22 @@ export default function CareerModal({ careerId, onClose }) {
                         <p>{career.contact_email}</p>
                       </div>
                    </div>
-                   <div className={styles.contactItem}>
-                      <Phone size={18} />
-                      <div>
-                        <strong>Phone</strong>
-                        <p>{career.contact_phone}</p>
-                      </div>
-                   </div>
+                   {career.contact_phone && (
+                     <div className={styles.contactItem}>
+                        <Phone size={18} />
+                        <div>
+                          <strong>Phone</strong>
+                          <p>{career.contact_phone}</p>
+                        </div>
+                     </div>
+                   )}
                 </div>
               </div>
             </div>
 
             <div className={styles.footer}>
               <Button variant="outline" onClick={onClose}>Close</Button>
-              <Button to="/contact">Apply for this Position</Button>
+              <Button onClick={handleApplyClick}>Apply for this Position</Button>
             </div>
           </>
         )}
