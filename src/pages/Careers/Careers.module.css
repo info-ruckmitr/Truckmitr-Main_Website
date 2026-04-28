@@ -259,6 +259,17 @@
   gap: 6px;
 }
 
+.jobActions {
+  display: flex;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .jobActions {
+    justify-content: center;
+  }
+}
+
 /* ─── Footer CTA ─── */
 .careersFooter {
   text-align: center;

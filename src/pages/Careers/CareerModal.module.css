@@ -1,0 +1,229 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(10, 15, 30, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: var(--white);
+  width: 100%;
+  max-width: 850px;
+  max-height: 90vh;
+  border-radius: var(--r-2xl);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gray-0);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background: var(--gray-1);
+  transform: rotate(90deg);
+}
+
+.loaderWrap, .errorWrap {
+  padding: var(--space-20);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--gray-1);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.header {
+  padding: var(--space-10) var(--space-10) var(--space-6);
+  background: linear-gradient(to bottom, var(--saffron-xl), var(--white));
+}
+
+.category {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: var(--space-2);
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: var(--space-4);
+  line-height: 1.2;
+}
+
+.meta {
+  display: flex;
+  gap: var(--space-6);
+  color: var(--gray-5);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.meta span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.body {
+  padding: var(--space-4) var(--space-10) var(--space-10);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.section {
+  margin-bottom: var(--space-10);
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: var(--space-4);
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  border-bottom: 1px solid var(--gray-1);
+  padding-bottom: 8px;
+}
+
+.description {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--gray-6);
+}
+
+.description p {
+  margin-bottom: var(--space-4);
+}
+
+.description ul {
+  margin-bottom: var(--space-6);
+  padding-left: var(--space-6);
+}
+
+.description li {
+  margin-bottom: var(--space-2);
+}
+
+.contactInfo {
+  background: var(--gray-0);
+  padding: var(--space-8);
+  border-radius: 12px;
+  margin-top: var(--space-10);
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.contactItem {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.contactItem svg {
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contactItem strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--gray-4);
+  margin-bottom: 2px;
+}
+
+.contactItem p {
+  font-size: 0.9rem;
+  color: var(--dark);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.footer {
+  padding: var(--space-6) var(--space-10);
+  border-top: 1px solid var(--gray-1);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-4);
+  background: var(--white);
+}
+
+@media (max-width: 768px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .modal {
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+  
+  .header, .body, .footer {
+    padding-inline: var(--space-6);
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+}

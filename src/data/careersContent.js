@@ -35,7 +35,7 @@ export const benefits = [
 
 export const openPositions = [
   {
-    id: 'hr-01',
+    id: 8,
     category: 'Human Resources',
     title: 'Human Resources Executive',
     location: 'Sector-65, Noida, 201301',
@@ -43,7 +43,7 @@ export const openPositions = [
     address: 'Suite No- G05, Plot No - C-104, Sector-65, Noida, 201301',
   },
   {
-    id: 'design-01',
+    id: 7,
     category: 'Design & Media',
     title: 'Graphic Designer cum Video Editor (2D & 3D)',
     location: 'Sector-65, Noida, 201301',
@@ -51,7 +51,7 @@ export const openPositions = [
     address: 'Suite No- G05, Plot No - C-104, Sector-65, Noida, 201301',
   },
   {
-    id: 'ops-02',
+    id: 6,
     category: 'Marketing & Ops',
     title: 'Social Media cum MIS Executive',
     location: 'Sector-65, Noida, 201301',
@@ -59,7 +59,7 @@ export const openPositions = [
     address: 'Suite No- G05, Plot No - C-104, Sector-65, Noida, 201301',
   },
   {
-    id: 'eng-03',
+    id: 5,
     category: 'Engineering',
     title: 'Senior Full Stack Developer',
     location: 'Noida Sector -65, Uttar Pradesh',

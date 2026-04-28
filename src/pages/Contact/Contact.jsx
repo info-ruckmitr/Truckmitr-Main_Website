@@ -305,19 +305,16 @@ export default function Contact() {
         <div className="container">
           <div className={styles.locationGrid}>
             <ScrollReveal className={styles.mapWrapper}>
-              <img 
-                src="https://images.unsplash.com/photo-1526778545894-dd8186f201cc?w=1200&q=80" 
-                alt="Headquarters Location" 
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1751.316086782481!2d77.38277742364375!3d28.610765100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef007ecc4927%3A0xd6611d5134460728!2sTruckMitr%20Corporate%20Services%20Private%20Limited!5e0!3m2!1sen!2sin!4v1745830911739!5m2!1sen!2sin" 
                 className={styles.mapImg}
-              />
-              <div className={styles.mapPinCard}>
-                <img src={LOGO_SRC} alt="TruckMitr" className={styles.mapLogo} />
-                <h4>{contactLocation.headquarters.name}</h4>
-                <p>{contactLocation.headquarters.address}</p>
-                <a href={contactLocation.headquarters.link} className={styles.mapLink} target="_blank" rel="noreferrer">
-                  Open Google Maps <ChevronRight size={16} />
-                </a>
-              </div>
+                style={{ border: 0 }}
+                allowFullScreen="" 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="TruckMitr Corporate Services"
+              ></iframe>
+
             </ScrollReveal>
 
             <ScrollReveal className={styles.locationContent} delay={0.2}>
@@ -339,15 +336,9 @@ export default function Contact() {
             <ScrollReveal className={styles.faqLeft}>
               <span className={styles.eyebrow}>{contactFaq.eyebrow}</span>
               <h2 className={styles.title}>{contactFaq.title}</h2>
-              <p className={styles.lead}>{contactFaq.lead}</p>
+
               
-              <div className={styles.emailSubscribe}>
-                <div style={{ display: 'flex', alignItems: 'center', flexGrow: 1, paddingLeft: '16px' }}>
-                  <Mail size={18} color="var(--gray-4)" />
-                  <input type="email" placeholder="Enter your email" />
-                </div>
-                <button type="button">Submit</button>
-              </div>
+
             </ScrollReveal>
 
             <div className={styles.faqRight}>

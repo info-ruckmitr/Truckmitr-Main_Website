@@ -2,10 +2,12 @@ import { Target, Users, Zap, Check, MapPin, Briefcase, ArrowRight } from 'lucide
 import { careersHero, companyValues, benefits, openPositions } from '@data/careersContent'
 import ScrollReveal from '@components/shared/ScrollReveal/ScrollReveal'
 import Button from '@components/ui/Button/Button'
+import CareerModal from './CareerModal'
 import styles from './Careers.module.css'
+import { useState } from 'react'
 
 // Import hero background
-import careersHeroBg from '@assets/images/truckmitr_careers_hero.png'
+import careersHeroBg from '@assets/images/careers_hero.png'
 
 const getIcon = (iconName) => {
   switch (iconName) {
@@ -17,6 +19,16 @@ const getIcon = (iconName) => {
 }
 
 export default function Careers() {
+  const [selectedCareerId, setSelectedCareerId] = useState(null)
+
+  const handleOpenDetail = (id) => {
+    setSelectedCareerId(id)
+  }
+
+  const handleCloseModal = () => {
+    setSelectedCareerId(null)
+  }
+
   return (
     <div className={styles.page}>
       {/* ─── Hero Section (Standard Style) ─── */}
@@ -107,9 +119,18 @@ export default function Careers() {
                   <span><MapPin size={16} /> {job.location}</span>
                   <span><Briefcase size={16} /> {job.type}</span>
                 </div>
-                <Button variant="outline" size="sm" icon={ArrowRight} iconPosition="right">
-                  Apply Now
-                </Button>
+                <div className={styles.jobActions}>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => handleOpenDetail(job.id)}
+                  >
+                    View Detail
+                  </Button>
+                  <Button size="sm" icon={ArrowRight} iconPosition="right" to="/contact">
+                    Apply Now
+                  </Button>
+                </div>
               </ScrollReveal>
             ))}
           </div>
@@ -128,6 +149,14 @@ export default function Careers() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* Career Detail Modal */}
+      {selectedCareerId && (
+        <CareerModal 
+          careerId={selectedCareerId} 
+          onClose={handleCloseModal} 
+        />
+      )}
     </div>
   )
 }

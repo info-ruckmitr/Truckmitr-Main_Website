@@ -9,8 +9,25 @@ export default function ScrollToTop() {
   const { pathname, hash } = useLocation()
 
   useEffect(() => {
-    if (hash) return
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    if (hash) {
+      const id = hash.replace('#', '')
+      const element = document.getElementById(id)
+      if (element) {
+        // Longer timeout to ensure page layout is stable
+        setTimeout(() => {
+          const navbarHeight = 90; // Approximate height of the sticky navbar
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }, 200)
+      }
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    }
   }, [pathname, hash])
 
   return null

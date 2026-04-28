@@ -145,13 +145,7 @@ export const aboutTeam = {
       credential: 'MBA, Amity Business School, Noida | Specialisation: Sales & Marketing',
       imgSrc: 'https://placehold.co/400x400/121A16/E87722?text=SG'
     },
-    {
-      name: 'Lalit Lamba',
-      role: 'CEO, Freight Operations',
-      bio: "Eighteen years of logistics — real logistics. Not strategy documents, not consulting decks. Freight operations, fleet management, warehousing, 3PL execution across India. Lalit built Daivik Logistics from the ground up, scaled it into Velvel Ladder Pvt. Ltd., grew the fleet to 100+ trucks, and developed over 8 lakh sq. ft. of warehousing capacity.\n\nHe knows what a broken freight operation looks like because he's been the one fixing them. He knows what a good driver is worth because he's built businesses that depended on finding them. At TruckMitr, he leads freight strategy and operational execution — making sure the platform doesn't just look good on a screen but actually works when a transporter in Jaipur needs a verified HMV driver on the Delhi-Mumbai corridor by Tuesday.",
-      credential: 'Civil Engineering, Amity University (2006)',
-      imgSrc: 'https://placehold.co/400x400/121A16/E87722?text=LL'
-    },
+
     {
       name: 'Deepak Arora',
       role: 'Chief Technology Officer',

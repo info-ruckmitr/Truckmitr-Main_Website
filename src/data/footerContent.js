@@ -31,9 +31,9 @@ export const footerColumns = [
     links: [
       { to: '/about', label: 'About Us' },
       { to: '/about', label: 'Our Team' },
-      { to: '/about', label: 'Blog' },
-      { to: '/about', label: 'Contact' },
-      { to: '/about', label: 'Careers' },
+      { to: '/blog', label: 'Blog' },
+      { to: '/contact', label: 'Contact' },
+      { to: '/careers', label: 'Careers' },
     ],
   },
 ]

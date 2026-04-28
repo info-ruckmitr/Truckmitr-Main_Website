@@ -9,7 +9,7 @@ export default function AboutTeam() {
   const activeMember = aboutTeam.members[activeIndex]
 
   return (
-    <section className={styles.teamUnique}>
+    <section className={styles.teamUnique} id="people-behind-it">
       <div className="container">
         <header className={styles.sectionHead}>
           <ScrollReveal>
