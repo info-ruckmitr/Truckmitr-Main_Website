@@ -124,4 +124,5 @@
   font-size: 0.9rem;
   color: var(--gray-6);
   line-height: 1.7;
+  text-align: justify;
 }

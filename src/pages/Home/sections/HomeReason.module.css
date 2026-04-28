@@ -70,7 +70,7 @@
   color: var(--gray-6);
   line-height: 1.75;
   white-space: pre-wrap;
-  text-align: left;
+  text-align: justify;
   margin-inline: auto;
 }
 
@@ -189,4 +189,5 @@
   font-size: 0.9rem;
   color: var(--gray-6);
   line-height: 1.7;
+  text-align: justify;
 }

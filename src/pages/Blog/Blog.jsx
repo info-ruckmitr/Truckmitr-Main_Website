@@ -1,16 +1,66 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { blogCategories, featuredPost, blogPosts } from '@data/blogContent'
+import { blogCategories } from '@data/blogContent'
 import ScrollReveal from '@components/shared/ScrollReveal/ScrollReveal'
 import styles from './Blog.module.css'
 
 export default function Blog() {
-  // Use first 5 posts for sidebar
-  const sidebarPosts = blogPosts.slice(0, 5)
-  // Use next 4 posts for middle grid
-  const gridPosts = blogPosts.slice(0, 4) // Reusing for demo
-  // Mock data for category section
-  const industryNews = blogPosts.filter(p => p.category === 'Industry News')
+  const [blogs, setBlogs] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('https://truckmitr.com/api/blogs')
+      .then(res => res.json())
+      .then(json => {
+        if (json && json.data) {
+          setBlogs(json.data)
+        }
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error('Error fetching blogs:', err)
+        setLoading(false)
+      })
+  }, [])
+
+  const stripHtml = (html) => {
+    if (!html) return ''
+    return html.replace(/<[^>]*>?/gm, '')
+  }
+
+  const formatDate = (dateString) => {
+    if (!dateString) return ''
+    const options = { year: 'numeric', month: 'long', day: 'numeric' }
+    return new Date(dateString).toLocaleDateString(undefined, options)
+  }
+
+  if (loading) {
+    return (
+      <div className={styles.page}>
+        <div className="container">
+          <div style={{ padding: '100px 0', textAlign: 'center' }}>
+            <div className={styles.loader}>Loading blogs...</div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (blogs.length === 0) {
+    return (
+      <div className={styles.page}>
+        <div className="container">
+          <div style={{ padding: '100px 0', textAlign: 'center' }}>
+            <h2>No blogs found.</h2>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  const featured = blogs[0]
+  const sidebarPosts = blogs.slice(1, 6)
+  const remainingPosts = blogs.slice(6)
 
   return (
     <div className={styles.page}>
@@ -18,15 +68,18 @@ export default function Blog() {
         {/* ─── Top Section: Featured + Sidebar ─── */}
         <div className={styles.topGrid}>
           <ScrollReveal className={styles.featuredMain}>
-            <div className={styles.featuredMainImgWrapper}>
-              <img src={featuredPost.image} alt={featuredPost.title} />
-            </div>
+            <Link to={`/blog/${featured.slug}`} className={styles.featuredMainImgWrapper}>
+              <img src={`https://truckmitr.com/public/${featured.images}`} alt={featured.name} />
+            </Link>
             <div className={styles.featuredMainContent}>
-              <h2>{featuredPost.title}</h2>
-              <p>{featuredPost.excerpt}</p>
+              <span className={styles.featuredCategory}>{featured.category_name}</span>
+              <Link to={`/blog/${featured.slug}`} className={styles.titleLink}>
+                <h2>{featured.name}</h2>
+              </Link>
+              <p>{stripHtml(featured.description).substring(0, 160)}...</p>
               <div className={styles.featuredMainMeta}>
-                <span>{featuredPost.author}</span>
-                <span>{featuredPost.date}</span>
+                <span>{formatDate(featured.dates)}</span>
+                <Link to={`/blog/${featured.slug}`} className={styles.readMore}>Read More →</Link>
               </div>
             </div>
           </ScrollReveal>
@@ -35,57 +88,37 @@ export default function Blog() {
             <h3 className={styles.sidebarTitle}>Featured Posts</h3>
             <div className={styles.sidebarList}>
               {sidebarPosts.map((post) => (
-                <div key={post.id} className={styles.sidebarItem}>
-                  <h3>{post.title}</h3>
+                <Link key={post.id} to={`/blog/${post.slug}`} className={styles.sidebarItem}>
+                  <h3>{post.name}</h3>
                   <div className={styles.sidebarMeta}>
-                    <span>{post.author}</span>
-                    <span>{post.date}</span>
+                    <span>{formatDate(post.dates)}</span>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </ScrollReveal>
         </div>
 
-        {/* ─── Middle Section: 4-Column Grid ─── */}
+        {/* ─── All Blogs Grid ─── */}
         <div className={styles.postGrid}>
-          {gridPosts.map((post, i) => (
-            <ScrollReveal key={post.id} delay={i * 0.1} className={styles.gridCard}>
-              <div className={styles.gridCardImgWrapper}>
-                <img src={post.image} alt={post.title} />
-              </div>
-              <h4>{post.title}</h4>
-              <p>{post.excerpt}</p>
+          {remainingPosts.map((post, i) => (
+            <ScrollReveal key={post.id} delay={i * 0.05} className={styles.gridCard}>
+              <Link to={`/blog/${post.slug}`} className={styles.gridCardImgWrapper}>
+                <img src={`https://truckmitr.com/public/${post.images}`} alt={post.name} />
+              </Link>
+              <Link to={`/blog/${post.slug}`} className={styles.titleLink}>
+                <h4>{post.name}</h4>
+              </Link>
+              <p>{stripHtml(post.description).substring(0, 100)}...</p>
               <div className={styles.gridCardMeta}>
-                <span>{post.author}</span>
-                <span>{post.date}</span>
+                <span>{formatDate(post.dates)}</span>
+                <Link to={`/blog/${post.slug}`} className={styles.readMoreSmall}>Read More →</Link>
               </div>
             </ScrollReveal>
           ))}
         </div>
 
-        {/* ─── Bottom Section: Category Breakdown ─── */}
-        <div className={styles.categorySection}>
-          <div className={styles.categoryHeader}>
-            <h2>Industry News</h2>
-            <div className={styles.headerLine} />
-            <Link to="/blog" className={styles.seeMore}>See more industry articles</Link>
-          </div>
 
-          <div className={styles.subGrid}>
-            {industryNews.slice(0, 3).map((post, i) => (
-              <ScrollReveal key={post.id} delay={i * 0.1} className={styles.subItem}>
-                <h5>{post.title}</h5>
-                <p>{post.excerpt}</p>
-              </ScrollReveal>
-            ))}
-            
-            {/* Visual placeholder for the orange graphic in your image */}
-            <ScrollReveal delay={0.3} style={{ background: 'var(--saffron-xl)', borderRadius: '4px', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-               <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80" style={{ maxWidth: '80%', borderRadius: '4px' }} alt="Graphic" />
-            </ScrollReveal>
-          </div>
-        </div>
       </div>
     </div>
   )

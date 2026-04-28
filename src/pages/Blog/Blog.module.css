@@ -2,6 +2,19 @@
   background: var(--white);
   color: var(--dark);
   padding-block: var(--space-12) var(--space-20);
+  min-height: 80vh;
+}
+
+.loader {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 1.25rem;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 /* ─── Top Section Grid ─── */
@@ -242,3 +255,45 @@
   color: var(--gray-5);
   line-height: 1.6;
 }
+
+.titleLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.titleLink:hover h2,
+.titleLink:hover h4 {
+  color: var(--primary);
+}
+
+.readMore {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.readMore:hover {
+  transform: translateX(4px);
+}
+
+.readMoreSmall {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  margin-top: 4px;
+  transition: transform 0.2s ease;
+}
+
+.readMoreSmall:hover {
+  transform: translateX(4px);
+}
+
+.sidebarItem {
+  text-decoration: none;
+  display: block;
+}
+

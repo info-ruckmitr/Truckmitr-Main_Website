@@ -5,7 +5,7 @@ import Button from '@components/ui/Button/Button'
 import styles from './Careers.module.css'
 
 // Import hero background
-import careersHeroBg from '@assets/images/careers_hero_bg.png'
+import careersHeroBg from '@assets/images/truckmitr_careers_hero.png'
 
 const getIcon = (iconName) => {
   switch (iconName) {

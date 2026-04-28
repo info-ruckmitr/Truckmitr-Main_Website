@@ -23,6 +23,84 @@ const getIcon = (id) => {
 export default function Contact() {
   const [activeFaq, setActiveFaq] = useState('q1')
   const [isWhatsApp, setIsWhatsApp] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success', 'error'
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const [formData, setFormData] = useState({
+    names: '',
+    email: '',
+    mobile: '',
+    city: '',
+    state: '',
+    category: '',
+    message: ''
+  })
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    
+    // Validate Captcha
+    if (typeof window.grecaptcha === 'undefined') {
+      setErrorMessage('reCAPTCHA not loaded. Please refresh.')
+      setSubmitStatus('error')
+      return
+    }
+
+    const captchaResponse = window.grecaptcha.getResponse()
+    if (!captchaResponse) {
+      setErrorMessage('Please verify that you are not a robot.')
+      setSubmitStatus('error')
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+    setErrorMessage('')
+
+    const payload = {
+      ...formData,
+      'g-recaptcha-response': captchaResponse
+    }
+
+    try {
+      const response = await fetch('https://truckmitr.com/api/contact-submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({
+          names: '',
+          email: '',
+          mobile: '',
+          city: '',
+          state: '',
+          category: '',
+          message: ''
+        })
+        window.grecaptcha.reset()
+      } else {
+        setSubmitStatus('error')
+        setErrorMessage('Failed to submit. Please try again later.')
+      }
+    } catch (error) {
+      console.error('Submission error:', error)
+      setSubmitStatus('error')
+      setErrorMessage('Network error. Please check your connection.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <div className={styles.page}>
@@ -55,7 +133,7 @@ export default function Contact() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2} className={styles.formContainer}>
-              <form className={styles.formCard} onSubmit={(e) => e.preventDefault()}>
+              <form className={styles.formCard} onSubmit={handleSubmit}>
                 <div className={styles.formHeader}>
                   <h2 className={styles.formTitle}>{contactHero.formTitle}</h2>
                   <p className={styles.formSubtitle}>{contactHero.formSubtitle}</p>
@@ -64,17 +142,41 @@ export default function Contact() {
                 <div className={styles.row}>
                   <div className={styles.field}>
                     <label className={styles.label}>Name*</label>
-                    <input type="text" placeholder="Enter name" className={styles.input} required />
+                    <input 
+                      type="text" 
+                      name="names"
+                      placeholder="Enter name" 
+                      className={styles.input} 
+                      value={formData.names}
+                      onChange={handleInputChange}
+                      required 
+                    />
                   </div>
                   <div className={styles.field}>
                     <label className={styles.label}>Email Address*</label>
-                    <input type="email" placeholder="Enter email address" className={styles.input} required />
+                    <input 
+                      type="email" 
+                      name="email"
+                      placeholder="Enter email address" 
+                      className={styles.input} 
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required 
+                    />
                   </div>
                 </div>
 
                 <div className={styles.field}>
                   <label className={styles.label}>Mobile Number*</label>
-                  <input type="tel" placeholder="Enter number" className={styles.input} required />
+                  <input 
+                    type="tel" 
+                    name="mobile"
+                    placeholder="Enter number" 
+                    className={styles.input} 
+                    value={formData.mobile}
+                    onChange={handleInputChange}
+                    required 
+                  />
                   <div className={styles.checkboxWrapper}>
                     <input 
                       type="checkbox" 
@@ -89,17 +191,39 @@ export default function Contact() {
                 <div className={styles.row}>
                   <div className={styles.field}>
                     <label className={styles.label}>City*</label>
-                    <input type="text" placeholder="Enter city" className={styles.input} required />
+                    <input 
+                      type="text" 
+                      name="city"
+                      placeholder="Enter city" 
+                      className={styles.input} 
+                      value={formData.city}
+                      onChange={handleInputChange}
+                      required 
+                    />
                   </div>
                   <div className={styles.field}>
                     <label className={styles.label}>State*</label>
-                    <input type="text" placeholder="Enter state" className={styles.input} required />
+                    <input 
+                      type="text" 
+                      name="state"
+                      placeholder="Enter state" 
+                      className={styles.input} 
+                      value={formData.state}
+                      onChange={handleInputChange}
+                      required 
+                    />
                   </div>
                 </div>
 
                 <div className={styles.field}>
                   <label className={styles.label}>Category*</label>
-                  <select className={styles.input} required defaultValue="">
+                  <select 
+                    name="category"
+                    className={styles.input} 
+                    required 
+                    value={formData.category}
+                    onChange={handleInputChange}
+                  >
                     <option value="" disabled>Select category</option>
                     <option value="Truck Drivers">Truck Drivers</option>
                     <option value="Transporters">Transporters</option>
@@ -126,19 +250,35 @@ export default function Contact() {
 
                 <div className={styles.field}>
                   <label className={styles.label}>Message*</label>
-                  <textarea placeholder="Your message" className={styles.textarea} required></textarea>
+                  <textarea 
+                    name="message"
+                    placeholder="Your message" 
+                    className={styles.textarea} 
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                  ></textarea>
                 </div>
 
-                <div className={styles.captchaMock}>
-                  <div className={styles.captchaInner}>
-                    <input type="checkbox" id="captcha" required />
-                    <label htmlFor="captcha">I'm not a robot</label>
-                    <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" width="30" />
-                  </div>
+                <div className={styles.captchaWrapper}>
+                  <div 
+                    className="g-recaptcha" 
+                    data-sitekey="6LcJf-kqAAAAABakySvZJkrOJVnFAIUTqhfwoPoI"
+                  ></div>
+                  {submitStatus === 'error' && (
+                    <p className={styles.errorText}>{errorMessage}</p>
+                  )}
+                  {submitStatus === 'success' && (
+                    <p className={styles.successText}>Thank you! Your message has been sent.</p>
+                  )}
                 </div>
 
-                <button type="submit" className={styles.submitBtn}>
-                  Submit
+                <button 
+                  type="submit" 
+                  className={styles.submitBtn}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Submit'}
                 </button>
               </form>
             </ScrollReveal>

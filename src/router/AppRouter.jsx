@@ -16,6 +16,7 @@ import About from '@pages/About/About'
 import Unions from '@pages/Unions/Unions'
 import Contact from '@pages/Contact/Contact'
 import Blog from '@pages/Blog/Blog'
+import BlogDetail from '@pages/Blog/BlogDetail'
 import Careers from '@pages/Careers/Careers'
 
 const pageVariants = {
@@ -38,6 +39,7 @@ const routes = [
   { path: '/about', element: <About /> },
   { path: '/contact', element: <Contact /> },
   { path: '/blog', element: <Blog /> },
+  { path: '/blog/:slug', element: <BlogDetail /> },
   { path: '/careers', element: <Careers /> },
 ]
 

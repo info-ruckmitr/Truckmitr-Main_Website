@@ -92,6 +92,7 @@
   color: var(--gray-6, #555);
   line-height: 1.8;
   margin-bottom: var(--space-3);
+  text-align: justify;
 }
 
 .bodyPara:last-of-type {
@@ -174,6 +175,7 @@
   font-size: 0.92rem;
   color: var(--gray-6, #555);
   line-height: 1.65;
+  text-align: justify;
 }
 
 .featureText strong {
