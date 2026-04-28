@@ -1,4 +1,5 @@
-import { Target, Users, Zap, Check, MapPin, Briefcase, ArrowRight } from 'lucide-react'
+import { useState, useRef } from 'react'
+import { Target, Users, Zap, Check, MapPin, Briefcase, ArrowRight, X, Upload, FileText, Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
 import { careersHero, companyValues, benefits, openPositions } from '@data/careersContent'
 import ScrollReveal from '@components/shared/ScrollReveal/ScrollReveal'
 import Button from '@components/ui/Button/Button'
@@ -16,7 +17,116 @@ const getIcon = (iconName) => {
   }
 }
 
+const ALLOWED_FILE_TYPES = [
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+]
+
+const ALLOWED_EXTENSIONS = ['.pdf', '.doc', '.docx']
+
 export default function Careers() {
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedJob, setSelectedJob] = useState(null)
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '' })
+  const [resumeFile, setResumeFile] = useState(null)
+  const [submitStatus, setSubmitStatus] = useState('idle') // idle | loading | success | error
+  const [errorMsg, setErrorMsg] = useState('')
+  const fileInputRef = useRef(null)
+
+  const openModal = (job) => {
+    setSelectedJob(job)
+    setFormData({ name: '', email: '', phone: '' })
+    setResumeFile(null)
+    setSubmitStatus('idle')
+    setErrorMsg('')
+    setModalOpen(true)
+    document.body.style.overflow = 'hidden'
+  }
+
+  const closeModal = () => {
+    setModalOpen(false)
+    setSelectedJob(null)
+    document.body.style.overflow = ''
+  }
+
+  const handleInputChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    const ext = '.' + file.name.split('.').pop().toLowerCase()
+    if (!ALLOWED_EXTENSIONS.includes(ext) && !ALLOWED_FILE_TYPES.includes(file.type)) {
+      setErrorMsg('Please upload a .pdf, .doc, or .docx file.')
+      setResumeFile(null)
+      return
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      setErrorMsg('File size must be less than 5 MB.')
+      setResumeFile(null)
+      return
+    }
+
+    setErrorMsg('')
+    setResumeFile(file)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setErrorMsg('')
+
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
+      setErrorMsg('Please fill all required fields.')
+      return
+    }
+    if (!resumeFile) {
+      setErrorMsg('Please upload your resume.')
+      return
+    }
+
+    setSubmitStatus('loading')
+
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), 15000)
+
+    try {
+      const body = new FormData()
+      body.append('name', formData.name.trim())
+      body.append('email', formData.email.trim())
+      body.append('phone', formData.phone.trim())
+      body.append('resume', resumeFile)
+      if (selectedJob) {
+        body.append('position', selectedJob.title)
+      }
+
+      const res = await fetch('https://truckmitr.com/api/career/apply', {
+        method: 'POST',
+        body,
+        signal: controller.signal,
+      })
+
+      clearTimeout(timeout)
+
+      if (!res.ok) {
+        const text = await res.text().catch(() => '')
+        throw new Error(text || `Server returned ${res.status}. Please try again.`)
+      }
+      setSubmitStatus('success')
+    } catch (err) {
+      clearTimeout(timeout)
+      setSubmitStatus('error')
+      if (err.name === 'AbortError') {
+        setErrorMsg('Request timed out. Please check your connection and try again.')
+      } else {
+        setErrorMsg(err.message || 'Something went wrong. Please try again.')
+      }
+    }
+  }
+
   return (
     <div className={styles.page}>
       {/* ─── Hero Section (Standard Style) ─── */}
@@ -107,7 +217,13 @@ export default function Careers() {
                   <span><MapPin size={16} /> {job.location}</span>
                   <span><Briefcase size={16} /> {job.type}</span>
                 </div>
-                <Button variant="outline" size="sm" icon={ArrowRight} iconPosition="right">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  icon={ArrowRight}
+                  iconPosition="right"
+                  onClick={() => openModal(job)}
+                >
                   Apply Now
                 </Button>
               </ScrollReveal>
@@ -128,6 +244,171 @@ export default function Careers() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ─── Application Modal ─── */}
+      {modalOpen && (
+        <div className={styles.modalOverlay} onClick={closeModal}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            {/* Close Button */}
+            <button className={styles.modalClose} onClick={closeModal} aria-label="Close">
+              <X size={20} />
+            </button>
+
+            {submitStatus === 'success' ? (
+              /* ─── Success State ─── */
+              <div className={styles.modalSuccess}>
+                <div className={styles.successIcon}>
+                  <CheckCircle2 size={48} />
+                </div>
+                <h3>Application Submitted!</h3>
+                <p>
+                  Thank you for applying{selectedJob ? ` for ${selectedJob.title}` : ''}. We'll review your application and get back to you soon.
+                </p>
+                <Button onClick={closeModal} size="md">Close</Button>
+              </div>
+            ) : (
+              /* ─── Form State ─── */
+              <>
+                <div className={styles.modalHeader}>
+                  <div className={styles.modalBadge}>
+                    <Briefcase size={16} />
+                    <span>Career Application</span>
+                  </div>
+                  <h2>Apply{selectedJob ? ` — ${selectedJob.title}` : ''}</h2>
+                  {selectedJob && (
+                    <p className={styles.modalJobMeta}>
+                      <MapPin size={14} /> {selectedJob.location} &nbsp;•&nbsp; {selectedJob.type}
+                    </p>
+                  )}
+                </div>
+
+                <form className={styles.modalForm} onSubmit={handleSubmit}>
+                  {/* Name */}
+                  <div className={styles.formGroup}>
+                    <label htmlFor="apply-name">Full Name</label>
+                    <input
+                      id="apply-name"
+                      name="name"
+                      type="text"
+                      placeholder="Your Name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      autoFocus
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div className={styles.formGroup}>
+                    <label htmlFor="apply-email">Email Address</label>
+                    <input
+                      id="apply-email"
+                      name="email"
+                      type="email"
+                      placeholder="your@email.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div className={styles.formGroup}>
+                    <label htmlFor="apply-phone">Phone Number</label>
+                    <input
+                      id="apply-phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="9999999999"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+
+                  {/* Resume Upload */}
+                  <div className={styles.formGroup}>
+                    <label>Resume</label>
+                    <div
+                      className={`${styles.fileDropZone} ${resumeFile ? styles.fileSelected : ''}`}
+                      onClick={() => fileInputRef.current?.click()}
+                      onDragOver={(e) => { e.preventDefault(); e.currentTarget.classList.add(styles.fileDragOver) }}
+                      onDragLeave={(e) => e.currentTarget.classList.remove(styles.fileDragOver)}
+                      onDrop={(e) => {
+                        e.preventDefault()
+                        e.currentTarget.classList.remove(styles.fileDragOver)
+                        const file = e.dataTransfer.files?.[0]
+                        if (file) {
+                          const fakeEvent = { target: { files: [file] } }
+                          handleFileChange(fakeEvent)
+                        }
+                      }}
+                    >
+                      {resumeFile ? (
+                        <div className={styles.fileInfo}>
+                          <FileText size={20} />
+                          <span>{resumeFile.name}</span>
+                          <button
+                            type="button"
+                            className={styles.fileRemove}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              setResumeFile(null)
+                              if (fileInputRef.current) fileInputRef.current.value = ''
+                            }}
+                          >
+                            <X size={14} />
+                          </button>
+                        </div>
+                      ) : (
+                        <div className={styles.filePlaceholder}>
+                          <Upload size={24} />
+                          <span>Click or drag to upload</span>
+                          <small>.pdf, .doc, or .docx — Max 5 MB</small>
+                        </div>
+                      )}
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        onChange={handleFileChange}
+                        hidden
+                      />
+                    </div>
+                  </div>
+
+                  {/* Error Message */}
+                  {errorMsg && (
+                    <div className={styles.formError}>
+                      <AlertCircle size={16} />
+                      <span>{errorMsg}</span>
+                    </div>
+                  )}
+
+                  {/* Submit */}
+                  <button
+                    type="submit"
+                    className={styles.submitBtn}
+                    disabled={submitStatus === 'loading'}
+                  >
+                    {submitStatus === 'loading' ? (
+                      <>
+                        <Loader2 size={18} className={styles.spinIcon} />
+                        Submitting…
+                      </>
+                    ) : (
+                      <>
+                        Submit Application
+                        <ArrowRight size={18} />
+                      </>
+                    )}
+                  </button>
+                </form>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

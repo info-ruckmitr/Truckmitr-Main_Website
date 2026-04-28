@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin, ArrowRight, ChevronDown, ChevronRight } from 'lucide-react'
 import { contactHero, contactLocation, contactFaq, contactCta } from '@data/contactContent'
@@ -37,6 +37,38 @@ export default function Contact() {
     message: ''
   })
 
+  // Manually render reCAPTCHA for SPA navigation
+  useEffect(() => {
+    const renderCaptcha = () => {
+      if (window.grecaptcha && window.grecaptcha.render) {
+        try {
+          const container = document.getElementById('g-recaptcha-contact');
+          if (container && container.innerHTML === '') {
+            window.grecaptcha.render('g-recaptcha-contact', {
+              'sitekey': '6Lftas4sAAAAAJS_7ALUXdc55TpBMNLns50TQDX0',
+            });
+          }
+        } catch (error) {
+          console.warn('reCAPTCHA render notice:', error);
+        }
+      }
+    };
+
+    // Check if grecaptcha is already loaded
+    if (window.grecaptcha && window.grecaptcha.render) {
+      renderCaptcha();
+    } else {
+      // If script is still loading, check periodically
+      const interval = setInterval(() => {
+        if (window.grecaptcha && window.grecaptcha.render) {
+          renderCaptcha();
+          clearInterval(interval);
+        }
+      }, 500);
+      return () => clearInterval(interval);
+    }
+  }, []);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
@@ -44,7 +76,7 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     // Validate Captcha
     if (typeof window.grecaptcha === 'undefined') {
       setErrorMessage('reCAPTCHA not loaded. Please refresh.')
@@ -53,6 +85,14 @@ export default function Contact() {
     }
 
     const captchaResponse = window.grecaptcha.getResponse()
+    console.log('Captcha Response Token:', captchaResponse)
+
+    // Update hidden field if it exists (matching user's script logic)
+    const hiddenResponse = document.getElementById('g-recaptcha-response');
+    if (hiddenResponse) {
+      hiddenResponse.value = captchaResponse;
+    }
+
     if (!captchaResponse) {
       setErrorMessage('Please verify that you are not a robot.')
       setSubmitStatus('error')
@@ -63,6 +103,7 @@ export default function Contact() {
     setSubmitStatus(null)
     setErrorMessage('')
 
+    // Payload exactly as specified by the user
     const payload = {
       ...formData,
       'g-recaptcha-response': captchaResponse
@@ -90,8 +131,9 @@ export default function Contact() {
         })
         window.grecaptcha.reset()
       } else {
+        const errorData = await response.json().catch(() => ({}))
         setSubmitStatus('error')
-        setErrorMessage('Failed to submit. Please try again later.')
+        setErrorMessage(errorData.message || 'Failed to submit. Please try again later.')
       }
     } catch (error) {
       console.error('Submission error:', error)
@@ -116,7 +158,7 @@ export default function Contact() {
               </div>
               <h1 className={styles.title}>{contactHero.title}</h1>
               <p className={styles.lead}>{contactHero.lead}</p>
-              
+
               <div className={styles.contactCardList}>
                 {contactHero.contactCards.map((card) => (
                   <div key={card.id} className={styles.infoCard}>
@@ -138,51 +180,51 @@ export default function Contact() {
                   <h2 className={styles.formTitle}>{contactHero.formTitle}</h2>
                   <p className={styles.formSubtitle}>{contactHero.formSubtitle}</p>
                 </div>
-                
+
                 <div className={styles.row}>
                   <div className={styles.field}>
                     <label className={styles.label}>Name*</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       name="names"
-                      placeholder="Enter name" 
-                      className={styles.input} 
+                      placeholder="Enter name"
+                      className={styles.input}
                       value={formData.names}
                       onChange={handleInputChange}
-                      required 
+                      required
                     />
                   </div>
                   <div className={styles.field}>
                     <label className={styles.label}>Email Address*</label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       name="email"
-                      placeholder="Enter email address" 
-                      className={styles.input} 
+                      placeholder="Enter email address"
+                      className={styles.input}
                       value={formData.email}
                       onChange={handleInputChange}
-                      required 
+                      required
                     />
                   </div>
                 </div>
 
                 <div className={styles.field}>
                   <label className={styles.label}>Mobile Number*</label>
-                  <input 
-                    type="tel" 
+                  <input
+                    type="tel"
                     name="mobile"
-                    placeholder="Enter number" 
-                    className={styles.input} 
+                    placeholder="Enter number"
+                    className={styles.input}
                     value={formData.mobile}
                     onChange={handleInputChange}
-                    required 
+                    required
                   />
                   <div className={styles.checkboxWrapper}>
-                    <input 
-                      type="checkbox" 
-                      id="whatsapp" 
-                      checked={isWhatsApp} 
-                      onChange={() => setIsWhatsApp(!isWhatsApp)} 
+                    <input
+                      type="checkbox"
+                      id="whatsapp"
+                      checked={isWhatsApp}
+                      onChange={() => setIsWhatsApp(!isWhatsApp)}
                     />
                     <label htmlFor="whatsapp">Is this WhatsApp Enabled</label>
                   </div>
@@ -191,36 +233,36 @@ export default function Contact() {
                 <div className={styles.row}>
                   <div className={styles.field}>
                     <label className={styles.label}>City*</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       name="city"
-                      placeholder="Enter city" 
-                      className={styles.input} 
+                      placeholder="Enter city"
+                      className={styles.input}
                       value={formData.city}
                       onChange={handleInputChange}
-                      required 
+                      required
                     />
                   </div>
                   <div className={styles.field}>
                     <label className={styles.label}>State*</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       name="state"
-                      placeholder="Enter state" 
-                      className={styles.input} 
+                      placeholder="Enter state"
+                      className={styles.input}
                       value={formData.state}
                       onChange={handleInputChange}
-                      required 
+                      required
                     />
                   </div>
                 </div>
 
                 <div className={styles.field}>
                   <label className={styles.label}>Category*</label>
-                  <select 
+                  <select
                     name="category"
-                    className={styles.input} 
-                    required 
+                    className={styles.input}
+                    required
                     value={formData.category}
                     onChange={handleInputChange}
                   >
@@ -250,10 +292,10 @@ export default function Contact() {
 
                 <div className={styles.field}>
                   <label className={styles.label}>Message*</label>
-                  <textarea 
+                  <textarea
                     name="message"
-                    placeholder="Your message" 
-                    className={styles.textarea} 
+                    placeholder="Your message"
+                    className={styles.textarea}
                     value={formData.message}
                     onChange={handleInputChange}
                     required
@@ -261,20 +303,20 @@ export default function Contact() {
                 </div>
 
                 <div className={styles.captchaWrapper}>
-                  <div 
-                    className="g-recaptcha" 
-                    data-sitekey="6LcJf-kqAAAAABakySvZJkrOJVnFAIUTqhfwoPoI"
+                  <div
+                    id="g-recaptcha-contact"
                   ></div>
+                  <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
                   {submitStatus === 'error' && (
-                    <p className={styles.errorText}>{errorMessage}</p>
+                    <p id="captcha-error" className={styles.errorText}>{errorMessage}</p>
                   )}
                   {submitStatus === 'success' && (
                     <p className={styles.successText}>Thank you! Your message has been sent.</p>
                   )}
                 </div>
 
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className={styles.submitBtn}
                   disabled={isSubmitting}
                 >
@@ -305,9 +347,9 @@ export default function Contact() {
         <div className="container">
           <div className={styles.locationGrid}>
             <ScrollReveal className={styles.mapWrapper}>
-              <img 
-                src="https://images.unsplash.com/photo-1526778545894-dd8186f201cc?w=1200&q=80" 
-                alt="Headquarters Location" 
+              <img
+                src="https://images.unsplash.com/photo-1526778545894-dd8186f201cc?w=1200&q=80"
+                alt="Headquarters Location"
                 className={styles.mapImg}
               />
               <div className={styles.mapPinCard}>
@@ -340,7 +382,7 @@ export default function Contact() {
               <span className={styles.eyebrow}>{contactFaq.eyebrow}</span>
               <h2 className={styles.title}>{contactFaq.title}</h2>
               <p className={styles.lead}>{contactFaq.lead}</p>
-              
+
               <div className={styles.emailSubscribe}>
                 <div style={{ display: 'flex', alignItems: 'center', flexGrow: 1, paddingLeft: '16px' }}>
                   <Mail size={18} color="var(--gray-4)" />
@@ -353,8 +395,8 @@ export default function Contact() {
             <div className={styles.faqRight}>
               {contactFaq.questions.map((q) => (
                 <ScrollReveal key={q.id} className={styles.faqItem} data-active={activeFaq === q.id}>
-                  <button 
-                    className={styles.faqTrigger} 
+                  <button
+                    className={styles.faqTrigger}
                     onClick={() => setActiveFaq(activeFaq === q.id ? null : q.id)}
                   >
                     <span>{q.question}</span>
