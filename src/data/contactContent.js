@@ -24,7 +24,7 @@ export const contactHero = {
     {
       id: 'head-office',
       label: 'Head Office',
-      value: 'Suite No- G05, Plot No - C-104, Sector- 65, Noida, 201301',
+      value: 'Suite No- G05, Plot No - C-104, Sector- 65, Noida, 201301, Uttar Pradesh',
       type: 'text',
     },
     {
@@ -55,7 +55,7 @@ export const contactLocation = {
   title: 'Connecting Near and Far',
   headquarters: {
     name: 'TruckMitr Inc.',
-    address: 'Suite No- G05, Plot No - C-104, Sector- 65, Noida, 201301',
+    address: 'Suite No- G05, Plot No - C-104, Sector- 65, Noida, 201301, Uttar Pradesh',
     link: 'https://goo.gl/maps/xyz',
   },
 }
@@ -90,6 +90,6 @@ export const contactFaq = {
 
 export const contactCta = {
   title: 'Ready to experience the speed and simplicity of TruckMitr?',
-  primaryCta: { label: 'Get Started', to: '/register' },
+  primaryCta: { label: 'Get Started', to: 'https://truckmitr.com/login/' },
   secondaryCta: { label: 'Learn more', to: '/about' },
 }

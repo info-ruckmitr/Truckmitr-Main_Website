@@ -104,7 +104,7 @@
   background: var(--white);
   border: 1px solid var(--gray-2);
   border-radius: var(--r);
-  padding: var(--space-6);
+  padding: var(--space-5);
   transition: var(--t-slow);
   height: 100%;
   position: relative;
@@ -186,16 +186,20 @@
 /* ── Stats row ─────────────────────────────────────────────── */
 .statsRow {
   display: flex;
-  gap: var(--space-4);
+  gap: 8px;
   margin-bottom: var(--space-4);
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .statItem {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 4px;
-  font-size: 0.72rem;
+  gap: 3px;
+  font-size: 0.64rem;
   color: var(--gray-5);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .statItem strong {

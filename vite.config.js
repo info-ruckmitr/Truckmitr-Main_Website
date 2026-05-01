@@ -10,9 +10,11 @@ export default defineConfig({
   server: {
     host: true,
   },
+  base: '/public/truckmitr/',
   publicDir: 'static',
   build: {
     outDir: 'public',
+    emptyOutDir: true,
   },
   resolve: {
     alias: {

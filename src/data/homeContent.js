@@ -193,7 +193,7 @@ export const homeTestimonials = {
 }
 
 export const homeCta = {
-  title: "If You Work in Trucking, This Platform Was Built for You",
+  title: "If You Work in Trucking, This Platform Is Built for You",
   sub:
     "Across India, everyone connected to trucks — drivers, transporters, companies — faces the same daily challenges. TruckMitr makes that work a little easier and more honest. Come see it for yourself.",
   primary: { label: 'Browse Open Jobs →', to: '/jobs' },

@@ -15,7 +15,7 @@ export default function BlogDetail() {
   useEffect(() => {
     window.scrollTo(0, 0)
     setLoading(true)
-    
+
     // Fetch current blog detail
     // Note: If the single blog API expects an ID instead of a slug, 
     // we might need to fetch all blogs and filter, but usually it supports slug.
@@ -114,7 +114,7 @@ export default function BlogDetail() {
               <header className={styles.header}>
                 <div className={styles.categoryBadge}>{blog.category_name || 'Industry News'}</div>
                 <h1 className={styles.title}>{blog.name}</h1>
-                
+
                 <div className={styles.meta}>
                   <div className={styles.authorInfo}>
                     <div className={styles.authorAvatar}>TM</div>
@@ -131,12 +131,12 @@ export default function BlogDetail() {
                 <img src={getImageUrl(blog.images)} alt={blog.name} className={styles.featuredImage} />
               </div>
 
-              <div 
-                className={styles.content} 
-                dangerouslySetInnerHTML={{ __html: blog.description }} 
+              <div
+                className={styles.content}
+                dangerouslySetInnerHTML={{ __html: blog.description }}
               />
 
-              <footer className={styles.articleFooter}>
+              {/* <footer className={styles.articleFooter}>
                 <div className={styles.tags}>
                   <span>#Logistics</span>
                   <span>#Trucking</span>
@@ -148,7 +148,7 @@ export default function BlogDetail() {
                   <button className={styles.shareBtn}>TW</button>
                   <button className={styles.shareBtn}>LN</button>
                 </div>
-              </footer>
+              </footer> */}
             </article>
           </main>
 
@@ -170,7 +170,7 @@ export default function BlogDetail() {
                   ))}
                 </div>
               </div>
-              
+
               <div className={styles.ctaBox}>
                 <h3>Ready to optimize your fleet?</h3>
                 <p>Join the future of Indian logistics with TruckMitr's smart tools.</p>

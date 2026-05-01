@@ -114,7 +114,8 @@
 }
 
 .navLink:hover {
-  color: var(--gray-9);
+  color: var(--saffron-dark);
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .navLinkActive {
@@ -123,26 +124,7 @@
   box-shadow: 0 0 0 1px rgba(255, 153, 51, 0.2);
 }
 
-.navLink::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: var(--space-3);
-  right: var(--space-3);
-  height: 2px;
-  background: var(--saffron);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
-}
 
-.navLinkActive::after {
-  transform: scaleX(0);
-}
-
-.navLink:not(.navLinkActive):hover::after {
-  transform: scaleX(1);
-}
 
 .actions {
   display: flex;

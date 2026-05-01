@@ -16,10 +16,23 @@ function parseSalaryRange(str) {
 
 /** Formatted date */
 function formatDate(dateStr) {
-  if (!dateStr) return 'Recently'
-  const d = new Date(dateStr)
-  if (isNaN(d.getTime())) return 'Recently'
-  return d.toLocaleDateString('en-IN', {
+  if (!dateStr) return new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })
+
+  let d = new Date(dateStr)
+
+  // Robust parsing for DD-MM-YYYY
+  if (isNaN(d.getTime()) && typeof dateStr === 'string') {
+    const parts = dateStr.split('-')
+    if (parts.length === 3) {
+      const [day, month, year] = parts.map(Number)
+      if (year > 1000 && month > 0 && month <= 12 && day > 0 && day <= 31) {
+        d = new Date(year, month - 1, day)
+      }
+    }
+  }
+
+  const dateToUse = isNaN(d.getTime()) ? new Date() : d
+  return dateToUse.toLocaleDateString('en-IN', {
     day: 'numeric',
     month: 'short',
     year: 'numeric'
@@ -39,7 +52,7 @@ function transformJob(item) {
     vehicleType: item.vehicle_type || 'Truck',
     salary: parseSalaryRange(item.Salary_Range),
     postedAt: formatDate(item.Updated_at || item.updated_at || item.Created_at),
-    deadline: item.Application_Deadline || '',
+    deadline: item.Application_Deadline ? formatDate(item.Application_Deadline) : '',
     driversNeeded: item.number_of_drivers_required || 1,
   }
 }

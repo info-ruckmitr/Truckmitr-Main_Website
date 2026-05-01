@@ -342,8 +342,8 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* ─── Section 3: Location (Grid) ─── */}
-      <section className={styles.mapSection}>
+
+      {/* <section className={styles.mapSection}>
         <div className="container">
           <div className={styles.locationGrid}>
             <ScrollReveal className={styles.mapWrapper}>
@@ -370,49 +370,10 @@ export default function Contact() {
             </ScrollReveal>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ─── Section 4: FAQ (Grid) ─── */}
-      <section className={styles.faqSection}>
-        <div className="container">
-          <div className={styles.faqGrid}>
-            <ScrollReveal className={styles.faqLeft}>
-              <span className={styles.eyebrow}>{contactFaq.eyebrow}</span>
-              <h2 className={styles.title}>{contactFaq.title}</h2>
-              <p className={styles.lead}>{contactFaq.lead}</p>
 
-              <div className={styles.emailSubscribe}>
-                <div style={{ display: 'flex', alignItems: 'center', flexGrow: 1, paddingLeft: '16px' }}>
-                  <Mail size={18} color="var(--gray-4)" />
-                  <input type="email" placeholder="Enter your email" />
-                </div>
-                <button type="button">Submit</button>
-              </div>
-            </ScrollReveal>
-
-            <div className={styles.faqRight}>
-              {contactFaq.questions.map((q) => (
-                <ScrollReveal key={q.id} className={styles.faqItem} data-active={activeFaq === q.id}>
-                  <button
-                    className={styles.faqTrigger}
-                    onClick={() => setActiveFaq(activeFaq === q.id ? null : q.id)}
-                  >
-                    <span>{q.question}</span>
-                    <div style={{ transform: activeFaq === q.id ? 'rotate(180deg)' : 'none', transition: '0.3s' }}>
-                      <ChevronDown size={20} />
-                    </div>
-                  </button>
-                  {activeFaq === q.id && (
-                    <div className={styles.faqContent}>
-                      <p>{q.answer}</p>
-                    </div>
-                  )}
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ─── Section 5: Full Width CTA Banner ─── */}
       <section className={styles.ctaSection}>

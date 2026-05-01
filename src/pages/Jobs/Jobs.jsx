@@ -29,10 +29,23 @@ function fakeApplications(id) {
 
 /** Format date string */
 function formatDate(dateStr) {
-  if (!dateStr) return 'Recently'
-  const d = new Date(dateStr)
-  if (isNaN(d.getTime())) return 'Recently'
-  return d.toLocaleDateString('en-IN', {
+  if (!dateStr) return new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })
+  
+  let d = new Date(dateStr)
+  
+  // Robust parsing for DD-MM-YYYY
+  if (isNaN(d.getTime()) && typeof dateStr === 'string') {
+    const parts = dateStr.split('-')
+    if (parts.length === 3) {
+      const [day, month, year] = parts.map(Number)
+      if (year > 1000 && month > 0 && month <= 12 && day > 0 && day <= 31) {
+        d = new Date(year, month - 1, day)
+      }
+    }
+  }
+
+  const dateToUse = isNaN(d.getTime()) ? new Date() : d
+  return dateToUse.toLocaleDateString('en-IN', {
     day: 'numeric',
     month: 'short',
     year: 'numeric'
@@ -158,7 +171,17 @@ export default function Jobs() {
       if (experience !== 'All' && job.experience !== experience) return false
 
       if (datePosted !== 'All') {
-        const d = new Date(job.createdAt)
+        let d = new Date(job.createdAt)
+        // Robust parsing for DD-MM-YYYY
+        if (isNaN(d.getTime()) && typeof job.createdAt === 'string') {
+          const parts = job.createdAt.split('-')
+          if (parts.length === 3) {
+            const [day, month, year] = parts.map(Number)
+            if (year > 1000 && month > 0 && month <= 12 && day > 0 && day <= 31) {
+              d = new Date(year, month - 1, day)
+            }
+          }
+        }
         const now = new Date()
         const diffHours = (now - d) / (1000 * 60 * 60)
         if (datePosted === '24h' && diffHours > 24) return false
