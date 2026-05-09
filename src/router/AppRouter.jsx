@@ -18,6 +18,8 @@ import Contact from '@pages/Contact/Contact'
 import Blog from '@pages/Blog/Blog'
 import BlogDetail from '@pages/Blog/BlogDetail'
 import Careers from '@pages/Careers/Careers'
+import Privacy from '@pages/Privacy/Privacy'
+import Terms from '@pages/Terms/Terms'
 
 const pageVariants = {
   initial: { opacity: 0, y: 12 },
@@ -41,6 +43,8 @@ const routes = [
   { path: '/blog', element: <Blog /> },
   { path: '/blog/:slug', element: <BlogDetail /> },
   { path: '/careers', element: <Careers /> },
+  { path: '/privacy', element: <Privacy /> },
+  { path: '/terms', element: <Terms /> },
 ]
 
 function PageWrap({ children }) {

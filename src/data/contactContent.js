@@ -45,7 +45,7 @@ export const contactHero = {
     },
     {
       title: 'Media Inquiries',
-      desc: 'For media-related questions or press inquiries, please contact us at media@truckmitr.com.',
+      desc: 'For media-related questions or press inquiries, please contact us at contact@truckmitr.com.',
     },
   ],
 }

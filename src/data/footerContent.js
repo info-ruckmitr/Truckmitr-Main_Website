@@ -34,6 +34,8 @@ export const footerColumns = [
       { to: '/blog', label: 'Blog' },
       { to: '/contact', label: 'Contact' },
       { to: '/careers', label: 'Careers' },
+      { to: '/privacy', label: 'Privacy Policy' },
+      { to: '/terms', label: 'Terms of Use' },
     ],
   },
 ]
